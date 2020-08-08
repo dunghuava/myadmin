@@ -34,7 +34,7 @@ class MY_Controller extends CI_Controller {
 	}
 	public function getHeader($data=null){
 		if (!$this->session->has_userdata('user_infor')){
-			redirect(base_url('login'),'location');
+			redirect(base_url('admin/login'),'location');
 		}
 		$this->isOnline();
 
