@@ -18,6 +18,41 @@ class Category extends MY_Controller {
 		$this->load->view('admin/pages/category/category');
 		$this->getFooter();
 	}
+	public function edit($cate_id)
+	{
+		$category = $this->Category_M->all(['cate_id'=>$cate_id])[0];
+		$post = $this->input->post();
+		if ($post){
+			if (!empty($_FILES['cate_img']['name'])){
+				$file = $_FILES['cate_img'];
+				$filename = md5($file['name'].time());
+				$path='upload/images/'.$filename;
+				if (move_uploaded_file($file['tmp_name'],$path)){
+					$post['cate_img']=$filename;
+					@unlink('./upload/images/'.$category['cate_img']);
+				}
+			}
+			$check = $this->Category_M->check_alias($post['cate_alias'],$cate_id);
+			if (count($check)>0){
+				$post['cate_alias']=$post['cate_alias'].'-'.rand(100,999);
+			}
+			$this->Category_M->update(['cate_id'=>$cate_id],$post);
+			$status = array(
+				'code'=>'success',
+				'message'=>'Đã lưu danh mục'
+			);
+			$this->session->set_flashdata('reponse',$status);
+			redirect(base_url('admin/category/edit/'.$cate_id),'location');
+		}
+		$data['page_name'] ='Sửa danh mục';
+		$data['page_menu'] ='category';
+		$data['arr_module']=$this->Module_M->all();
+		$data['arr_category']=$this->get_option_category();
+		$data['category']=$category;
+		$this->getHeader($data);
+		$this->load->view('admin/pages/category/category_add');
+		$this->getFooter();
+	}
 	public function add()
 	{
 		$post = $this->input->post();
@@ -41,7 +76,7 @@ class Category extends MY_Controller {
 				'message'=>'Đã lưu danh mục'
 			);
 			$this->session->set_flashdata('reponse',$status);
-			redirect(base_url('admin/category/add'),'refresh');
+			redirect(base_url('admin/category/add'),'location');
 		}
 		$data['page_name'] ='Thêm danh mục';
 		$data['page_menu'] ='category';
@@ -50,6 +85,15 @@ class Category extends MY_Controller {
 		$this->getHeader($data);
 		$this->load->view('admin/pages/category/category_add');
 		$this->getFooter();
+	}
+	public function update(){
+		$post = $this->input->post();
+		$this->Category_M->update(['cate_id'=>$post['cate_id']],$post);
+	}
+	public function delimg(){
+		$post = $this->input->post();
+		unlink('./upload/images/'.$post['cate_img']);
+		$this->Category_M->update(['cate_id'=>$post['cate_id']],['cate_img'=>'']);
 	}
 	public function get_option_category(){
 		$all = $this->Category_M->all(['cate_parent_id'=>0]);

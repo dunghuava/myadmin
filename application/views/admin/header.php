@@ -45,6 +45,13 @@
   <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.css">
 	<script src="plugins/jquery/jquery.min.js"></script>
 
+  <style>
+     table tr input[type="checkbox"]{
+        width:16px !important;
+        height:16px !important;
+        cursor:pointer;
+     }
+  </style>
   <style type="text/css">/* Chart.js */
   *{
     font-family: 'Roboto', sans-serif;

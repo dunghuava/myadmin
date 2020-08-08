@@ -1,12 +1,14 @@
+<style>
+    .table td{
+        padding:5px 4px;
+    }
+</style>
 <div class="col-md-12">
-    <table class="datatable table table-striped table-bordered">
+    <table class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th style="width: 5%">
-                    <input type="checkbox" name="" value="">
-                </th>
-                <th style="width: 5%">ID</th>
-                <th>Tên danh mục</th>
+                <th style="width: 9%">STT</th>
+                <th><span class="fa fa-bars"></span> Tên danh mục</th>
                 <th style="width:10%">Hình ảnh</th>
                 <th>Loại</th>
                 <th style="width: 5%">Menu</th>
@@ -18,22 +20,22 @@
             <?php 
                 foreach ($arr_category as $val){
                     $str='';
-                    include ('item_table.php');
+                    include ('item_table_row.php');
                     $sub = $this->Category_M->all(['cate_parent_id'=>$val['cate_id']]);
                     if (count($sub)>0){
                         foreach ($sub as $val){
-                            $str='|__';
-                            include ('item_table.php');
+                            $str='|____';
+                            include ('item_table_row.php');
                             $sub1 = $this->Category_M->all(['cate_parent_id'=>$val['cate_id']]);
                             if (count($sub1)>0){
                                 foreach ($sub1 as $val){
-                                    $str='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__';
-                                    include ('item_table.php');
+                                    $str='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|____';
+                                    include ('item_table_row.php');
                                     $sub2 = $this->Category_M->all(['cate_parent_id'=>$val['cate_id']]);
                                     if (count($sub2)>0){
                                         foreach ($sub2 as $val){
-                                            $str='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__';
-                                            include ('item_table.php');
+                                            $str='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|____';
+                                            include ('item_table_row.php');
                                         }
                                     }
                                 }
@@ -45,3 +47,65 @@
         </tbody>
     </table>
 </div>
+
+<script>
+    function onDeleteImg(cate_id,cate_img){
+        Swal.fire({
+            title: 'Bạn có muốn xóa mục này?',
+            text: "Dữ liệu đã xóa sẽ không thể phục hồi",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Xóa',
+            cancelButtonText:'Hủy',
+            }).then((result) => {
+            if (result.value) {
+                $.ajax({
+                    type: "post",
+                    url: "<?=base_url('admin/category/delimg')?>",
+                    data: {'cate_id':cate_id,'cate_img':cate_img},
+                    success: function (response) {
+                        location.reload();
+                    }
+                });
+            }
+        });
+    }
+    function setCkb(ckb,colset,cate_id){
+        ckb = ckb.checked;
+        ckb = ckb==true ? 1:0;
+        colset = colset.toString();
+        $.ajax({
+            type: "post",
+            url: "<?=base_url('admin/category/update')?>",
+            data: {'cate_id':cate_id,[colset]:ckb},
+            success: function (response) {
+                
+            }
+        });
+    }
+    function onDelete(cate_id){
+        var cate_id = cate_id;
+        Swal.fire({
+            title: 'Bạn có muốn xóa mục này?',
+            text: "Dữ liệu đã xóa sẽ không thể phục hồi",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Xóa'
+            }).then((result) => {
+            if (result.value) {
+                // $.ajax({
+                //     type: "post",
+                //     url: "<?=base_url('admin/category/destroy')?>",
+                //     data: {'cate_id':cate_id},
+                //     success: function (response) {
+                //         location.reload();
+                //     }
+                // });
+            }
+        });
+    }
+</script>
