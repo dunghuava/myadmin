@@ -46,6 +46,9 @@
 	<script src="plugins/jquery/jquery.min.js"></script>
 
   <style>
+     table td{
+        vertical-align: middle !important;
+     }
      table tr input[type="checkbox"]{
         width:16px !important;
         height:16px !important;

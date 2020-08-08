@@ -8,7 +8,7 @@
         <thead>
             <tr>
                 <th style="width: 9%">STT</th>
-                <th><span class="fa fa-bars"></span> Tên danh mục</th>
+                <th>Tên danh mục</th>
                 <th style="width:10%">Hình ảnh</th>
                 <th>Loại</th>
                 <th style="width: 5%">Menu</th>
@@ -19,7 +19,7 @@
         <tbody>
             <?php 
                 foreach ($arr_category as $val){
-                    $str='';
+                    $str='<span class="fa fa-caret-right"></span>';
                     include ('item_table_row.php');
                     $sub = $this->Category_M->all(['cate_parent_id'=>$val['cate_id']]);
                     if (count($sub)>0){

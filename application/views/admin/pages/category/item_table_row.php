@@ -4,7 +4,9 @@
     </td>
     <td><a style="color:#000" href="<?=base_url('admin/category/edit/'.$val['cate_id'])?>"><?=$str.' '.$val['cate_title']?></a></td>
     <td class="text-center">
-        <img onclick="onDeleteImg(<?=$val['cate_id']?>,'<?=$val['cate_img']?>')" style="width:50px;cursor:pointer" src="<?=base_url('upload/images/'.$val['cate_img'])?>" alt="">
+        <?php if (!empty($val['cate_img'])){ ?>
+            <img onclick="onDeleteImg(<?=$val['cate_id']?>,'<?=$val['cate_img']?>')" style="width:50px;cursor:pointer;border:double;" src="<?=base_url('upload/images/'.$val['cate_img'])?>" alt="">
+        <?php } ?>
     </td>
     <td>
         <?php 
