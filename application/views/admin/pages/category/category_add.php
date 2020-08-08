@@ -30,7 +30,15 @@
         <div class="col-md-12 inline-flex">
             <label for="">Nội dung</label>
             <textarea name="cate_content" id="cate_content" cols="30" rows="5" class="form-control html_editor"></textarea>
-        </div>        
+        </div> 
+        <div class="col-md-8 inline-flex">
+            <label for="">Keyword</label>
+            <input required type="text" name="cate_title" id="cate_title" class="form-control">
+        </div>
+        <div class="col-md-8 inline-flex">
+            <label for="">Mô tả</label>
+            <textarea name="cate_content" id="cate_content" cols="30" rows="3" class="form-control"></textarea>
+        </div>       
         <div class="col-md-6 inline-flex">
             <label for=""></label>
             <button type="reset" class="btn btn-danger">Nhập lại</button>

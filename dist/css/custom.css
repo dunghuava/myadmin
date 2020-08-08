@@ -13,6 +13,9 @@
 .card-header{
 	border-bottom: 5px solid #f4f6f9;
 }
+.inline-tabs{
+    padding-left:107px !important;
+}
 .inline-flex{
     display:inline-flex;
     margin-bottom:5px;
