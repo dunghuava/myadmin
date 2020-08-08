@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+*{
+	font-family: 'Roboto', sans-serif;
+	font-size: 15px;
+}
+.card{
+	border-radius: 0px;
+}
+.badge-info {
+    color: #fff;
+    background-color: #ff0000;
+}
+.card-header{
+	border-bottom: 5px solid #f4f6f9;
+}
+.inline-flex{
+    display:inline-flex;
+    margin-bottom:5px;
+}
+.inline-flex label{
+    min-width:100px;
+    font-size:14px;
+    margin-top: 8px;
+}
+.select2-container .select2-selection--single{
+    height:38px !important;
+    outline: none !important;
+    border: 1px solid #cccccccc;
+}
+.p0{padding: 0px !important}
+.no-radius{border-radius: 0px !important}
+.inline-flex button{
+    margin-right:10px;
+}
+
+@media screen and (max-width:680px){
+    .inline-flex{
+        display:block;
+    }
+}
