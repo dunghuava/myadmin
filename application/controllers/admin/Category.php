@@ -13,7 +13,7 @@ class Category extends MY_Controller {
 	{
 		$data['page_name']='Danh mục';
 		$data['page_menu']='category';
-		$data['arr_category']=$this->Category_M->all();
+		$data['arr_category']=$this->Category_M->all(['cate_parent_id'=>0]);
 		$this->getHeader($data);
 		$this->load->view('admin/pages/category/category');
 		$this->getFooter();
@@ -36,6 +36,11 @@ class Category extends MY_Controller {
 				$post['cate_alias']=$post['cate_alias'].'-'.rand(100,999);
 			}
 			$this->Category_M->create($post);
+			$status = array(
+				'code'=>'success',
+				'message'=>'Đã lưu danh mục'
+			);
+			$this->session->set_flashdata('reponse',$status);
 			redirect(base_url('admin/category/add'),'refresh');
 		}
 		$data['page_name'] ='Thêm danh mục';
