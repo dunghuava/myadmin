@@ -105,7 +105,7 @@
             <a href="javascript:void(0)" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>
-                Tin tức
+                Bài viết
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -119,7 +119,7 @@
               <li class="nav-item">
                 <a href="<?=getLink($arr_permissionAllowed,'admin/post/add',$user_infor['is_admin'])?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Thêm tin tức</p>
+                  <p>Thêm bài viết</p>
                 </a>
               </li>
             </ul>

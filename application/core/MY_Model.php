@@ -21,6 +21,12 @@ class MY_Model extends CI_Model {
 		$this->db->where($where);
 		return $this->db->get($this->table)->row_array();
 	}
+
+	public function find_row($where){
+		$this->db->where($where);
+		return $this->db->get($this->table)->row_array();
+	}
+
 	public function count($where){
 		$this->db->where($where);
 		$count = $this->db->get($this->table)->num_rows();
