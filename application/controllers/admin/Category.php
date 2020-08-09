@@ -112,6 +112,12 @@ class Category extends MY_Controller {
 							if (count($sub3) >0){
 								foreach ($sub3 as $val3){
 									$str.='<option value="'.$val3['cate_id'].'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__'.$val3['cate_title'].'</option>';
+									$sub4 = $this->Category_M->all(['cate_parent_id'=>$val3['cate_id']]);
+									if (count($sub4) >0){
+										foreach ($sub4 as $val4){
+											$str.='<option value="'.$val4['cate_id'].'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__'.$val4['cate_title'].'</option>';
+										}
+									}
 								}
 							}
 						}
