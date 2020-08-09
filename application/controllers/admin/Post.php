@@ -140,6 +140,22 @@ class Post extends MY_Controller {
 		$this->getFooter();
 	}
 
+	public function update(){
+		$post = $this->input->post();
+		$this->Post_M->update(['post_id'=>$post['post_id']],$post);
+	}
+
+	public function destroy()
+	{
+		$post_id = $this->input->post('post_id');
+		$this->Post_M->delete(['post_id' => $post_id]);
+		$status = array(
+				'code'=>'success',
+				'message'=>'Đã xóa'
+			);
+		$this->session->set_flashdata('reponse',$status);
+	}
+
 }
 
 /* End of file Post.php */

@@ -2,6 +2,9 @@
      <div class="row">
            <div class="col-md-12">
               <div class="col-md-12">
+                <form method="post">
+                    
+                
             <table class="datatable table table-striped table-bordered">
                 <thead>
                     <tr>
@@ -33,13 +36,17 @@
                              <td><?=$item['post_title']?></td>
                              <td><img src="<?=base_url().'upload/images/'.$item['post_img']?>" style="max-height: 90px;"></td>
                              <td><?=$item['updated_at']?></td>
-                             <td><input type="checkbox" name="" value=""></td>
-                             <td><input type="checkbox" name="" value=""></td>
+                             <td><input onchange="setCkb(this,'post_highlights',<?=$item['post_id']?>)" type="checkbox" <?=$item['post_highlights']==1 ? 'checked':''?>></td>
+                             <td><input onchange="setCkb(this,'post_active',<?=$item['post_id']?>)" type="checkbox" <?=$item['post_active']==1 ? 'checked':''?> ></td>
                              <td>
-                                 <button onclick="onEdit(<?=$item['permission_id']?>,'<?=$item['permission_name']?>','<?=$item['permission_value']?>')"  class="btn btn-default">
-                                     <span class="fa fa-eye"></span>
-                                 </button>
-                                 <button onclick="onDelete(<?=$item['permission_id']?>)" class="btn btn-default">
+                                <a href="<?=base_url().'admin/post/edit/'.$item['post_id']?>">
+                                    <button type="button" class="btn btn-default">
+                                        <span class="fa fa-eye"></span>
+                                    </button>
+                                </a>
+                               
+                                 
+                                 <button onclick="onDelete(<?=$item['post_id']?>)" type="button" class="btn btn-default">
                                      <span class="fa fa-trash"></span>
                                  </button>
                              </td>
@@ -47,6 +54,7 @@
                     <?php } ?>
                 </tbody>
             </table>
+            </form>
               </div>
            </div>
      </div>
@@ -58,8 +66,24 @@
         $('#permission_name').val(permission_name);
         $('#permission_value').val(permission_value);
     }
-    function onDelete(permission_id){
-        var permission_id = permission_id;
+
+    function setCkb(ckb,colset,post_id){
+        ckb = ckb.checked;
+        ckb = ckb==true ? 1:0;
+        colset = colset.toString();
+        $.ajax({
+            type: "post",
+            url: "<?=base_url('admin/post/update')?>",
+            data: {'post_id':post_id,[colset]:ckb},
+            success: function (response) {
+                
+            }
+        });
+    }
+
+    function onDelete(post_id){
+        var post_id = post_id;
+        // console.log(post_id);
         Swal.fire({
             title: 'Bạn có muốn xóa mục này?',
             text: "Dữ liệu đã xóa sẽ không thể phục hồi",
@@ -67,13 +91,15 @@
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
+            cancelButtonText: 'Hủy',
             confirmButtonText: 'Xóa'
+            // cancelButtonText: 'Hủy',
             }).then((result) => {
             if (result.value) {
                 $.ajax({
                     type: "post",
-                    url: "<?=base_url('admin/permission/destroy')?>",
-                    data: {'permission_id':permission_id},
+                    url: "<?=base_url('admin/post/destroy')?>",
+                    data: {'post_id':post_id},
                     success: function (response) {
                         location.reload();
                     }

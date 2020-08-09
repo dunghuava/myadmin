@@ -58,7 +58,7 @@ class Account extends MY_Controller {
 	public function login()
 	{
 		if ($this->session->has_userdata('user_infor')){
-			redirect(base_url(),'location');
+			redirect(base_url('admin/category'),'location');
 		}
 		$post = $this->input->post();
 		if ($post){
