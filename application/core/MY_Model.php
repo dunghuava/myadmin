@@ -44,7 +44,8 @@ class MY_Model extends CI_Model {
 	public function create($where){
 		$where['created_at']=dateinsert();
 		$where['updated_at']=dateinsert();
-		return $this->db->insert($this->table,$where);
+		$this->db->insert($this->table,$where);
+		return $this->db->insert_id();
 	}
 	public function last_id(){
 		return $this->db->query("SELECT LAST_INSERT_ID() AS ID")->row_array()['ID'];
