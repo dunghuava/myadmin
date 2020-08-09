@@ -8,6 +8,15 @@ class Project extends MY_Controller {
 		parent::__construct();
 		$this->load->model('Category_M');
 		$this->load->model('Project_M');
+		$this->load->model('Province_M');
+		$this->load->model('District_M');
+		$this->load->model('Ward_M');
+		$this->load->model('Status_M');
+		$this->load->model('Type_M');
+		$this->load->model('Extension_M');
+		$this->load->model('Furniture_M');
+		$this->load->model('Investor_M');
+		$this->load->model('Residential_M');
 	}
 
 	public function index()
@@ -20,63 +29,77 @@ class Project extends MY_Controller {
 		$this->getFooter();
 	}
 
-	// public function add()
-	// {
+	public function add()
+	{
 
-	// 	$post = $this->input->post();
+		// $post = $this->input->post();
 
-	// 	if ($this->input->post()) {
-	// 		if (isset($_FILES['post_img']['name'])){
-	// 			$file = $_FILES['post_img'];
-	// 			$filename = md5($file['name'].time());
-	// 			$path='upload/images/'.$filename;
-	// 			move_uploaded_file($file['tmp_name'],$path);
-	// 		}
+		// if ($this->input->post()) {
+		// 	if (isset($_FILES['post_img']['name'])){
+		// 		$file = $_FILES['post_img'];
+		// 		$filename = md5($file['name'].time());
+		// 		$path='upload/images/'.$filename;
+		// 		move_uploaded_file($file['tmp_name'],$path);
+		// 	}
 
-	// 		if ($post['post_active'] == '') {
-	// 			$post['post_active'] = 0;
-	// 		}
+		// 	if ($post['post_active'] == '') {
+		// 		$post['post_active'] = 0;
+		// 	}
 
 			
 
-	// 		$date_post_format = substr($post['date_post'],  6, 4). substr($post['date_post'],  3, 2).substr($post['date_post'],  0, 2);
-	// 		$date_time = $date_post_format.$post['time_post'];
+		// 	$date_post_format = substr($post['date_post'],  6, 4). substr($post['date_post'],  3, 2).substr($post['date_post'],  0, 2);
+		// 	$date_time = $date_post_format.$post['time_post'];
 
-	// 		$data_insert = array(
-	// 			'post_category_id' => $post['post_category_id'], 
-	// 			'post_title' => $post['post_title'], 
-	// 			'post_alias' => $post['post_alias'], 
-	// 			'post_introduce' => $post['post_introduce'], 
-	// 			'post_content' => $post['post_content'], 
-	// 			'post_keyword' => $post['post_keyword'], 
-	// 			'post_description' => $post['post_description'], 
-	// 			'post_highlights' => 0, 
-	// 			'post_active' => $post['post_active'], 
-	// 			'post_date_time' => $date_time,
-	// 			'post_img' => $filename, 
-	// 		);
+		// 	$data_insert = array(
+		// 		'post_category_id' => $post['post_category_id'], 
+		// 		'post_title' => $post['post_title'], 
+		// 		'post_alias' => $post['post_alias'], 
+		// 		'post_introduce' => $post['post_introduce'], 
+		// 		'post_content' => $post['post_content'], 
+		// 		'post_keyword' => $post['post_keyword'], 
+		// 		'post_description' => $post['post_description'], 
+		// 		'post_highlights' => 0, 
+		// 		'post_active' => $post['post_active'], 
+		// 		'post_date_time' => $date_time,
+		// 		'post_img' => $filename, 
+		// 	);
 
-	// 		$this->Post_M->create($data_insert);
+		// 	$this->Post_M->create($data_insert);
 
-	// 		$status = array(
-	// 			'code'=>'success',
-	// 			'message'=>'Đã lưu'
-	// 		);
-	// 		$this->session->set_flashdata('reponse',$status);
+		// 	$status = array(
+		// 		'code'=>'success',
+		// 		'message'=>'Đã lưu'
+		// 	);
+		// 	$this->session->set_flashdata('reponse',$status);
 
-	// 	}
-	// 	$data_category = array(
-	// 		'cate_module_id' => '1',
-	// 	);
+		// }
+		// $data_category = array(
+		// 	'cate_module_id' => '1',
+		// );
 
-	// 	$list_category = $this->Category_M->all($data_category);
-	// 	$data['list_category'] = $list_category;
-	// 	$data['page_name']='Thêm bài viết';
-	// 	$data['page_menu']='post';
-	// 	$this->getHeader($data);
-	// 	$this->load->view('admin/pages/post/add.php',$data);
-	// 	$this->getFooter();
-	// }
+		$list_category = $this->Category_M->all(['cate_module_id' => '2']);
+		$list_province = $this->Province_M->all();
+		$list_status = $this->Status_M->all();
+		$list_type = $this->Type_M->all();
+		$list_extension = $this->Extension_M->all();
+		$list_furniture = $this->Furniture_M->all();
+		$list_investor = $this->Investor_M->all();
+		$list_residential = $this->Residential_M->all();
+		$data['list_category'] = $list_category;
+		$data['list_province'] = $list_province;
+		$data['list_status'] = $list_status;
+		$data['list_type'] = $list_type;
+		$data['list_extension'] = $list_extension;
+		$data['list_furniture'] = $list_furniture;
+		$data['list_investor'] = $list_investor;
+		$data['list_residential'] = $list_residential;
+		$data['page_name']='Thêm dự án';
+		$data['page_menu']='post';
+		$this->getHeader($data);
+		$this->load->view('admin/pages/project/add.php',$data);
+		$this->getFooter();
+	}
 
 	// public function edit($id)
 	// {
