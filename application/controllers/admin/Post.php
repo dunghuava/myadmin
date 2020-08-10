@@ -63,6 +63,7 @@ class Post extends MY_Controller {
 				'message'=>'Đã lưu'
 			);
 			$this->session->set_flashdata('reponse',$status);
+			redirect(base_url('admin/post/add/'),'location');
 
 		}
 		$data_category = array(
@@ -113,7 +114,6 @@ class Post extends MY_Controller {
 				'post_content' => $post['post_content'], 
 				'post_keyword' => $post['post_keyword'], 
 				'post_description' => $post['post_description'], 
-				'post_highlights' => 0, 
 				'post_active' => $post['post_active'], 
 				'post_date_time' => $date_time,
 				'post_img' => $filename, 
@@ -126,6 +126,7 @@ class Post extends MY_Controller {
 				'message'=>'Đã sửa'
 			);
 			$this->session->set_flashdata('reponse',$status);
+			redirect(base_url('admin/post/edit/'.$id),'location');
 
 		}
 

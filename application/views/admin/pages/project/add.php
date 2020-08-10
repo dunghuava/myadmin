@@ -64,8 +64,8 @@
             </div>
 
             <div class="col-md-12 inline-flex" style="padding-right: 0px;">
-            	<label for="" style="margin-left: 113px">Diện tích</label>
-            	<input type="text" name="project_acreage" id="project_acreage" class="form-control" placeholder="" required>
+            	<label for="" style="margin-left: 113px">Diện tích (m²)</label>
+            	<input type="number" name="project_acreage" id="project_acreage" class="form-control" placeholder="" required>
             </div>
             <div class="col-md-12 inline-flex" style="padding-right: 0px;">
             	<label for="" style="margin-left: 113px">Giá</label>

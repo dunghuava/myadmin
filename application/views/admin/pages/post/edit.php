@@ -3,7 +3,7 @@
     	min-width: 120px;
 	}
 	img{
-		max-width: 300px;
+		max-width: 200px;
 	}
 </style>
 <div class="container-fluid">
