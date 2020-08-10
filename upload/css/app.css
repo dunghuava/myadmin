@@ -102,6 +102,8 @@ img {
   min-width: 200%;
   background: #fff;
   z-index: 999;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 .main-menu li.dropdown .dropdown-list li {
@@ -564,5 +566,85 @@ img {
 .item-khuvuc .content .title {
   font-size: 22px;
   color: #fff;
+}
+
+.page-khudancu-detail .banner {
+  height: 400px;
+  width: 100%;
+  position: relative;
+  background-size: cover;
+}
+
+.page-khudancu-detail .banner .abs-content {
+  position: absolute;
+  border-top: 4px solid #fff;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  padding: 35px;
+  text-align: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.75);
+  margin: auto;
+  background-repeat: no-repeat;
+}
+
+.page-khudancu-detail .overview-toolbar {
+  padding: 2px 0px;
+  border-bottom: 2px solid black;
+}
+
+.page-khudancu-detail .overview-toolbar.sticky {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  background: #fff;
+  z-index: 999;
+  -webkit-animation: fade-down 0.3s;
+          animation: fade-down 0.3s;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.page-khudancu-detail .overview-toolbar .btn {
+  border: 1px solid black;
+  padding: 10px 12px;
+  border-radius: 0px;
+  margin-top: 4px;
+  font-weight: bold;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.page-khudancu-detail .overview-toolbar .btn:hover {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.page-khudancu-detail .overview-toolbar .btn.red {
+  color: #fff;
+  background: #88AD6A;
+}
+
+.page-khudancu-detail .overview-toolbar ul li {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 15px;
+}
+
+.page-khudancu-detail .overview-toolbar ul li a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.page-khudancu-detail .overview-toolbar ul li:hover a {
+  color: red;
+}
+
+.page-khudancu-detail .house-selling {
+  background: #F4F5F9;
 }
 /*# sourceMappingURL=app.css.map */

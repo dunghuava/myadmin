@@ -76,6 +76,7 @@ $primary_color:#88AD6A;
                 min-width: 200%;
                 background: #fff;
                 z-index: 999;
+                box-shadow: 0 3px 6px rgba(0,0,0,.2);
                 li{
                     display: block;
                     a{
@@ -181,3 +182,4 @@ $primary_color:#88AD6A;
     }
 }
 @import 'index_page';
+@import 'page_khudancu'
