@@ -43,7 +43,7 @@ function create_slug($string){
    return $slug;
 }
 
-function xlog ($data,$die=false){
+function dd ($data,$die=false){
 	echo '<pre>';
 		print_r($data);
 	echo '</pre>';
