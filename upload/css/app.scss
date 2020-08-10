@@ -1,0 +1,177 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+a{
+    color:#000;
+    &:hover{
+        color: #000;
+    }
+    &:active{
+        color: #000;
+    }
+}
+ul{
+    margin:0px;
+    padding:0px;
+    li{
+        list-style: none;
+    }
+}
+img{
+    width: 100%;
+}
+.relative{
+    position: relative;
+}
+.absolute{
+    position: absolute;
+}
+.clear{
+    clear: both;
+}
+$primary_color:#88AD6A;
+
+.pd05{padding:05px}
+.pd10{padding:10px}
+.pd15{padding:15px}
+
+// header area
+.main-menu{
+    li{
+        cursor: pointer;
+        font-size: 14px;
+        text-transform: uppercase;
+        padding:15px 15px;
+        display: inline-flex;
+        transition: all 0.2s;
+        position: relative;
+        a{
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        &:hover{
+            background: $primary_color;
+            a{
+                color: #fff;
+            }
+            &::after{
+                color: #fff;
+                transform: rotate(180deg);
+            }
+        }
+        &.dropdown{
+            &::after{
+                content: '\f107';
+                position: relative;
+                margin-left: 8px;
+                transition: all 0.5s;
+                font-family: 'FontAwesome';
+            }
+            .dropdown-list{
+                display: none;
+                position: absolute;
+                left: 0px;
+                top: 100%;
+                min-width: 200%;
+                background: #fff;
+                z-index: 999;
+                li{
+                    display: block;
+                    a{
+                        color: #000000;
+                    }
+                    &:hover{
+                        a{
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+            &:hover{
+                .dropdown-list{
+                    display: block;
+                }
+            }
+        }
+    }
+}
+.app-header{
+    padding:5px 0px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    &.sticky{
+        position: fixed;
+        width: 100%;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        background: #fff;
+        z-index: 999;
+        animation: fade-down 0.3s;
+    }
+    .logo{
+        img{
+            width: 100%;
+        }
+    }
+    .btnBar{
+        padding:10px 12px;
+        color: $primary_color;
+        border:1px solid $primary_color;
+        margin-top: 5px;
+        border-radius: 2px;
+    }
+}
+@keyframes fade-down{
+    from{
+        top:-100px;
+    }
+}
+// header area
+
+// footer area
+.app-footer{
+    color:white;
+    padding:15px 0px;
+    background: $primary_color;
+
+    .title-footer{
+        font-size: 15px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    ul.list-footer{
+       padding-top:5px;
+       li{
+           padding:5px 0px;
+           a{
+               font-size: 13px;
+               color: #F3F4F7;
+           }
+       }
+    }
+}
+// footer area
+.slick-slider {
+    .btn_arrow{
+        padding: 10px 14px;
+        color: #fff;
+        font-weight: bold;
+        background: $primary_color;
+        cursor: pointer;
+        position: absolute;
+        border-radius: 2px;
+
+        &.btn_prev{
+            bottom: 45%;
+            left: 25px;
+            z-index: 999;
+        }
+        &.btn_next{
+            bottom: 45%;
+            right: 25px;
+            z-index: 999;
+        }
+    }
+}
+@import 'index_page';

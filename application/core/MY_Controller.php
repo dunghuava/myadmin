@@ -28,9 +28,18 @@ class MY_Controller extends CI_Controller {
 			array_push($this->arr_permission_allow,base_url($permission_value));
 		}
 	}
+	public function page_header($data=null){
+		$this->load->view('web/header.php',$data);
+	}
+	public function page_footer($data=null){
+		$this->load->view('web/footer.php',$data);
+	}
+	public function view($view,$data=null){
+		$this->load->view($view,$data);
+	}
 	public function isOnline(){
 		$ip_address=get_client_ip();
-		//$this->Web_M->insert_on_duplicate($ip_address);
+		$this->Web_M->insert_on_duplicate($ip_address);
 	}
 	public function getHeader($data=null){
 		if (!$this->session->has_userdata('user_infor')){

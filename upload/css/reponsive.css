@@ -1,0 +1,31 @@
+@media screen and (max-width: 800px) {
+  .app-header .logo img {
+    width: 165px;
+    margin: auto;
+  }
+  .app-header.sticky {
+    position: relative !important;
+  }
+  .nav-menu {
+    position: fixed;
+    top: 0px;
+    left: -100%;
+    width: 65%;
+    height: 100%;
+    z-index: 999;
+    background: #fff;
+  }
+  .nav-menu .main-menu {
+    padding: 15px;
+    background: #fff;
+  }
+  .nav-menu .main-menu li {
+    padding: 8px 0px;
+    display: block;
+  }
+  .nav-menu .main-menu li.dropdown .dropdown-list {
+    position: relative;
+    min-width: 100%;
+  }
+}
+/*# sourceMappingURL=reponsive.css.map */

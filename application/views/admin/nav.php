@@ -40,11 +40,8 @@
       <li class="nav-item xs-only">
         <a class="nav-link " data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
-      <!-- <li class="nav-item md-only">
-        <a class="nav-link " href="<?=base_url()?>"><i class="fas fa-home"></i></a>
-      </li> -->
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="<?=base_url('customer/list')?>" class="nav-link">Menu</a>
+        <a target="_blank" href="<?=base_url()?>" class="nav-link"><span class="fa fa-link"></span>&nbsp;Vào trang web</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a data-toggle="modal" data-target="#aboutModal" href="javascript:void(0)" class="nav-link">
@@ -101,7 +98,7 @@
             }
             $.ajax({
               type: "post",
-              url: "setting/sibar/"+sibar,
+              url: "admin/setting/sibar/"+sibar,
               success: function (response) {
                 
               }
