@@ -60,6 +60,49 @@ class Themes extends MY_Controller {
 		$this->getFooter();
 	}
 
+
+	public function editBanner($id)
+	{
+		$data['page_name']='Chỉnh sửa banner';
+		$data['page_menu']='themes';
+		$info_banner = $this->Slide_M->find_row(['slide_id' => $id]);
+		$post = $this->input->post();
+		if ($this->input->post()) {
+			if (!empty($_FILES['slide_img']['name'])){
+				$file = $_FILES['slide_img'];
+				$name_slide_img = md5($file['name'].time());
+				$path_slide_img='upload/images/'.$name_slide_img;
+				move_uploaded_file($file['tmp_name'],$path_slide_img);
+			}else{
+				$name_slide_img = $info_banner['slide_img'];
+			}
+
+			$data_update = array(
+				'slide_title' => $post['slide_title'], 
+				'slide_active' => $post['slide_active'], 
+				'slide_href' => '', 
+				'slide_img' => $name_slide_img, 
+				
+				
+			);
+
+			$this->Slide_M->update(['slide_id' => $info_banner['slide_id']],$data_update);
+			$status = array(
+				'code'=>'success',
+				'message'=>'Đã lưu'
+			);
+			
+			$this->session->set_flashdata('reponse',$status);
+			redirect(base_url('admin/themes/editBanner/'.$id),'location');
+
+		}
+
+		$data['info_banner'] = $info_banner;
+		$this->getHeader($data);
+		$this->load->view('admin/pages/themes/banner/edit.php',$data);
+		$this->getFooter();
+	}
+
 	public function info()
 	{
 		$data['page_name']='Thông tin chung';

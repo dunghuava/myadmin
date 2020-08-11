@@ -101,6 +101,31 @@
               </li>
             </ul>
           </li>
+
+          <li class="nav-item has-treeview <?=$page_menu=='region' ? 'menu-open':''?>">
+            <a href="javascript:void(0)" class="nav-link">
+              <i class="nav-icon fas fa-file"></i>
+              <p>
+                Khu vực hiển thị
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?=getLink($arr_permissionAllowed,'admin/region',$user_infor['is_admin'])?>" class="nav-link">
+                  <i class="fas fa-angle-right nav-icon"></i>
+                  <p>Tất cả</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?=getLink($arr_permissionAllowed,'admin/region/add',$user_infor['is_admin'])?>" class="nav-link">
+                  <i class="fas fa-angle-right nav-icon"></i>
+                  <p>Thêm khu vực</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
           <li class="nav-item has-treeview <?=$page_menu=='post' ? 'menu-open':''?>">
             <a href="javascript:void(0)" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
