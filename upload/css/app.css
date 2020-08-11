@@ -40,6 +40,10 @@ img {
   clear: both;
 }
 
+.pd0 {
+  padding: 0px;
+}
+
 .pd05 {
   padding: 05px;
 }
@@ -646,5 +650,14 @@ img {
 
 .page-khudancu-detail .house-selling {
   background: #F4F5F9;
+}
+
+.page-khudancu-detail .div-location {
+  background: #F4F5F9;
+}
+
+.page-khudancu-detail .div-location .map-area {
+  padding: 15px;
+  background: #fff;
 }
 /*# sourceMappingURL=app.css.map */

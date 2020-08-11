@@ -1,16 +1,14 @@
 <section class="page-khudancu-detail">
     <div class="banner" style="background:url(<?=base_url('upload/images/kdc_bg.jpg')?>)">
         <div class="abs-content container">
-            <div class="row">
-                <div class="col-md-12">
-                    <p>Khu dân cư  TP. Hồ Chí Minh  Quận 2</p>
-                    <h3 class="title">Khu đô thị mới Thủ Thiêm</h3>
-                </div>
+            <div class="col-md-12 pd0">
+                <p>Khu dân cư  TP. Hồ Chí Minh  Quận 2</p>
+                <h3 class="title">Khu đô thị mới Thủ Thiêm</h3>
             </div>
         </div>
     </div>
     <!-- overview-toolbar -->
-    <div id="toolbar" class="overview-toolbar">
+    <div id="toolbar" class="overview-toolbar hidden-xs">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
@@ -123,6 +121,27 @@
             </div>
         </div>
     </div>
+
+    <!-- location-are -->
+    <div class="div-location">
+        <div class="container">
+                <br>
+                <div class="text-center"><h3>Vị trí Diamond Island - Đảo Kim Cương trên bản đồ</h3></div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            <div class="map-area">
+                                <!-- maps -->
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.5199509026907!2d106.72920581417173!3d10.792680661846168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317526069cf8c86f%3A0xa1b7c21cef8154a0!2zQ8OgIFBow6ogVGjhu4FtIFhhbmg!5e1!3m2!1sen!2s!4v1597157277054!5m2!1sen!2s" width="100%" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                                <!-- maps -->
+                            </div>
+                            <br><br>
+                        </div>
+                    <div class="col-md-1"></div>
+                </div>
+        </div>
+    </div>
+    <!-- location are -->
 </section>
 
 <script>
