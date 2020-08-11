@@ -126,7 +126,7 @@ class Project extends MY_Controller {
 
 		}
 
-		$list_category = $this->Category_M->all(['cate_module_id' => '2']);
+		$list_category = $this->Category_M->all(['cate_module_id' => '2','cate_parent_id' => '0']);
 		$list_province = $this->Province_M->all();
 		$list_status = $this->Status_M->all();
 		$list_type = $this->Type_M->all();
@@ -318,7 +318,7 @@ class Project extends MY_Controller {
 
 		}
 
-		$list_category = $this->Category_M->all(['cate_module_id' => '2']);
+		$list_category = $this->Category_M->all(['cate_module_id' => '2','cate_parent_id' => '0']);
 		$list_province = $this->Province_M->all();
 		$list_status = $this->Status_M->all();
 		$list_type = $this->Type_M->all();

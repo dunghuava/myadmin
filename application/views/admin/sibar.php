@@ -141,7 +141,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=getLink($arr_permissionAllowed,'admin/themes/infor',$user_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=getLink($arr_permissionAllowed,'admin/themes/info',$user_infor['is_admin'])?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Thông tin</p>
                 </a>

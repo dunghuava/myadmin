@@ -54,7 +54,17 @@
             			$selected_category = '';
             		}
             		echo '<option value="'.$category['cate_id'].'" '.$selected_category.'>'.$category['cate_title'].'</option>';
+                    $list_category_level = $this->Category_M->all(['cate_module_id' => '2','cate_parent_id' => $category['cate_id']]);
+                    foreach ($list_category_level as $category_level) {
+                        if ($category_level['cate_id'] == $info_project['project_category']) {
+                            $selected_category_level = 'selected';
+                        }else{
+                            $selected_category_level = '';
+                        }
+                        echo '<option value="'.$category_level['cate_id'].'" '.$selected_category_level.'>|____'.$category_level['cate_title'].'</option>';
+                    }
             	} ?>
+
             </select>
         </div>
 
