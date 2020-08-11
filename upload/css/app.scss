@@ -173,14 +173,15 @@ $primary_color:#88AD6A;
         &.btn_prev{
             bottom: 45%;
             left: 25px;
-            z-index: 999;
+            z-index: 99;
         }
         &.btn_next{
             bottom: 45%;
             right: 25px;
-            z-index: 999;
+            z-index: 99;
         }
     }
 }
 @import 'index_page';
-@import 'page_khudancu'
+@import 'page_khudancu';
+@import 'page_project'

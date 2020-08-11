@@ -213,13 +213,13 @@ img {
 .slick-slider .btn_arrow.btn_prev {
   bottom: 45%;
   left: 25px;
-  z-index: 999;
+  z-index: 99;
 }
 
 .slick-slider .btn_arrow.btn_next {
   bottom: 45%;
   right: 25px;
-  z-index: 999;
+  z-index: 99;
 }
 
 #form-absolute {
@@ -659,5 +659,104 @@ img {
 .page-khudancu-detail .div-location .map-area {
   padding: 15px;
   background: #fff;
+}
+
+.product-detailt .item-slider {
+  height: 350px;
+}
+
+.product-detailt .item-slider img {
+  width: 100%;
+  height: 100%;
+}
+
+.product-detailt #small-thumb {
+  padding: 10px 0px;
+  background: #222222;
+}
+
+.product-detailt #small-thumb .item-slider {
+  width: 180px;
+  height: 70px;
+  margin-right: 10px;
+}
+
+.product-detailt #small-thumb .item-slider img {
+  width: 100%;
+  height: 100%;
+}
+
+.product-detailt .sec-head {
+  border-top: 1px solid #f2f2f2;
+  border-bottom: 1px solid #f2f2f2;
+  background: #fff;
+  -webkit-box-shadow: 0 3px 3px #f2f2f2;
+          box-shadow: 0 3px 3px #f2f2f2;
+  padding: 0;
+}
+
+#mycollapse .item-collapse {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#mycollapse .item-collapse .head-collapse {
+  cursor: pointer;
+  padding: 8px 0px;
+  position: relative;
+  border-bottom: 1px solid #dcdcdd;
+}
+
+#mycollapse .item-collapse .head-collapse p {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#mycollapse .item-collapse .head-collapse::after {
+  content: '\f107';
+  position: absolute;
+  right: 5px;
+  bottom: 10%;
+  font-weight: bold;
+  font-size: 18px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  font-family: 'FontAwesome';
+}
+
+#mycollapse .item-collapse .head-collapse.opened::after {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+#mycollapse .item-collapse .content-collapse {
+  padding: 10px 0px;
+  display: none;
+}
+
+.boxed {
+  -webkit-box-shadow: 0 3px 16px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 30px;
+  margin-bottom: 20px;
+}
+
+#form-contact .form-control {
+  width: 100%;
+  border-radius: 0px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  outline: none;
+  margin-bottom: 8px;
+}
+
+#form-contact input {
+  height: 35px;
+}
+
+#form-contact button {
+  border-radius: 0px;
+  background: #88AD6A;
 }
 /*# sourceMappingURL=app.css.map */
