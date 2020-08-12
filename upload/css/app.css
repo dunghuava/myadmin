@@ -812,9 +812,13 @@ img {
 }
 
 .page-cdt .banner form .form-control {
-  height: 40px;
+  height: 45px;
   width: 400px;
   border-right: 0px;
+}
+
+.page-cdt .banner form button {
+  border-left: 0px;
 }
 
 .page-cdt .banner form * {
@@ -822,5 +826,29 @@ img {
   -webkit-box-shadow: none;
           box-shadow: none;
   border-radius: 0px !important;
+}
+
+.page-cdt .item-list-cdt {
+  border-bottom: 1px solid #dcdcdc;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+}
+
+.page-cdt .item-list-cdt img {
+  width: 150px;
+  height: 140px;
+  border: 1px solid #dcdcdc;
+}
+
+.page-cdt .item-list-cdt a {
+  text-decoration: none;
+}
+
+.page-cdt .item-list-cdt .content {
+  padding-left: 15px;
+}
+
+.page-cdt .item-list-cdt .content h3 {
+  margin: 0px;
 }
 /*# sourceMappingURL=app.css.map */

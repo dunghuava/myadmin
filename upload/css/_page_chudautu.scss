@@ -10,14 +10,36 @@
             margin: auto;
             width: fit-content;
             .form-control{
-                height: 40px;
+                height: 45px;
                 width: 400px;
                 border-right: 0px;
+            }
+            button{
+                border-left: 0px;
             }
             *{
                 outline: none;
                 box-shadow: none;
                 border-radius: 0px !important;
+            }
+        }
+    }
+    .item-list-cdt{
+        border-bottom: 1px solid #dcdcdc;
+        margin-bottom: 15px;
+        padding-bottom: 5px;
+        img{
+            width: 150px;
+            height: 140px;
+            border: 1px solid #dcdcdc;
+        }
+        a{
+            text-decoration: none;
+        }
+        .content{
+            padding-left: 15px;
+            h3{
+                margin: 0px;
             }
         }
     }
