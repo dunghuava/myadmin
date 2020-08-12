@@ -85,6 +85,7 @@ class Region extends MY_Controller {
 				$name = md5($file['name'].time());
 				$path='upload/images/'.$name;
 				move_uploaded_file($file['tmp_name'],$path);
+				@unlink('upload/images/'.$info_region['region_img']);
 			}else{
 				$name = $info_region['region_img'];
 			}
