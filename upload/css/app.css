@@ -477,6 +477,7 @@ img {
 
 .item-blog {
   border: 1px solid #dcdcdc;
+  border-radius: 4px;
 }
 
 .item-blog .title-blog {
@@ -791,5 +792,35 @@ img {
 #form-contact button {
   border-radius: 0px;
   background: #88AD6A;
+}
+
+.page-cdt .banner {
+  padding: 100px 0px;
+  color: #ffffff;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.page-cdt .banner form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.page-cdt .banner form .form-control {
+  height: 40px;
+  width: 400px;
+  border-right: 0px;
+}
+
+.page-cdt .banner form * {
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-radius: 0px !important;
 }
 /*# sourceMappingURL=app.css.map */

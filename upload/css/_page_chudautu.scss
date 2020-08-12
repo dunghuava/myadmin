@@ -1,0 +1,25 @@
+.page-cdt{
+    .banner{
+        padding: 100px 0px;
+        color: #ffffff;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        form{
+            display: flex;
+            margin: auto;
+            width: fit-content;
+            .form-control{
+                height: 40px;
+                width: 400px;
+                border-right: 0px;
+            }
+            *{
+                outline: none;
+                box-shadow: none;
+                border-radius: 0px !important;
+            }
+        }
+    }
+
+}
