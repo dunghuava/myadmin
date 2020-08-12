@@ -73,6 +73,7 @@ class Themes extends MY_Controller {
 				$name_slide_img = md5($file['name'].time());
 				$path_slide_img='upload/images/'.$name_slide_img;
 				move_uploaded_file($file['tmp_name'],$path_slide_img);
+				@unlink('upload/images/'.$info_banner['slide_img']);
 			}else{
 				$name_slide_img = $info_banner['slide_img'];
 			}

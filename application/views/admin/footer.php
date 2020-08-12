@@ -18,6 +18,10 @@
 		$(document).ready(function(){
 			CKEDITOR.replace(document.querySelector('.html_editor'));
 			$('.select2').select2();
+			$(".tags-field").select2({
+            tokenSeparators: [','],
+            tags: true,
+        });
             $('.datepicker').datepicker({ format: 'dd-mm-yyyy', });
 			$('input').attr('autocomplete','off');
 			$('.cpicker').colorpicker();
