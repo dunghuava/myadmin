@@ -1,6 +1,10 @@
     <!-- #region Jssor Slider Begin -->
     <!-- Generator: Jssor Slider Composer -->
     <!-- Source: https://www.jssor.com/demos/full-width-slider.slider/=edit -->
+
+    <?php 
+        $slider = $this->Slide_M->all(['slide_active'=>1]);
+    ?>
     <script src="<?=base_url('plugins/jssor/js/jssor.slider-28.0.0.min.js')?>" type="text/javascript"></script>
     <script type="text/javascript">
         window.jssor_1_slider_init = function() {
@@ -102,21 +106,21 @@
             </mask>
         </defs>
     </svg>
-    <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:1600px;height:560px;overflow:hidden;visibility:hidden;">
+    <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:1600px;height:460px;overflow:hidden;visibility:hidden;">
         <!-- Loading Screen -->
         <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
             <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="<?=base_url('upload/images/')?>spin.svg" />
         </div>
-        <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1600px;height:560px;overflow:hidden;">
-            <div style="background-color:#d3890e;">
-                <img data-u="image" style="opacity:0.8;" data-src="<?=base_url('upload/images/')?>pb-beer-1513436-1600.jpg" />
-            </div>
-            <div>
-                <img data-u="image" data-src="<?=base_url('upload/images/')?>px-apartment-chairs-contemporary-2015560-1600.jpg" />
-            </div>
-            <div style="background-color:#000000;">
-                <img data-u="image" style="opacity:0.8;" data-src="<?=base_url('upload/images/')?>px-back-view-boats-couple-2612852-1600.jpg" />
-            </div>
+        <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1600px;height:460px;overflow:hidden;">
+            <?php 
+                foreach ($slider as $slide){
+            ?>
+                <div>
+                    <img data-u="image" style="opacity:0.8;" data-src="<?=resizeImg($slide['slide_img'],1300,550,1)?>" />
+                </div>
+            <?php 
+                } 
+            ?>
         </div><a data-scale="0" href="https://www.jssor.com" style="display:none;position:absolute;">slider html</a>
         <!-- Bullet Navigator -->
         <div data-u="navigator" class="jssorb132" style="position:absolute;bottom:24px;right:16px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">

@@ -118,3 +118,14 @@ $('#mycollapse .item-collapse .head-collapse').click(function (e) {
     $(this).toggleClass('opened');
     $(this).parent('.item-collapse').find('.content-collapse').slideToggle();
 });
+
+$('#backtotop').click(function (e) { 
+   $('html,body').animate({ scrollTop: 0 }, 500);
+});
+window.onscroll = function() {
+  if (window.pageYOffset >200){
+    $('#backtotop').show();
+  }else{
+    $('#backtotop').hide();
+  }
+}

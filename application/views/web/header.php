@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?=$title?></title>
-
+    <base href="<?=base_url()?>">
     <link rel="stylesheet" href="<?=base_url('upload/slick/slick.css')?>">
     <link rel="stylesheet" href="<?=base_url('upload/slick/slick-theme.css')?>">
     <link rel="stylesheet" href="<?=base_url('upload/bootstrap/css/bootstrap.css')?>">
@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-md-2 col-xs-8">
                 <div class="logo">
-                   <a href="">
+                   <a href="<?=base_url()?>">
                         <img src="<?=base_url('upload/logo.png')?>" alt="">
                    </a>
                 </div>
@@ -43,6 +43,7 @@
         </div>
     </div>
 </header>
+<div id="backtotop"></div>
 <script>
 window.onscroll = function() {addSticky()};
     var navbar = document.getElementById("nav-bar");

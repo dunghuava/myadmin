@@ -222,6 +222,48 @@ img {
   z-index: 99;
 }
 
+#backtotop {
+  position: fixed;
+  bottom: 5%;
+  right: 25px;
+  width: 40px;
+  height: 40px;
+  z-index: 999;
+  display: none;
+  text-align: center;
+  padding-top: 2px;
+  cursor: pointer;
+  background: #88AD6A;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-animation: fadeup 0.4s;
+          animation: fadeup 0.4s;
+}
+
+#backtotop::after {
+  content: '\f106';
+  font-family: 'FontAwesome';
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+#backtotop:hover {
+  background: orangered;
+}
+
+@-webkit-keyframes fadeup {
+  from {
+    bottom: -100px;
+  }
+}
+
+@keyframes fadeup {
+  from {
+    bottom: -100px;
+  }
+}
+
 #form-absolute {
   bottom: 40%;
   left: 25%;
