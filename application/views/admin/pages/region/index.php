@@ -33,7 +33,7 @@
                                 <td rowspan="<?php echo count($list_region) ?>"><?=$info_category['cate_title']?></td>
                             <?php } ?>
                              <td><?=$info_district['district_name']?></td>
-                             <td><img src="<?=base_url().'upload/images/'.$item['region_img']?>" style="max-height: 90px;"></td>
+                             <td><img src="<?=resizeImg($item['region_img'],80,50,0)?>" style="max-height: 90px;"></td>
                              <td><input onchange="setCkb(this,'region_highlights',<?=$item['region_id']?>)" type="checkbox" <?=$item['region_highlights']==1 ? 'checked':''?>></td>
                              <td><input onchange="setCkb(this,'region_active',<?=$item['region_id']?>)" type="checkbox" <?=$item['region_active']==1 ? 'checked':''?> ></td>
                              <td>

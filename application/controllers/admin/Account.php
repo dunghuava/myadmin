@@ -67,8 +67,8 @@ class Account extends MY_Controller {
 			if (isset($post['btn_do_login'])){
 				$is_login = $this->Account_M->do_login($user_name,$user_password);
 				if ($is_login){
-					$infor = $this->Account_M->find(['user_name'=>$user_name]);
-					$this->session->set_userdata('user_infor', $infor );
+					$infor = $this->Account_M->all(['user_name'=>$user_name]);
+					$this->session->set_userdata('user_infor', $infor[0] );
 					redirect(base_url('admin'),'location');
 				}else{
 					$this->session->set_flashdata('reponse','Tên đăng nhập / mật khẩu ko đúng.');
