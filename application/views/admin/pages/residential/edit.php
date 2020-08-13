@@ -30,10 +30,10 @@
             <input type="file" name="residential_banner" id="residential_banner" class="">
         </div> -->
 
-        <div class="col-md-8 inline-flex" id="div_banner">
+        <!-- <div class="col-md-8 inline-flex" id="div_banner">
             <label for=""></label>
             <img src="<?=base_url().'upload/images/'.$info_residential['residential_banner']?>" onclick="onDelete('banner')" title="Bấm vào đây để xóa" style="cursor: pointer;">
-        </div>
+        </div> -->
 
         <div class="col-md-8 inline-flex">
             <label for="">Tiêu đề</label>
@@ -72,7 +72,7 @@
         </div>   
 
         <div class="col-md-12 inline-flex">
-            <label for="">Nội dung</label>
+            <label for="">Thông tin chi tiết</label>
             <textarea name="residential_content" id="residential_content" cols="30" rows="5" class="form-control html_editor" required><?php echo $info_residential['residential_content'] ?></textarea>
         </div> 
 

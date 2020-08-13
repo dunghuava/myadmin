@@ -1,6 +1,6 @@
 <tr>
     <td>
-        <input type="text" value="<?=$val['cate_id']?>" class="form-control text-center">
+        <input type="text" onkeyup="setStt(this,'cate_stt',<?=$val['cate_id']?>)" value="<?=$val['cate_stt']?>" class="form-control text-center">
     </td>
     <td><a style="color:#000" href="<?=base_url('admin/category/edit/'.$val['cate_id'])?>"><?=$str.' '.$val['cate_title']?></a></td>
     <td class="text-center">

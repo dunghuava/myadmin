@@ -85,6 +85,20 @@
             }
         });
     }
+
+    function setStt(ckb,colset,cate_id){
+        ckb = ckb.value;
+        colset = colset.toString();
+        $.ajax({
+            type: "post",
+            url: "<?=base_url('admin/category/update')?>",
+            data: {'cate_id':cate_id,[colset]:ckb},
+            success: function (response) {
+                
+            }
+        });
+    }
+
     function onDelete(cate_id){
         var cate_id = cate_id;
         Swal.fire({
