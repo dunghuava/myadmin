@@ -24,7 +24,7 @@
                                 ?>
                                 <tr>
                                    <td><?=$item['slide_title']?></td>
-                                   <td><img src="<?=base_url().'upload/images/'.$item['slide_img']?>" style="max-height: 90px;"></td>
+                                   <td><img src="<?=resizeImg($item['slide_img'],120,70,0)?>" style="max-height: 90px;"></td>
                                    <td><input onchange="setCkb(this,'slide_active',<?=$item['slide_id']?>)" type="checkbox" <?=$item['slide_active']==1 ? 'checked':''?> ></td>
                                    <td>
                                         <a href="<?=base_url().'admin/themes/editBanner/'.$item['slide_id']?>">

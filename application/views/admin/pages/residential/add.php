@@ -16,7 +16,7 @@
 
         <div class="col-md-8 inline-flex">
             <label for="">Hình ảnh banner</label>
-            <input required type="file" name="residential_banner" id="residential_banner" class="">
+            <input type="file" name="residential_banner" id="residential_banner" class="">
         </div>
 
         <div class="col-md-8 inline-flex">
