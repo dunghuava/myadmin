@@ -100,7 +100,8 @@ class Category extends MY_Controller {
 		if ($cate_module_id!=0){
 			$where['cate_module_id']=$cate_module_id;
 		}
-		$all = $this->Category_M->all($where);
+		$oder_by['cate_stt']= 'asc';
+		$all = $this->Category_M->all($where,$oder_by);
 		$str='';
 		foreach ($all as $val){
 			$str.='<option value="'.$val['cate_id'].'">'.$val['cate_title'].'</option>';
