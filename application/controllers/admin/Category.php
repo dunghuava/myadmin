@@ -81,7 +81,7 @@ class Category extends MY_Controller {
 		$data['page_name'] ='Thêm danh mục';
 		$data['page_menu'] ='category';
 		$data['arr_module']=$this->Module_M->all();
-		$data['arr_category']=$this->get_option_category(1);
+		$data['arr_category']=$this->get_option_category(0);
 		$this->getHeader($data);
 		$this->load->view('admin/pages/category/category_add');
 		$this->getFooter();
@@ -96,23 +96,27 @@ class Category extends MY_Controller {
 		$this->Category_M->update(['cate_id'=>$post['cate_id']],['cate_img'=>'']);
 	}
 	public function get_option_category($cate_module_id=0){
-		$all = $this->Category_M->all(['cate_parent_id'=>0]);
+		$where['cate_parent_id']=0;
+		if ($cate_module_id!=0){
+			$where['cate_module_id']=$cate_module_id;
+		}
+		$all = $this->Category_M->all($where);
 		$str='';
 		foreach ($all as $val){
 			$str.='<option value="'.$val['cate_id'].'">'.$val['cate_title'].'</option>';
-			$sub1 = $this->Category_M->all(['cate_parent_id'=>$val['cate_id'],'cate_module_id'=>$cate_module_id]);
+			$sub1 = $this->Category_M->all(['cate_parent_id'=>$val['cate_id']]);
 			if (count($sub1) >0){
 				foreach ($sub1 as $val1){
 					$str.='<option value="'.$val1['cate_id'].'">|__'.$val1['cate_title'].'</option>';
-					$sub2 = $this->Category_M->all(['cate_parent_id'=>$val1['cate_id'],'cate_module_id'=>$cate_module_id]);
+					$sub2 = $this->Category_M->all(['cate_parent_id'=>$val1['cate_id']]);
 					if (count($sub2) >0){
 						foreach ($sub2 as $val2){
 							$str.='<option value="'.$val2['cate_id'].'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__'.$val2['cate_title'].'</option>';
-							$sub3 = $this->Category_M->all(['cate_parent_id'=>$val2['cate_id'],'cate_module_id'=>$cate_module_id]);
+							$sub3 = $this->Category_M->all(['cate_parent_id'=>$val2['cate_id']]);
 							if (count($sub3) >0){
 								foreach ($sub3 as $val3){
 									$str.='<option value="'.$val3['cate_id'].'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__'.$val3['cate_title'].'</option>';
-									$sub4 = $this->Category_M->all(['cate_parent_id'=>$val3['cate_id'],'cate_module_id'=>$cate_module_id]);
+									$sub4 = $this->Category_M->all(['cate_parent_id'=>$val3['cate_id']]);
 									if (count($sub4) >0){
 										foreach ($sub4 as $val4){
 											$str.='<option value="'.$val4['cate_id'].'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__'.$val4['cate_title'].'</option>';
