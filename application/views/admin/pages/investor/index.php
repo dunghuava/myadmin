@@ -3,7 +3,12 @@
            <div class="col-md-12">
               <div class="col-md-12">
                 <form method="post">
-                    
+
+                    <div class="col-md-12 inline-flex">
+                        <a href="<?=base_url().'admin/investor/add/'?>">
+                            <button type="button" class="btn btn-primary">Thêm chủ đầu tư</button>
+                        </a>
+                    </div>
                 
             <table class="datatable table table-striped table-bordered">
                 <thead>
@@ -23,7 +28,7 @@
                         <tr>
                              <td><?=$item['investor_title']?></td>
                              <td><?=$item['investor_establish']?></td>
-                             <td><img src="<?=base_url().'upload/images/'.$item['investor_img']?>" style="max-height: 90px;"></td>
+                             <td><img src="<?=resizeImg($item['investor_img'],80,50,0)?>" style="max-height: 90px;"></td>
                              <td><input onchange="setCkb(this,'investor_highlights',<?=$item['investor_id']?>)" type="checkbox" <?=$item['investor_highlights']==1 ? 'checked':''?>></td>
                              <td><input onchange="setCkb(this,'investor_active',<?=$item['investor_id']?>)" type="checkbox" <?=$item['investor_active']==1 ? 'checked':''?> ></td>
                              <td>

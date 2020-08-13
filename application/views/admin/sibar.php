@@ -102,11 +102,11 @@
             </ul>
           </li>
 
-          <li class="nav-item has-treeview <?=$page_menu=='region' ? 'menu-open':''?>">
+          <li class="nav-item has-treeview <?=$page_menu=='extend' ? 'menu-open':''?>">
             <a href="javascript:void(0)" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>
-                Khu vực hiển thị
+                Mở rộng
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -114,66 +114,23 @@
               <li class="nav-item">
                 <a href="<?=getLink($arr_permissionAllowed,'admin/region',$user_infor['is_admin'])?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Tất cả</p>
+                  <p>Khu vực hiển thị</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="<?=getLink($arr_permissionAllowed,'admin/region/add',$user_infor['is_admin'])?>" class="nav-link">
-                  <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Thêm khu vực</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <li class="nav-item has-treeview <?=$page_menu=='residential' ? 'menu-open':''?>">
-            <a href="javascript:void(0)" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>
-                Khu dân cư
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="<?=getLink($arr_permissionAllowed,'admin/residential',$user_infor['is_admin'])?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Tất cả</p>
+                  <p>Khu dân cư</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="<?=getLink($arr_permissionAllowed,'admin/residential/add',$user_infor['is_admin'])?>" class="nav-link">
-                  <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Thêm khu dân cư</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <li class="nav-item has-treeview <?=$page_menu=='investor' ? 'menu-open':''?>">
-            <a href="javascript:void(0)" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>
-                Chủ đầu tư
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="<?=getLink($arr_permissionAllowed,'admin/investor',$user_infor['is_admin'])?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Tất cả</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?=getLink($arr_permissionAllowed,'admin/investor/add',$user_infor['is_admin'])?>" class="nav-link">
-                  <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Thêm chủ đầu tư</p>
+                  <p>Chủ đầu tư</p>
                 </a>
               </li>
             </ul>
           </li>
-
           <li class="nav-item has-treeview <?=$page_menu=='post' ? 'menu-open':''?>">
             <a href="javascript:void(0)" class="nav-link">
               <i class="nav-icon fas fa-file"></i>

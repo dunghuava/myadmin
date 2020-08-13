@@ -12,7 +12,7 @@ class Investor extends MY_Controller {
 	public function index()
 	{
 		$data['page_name']='Danh sách chủ đầu tư';
-		$data['page_menu']='investor';
+		$data['page_menu']='extend';
 		$data['list_investor']=$this->Investor_M->all();
 		$this->getHeader($data);
 		$this->load->view('admin/pages/investor/index.php',$data);
@@ -65,7 +65,7 @@ class Investor extends MY_Controller {
 		}
 
 		$data['page_name']='Thêm chủ đầu tư';
-		$data['page_menu']='investor';
+		$data['page_menu']='extend';
 		$this->getHeader($data);
 		$this->load->view('admin/pages/investor/add.php',$data);
 		$this->getFooter();
@@ -138,7 +138,7 @@ class Investor extends MY_Controller {
 
 		$data['info_investor'] = $info_investor;
 		$data['page_name']='Chỉnh sửa chủ đầu tư';
-		$data['page_menu']='investor';
+		$data['page_menu']='extend';
 		$this->getHeader($data);
 		$this->load->view('admin/pages/investor/edit.php',$data);
 		$this->getFooter();

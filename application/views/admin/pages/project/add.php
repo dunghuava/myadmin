@@ -20,9 +20,9 @@
         </div>
 
         <div class="col-md-8 inline-flex" >
-            <label for="">Loại dự án</label>
+            <label for="">Danh mục</label>
             <select name="project_category" id="project_category" class="form-control" required>
-            	<option value="">chọn loại dự án</option>
+            	<option value="">chọn loại danh mục</option>
             	<?php foreach ($list_category as $key => $category) {
             		echo '<option value="'.$category['cate_id'].'">'.$category['cate_title'].'</option>';
                     $list_category_level = $this->Category_M->all(['cate_module_id' => '2','cate_parent_id' => $category['cate_id']]);
@@ -30,6 +30,16 @@
                         echo '<option value="'.$category_level['cate_id'].'">|____'.$category_level['cate_title'].'</option>';
                     }
             	} ?>
+            </select>
+        </div>
+
+        <div class="col-md-8 inline-flex" >
+            <label for="">Loại</label>
+            <select name="project_kind" id="project_kind" class="form-control" required>
+                <option value="">chọn loại</option>
+                <option value="0">Dự án</option>
+                <option value="1">Mua</option>
+                <option value="2">Cho thuê</option>
             </select>
         </div>
 

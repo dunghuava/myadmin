@@ -14,10 +14,10 @@
             <input required type="file" name="residential_img" id="residential_img" class="">
         </div>
 
-        <div class="col-md-8 inline-flex">
+        <!-- <div class="col-md-8 inline-flex">
             <label for="">Hình ảnh banner</label>
             <input required type="file" name="residential_banner" id="residential_banner" class="">
-        </div>
+        </div> -->
 
         <div class="col-md-8 inline-flex">
             <label for="">Tiêu đề</label>

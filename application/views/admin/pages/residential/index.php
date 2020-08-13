@@ -4,7 +4,12 @@
               <div class="col-md-12">
                 <form method="post">
                     
-                
+                <div class="col-md-12 inline-flex">
+                        <a href="<?=base_url().'admin/residential/add/'?>">
+                            <button type="button" class="btn btn-primary">Thêm khu dân cư</button>
+                        </a>
+                    </div>
+
             <table class="datatable table table-striped table-bordered">
                 <thead>
                     <tr>

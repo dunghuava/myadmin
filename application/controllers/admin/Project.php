@@ -61,8 +61,12 @@ class Project extends MY_Controller {
             }
 
 
+            // 'project_category' => $post['project_category'], 
+
+
 			$data_insert = array(
 				'project_category' => $post['project_category'], 
+				'project_kind' => $post['project_kind'], 
 				'project_title' => $post['project_title'], 
 				'project_alias' => $post['project_alias'], 
 				'project_introduce' => $post['project_introduce'], 
@@ -255,6 +259,7 @@ class Project extends MY_Controller {
 
 			$data_update = array(
 				'project_category' => $post['project_category'], 
+				'project_kind' => $post['project_kind'], 
 				'project_title' => $post['project_title'], 
 				'project_alias' => $post['project_alias'], 
 				'project_introduce' => $post['project_introduce'], 

@@ -25,10 +25,10 @@
         </div>
 
 
-        <div class="col-md-8 inline-flex">
+        <!-- <div class="col-md-8 inline-flex">
             <label for="">Hình ảnh banner</label>
             <input type="file" name="residential_banner" id="residential_banner" class="">
-        </div>
+        </div> -->
 
         <div class="col-md-8 inline-flex" id="div_banner">
             <label for=""></label>

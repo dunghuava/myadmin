@@ -15,7 +15,7 @@ class Region extends MY_Controller {
 	public function index()
 	{
 		$data['page_name']='Danh sách khu vực';
-		$data['page_menu']='region';
+		$data['page_menu']='extend';
 
 		$data['category_region']=$this->Region_M->listCategory_Region();
 
@@ -29,7 +29,7 @@ class Region extends MY_Controller {
 	public function add()
 	{
 		$data['page_name']='Thêm khu vực';
-		$data['page_menu']='region';
+		$data['page_menu']='extend';
 
 		$post = $this->input->post();
 		if ($this->input->post()) {
@@ -76,7 +76,7 @@ class Region extends MY_Controller {
 	public function edit($id)
 	{
 		$data['page_name']='Chỉnh sửa khu vực';
-		$data['page_menu']='region';
+		$data['page_menu']='extend';
 		$info_region = $this->Region_M->find_row(['region_id' => $id]);
 		$post = $this->input->post();
 		if ($this->input->post()) {

@@ -44,9 +44,9 @@
 
 
         <div class="col-md-8 inline-flex" >
-            <label for="">Loại dự án</label>
+            <label for="">Danh mục</label>
             <select name="project_category" id="project_category" class="form-control" required>
-            	<option value="">chọn loại dự án</option>
+            	<option value="">Chọn danh mục</option>
             	<?php foreach ($list_category as $key => $category) {
             		if ($category['cate_id'] == $info_project['project_category']) {
             			$selected_category = 'selected';
@@ -65,6 +65,17 @@
                     }
             	} ?>
 
+            </select>
+        </div>
+
+
+        <div class="col-md-8 inline-flex" >
+            <label for="">Loại</label>
+            <select name="project_kind" id="project_kind" class="form-control" required>
+                <option value="">Chọn loại</option>
+                <option value="0" <?php if ($info_project['project_kind'] == 0) echo "selected='selected'";?>>Dự án</option>
+                <option value="1" <?php if ($info_project['project_kind'] == 1) echo "selected='selected'";?>>Mua</option>
+                <option value="2" <?php if ($info_project['project_kind'] == 2) echo "selected='selected'";?>>Cho thuê</option>
             </select>
         </div>
 

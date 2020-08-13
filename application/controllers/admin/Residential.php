@@ -17,7 +17,7 @@ class Residential extends MY_Controller {
 	public function index()
 	{
 		$data['page_name']='Danh sách khu dân cư';
-		$data['page_menu']='residential';
+		$data['page_menu']='extend';
 		$data['list_residential']=$this->Residential_M->all();
 		$this->getHeader($data);
 		$this->load->view('admin/pages/residential/index.php',$data);
@@ -37,12 +37,12 @@ class Residential extends MY_Controller {
 				move_uploaded_file($file_img['tmp_name'],$path_img);
 			}
 
-			if (!empty($_FILES['residential_banner']['name'])){
-				$file_banner = $_FILES['residential_banner'];
-				$filename_banner = md5($file_banner['name'].time());
-				$path_banner='upload/images/'.$filename_banner;
-				move_uploaded_file($file_banner['tmp_name'],$path_banner);
-			}
+			// if (!empty($_FILES['residential_banner']['name'])){
+			// 	$file_banner = $_FILES['residential_banner'];
+			// 	$filename_banner = md5($file_banner['name'].time());
+			// 	$path_banner='upload/images/'.$filename_banner;
+			// 	move_uploaded_file($file_banner['tmp_name'],$path_banner);
+			// }
 
 
 			if ($post['residential_active'] == '') {
@@ -74,7 +74,7 @@ class Residential extends MY_Controller {
 				'residential_title' => $post['residential_title'], 
 				'residential_alias' => $post['residential_alias'], 
 				'residential_img' => $filename_img, 
-				'residential_banner' => $filename_banner, 
+				'residential_banner' => '', 
 				'residential_introduce' => $post['residential_introduce'], 
 				'residential_content' => $post['residential_content'], 
 				'residential_highlights' => 0, 
@@ -109,7 +109,7 @@ class Residential extends MY_Controller {
 		$data['list_province'] = $list_province;
 		
 		$data['page_name']='Thêm khu dân cư';
-		$data['page_menu']='residential';
+		$data['page_menu']='extend';
 		$this->getHeader($data);
 		$this->load->view('admin/pages/residential/add.php',$data);
 		$this->getFooter();
@@ -150,15 +150,15 @@ class Residential extends MY_Controller {
 				$filename_img = $info_residential['residential_img'];
 			}
 
-			if (!empty($_FILES['residential_banner']['name'])){
-				$file_banner = $_FILES['residential_banner'];
-				$filename_banner = md5($file_banner['name'].time());
-				$path_banner='upload/images/'.$filename_banner;
-				move_uploaded_file($file_banner['tmp_name'],$path_banner);
-				@unlink('upload/images/'.$info_residential['residential_banner']);
-			}else{
-				$filename_banner = $info_residential['residential_banner'];
-			}
+			// if (!empty($_FILES['residential_banner']['name'])){
+			// 	$file_banner = $_FILES['residential_banner'];
+			// 	$filename_banner = md5($file_banner['name'].time());
+			// 	$path_banner='upload/images/'.$filename_banner;
+			// 	move_uploaded_file($file_banner['tmp_name'],$path_banner);
+			// 	@unlink('upload/images/'.$info_residential['residential_banner']);
+			// }else{
+			// 	$filename_banner = $info_residential['residential_banner'];
+			// }
 
 
 			if ($post['residential_active'] == '') {
@@ -190,7 +190,7 @@ class Residential extends MY_Controller {
 				'residential_title' => $post['residential_title'], 
 				'residential_alias' => $post['residential_alias'], 
 				'residential_img' => $filename_img, 
-				'residential_banner' => $filename_banner, 
+				'residential_banner' => '', 
 				'residential_introduce' => $post['residential_introduce'], 
 				'residential_content' => $post['residential_content'], 
 				'residential_active' => $post['residential_active'], 
@@ -223,7 +223,7 @@ class Residential extends MY_Controller {
 		$data['info_residential'] = $info_residential;
 		$data['list_province'] = $list_province;
 		$data['page_name']='Chỉnh sửa khu dân cư';
-		$data['page_menu']='residential';
+		$data['page_menu']='extend';
 		$this->getHeader($data);
 		$this->load->view('admin/pages/residential/edit.php',$data);
 		$this->getFooter();

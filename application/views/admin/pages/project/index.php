@@ -35,7 +35,7 @@
                         <tr>
                              <td><?=$category?></td>
                              <td><?=$item['project_title']?></td>
-                             <td><img src="<?=base_url().'upload/images/'.$item['project_img']?>" style="max-height: 90px;"></td>
+                             <td><img src="<?=resizeImg($item['project_img'],80,50,0)?>" style="max-height: 90px;"></td>
                              <td><input onchange="setCkb(this,'project_highlights',<?=$item['project_id']?>)" type="checkbox" <?=$item['project_highlights']==1 ? 'checked':''?>></td>
                              <td><input onchange="setCkb(this,'project_active',<?=$item['project_id']?>)" type="checkbox" <?=$item['project_active']==1 ? 'checked':''?> ></td>
                              <td>
