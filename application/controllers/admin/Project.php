@@ -130,7 +130,7 @@ class Project extends MY_Controller {
 
 		}
 
-		$list_category = $this->Category_M->all(['cate_module_id' => '2','cate_parent_id' => '0']);
+		$list_category = $this->get_option_category(2);
 		$list_province = $this->Province_M->all();
 		$list_status = $this->Status_M->all();
 		$list_type = $this->Type_M->all();
@@ -323,7 +323,7 @@ class Project extends MY_Controller {
 
 		}
 
-		$list_category = $this->Category_M->all(['cate_module_id' => '2','cate_parent_id' => '0']);
+		$list_category = $this->get_option_category(2);
 		$list_province = $this->Province_M->all();
 		$list_status = $this->Status_M->all();
 		$list_type = $this->Type_M->all();
@@ -346,6 +346,45 @@ class Project extends MY_Controller {
 		$this->getHeader($data);
 		$this->load->view('admin/pages/project/edit.php',$data);
 		$this->getFooter();
+	}
+
+
+	public function get_option_category($cate_module_id=0){
+		$where['cate_parent_id']=0;
+		if ($cate_module_id!=0){
+			$where['cate_module_id']=$cate_module_id;
+		}
+		$oder_by['cate_stt']= 'asc';
+		$all = $this->Category_M->all($where,$oder_by);
+		$str='';
+		foreach ($all as $val){
+			$str.='<option value="'.$val['cate_id'].'">'.$val['cate_title'].'</option>';
+			$sub1 = $this->Category_M->all(['cate_parent_id'=>$val['cate_id']]);
+			if (count($sub1) >0){
+				foreach ($sub1 as $val1){
+					$str.='<option value="'.$val1['cate_id'].'">|__'.$val1['cate_title'].'</option>';
+					$sub2 = $this->Category_M->all(['cate_parent_id'=>$val1['cate_id']]);
+					if (count($sub2) >0){
+						foreach ($sub2 as $val2){
+							$str.='<option value="'.$val2['cate_id'].'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__'.$val2['cate_title'].'</option>';
+							$sub3 = $this->Category_M->all(['cate_parent_id'=>$val2['cate_id']]);
+							if (count($sub3) >0){
+								foreach ($sub3 as $val3){
+									$str.='<option value="'.$val3['cate_id'].'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__'.$val3['cate_title'].'</option>';
+									$sub4 = $this->Category_M->all(['cate_parent_id'=>$val3['cate_id']]);
+									if (count($sub4) >0){
+										foreach ($sub4 as $val4){
+											$str.='<option value="'.$val4['cate_id'].'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__'.$val4['cate_title'].'</option>';
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return $str;
 	}
 
 }

@@ -47,23 +47,7 @@
             <label for="">Danh mục</label>
             <select name="project_category" id="project_category" class="form-control" required>
             	<option value="">Chọn danh mục</option>
-            	<?php foreach ($list_category as $key => $category) {
-            		if ($category['cate_id'] == $info_project['project_category']) {
-            			$selected_category = 'selected';
-            		}else{
-            			$selected_category = '';
-            		}
-            		echo '<option value="'.$category['cate_id'].'" '.$selected_category.'>'.$category['cate_title'].'</option>';
-                    $list_category_level = $this->Category_M->all(['cate_module_id' => '2','cate_parent_id' => $category['cate_id']]);
-                    foreach ($list_category_level as $category_level) {
-                        if ($category_level['cate_id'] == $info_project['project_category']) {
-                            $selected_category_level = 'selected';
-                        }else{
-                            $selected_category_level = '';
-                        }
-                        echo '<option value="'.$category_level['cate_id'].'" '.$selected_category_level.'>|____'.$category_level['cate_title'].'</option>';
-                    }
-            	} ?>
+            	<?php echo $list_category; ?>
 
             </select>
         </div>
@@ -285,19 +269,8 @@
         $(target).val(val);
     }
 
-    // $(document).ready(function () {
-    //     $('.select2').select2();
-    //     $(".tags-field").select2({
-    //         tokenSeparators: [','],
-    //         tags: true,
-    //     });
-    //     $('input').attr('autocomplete','off');
-    // });
+    $('#project_category').val(<?=$info_project['project_category']?>);
 
-  //   function clear_form_elements() {
-  //   $('#add_post').find('input:text').attr('value','');
-  //   $('#add_post').find('select > option').removeAttr('selected');
-  // }
 
   	var province_id = $('#project_province_id').val();
   	var district_id ='<?php echo $info_project['project_district_id'] ?>';

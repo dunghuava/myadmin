@@ -23,13 +23,7 @@
             <label for="">Danh mục</label>
             <select name="project_category" id="project_category" class="form-control" required>
             	<option value="">chọn loại danh mục</option>
-            	<?php foreach ($list_category as $key => $category) {
-            		echo '<option value="'.$category['cate_id'].'">'.$category['cate_title'].'</option>';
-                    $list_category_level = $this->Category_M->all(['cate_module_id' => '2','cate_parent_id' => $category['cate_id']]);
-                    foreach ($list_category_level as $category_level) {
-                        echo '<option value="'.$category_level['cate_id'].'">|____'.$category_level['cate_title'].'</option>';
-                    }
-            	} ?>
+            	<?php echo $list_category; ?>
             </select>
         </div>
 

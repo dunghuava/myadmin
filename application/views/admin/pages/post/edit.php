@@ -26,14 +26,7 @@
             <label for="">Loại bài viết</label>
             <select name="post_category_id" id="post_category_id" class="form-control" required>
             	<option value="">chọn loại bài viết</option>
-            	<?php foreach ($list_category as $key => $category) {
-            		if ($info_post['post_category_id'] == $category['cate_id']) {
-            			$selected = 'selected';
-            		}else{
-            			$selected = '';
-            		}
-            		echo '<option value="'.$category['cate_id'].'"  '.$selected.'>'.$category['cate_title'].'</option>';
-            	} ?>
+            	<?php echo $list_category;?>
             </select>
         </div>
         <!-- <div class="col-md-8 inline-flex">
@@ -124,6 +117,8 @@
 </div>
 
 <script>
+
+    $('#post_category_id').val(<?=$info_post['post_category_id']?>);
     function addText(e,target){
         var val = make_alias(e.value);
         $(target).val(val);

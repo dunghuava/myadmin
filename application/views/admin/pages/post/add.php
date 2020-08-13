@@ -14,9 +14,7 @@
             <label for="">Loại bài viết</label>
             <select name="post_category_id" id="post_category_id" class="form-control" required>
             	<option value="">chọn loại bài viết</option>
-            	<?php foreach ($list_category as $key => $category) {
-            		echo '<option value="'.$category['cate_id'].'">'.$category['cate_title'].'</option>';
-            	} ?>
+            	<?php echo $list_category;?>
             </select>
         </div>
         <!-- <div class="col-md-8 inline-flex">
