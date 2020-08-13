@@ -22,7 +22,7 @@
             tokenSeparators: [','],
             tags: true,
         });
-            $('.datepicker').datepicker({ format: 'dd-mm-yyyy', });
+			$('.datepicker').datepicker({ format: 'dd-mm-yyyy', });
 			$('input').attr('autocomplete','off');
 			$('.cpicker').colorpicker();
 			$('.form-validate').validate();

@@ -34,7 +34,7 @@
 
                              <td><?=$info_category['cate_title']?></td>
                              <td><?=$item['post_title']?></td>
-                             <td><img src="<?=resizeImg($item['post_img'],110,70,0)?>" style="max-height: 90px;"></td>
+                             <td><img src="<?=resizeImg($item['post_img'],80,50,0)?>" style="max-height: 90px;"></td>
                              <td><?=$item['updated_at']?></td>
                              <td><input onchange="setCkb(this,'post_highlights',<?=$item['post_id']?>)" type="checkbox" <?=$item['post_highlights']==1 ? 'checked':''?>></td>
                              <td><input onchange="setCkb(this,'post_active',<?=$item['post_id']?>)" type="checkbox" <?=$item['post_active']==1 ? 'checked':''?> ></td>
