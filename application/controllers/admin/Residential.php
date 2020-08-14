@@ -18,7 +18,7 @@ class Residential extends MY_Controller {
 	{
 		$data['page_name']='Danh sách khu dân cư';
 		$data['page_menu']='extend';
-		$data['list_residential']=$this->Residential_M->all();
+		$data['list_residential']=$this->Residential_M->all('',['residential_id'=>'desc']);
 		$this->getHeader($data);
 		$this->load->view('admin/pages/residential/index.php',$data);
 		$this->getFooter();

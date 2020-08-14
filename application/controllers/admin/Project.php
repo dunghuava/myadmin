@@ -25,7 +25,7 @@ class Project extends MY_Controller {
 	{
 		$data['page_name']='Danh sách dự án';
 		$data['page_menu']='project';
-		$data['list_project']=$this->Project_M->all();
+		$data['list_project']=$this->Project_M->all('',['project_id'=>'desc']);
 		$this->getHeader($data);
 		$this->load->view('admin/pages/project/index.php',$data);
 		$this->getFooter();
