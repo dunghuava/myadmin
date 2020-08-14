@@ -1,5 +1,5 @@
 <?php 
-    $categories = $this->Category_M->all(['cate_parent_id'=>0]);
+    $categories = $this->Category_M->all(['cate_parent_id'=>0],['cate_stt'=>'asc']);
 ?>
 <nav class="nav-menu">
     <ul class="main-menu">
@@ -9,7 +9,7 @@
         <?php 
             foreach ($categories as $cate)
             {
-            $sub = $this->Category_M->all(['cate_parent_id'=>$cate['cate_id']]);
+            $sub = $this->Category_M->all(['cate_parent_id'=>$cate['cate_id']],['cate_stt'=>'asc']);
             $classes = count($sub) > 0 ? 'class="dropdown"':'';
         ?>
         <li <?=$classes?>>

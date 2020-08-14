@@ -25,7 +25,8 @@
         </div>
         <div class="col-md-8 inline-flex">
             <label for="">Module</label>
-            <select name="cate_module_id" id="cate_module_id" class="form-control">
+            <select name="cate_module_id" id="cate_module_id" class="form-control" required>
+                <option value="">Chọn loại module</option>
                 <?php foreach ($arr_module as $value){ ?>
                     <option value="<?=$value['module_id']?>"><?=$value['module_title']?></option>
                 <?php } ?>
