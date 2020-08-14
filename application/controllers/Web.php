@@ -8,6 +8,11 @@ class Web extends MY_Controller {
         parent::__construct();
         $this->load->model('Category_M');
         $this->load->model('Slide_M');
+        $this->load->model('Investor_M');
+        $this->load->model('Residential_M');
+        $this->load->model('Province_M');
+        $this->load->model('District_M');
+        $this->load->model('Region_M');
         
     }
     public function page_post_list($alias=null){
@@ -17,7 +22,16 @@ class Web extends MY_Controller {
     }
     public function page_index(){
         $this->page_header();
-        $this->view('web/index');
+        $data['list_investor'] = $this->Investor_M->getListInvestor();
+        $data['list_residential'] = $this->Residential_M->getListResidential();
+
+        $data['duan_region'] = $this->Region_M->getListRegion_byCategory(25);
+        $data['mua_region'] = $this->Region_M->getListRegion_byCategory(35);
+        $data['thue_region'] = $this->Region_M->getListRegion_byCategory(43);
+
+        // echo "<pre>";
+        // print_r($data['list_residential']);die();
+        $this->view('web/index',$data);
         $this->page_footer();
     }
     public function page_post_detail($alias=null){
