@@ -63,6 +63,12 @@ class Project extends MY_Controller {
 
             // 'project_category' => $post['project_category'], 
 
+            if (!empty($post['project_furniture'])) {
+            	$furniture = implode(',', $post['project_furniture']);
+            }else{
+            	$furniture = '';
+            }
+
 
 			$data_insert = array(
 				'project_category' => $post['project_category'], 
@@ -92,7 +98,7 @@ class Project extends MY_Controller {
 				'number_units' => $post['number_units'], 
 				'number_blocks' => $post['number_blocks'], 
 				'project_extension' => implode(',', $post['project_extension']), 
-				'project_furniture' => implode(',', $post['project_furniture']), 
+				'project_furniture' => $furniture, 
 				'project_residential' => $post['project_residential'], 
 				'project_keyword' => $post['project_keyword'], 
 				'project_description' => $post['project_description'], 
@@ -256,6 +262,12 @@ class Project extends MY_Controller {
                 $lng = '';
             }
 
+            if (!empty($post['project_furniture'])) {
+            	$furniture = implode(',', $post['project_furniture']);
+            }else{
+            	$furniture = '';
+            }
+
 
 			$data_update = array(
 				'project_category' => $post['project_category'], 
@@ -283,7 +295,7 @@ class Project extends MY_Controller {
 				'number_units' => $post['number_units'], 
 				'number_blocks' => $post['number_blocks'], 
 				'project_extension' => implode(',', $post['project_extension']), 
-				'project_furniture' => implode(',', $post['project_furniture']), 
+				'project_furniture' => $furniture, 
 				'project_residential' => $post['project_residential'], 
 				'project_keyword' => $post['project_keyword'], 
 				'project_description' => $post['project_description'], 
