@@ -345,7 +345,7 @@
                     <a href="">
                         <div class="item-khudancu">
                             <div class="cover-img">
-                                <img src="<?=base_url('upload/images/'.$residential['residential_img'].'')?>" alt="" style="height: 250px">
+                                <img src="<?=resizeImg($residential['residential_img'],420,220,0)?>" alt="">
                             </div>
                             <div class="content">
                                 <br>
