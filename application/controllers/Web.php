@@ -35,7 +35,41 @@ class Web extends MY_Controller {
         $data['mua_region'] = $this->Region_M->getListRegion_byCategory(35);
         $data['thue_region'] = $this->Region_M->getListRegion_byCategory(43);
 
-        $data['list_post'] = $this->Post_M->getListPost_byCategory(11);
+        $data['list_post'] = $this->Post_M->getListPost_byCategory(11,4);
+
+        $data['tuvanluat'] = $this->Post_M->getListPost_byCategory(18,5);
+
+        $data['blog'] = $this->Post_M->getListPost_byCategory(14,5);
+
+        $tinmuanha = $this->Post_M->getListPost_byCategory(16,3);
+
+        $tinbannha = $this->Post_M->getListPost_byCategory(17,3);
+
+        $tin_mua_ban = [];
+
+        foreach ($tinmuanha as $key => $tin_mua) {
+            $tin_mua_ban[] = [
+                "created_at" => $tin_mua['created_at'],
+                "post_img" => $tin_mua['post_img'],
+                "post_title" => $tin_mua['post_title'],
+                "post_alias" => $tin_mua['post_alias'],
+                "post_id" => $tin_mua['post_id'],
+            ];
+        }
+
+        foreach ($tinbannha as $key => $tin_ban) {
+            $tin_mua_ban[] = [
+                "created_at" => $tin_ban['created_at'],
+                "post_img" => $tin_ban['post_img'],
+                "post_title" => $tin_ban['post_title'],
+                "post_alias" => $tin_ban['post_alias'],
+                "post_id" => $tin_ban['post_id'],
+            ];
+        }
+
+        sort($tin_mua_ban);
+
+        $data['tin_mua_ban'] = $tin_mua_ban;
 
         $this->view('web/index',$data);
         $this->page_footer();
