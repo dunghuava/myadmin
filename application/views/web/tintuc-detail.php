@@ -1,4 +1,9 @@
 <br>
+<style>
+    div img{
+        max-width:100%;
+    }
+</style>
 <section class="sec-post-detail">
     <div class="container">
         <div class="row">
@@ -21,6 +26,9 @@
                         <span><?=$post['post_content']?></span>
                     </p>
                     <hr>
+                    <div class="text-left">
+                        <p><span class="fa fa-edit"></span>&nbsp;Tác giả </p>
+                    </div>
                 </div>
             </div>
             <div class="col-md-4">
