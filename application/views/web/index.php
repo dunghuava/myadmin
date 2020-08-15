@@ -265,7 +265,7 @@
                                 <img src="<?=resizeImg($tin_mua_ban[0]['post_img'],338,160,0)?>" alt="">
                                 <p style="height: 43px" class="title font17"><?=$tin_mua_ban[0]['post_title']?></p>
                             </a>
-                        </div>
+                        </div><br>
                         <?php foreach ($tin_mua_ban as $key => $tmb) {
                             if ($key>0 && $key<5) {
                         ?>
@@ -290,7 +290,7 @@
                                 <img src="<?=resizeImg($tuvanluat[0]['post_img'],338,160,0)?>" alt="">
                                 <p style="height: 43px" class="title font17"><?=$tuvanluat[0]['post_title']?></p>
                             </a>
-                        </div>
+                        </div><br>
                         <?php foreach ($tuvanluat as $key => $tvl) {
                             if ($key > 0) {
                         ?>
@@ -315,7 +315,7 @@
                                 <img src="<?=resizeImg($blog[0]['post_img'],338,160,0)?>" alt="">
                                 <p style="height: 43px" class="title font17"><?=$blog[0]['post_title']?></p>
                             </a>
-                        </div>
+                        </div><br>
                         <?php foreach ($blog as $key => $bg) {
                             if ($key > 0) {
                         ?>
