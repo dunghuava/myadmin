@@ -150,6 +150,7 @@ img {
 
 .app-header {
   padding: 5px 0px;
+  background: #fff;
   border-bottom: 1px solid #dcdcdc;
 }
 
@@ -316,6 +317,8 @@ img {
   font-size: 18px;
   background: #88ad6a;
   color: #fff;
+  border-radius: 4px;
+  margin-left: 2px;
 }
 
 #form-absolute input {
@@ -327,6 +330,7 @@ img {
   -webkit-box-shadow: none;
           box-shadow: none;
   font-size: 15px;
+  border-radius: 4px;
 }
 
 .main-title {
@@ -856,6 +860,36 @@ img {
 #form-contact button {
   border-radius: 0px;
   background: #88AD6A;
+}
+
+.frm-top-search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.frm-top-search .form-control, .frm-top-search .btn {
+  border-radius: 0px;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  height: 40px;
+  border-color: #88AD6A !important;
+}
+
+.frm-top-search select {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-right: 0px;
+}
+
+.frm-top-search input {
+  border-right: 0px;
+}
+
+.frm-top-search button {
+  border-left: 0px;
 }
 
 .page-cdt .banner {

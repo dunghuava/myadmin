@@ -16,6 +16,15 @@ class Project_M extends MY_model {
 		$this->db->limit($limit);
 		return $this->db->get($this->table)->result_array();
 	}
+	public function searchApi($search){
+		if (isset($search['cate_id'])){
+			$this->db->where('project_category',$search['cate_id']);
+		}
+		if (isset($search['project_title'])){
+			$this->db->like('project_title',$search['project_title'],'both');
+		}
+		return $this->db->get($this->table)->result_array();
+	}
 }
 
 /* End of file Account_M.php */

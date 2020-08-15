@@ -87,3 +87,23 @@
         background: $primary-color;
     }
 }
+.frm-top-search{
+    display: flex;
+    .form-control,.btn{
+        border-radius: 0px;
+        outline: none;
+        box-shadow: none;
+        height: 40px;
+        border-color: $primary-color !important;
+    }
+    select{
+        width: fit-content;
+        border-right: 0px;
+    }
+    input{
+        border-right: 0px;
+    }
+    button{
+        border-left: 0px;
+    }
+}
