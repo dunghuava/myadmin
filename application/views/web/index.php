@@ -198,7 +198,10 @@
             <?php foreach ($list_investor as $key => $investor) {?>
                 <div class="col-md-2 col-xs-6">
                     <div class="item-chudautu">
-                        <img src="<?=base_url('upload/images/'.$investor['investor_img'].'')?>" alt="" style="height: 100px">
+                        <a href="">
+                            <img src="<?=base_url('upload/images/'.$investor['investor_img'].'')?>" alt="" style="height: 100px">
+                        </a>
+                        
                     </div>
                 </div>
             <?php } ?>
@@ -218,7 +221,7 @@
                     <a href="">
                        <div class="news-body">
                         <?php if (!empty($list_post)){?>
-                            <img src="<?=resizeImg($list_post[0]['post_img'],555,370,0)?>" alt="">
+                            <img src="<?=resizeImg($list_post[0]['post_img'],555,319,0)?>" alt="">
                             <div class="news-content">
                                 <h3 class="title"><?=$list_post[0]['post_title']?></h3>
                                 <p><?=date('d-m-Y',$list_post[0]['post_date_time'])?></p>
@@ -253,7 +256,7 @@
     <div class="container">
         <h3 class="main-title">Thông tin - Blog</h3>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="item-blog">
                     <div class="title-blog">
                         <span class="fa fa-bars"></span><h3>Tư vấn luật</h3>
@@ -276,7 +279,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="item-blog">
                     <div class="title-blog">
                         <span class="fa fa-bars"></span><h3>Tư vấn luật</h3>
@@ -299,30 +302,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="item-blog">
-                    <div class="title-blog">
-                        <span class="fa fa-bars"></span><h3>Tư vấn luật</h3>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-larger">
-                            <a href="">
-                                <img src="<?=base_url('upload/images/blog.jpg')?>" alt="">
-                                <p class="title">Chi phí quản lý dự án hủy bỏ được tính như thế nào ?</p>
-                            </a>
-                        </div>
-                        <?php for ($i=0;$i<3;$i++){ ?>
-                         <div class="blog-small">
-                             <a href="" style="display:inline-flex">
-                                <img src="<?=base_url('upload/images/blog.jpg')?>" alt="">
-                                <p class="title">Chi phí quản lý dự án hủy bỏ được tính như thế nào ?</p>
-                             </a>
-                         </div>
-                        <?php } ?>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="item-blog">
                     <div class="title-blog">
                         <span class="fa fa-bars"></span><h3>Tư vấn luật</h3>
