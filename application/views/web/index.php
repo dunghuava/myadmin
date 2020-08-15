@@ -342,7 +342,7 @@
                 $info_district = $this->District_M->find_row(['district_id'=>$residential['residential_district_id']]);
             ?>
                 <div class="col-md-4">
-                    <a href="<?=base_url('khu-dan-cu/'.$residential['residential_alias']) ?>" title="<?php echo $residential['residential_title'] ?>">
+                    <a href="<?=base_url('khu-dan-cu/'.$residential['residential_alias'].'/'.'-'.$residential['residential_id']) ?>" title="<?php echo $residential['residential_title'] ?>">
                         <div class="item-khudancu">
                             <div class="cover-img">
                                 <img src="<?=resizeImg($residential['residential_img'],420,220,0)?>" alt="">
