@@ -218,15 +218,13 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="item-news-big">
-                    <a href="">
+                    <a href="<?=base_url('bai-viet/'.$list_post[0]['post_alias'].'-'.$list_post[0]['post_id'])?>">
                        <div class="news-body">
-                        <?php if (!empty($list_post)){?>
                             <img src="<?=resizeImg($list_post[0]['post_img'],555,319,0)?>" alt="">
                             <div class="news-content">
                                 <h3 class="title"><?=$list_post[0]['post_title']?></h3>
                                 <p><?=date('d-m-Y',$list_post[0]['post_date_time'])?></p>
                             </div>
-                        <?php } ?>
                        </div>
                     </a>
                 </div>
@@ -237,7 +235,7 @@
                     if ($key>0) {
                 ?>
                     <div class="item-news-small">
-                        <a href="" style="display:inline-flex">
+                        <a href="<?=base_url('bai-viet/'.$post['post_alias'].'-'.$post['post_id'])?>" style="display:inline-flex">
                             <div class="news-img">
                                 <img src="<?=resizeImg($post['post_img'],145,96,0)?>" alt="">
                             </div>
@@ -259,23 +257,25 @@
             <div class="col-md-4">
                 <div class="item-blog">
                     <div class="title-blog">
-                        <span class="fa fa-bars"></span><h3>Tư vấn luật</h3>
+                        <span class="fa fa-bars"></span><h3>Hướng dẫn mua/bán nhà</h3>
                     </div>
                     <div class="blog-content">
                         <div class="blog-larger">
-                            <a href="">
-                                <img src="<?=base_url('upload/images/blog.jpg')?>" alt="">
-                                <p class="title">Chi phí quản lý dự án hủy bỏ được tính như thế nào ?</p>
+                            <a href="<?=base_url('bai-viet/'.$tin_mua_ban[0]['post_alias'].'-'.$tin_mua_ban[0]['post_id'])?>">
+                                <img src="<?=resizeImg($tin_mua_ban[0]['post_img'],338,160,0)?>" alt="">
+                                <p style="height: 43px" class="title font17"><?=$tin_mua_ban[0]['post_title']?></p>
                             </a>
                         </div>
-                        <?php for ($i=0;$i<3;$i++){ ?>
+                        <?php foreach ($tin_mua_ban as $key => $tmb) {
+                            if ($key>0 && $key<5) {
+                        ?>
                          <div class="blog-small">
-                             <a href="" style="display:inline-flex">
-                                <img src="<?=base_url('upload/images/blog.jpg')?>" alt="">
-                                <p class="title">Chi phí quản lý dự án hủy bỏ được tính như thế nào ?</p>
+                             <a href="<?=base_url('bai-viet/'.$tmb['post_alias'].'-'.$tmb['post_id'])?>" style="display:inline-flex">
+                                <img src="<?=resizeImg($tmb['post_img'],338,160,0)?>" alt="">
+                                <p class="title"><?=$tmb['post_title']?></p>
                              </a>
                          </div>
-                        <?php } ?>
+                        <?php } } ?>
                     </div>
                 </div>
             </div>
@@ -286,42 +286,46 @@
                     </div>
                     <div class="blog-content">
                         <div class="blog-larger">
-                            <a href="">
-                                <img src="<?=base_url('upload/images/blog.jpg')?>" alt="">
-                                <p class="title">Chi phí quản lý dự án hủy bỏ được tính như thế nào ?</p>
+                            <a href="<?=base_url('bai-viet/'.$tuvanluat[0]['post_alias'].'-'.$tuvanluat[0]['post_id'])?>">
+                                <img src="<?=resizeImg($tuvanluat[0]['post_img'],338,160,0)?>" alt="">
+                                <p style="height: 43px" class="title font17"><?=$tuvanluat[0]['post_title']?></p>
                             </a>
                         </div>
-                        <?php for ($i=0;$i<3;$i++){ ?>
+                        <?php foreach ($tuvanluat as $key => $tvl) {
+                            if ($key > 0) {
+                        ?>
                          <div class="blog-small">
-                             <a href="" style="display:inline-flex">
-                                <img src="<?=base_url('upload/images/blog.jpg')?>" alt="">
-                                <p class="title">Chi phí quản lý dự án hủy bỏ được tính như thế nào ?</p>
+                             <a href="<?=base_url('bai-viet/'.$tvl['post_alias'].'-'.$tvl['post_id'])?>" style="display:inline-flex">
+                                <img src="<?=resizeImg($tvl['post_img'],338,160,0)?>" alt="">
+                                <p class="title"><?=$tvl['post_title']?></p>
                              </a>
                          </div>
-                        <?php } ?>
+                        <?php } } ?>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="item-blog">
                     <div class="title-blog">
-                        <span class="fa fa-bars"></span><h3>Tư vấn luật</h3>
+                        <span class="fa fa-bars"></span><h3>Blog</h3>
                     </div>
                     <div class="blog-content">
                         <div class="blog-larger">
-                            <a href="">
-                                <img src="<?=base_url('upload/images/blog.jpg')?>" alt="">
-                                <p class="title">Chi phí quản lý dự án hủy bỏ được tính như thế nào ?</p>
+                            <a href="<?=base_url('bai-viet/'.$blog[0]['post_alias'].'-'.$blog[0]['post_id'])?>">
+                                <img src="<?=resizeImg($blog[0]['post_img'],338,160,0)?>" alt="">
+                                <p style="height: 43px" class="title font17"><?=$blog[0]['post_title']?></p>
                             </a>
                         </div>
-                        <?php for ($i=0;$i<3;$i++){ ?>
+                        <?php foreach ($blog as $key => $bg) {
+                            if ($key > 0) {
+                        ?>
                          <div class="blog-small">
-                             <a href="" style="display:inline-flex">
-                                <img src="<?=base_url('upload/images/blog.jpg')?>" alt="">
-                                <p class="title">Chi phí quản lý dự án hủy bỏ được tính như thế nào ?</p>
+                             <a href="<?=base_url('bai-viet/'.$bg['post_alias'].'-'.$bg['post_id'])?>" style="display:inline-flex">
+                                <img src="<?=resizeImg($bg['post_img'],338,160,0)?>" alt="">
+                                <p class="title"><?=$bg['post_title']?></p>
                              </a>
                          </div>
-                        <?php } ?>
+                        <?php } } ?>
                     </div>
                 </div>
             </div>

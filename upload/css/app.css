@@ -25,7 +25,11 @@ a:active {
 }
 
 .font20 {
-  font-size: 18px !important;
+  font-size: 20px !important;
+}
+
+.font17 {
+  font-size: 17px !important;
 }
 
 ul {
