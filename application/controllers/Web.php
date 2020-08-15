@@ -35,6 +35,8 @@ class Web extends MY_Controller {
         $data['mua_region'] = $this->Region_M->getListRegion_byCategory(35);
         $data['thue_region'] = $this->Region_M->getListRegion_byCategory(43);
 
+        $data['list_post'] = $this->Post_M->getListPost_byCategory(11);
+
         $this->view('web/index',$data);
         $this->page_footer();
     }
