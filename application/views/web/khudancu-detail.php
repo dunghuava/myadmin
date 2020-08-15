@@ -1,9 +1,9 @@
 <section class="page-khudancu-detail">
-    <div class="banner" style="background:url(<?=base_url('upload/images/kdc_bg.jpg')?>)">
+    <div class="banner" style="background:url(<?=resizeImg($kdc['residential_img'],1500,500,0)?>)">
         <div class="abs-content container">
             <div class="col-md-12 pd0">
                 <p>Khu dân cư  TP. Hồ Chí Minh  Quận 2</p>
-                <h3 class="title">Khu đô thị mới Thủ Thiêm</h3>
+                <h3 class="title"><?=$kdc['residential_title']?></h3>
             </div>
         </div>
     </div>
@@ -13,11 +13,11 @@
             <div class="row">
                 <div class="col-md-8">
                     <ul>
-                        <li><a href="">Tổng quan</a></li>
-                        <li><a href="">Nhà đất bán</a></li>
-                        <li><a href="">Nhà đất thuê</a></li>
-                        <li><a href="">Vị trí</a></li>
-                        <li><a href="">Chi tiết</a></li>
+                        <li style="padding-left:0px"><a href="<?=fullAddress().'#p_overview'?>">Tổng quan</a></li>
+                        <li><a href="<?=fullAddress().'#p_selling'?>">Nhà đất bán</a></li>
+                        <li><a href="<?=fullAddress().'#p_forent'?>">Nhà đất thuê</a></li>
+                        <li><a href="<?=fullAddress().'#p_location'?>">Vị trí</a></li>
+                        <li><a href="<?=fullAddress().'#p_detail'?>">Chi tiết</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 text-right">
@@ -30,16 +30,20 @@
     <!-- overview-toolbar -->
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-8" id="p_overview">
                 <h3>Mô tả</h3>
                 <p>
-                    Khu đô thị mới Thủ Thiêm tọa lạc bên bờ Đông sông Sài Gòn đối diện Quận 1, với tổng diện tích 657 ha. Thủ Thiêm được quy hoạch là một trung tâm mới, hiện đại và  mở rộng của thành phố Hồ Chí Minh, với các chức năng chính là trung tâm tài chính, thương mại, dịch vụ cao cấp của thành phố, khu vực và có vị trí quốc tế, là trung tâm văn hóa, nghỉ ngơi, giải trí
+                   <?=$kdc['residential_introduce']?>
                 </p>
                 <h3>Tags</h3>
-                <span class="btn btn-default">Tag1</span>
-                <span class="btn btn-default">Tag2</span>
-                <span class="btn btn-default">Tag3</span>
-                <span class="btn btn-default">Tag4</span>
+                <?php 
+                    $tags = explode(',',$kdc['residential_tag']);
+                    foreach ($tags as $tag){
+                ?>
+                <span class="btn btn-default"><?=$tag?></span>
+                <?php 
+                    } 
+                ?>
             </div>
             <div class="col-md-4">
                 <h3>Giao thông</h3>
@@ -49,14 +53,14 @@
             </div>
         </div>
     </div><br>
-    <div class="house-selling">
+    <div class="house-selling" id="p_selling">
         <div class="container">
             <div class="text-center">
                 <h3>Nhà bán tại khu đô thị thủ thiêm</h3>
             </div><br>
             <div class="row">
                 <!-- item -->
-                <?php for ($i=0;$i<6;$i++){ ?>
+                <?php for ($i=0;$i<3;$i++){ ?>
                 <div class="col-md-4">
                     <div class="item-project">
                         <a href="">
@@ -85,14 +89,14 @@
             </div>
         </div>
     </div>
-    <div class="house-forent">
+    <div class="house-forent" id="p_forent">
         <div class="container">
             <div class="text-center">
                 <h3>Nhà cho thuê tại khu đô thị thủ thiêm</h3>
             </div><br>
             <div class="row">
                 <!-- item -->
-                <?php for ($i=0;$i<6;$i++){ ?>
+                <?php for ($i=0;$i<3;$i++){ ?>
                 <div class="col-md-4">
                     <div class="item-project">
                         <a href="">
@@ -123,7 +127,12 @@
     </div>
 
     <!-- location-are -->
-    <div class="div-location">
+    <style>
+        div img{
+            max-width:100%;
+        }
+    </style>
+    <div class="div-location" id="p_location">
         <div class="container">
                 <br>
                 <div class="text-center"><h3>Vị trí Diamond Island - Đảo Kim Cương trên bản đồ</h3></div>
@@ -142,6 +151,14 @@
         </div>
     </div>
     <!-- location are -->
+    <div class="content-kdc" id="p_detail">
+        <div class="container">
+            <br>
+            <div class="text-center"><h3>Thông tin chi tiết <?=$kdc['residential_title']?></h3></div>
+            <br>
+            <p><?=$kdc['residential_content']?></p>
+        </div>
+    </div>
 </section>
 
 <script>

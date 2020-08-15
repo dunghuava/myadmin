@@ -82,9 +82,11 @@ class Web extends MY_Controller {
         $this->page_footer();
     }
     public function page_khudancu_detail($alias=null){
-
+        $kdc_id = getID($alias);
+        $data['kdc']= $this->Residential_M->find_row(['residential_id'=>$kdc_id]);
+        
         $this->page_header();
-        $this->view('web/khudancu-detail');
+        $this->view('web/khudancu-detail',$data);
         $this->page_footer();
     }
     public function page_khudancu_all($alias=null){

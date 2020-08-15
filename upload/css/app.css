@@ -4,6 +4,10 @@
   font-family: 'Roboto Condensed', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 a {
   color: #000;
 }
