@@ -117,6 +117,7 @@ img {
   left: 0px;
   top: 100%;
   min-width: 200%;
+  width: 280%;
   background: #fff;
   z-index: 999;
   -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
@@ -238,7 +239,7 @@ img {
 #backtotop {
   position: fixed;
   bottom: 20%;
-  right: 0%;
+  right: 2%;
   width: 40px;
   height: 40px;
   z-index: 999;
