@@ -270,8 +270,8 @@
                             if ($key>0 && $key<5) {
                         ?>
                          <div class="blog-small">
-                             <a href="<?=base_url('blog/'.$tmb['post_alias'].'-'.$tmb['post_id'])?>" style="display:inline-flex">
-                                <img src="<?=resizeImg($tmb['post_img'],338,160,0)?>" alt="">
+                             <a href="<?=base_url('bai-viet/'.$tmb['post_alias'].'-'.$tmb['post_id'])?>" style="display:inline-flex">
+                                <img src="<?=resizeImg($tmb['post_img'],100,65,0)?>" alt="">
                                 <p class="title"><?=$tmb['post_title']?></p>
                              </a>
                          </div>
@@ -296,7 +296,7 @@
                         ?>
                          <div class="blog-small">
                              <a href="<?=base_url('bai-viet/'.$tvl['post_alias'].'-'.$tvl['post_id'])?>" style="display:inline-flex">
-                                <img src="<?=resizeImg($tvl['post_img'],338,160,0)?>" alt="">
+                                <img src="<?=resizeImg($tvl['post_img'],100,65,0)?>" alt="">
                                 <p class="title"><?=$tvl['post_title']?></p>
                              </a>
                          </div>
@@ -321,7 +321,7 @@
                         ?>
                          <div class="blog-small">
                              <a href="<?=base_url('bai-viet/'.$bg['post_alias'].'-'.$bg['post_id'])?>" style="display:inline-flex">
-                                <img src="<?=resizeImg($bg['post_img'],338,160,0)?>" alt="">
+                                <img src="<?=resizeImg($bg['post_img'],100,65,0)?>" alt="">
                                 <p class="title"><?=$bg['post_title']?></p>
                              </a>
                          </div>
