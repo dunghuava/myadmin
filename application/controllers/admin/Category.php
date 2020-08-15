@@ -13,7 +13,9 @@ class Category extends MY_Controller {
 	{
 		$data['page_name']='Danh mục';
 		$data['page_menu']='category';
-		$data['arr_category']=$this->Category_M->all(['cate_parent_id'=>0],['cate_id'=>'asc']);
+		$data['arr_category']=$this->Category_M->all(['cate_parent_id'=>0],'desc');
+		echo $this->db->last_query();
+		die;
 		$this->getHeader($data);
 		$this->load->view('admin/pages/category/category');
 		$this->getFooter();
@@ -21,6 +23,7 @@ class Category extends MY_Controller {
 	public function edit($cate_id)
 	{
 		$category = $this->Category_M->all(['cate_id'=>$cate_id])[0];
+
 		$post = $this->input->post();
 		if ($post){
 			if (!empty($_FILES['cate_img']['name'])){

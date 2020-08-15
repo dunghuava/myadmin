@@ -51,7 +51,7 @@
         </div>   
 
         <div class="col-md-12 inline-flex">
-            <label for="">Thông tin chi tiết</label>
+            <label for="">Nội dung</label>
             <textarea name="residential_content" id="residential_content" cols="30" rows="5" class="form-control html_editor" required></textarea>
         </div> 
 

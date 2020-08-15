@@ -54,7 +54,7 @@ $route['404_override'] 			= '';
 $route['translate_uri_dashes'] 	= FALSE;
 
 // web route
-$route['categories/(:any)']     = 'web/page_categories';
+$route['danh-muc/(:any)']     = 'web/page_categories';
 // end route
 
 $route['admin']							= 'admin/category';

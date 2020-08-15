@@ -1,5 +1,5 @@
 <?php 
-    $categories = $this->Category_M->all(['cate_parent_id'=>0]);
+    $categories = $this->Category_M->all(['cate_parent_id'=>0,'cate_is_menu'=>1,'cate_is_public'=>1]);
 ?>
 <nav class="nav-menu">
     <ul class="main-menu">
@@ -13,14 +13,14 @@
             $classes = count($sub) > 0 ? 'class="dropdown"':'';
         ?>
         <li <?=$classes?>>
-            <a href="<?=base_url('categories/'.$cate['cate_alias'])?>"><?=$cate['cate_title']?></a>
+            <a href="<?=base_url('danh-muc/'.$cate['cate_alias'])?>"><?=$cate['cate_title']?></a>
             <?php 
                 if ($sub>0){
             ?>
             <ul class="dropdown-list">
                   <?php foreach ($sub as $s_cate){ ?>
                     <li>
-                        <a href="<?=base_url('categories/'.$s_cate['cate_alias'])?>"><?=$s_cate['cate_title']?></a>
+                        <a href="<?=base_url('danh-muc/'.$s_cate['cate_alias'])?>"><?=$s_cate['cate_title']?></a>
                     </li>
                   <?php } ?>
             </ul>

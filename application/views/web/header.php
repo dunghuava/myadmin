@@ -45,7 +45,9 @@
 </header>
 <div id="backtotop"></div>
 <script>
-window.onscroll = function() {addSticky()};
+window.onscroll = function() {
+    addSticky()
+};
     var navbar = document.getElementById("nav-bar");
     var sticky = (navbar.offsetTop+50);
     function addSticky() {
@@ -53,6 +55,11 @@ window.onscroll = function() {addSticky()};
             navbar.classList.add("sticky")
         } else {
             navbar.classList.remove("sticky");
+        }
+        if (window.pageYOffset >200){
+            $('#backtotop').show();
+        }else{
+            $('#backtotop').hide();
         }
     }
 </script>

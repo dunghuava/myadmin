@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Category_M extends MY_Model {
     protected $table = 'db_category';
+    protected $key   = 'cate_stt';
     
     public function check_alias($cate_alias,$cate_id){
         $this->db->where('cate_alias',$cate_alias);

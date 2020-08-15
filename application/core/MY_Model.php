@@ -4,13 +4,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class MY_Model extends CI_Model {
 
 	protected $table = '';
+	protected $key = '';
 
-	public function all($where=array(),$sort=array()){
+	
+	public function __construct()
+	{
+		parent::__construct();
+	}
+	
+
+	public function all($where=array(),$sort=''){
 		if (!empty($where)){
 			$this->db->where($where);
 		}
 		if (!empty($sort)){
-			$this->db->order_by(array_keys($sort)[0],array_values($sort)[0]);
+			$this->db->order_by($this->primarykey,$sort);
 		}
 		return $this->db->get($this->table)->result_array();
 	}
