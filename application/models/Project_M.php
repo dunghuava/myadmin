@@ -17,11 +17,11 @@ class Project_M extends MY_model {
 		return $this->db->get($this->table)->result_array();
 	}
 	public function searchApi($search){
-		if (isset($search['cate_id'])){
-			$this->db->where('project_category',$search['cate_id']);
+		if (isset($search['project_category'])){
+			$this->db->or_where('project_category',$search['project_category']);
 		}
-		if (isset($search['project_title'])){
-			$this->db->like('project_title',$search['project_title'],'both');
+		if (isset($search['project_title']) && !empty($search['project_title'])){
+			$this->db->or_like('project_title',$search['project_title']);
 		}
 		return $this->db->get($this->table)->result_array();
 	}

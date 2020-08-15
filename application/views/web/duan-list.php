@@ -32,7 +32,7 @@
                         <option value="">---Bán---</option>
                         <option value="">---Cho thuê---</option>
                     </select>
-                    <input placeholder="Tìm kiếm theo tên dự án, khu vực..." type="text" class="form-control">
+                    <input id="project_title" placeholder="Tìm kiếm theo tên dự án, khu vực..." type="text" class="form-control">
                     <button type="submit" style="background:#fff" class="btn btn-default"><span class="fa fa-search"></span></button>
                     <button type="button" style="background:#fff" class="btn btn-default">Loại hình&nbsp;<span class="fa fa-angle-down"></span></button>
                     <button type="button" style="background:#fff" class="btn btn-default">Phòng ngủ&nbsp;<span class="fa fa-angle-down"></span></button>
@@ -68,7 +68,8 @@
         $('#root_project').hide();
         var data={
             'search':true,
-            'cate_id':$('#cate_id').val()
+            'project_category':$('#cate_id').val(),
+            'project_title':$('#project_title').val()
         };
         $.ajax({
             type: "post",

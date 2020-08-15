@@ -134,10 +134,11 @@ class Web extends MY_Controller {
     }
     public function searchApi(){
         $post = $this->input->post('data');
-        $cate_id=$post['cate_id'];
+        $project_category=$post['project_category'];
+        $project_title=$post['project_title'];
         $search=array(
-            'cate_id'=>$cate_id,
-            'project_title'=>null
+            'project_category'=>$project_category,
+            'project_title'=>$project_title
         );
         $data['arr_project']= $this->Project_M->searchApi($search);
         $this->load->view('web/duan-item', $data);
