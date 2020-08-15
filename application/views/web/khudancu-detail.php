@@ -1,5 +1,17 @@
-<section class="page-khudancu-detail">
-    <div class="banner" style="background:url(<?=resizeImg($kdc['residential_img'],1500,500,0)?>)">
+<style type="text/css">
+    .icon-bedroom:before {
+    content: url('https://api.iconify.design/zmdi-airline-seat-individual-suite.svg?height=16&inline=true');
+vertical-align: -0.125em;
+}
+
+.icon-acreage:before {
+    content: url('https://api.iconify.design/zmdi-photo-size-select-small.svg?height=16&inline=true');
+vertical-align: -0.125em;
+}
+}
+</style>
+<section class="page-khudancu-detail font17">
+    <div class="banner" style="background:url(<?=resizeImg($kdc['residential_img'],1350,400,0)?>)">
         <div class="abs-content container">
             <div class="col-md-12 pd0">
                 <?php 
@@ -44,50 +56,77 @@
                     $tags = explode(',',$kdc['residential_tag']);
                     foreach ($tags as $tag){
                 ?>
-                <span class="btn btn-default"><?=$tag?></span>
+                <span style="background: #dedede;" class="btn btn-default"><?=$tag?></span>
                 <?php 
                     } 
                 ?>
             </div>
             <div class="col-md-4">
-                <h3>Giao thông</h3>
-                <p>Kết nối với các con đường trọng điểm trong khu vực.</p>
-                <h3>Cảnh quan</h3>
-                <p>Kết nối với các con đường trọng điểm trong khu vực.</p>
+                <?php if (!empty($kdc['residential_habitat'])) {?>
+                    <h3>Môi trường sống</h3>
+                    <p><?=$kdc['residential_habitat']?></p>
+                <?php } ?>
+
+                <?php if (!empty($kdc['residential_community'])) {?>
+                    <h3>Cộng đồng dân cư</h3>
+                    <p><?=$kdc['residential_community']?></p>
+                <?php } ?>
+
+                <?php if (!empty($kdc['residential_utility'])) {?>
+                    <h3>Tiện ích nổi bật</h3>
+                    <p><?=$kdc['residential_utility']?></p>
+                <?php } ?>
+
+                <?php if (!empty($kdc['residential_traffic'])) {?>
+                    <h3>Hiện trạng giao thông</h3>
+                    <p><?=$kdc['residential_traffic']?></p>
+                <?php } ?>
+                
             </div>
         </div>
     </div><br>
     <div class="house-selling" id="p_selling">
         <div class="container">
             <div class="text-center">
-                <h3>Nhà bán tại khu đô thị thủ thiêm</h3>
+                <h3>Nhà bán tại <?=$kdc['residential_title']?></h3>
             </div><br>
             <div class="row">
                 <!-- item -->
-                <?php for ($i=0;$i<3;$i++){ ?>
+
+                <?php
+                if (!empty($list_mua)) {
+                 foreach ($list_mua as $key => $mua) {
+                    $info_province_mua = $this->Province_M->find_row(['province_id'=>$mua['project_province_id']]);
+                    $info_district_mua = $this->District_M->find_row(['district_id'=>$mua['project_district_id']]);
+                    $info_ward_mua = $this->Ward_M->find_row(['ward_id'=>$mua['project_ward_id']]);
+                    $info_status_mua = $this->Status_M->find_row(['id_status_project'=>$mua['project_status']]);
+                    
+                ?>
                 <div class="col-md-4">
                     <div class="item-project">
                         <a href="">
                             <div class="project-info">
-                                <img src="<?=base_url('upload/images/image.jpg')?>" alt="">
+                                <img src="<?=resizeImg($mua['project_img'],360,203,0)?>" alt="">
                                 <div class="status">
-                                    <span>Đang mở bán</span>
+                                    <span><?=$info_status_mua['status_project']?></span>
                                 </div>
                             </div>
                             <div class="project-content">
                                 <ul class="extends">
-                                    <li class="big-price">9.50 Tỷ</li>
-                                    <li>2WC</li>
-                                    <li>4PN</li>
-                                    <li>150 m²</li>
+                                    <li class="big-price"><?=$mua['project_price']?></li>
+                                    <li title="Diện tích"><span class="icon-acreage" style="padding-right: 5px"></span> <?=$mua['project_acreage']?></li>
+                                    <li title="Phòng ngủ"><span class="icon-bedroom" style="padding-right: 5px"></span> <?=$mua['number_bedroom']?></li>
                                 </ul>
                                 <div class="clear"></div>
-                                <p><span class="fa fa-map-marker"></span> <b>Quận 04</b></p>
-                                <p class="text-overflow">Cho thuê căn hộ Vinhomes Central Park 4PN, tầng sang chảnh tiện nghi</p>
+                                <p><span class="fa fa-map-marker"></span> <b><?=$info_ward_mua['ward_name'].', '.$info_district_mua['district_name'].', '.$info_province_mua['province_name']?></b></p>
+                                <p class="text-overflow"><?=$mua['project_title']?></p>
                             </div>
                         </a>
                     </div>
                 </div>
+            <?php } }else{ ?>
+                <div class="text-center" style="color:red"><h4>Dữ liệu đang được cập nhật...</h4></div>
+                <br>
             <?php } ?>
                 <!-- item -->
             </div>
@@ -96,34 +135,44 @@
     <div class="house-forent" id="p_forent">
         <div class="container">
             <div class="text-center">
-                <h3>Nhà cho thuê tại khu đô thị thủ thiêm</h3>
+                <h3>Nhà cho thuê tại <?=$kdc['residential_title']?></h3>
             </div><br>
             <div class="row">
                 <!-- item -->
-                <?php for ($i=0;$i<3;$i++){ ?>
+                <?php
+                if (!empty($list_thue)) {
+                 foreach ($list_thue as $key => $thue) {
+                    $info_province_thue = $this->Province_M->find_row(['province_id'=>$thue['project_province_id']]);
+                    $info_district_thue = $this->District_M->find_row(['district_id'=>$thue['project_district_id']]);
+                    $info_ward_thue = $this->Ward_M->find_row(['ward_id'=>$thue['project_ward_id']]);
+                    $info_status_thue = $this->Status_M->find_row(['id_status_project'=>$thue['project_status']]);
+                    
+                ?>
                 <div class="col-md-4">
                     <div class="item-project">
                         <a href="">
                             <div class="project-info">
-                                <img src="<?=base_url('upload/images/image.jpg')?>" alt="">
+                                <img src="<?=resizeImg($thue['project_img'],360,203,0)?>" alt="">
                                 <div class="status">
-                                    <span>Đang mở bán</span>
+                                    <span><?=$info_status_thue['status_project']?></span>
                                 </div>
                             </div>
                             <div class="project-content">
                                 <ul class="extends">
-                                    <li class="big-price">9.50 Tỷ</li>
-                                    <li>2WC</li>
-                                    <li>4PN</li>
-                                    <li>150 m²</li>
+                                    <li class="big-price"><?=$thue['project_price']?></li>
+                                    <li title="Diện tích"><span class="icon-acreage" style="padding-right: 5px"></span> <?=$thue['project_acreage']?></li>
+                                    <li title="Phòng ngủ"><span class="icon-bedroom" style="padding-right: 5px"></span> <?=$thue['number_bedroom']?></li>
                                 </ul>
                                 <div class="clear"></div>
-                                <p><span class="fa fa-map-marker"></span> <b>Quận 04</b></p>
-                                <p class="text-overflow">Cho thuê căn hộ Vinhomes Central Park 4PN, tầng sang chảnh tiện nghi</p>
+                                <p><span class="fa fa-map-marker"></span> <b><?=$info_ward_thue['ward_name'].', '.$info_district_thue['district_name'].', '.$info_province_thue['province_name']?></b></p>
+                                <p class="text-overflow"><?=$thue['project_title']?></p>
                             </div>
                         </a>
                     </div>
                 </div>
+            <?php } }else{ ?>
+                <div class="text-center" style="color:red"><h4>Dữ liệu đang được cập nhật...</h4></div>
+                <br>
             <?php } ?>
                 <!-- item -->
             </div>
@@ -139,14 +188,38 @@
     <div class="div-location" id="p_location">
         <div class="container">
                 <br>
-                <div class="text-center"><h3>Vị trí Diamond Island - Đảo Kim Cương trên bản đồ</h3></div>
+                <div class="text-center"><h3>Vị trí <?=$kdc['residential_title']?> trên bản đồ</h3></div>
                 <div class="row">
                     <div class="col-md-1"></div>
                         <div class="col-md-10">
-                            <div class="map-area">
-                                <!-- maps -->
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.5199509026907!2d106.72920581417173!3d10.792680661846168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317526069cf8c86f%3A0xa1b7c21cef8154a0!2zQ8OgIFBow6ogVGjhu4FtIFhhbmg!5e1!3m2!1sen!2s!4v1597157277054!5m2!1sen!2s" width="100%" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                                <!-- maps -->
+                            <div id="googleMap" class="map-area" style="width:100%;height:360px;">
+                               <script>
+                                    var lat = <?=$kdc['residential_lat']!='' ? $kdc['residential_lat']:0?>;
+                                    var lng  = <?=$kdc['residential_lng']!='' ? $kdc['residential_lng']:0?>;
+                                    function initMap() {
+                                        var myLatLng = {lat: lat, lng: lng};
+
+                                        var map = new google.maps.Map(document.getElementById('googleMap'), {
+                                            zoom: 15,
+                                            center: myLatLng,
+                                            icon:false,
+                                        });
+                                        var contentString='<h4><?=$kdc['residential_title']?></h4><p><?=substr($kdc[0]['residential_introduce'],0,150)?>...</p>';
+                                        const infowindow = new google.maps.InfoWindow({
+                                            content: contentString
+                                        });
+                                        var marker = new google.maps.Marker({
+                                            position: myLatLng,
+                                            map: map,
+                                            icon:false,
+                                            title: '<?=$kdc['residential_title']?>',
+                                        });
+                                        infowindow.open(map, marker);
+                                        marker.addListener("click", () => {
+                                            infowindow.open(map, marker);
+                                        });
+                                    }
+                                </script>
                             </div>
                             <br><br>
                         </div>
@@ -165,6 +238,8 @@
     </div>
 </section>
 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqAHaMV9ZVcSX992nMQOgZ_Vy80GUZ_8I&callback=initMap&libraries=drawing,places"></script>
+<script>
 <script>
 window.onscroll = function() {addSticky()};
     var navbar = document.getElementById("toolbar");
