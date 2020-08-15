@@ -12,8 +12,12 @@ class Web extends MY_Controller {
         $this->load->model('Residential_M');
         $this->load->model('Province_M');
         $this->load->model('District_M');
+        $this->load->model('Ward_M');
         $this->load->model('Region_M');
         $this->load->model('Post_M');
+        $this->load->model('Project_M');
+        $this->load->model('Status_M');
+        
         
         
     }
@@ -84,6 +88,10 @@ class Web extends MY_Controller {
     public function page_khudancu_detail($alias=null){
         $kdc_id = getID($alias);
         $data['kdc']= $this->Residential_M->find_row(['residential_id'=>$kdc_id]);
+
+        $data['list_mua']= $this->Project_M->getListProject_In_Residential(['project_residential'=>$data['kdc']['residential_id'],'project_kind'=>1],3);
+
+        $data['list_thue']= $this->Project_M->getListProject_In_Residential(['project_residential'=>$data['kdc']['residential_id'],'project_kind'=>2],3);
         
         $this->page_header();
         $this->view('web/khudancu-detail',$data);
