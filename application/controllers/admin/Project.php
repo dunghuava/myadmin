@@ -25,7 +25,7 @@ class Project extends MY_Controller {
 	{
 		$data['page_name']='Danh sách dự án';
 		$data['page_menu']='project';
-		$data['list_project']=$this->Project_M->all('',['project_id'=>'desc']);
+		$data['list_project']=$this->Project_M->all('','desc');
 		$this->getHeader($data);
 		$this->load->view('admin/pages/project/index.php',$data);
 		$this->getFooter();
@@ -366,7 +366,7 @@ class Project extends MY_Controller {
 		if ($cate_module_id!=0){
 			$where['cate_module_id']=$cate_module_id;
 		}
-		$oder_by['cate_stt']= 'asc';
+		$oder_by= 'asc';
 		$all = $this->Category_M->all($where,$oder_by);
 		$str='';
 		foreach ($all as $val){

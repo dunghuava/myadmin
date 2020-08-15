@@ -217,30 +217,34 @@
                 <div class="item-news-big">
                     <a href="">
                        <div class="news-body">
-                            <img src="<?=base_url('upload/images/news.jpg')?>" alt="">
+                        <?php if (!empty($list_post)){?>
+                            <img src="<?=resizeImg($list_post[0]['post_img'],555,370,0)?>" alt="">
                             <div class="news-content">
-                                <h3 class="title">Top 5 dự án căn hộ cao cấp đáng mua tại thị trường Quận 4</h3>
-                                <p>10/08/2020</p>
+                                <h3 class="title"><?=$list_post[0]['post_title']?></h3>
+                                <p><?=date('d-m-Y',$list_post[0]['post_date_time'])?></p>
                             </div>
+                        <?php } ?>
                        </div>
                     </a>
                 </div>
                 <p><br><a href="">Xem thêm bài viết <span class="fa fa-angle-right"></span></a></p>
             </div>
             <div class="col-md-6">
-                <?php for ($i=0;$i<3;$i++){ ?>
+                <?php foreach ($list_post as $key => $post) {
+                    if ($key>0) {
+                ?>
                     <div class="item-news-small">
                         <a href="" style="display:inline-flex">
                             <div class="news-img">
-                                <img src="<?=base_url('upload/images/news.jpg')?>" alt="">
+                                <img src="<?=resizeImg($post['post_img'],145,96,0)?>" alt="">
                             </div>
                             <div class="news-title">
-                                <h3 class="title">Chi tiết 7 tuyến đường nối Long An – TP.HCM được mở rộng, khởi công trong 2021</h3>
-                                <p class="datetime">10/08/2020</p>
+                                <h3 class="title"><?=$post['post_title']?></h3>
+                                <p class="datetime"><?=date('d-m-Y',$post['post_date_time'])?></p>
                             </div>
                         </a>
                     </div>
-                <?php } ?>
+                <?php } } ?>
             </div>
         </div>
     </div>

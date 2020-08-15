@@ -13,7 +13,7 @@ class Investor extends MY_Controller {
 	{
 		$data['page_name']='Danh sách chủ đầu tư';
 		$data['page_menu']='extend';
-		$data['list_investor']=$this->Investor_M->all('',['investor_id'=>'desc']);
+		$data['list_investor']=$this->Investor_M->all('','desc');
 		$this->getHeader($data);
 		$this->load->view('admin/pages/investor/index.php',$data);
 		$this->getFooter();
