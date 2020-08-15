@@ -2,7 +2,11 @@
     <div class="banner" style="background:url(<?=resizeImg($kdc['residential_img'],1500,500,0)?>)">
         <div class="abs-content container">
             <div class="col-md-12 pd0">
-                <p>Khu dân cư  TP. Hồ Chí Minh  Quận 2</p>
+                <?php 
+                    $info_province = $this->Province_M->find_row(['province_id'=>$kdc['residential_province_id']]);
+                    $info_district = $this->District_M->find_row(['district_id'=>$kdc['residential_district_id']]);
+                ?>
+                <p>Khu dân cư  <?=$info_district['district_name'].', '.$info_province['province_name'] ?></p>
                 <h3 class="title"><?=$kdc['residential_title']?></h3>
             </div>
         </div>

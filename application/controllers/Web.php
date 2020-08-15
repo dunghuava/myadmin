@@ -90,8 +90,10 @@ class Web extends MY_Controller {
         $this->page_footer();
     }
     public function page_khudancu_all($alias=null){
+
+        $data['arr_kdc']=$this->Residential_M->all('','desc');
         $this->page_header();
-        $this->view('web/khudancu-all');
+        $this->view('web/khudancu-all',$data);
         $this->page_footer();
     }
     public function page_categories($alias=null){

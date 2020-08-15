@@ -358,7 +358,7 @@
                 </div>
             <?php } ?>
             <div class="col-md-12">
-                <p><a href="">Xem thêm khu dân cư <span class="fa fa-angle-right"></span></a></p>
+                <p><a href="<?=base_url('khu-dan-cu')?>">Xem thêm khu dân cư <span class="fa fa-angle-right"></span></a></p>
             </div>
         </div>
     </div>
