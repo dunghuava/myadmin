@@ -14,7 +14,7 @@ class Post extends MY_Controller {
 	{
 		$data['page_name']='Danh sách bài viết';
 		$data['page_menu']='post';
-		$data['list_post']=$this->Post_M->all();
+		$data['list_post']=$this->Post_M->all('','desc');
 		$this->getHeader($data);
 		$this->load->view('admin/pages/post/index.php',$data);
 		$this->getFooter();
@@ -161,7 +161,7 @@ class Post extends MY_Controller {
 		// if ($cate_module_id!=0){
 		// 	$where['cate_module_id']=$cate_module_id;
 		// }
-		$oder_by['cate_stt']= 'asc';
+		$oder_by= 'asc';
 		$all = $this->Category_M->all($where,$oder_by);
 		$str='';
 		foreach ($all as $val){

@@ -13,6 +13,7 @@ class Web extends MY_Controller {
         $this->load->model('Province_M');
         $this->load->model('District_M');
         $this->load->model('Region_M');
+        $this->load->model('Post_M');
         
     }
     public function page_post_list($alias=null){
@@ -29,8 +30,7 @@ class Web extends MY_Controller {
         $data['mua_region'] = $this->Region_M->getListRegion_byCategory(35);
         $data['thue_region'] = $this->Region_M->getListRegion_byCategory(43);
 
-        // echo "<pre>";
-        // print_r($data['list_residential']);die();
+        $data['list_post'] = $this->Post_M->getListPost_byCategory(11);
         $this->view('web/index',$data);
         $this->page_footer();
     }

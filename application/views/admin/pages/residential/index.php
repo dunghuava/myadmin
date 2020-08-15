@@ -31,7 +31,7 @@
                         <tr>
                              <td><?=$item['residential_title']?></td>
                              <td><?=$address?></td>
-                             <td><img src="<?=base_url().'upload/images/'.$item['residential_img']?>" style="max-height: 90px;"></td>
+                             <td><img src="<?=resizeImg($item['residential_img'],80,50,0)?>" style="max-height: 90px;"></td>
                              <td><input onchange="setCkb(this,'residential_highlights',<?=$item['residential_id']?>)" type="checkbox" <?=$item['residential_highlights']==1 ? 'checked':''?>></td>
                              <td><input onchange="setCkb(this,'residential_active',<?=$item['residential_id']?>)" type="checkbox" <?=$item['residential_active']==1 ? 'checked':''?> ></td>
                              <td>

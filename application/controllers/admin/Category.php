@@ -104,7 +104,7 @@ class Category extends MY_Controller {
 		if ($cate_module_id!=0){
 			$where['cate_module_id']=$cate_module_id;
 		}
-		$oder_by['cate_stt']= 'asc';
+		$oder_by= 'asc';
 		$all = $this->Category_M->all($where,$oder_by);
 		$str='';
 		foreach ($all as $val){

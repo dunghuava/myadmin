@@ -1,5 +1,5 @@
 <?php 
-    $categories = $this->Category_M->all(['cate_parent_id'=>0,'cate_is_menu'=>1,'cate_is_public'=>1]);
+    $categories = $this->Category_M->all(['cate_parent_id'=>0,'cate_is_menu'=>1,'cate_is_public'=>1],'asc');
 ?>
 <nav class="nav-menu">
     <ul class="main-menu">
