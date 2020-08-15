@@ -104,7 +104,7 @@ class Web extends MY_Controller {
            $this->page_post_list($cate);
        }else if ($cate['cate_module_id']==2){
            // dự án
-           $this->page_project_detail($cate);
+           $this->page_project_list($cate);
        }
 
     }
@@ -117,5 +117,21 @@ class Web extends MY_Controller {
         $this->page_header();
         $this->view('web/duan-detail');
         $this->page_footer();
+    }
+    public function page_project_list($cate=null){
+        $data['cate_id']=$cate['cate_id'];
+        $this->page_header();
+        $this->view('web/duan-list',$data);
+        //$this->page_footer();
+    }
+    public function searchApi(){
+        $post = $this->input->post('data');
+        $cate_id=$post['cate_id'];
+        $search=array(
+            'cate_id'=>$cate_id,
+            'project_title'=>null
+        );
+        $data['arr_project']= $this->Project_M->searchApi($search);
+        $this->load->view('web/duan-item', $data);
     }
 }
