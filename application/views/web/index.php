@@ -261,7 +261,7 @@
                     </div>
                     <div class="blog-content">
                         <div class="blog-larger">
-                            <a href="<?=base_url('bai-viet/'.$tin_mua_ban[0]['post_alias'].'-'.$tin_mua_ban[0]['post_id'])?>">
+                            <a href="<?=base_url('blog/'.$tin_mua_ban[0]['post_alias'].'-'.$tin_mua_ban[0]['post_id'])?>">
                                 <img src="<?=resizeImg($tin_mua_ban[0]['post_img'],338,160,0)?>" alt="">
                                 <p style="height: 43px" class="title font17"><?=$tin_mua_ban[0]['post_title']?></p>
                             </a>
@@ -270,7 +270,7 @@
                             if ($key>0 && $key<5) {
                         ?>
                          <div class="blog-small">
-                             <a href="<?=base_url('bai-viet/'.$tmb['post_alias'].'-'.$tmb['post_id'])?>" style="display:inline-flex">
+                             <a href="<?=base_url('blog/'.$tmb['post_alias'].'-'.$tmb['post_id'])?>" style="display:inline-flex">
                                 <img src="<?=resizeImg($tmb['post_img'],338,160,0)?>" alt="">
                                 <p class="title"><?=$tmb['post_title']?></p>
                              </a>

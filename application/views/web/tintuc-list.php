@@ -5,7 +5,8 @@
     <div class="container">
         <h3 class="title"><?=$cate['cate_title']?></h3>
         <div class="row">
-            <?php foreach ($arr_post as $post){ ?>
+            <?php
+                foreach ($arr_post as $post){ ?>
                 <div class="col-md-4">
                     <div class="item-tin-list">
                         <a title="<?=$post['post_title']?>" href="<?=base_url('bai-viet/'.$post['post_alias'].'-'.$post['post_id'])?>" style="text-decoration:none">
@@ -20,6 +21,8 @@
                         </a>
                     </div><br>
                 </div>
+            <?php } if (empty($arr_post)){ ?>
+                <div class="text-center" style="color:red"><h4>Dữ liệu đang được cập nhật...</h4></div>
             <?php } ?>
         </div>
     </div>
