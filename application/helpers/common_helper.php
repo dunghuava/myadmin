@@ -65,6 +65,9 @@ function getLink($arr_permission,$link,$is_admin){
 	return 'javascript:void(0)';
 }
 
+function fullAddress(){
+	return $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+}
 $vi_language=array(
 	'btn_cancel'=>'Thoát',
 	'btn_save'=>'Lưu',

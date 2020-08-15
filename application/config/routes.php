@@ -55,6 +55,7 @@ $route['translate_uri_dashes'] 	= FALSE;
 
 // web route
 $route['danh-muc/(:any)']     = 'web/page_categories/$1';
+$route['bai-viet/(:any)']     = 'web/page_post_detail/$1';
 // end route
 
 $route['admin']							= 'admin/category';

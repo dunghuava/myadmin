@@ -196,7 +196,7 @@
         <p>Thông tin cơ bản và danh mục dự án của các chủ đầu tư bất động sản uy tín hiện nay</p>
         <div class="row">
             <?php foreach ($list_investor as $key => $investor) {?>
-                <div class="col-md-2 col-xs-4">
+                <div class="col-md-2 col-xs-6">
                     <div class="item-chudautu">
                         <img src="<?=base_url('upload/images/'.$investor['investor_img'].'')?>" alt="" style="height: 100px">
                     </div>

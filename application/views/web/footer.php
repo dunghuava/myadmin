@@ -1,4 +1,6 @@
 <br><br>
+<?php include ('botchat.php') ?>
+
 <footer class="app-footer">
     <div class="container">
         <div class="row">

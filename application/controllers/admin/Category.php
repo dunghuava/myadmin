@@ -13,7 +13,7 @@ class Category extends MY_Controller {
 	{
 		$data['page_name']='Danh mục';
 		$data['page_menu']='category';
-		$data['arr_category']=$this->Category_M->all(['cate_parent_id'=>0],'desc');
+		$data['arr_category']=$this->Category_M->all(['cate_parent_id'=>0],'asc');
 		$this->getHeader($data);
 		$this->load->view('admin/pages/category/category');
 		$this->getFooter();

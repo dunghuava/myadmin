@@ -39,8 +39,10 @@ class Web extends MY_Controller {
         $this->page_footer();
     }
     public function page_post_detail($alias=null){
+        $post_id = end(explode('-',$alias));
+        $data['post']=$this->Post_M->find_row(['post_id'=>$post_id]);
         $this->page_header();
-        $this->view('web/tintuc-detail');
+        $this->view('web/tintuc-detail',$data);
         $this->page_footer();
     }
     public function page_khudancu_detail($alias=null){

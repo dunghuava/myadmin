@@ -19,7 +19,8 @@
     <script src="<?=base_url('upload/js/jquery.min.js')?>"></script>
     <script src="<?=base_url('upload/bootstrap/js/bootstrap.js')?>"></script>
     <script src="<?=base_url('upload/slick/slick.min.js')?>"></script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    
 </head>
 <body>
 <header id="nav-bar" class="app-header">
