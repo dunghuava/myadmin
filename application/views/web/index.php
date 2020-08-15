@@ -221,8 +221,9 @@
                             <img src="<?=resizeImg($list_post[0]['post_img'],555,370,0)?>" alt="">
                             <div class="news-content">
                                 <h3 class="title"><?=$list_post[0]['post_title']?></h3>
-                                <p><?=date('d-m-Y',$list_post[0]['created_at'])?></p>
+                                <p><?=date('d-m-Y',$list_post[0]['post_date_time'])?></p>
                             </div>
+                        <?php } ?>
                        </div>
                     </a>
                 </div>
@@ -239,11 +240,11 @@
                             </div>
                             <div class="news-title">
                                 <h3 class="title"><?=$post['post_title']?></h3>
-                                <p class="datetime"><?=date('d-m-Y',$post['created_at'])?></p>
+                                <p class="datetime"><?=date('d-m-Y',$post['post_date_time'])?></p>
                             </div>
                         </a>
                     </div>
-                <?php } ?>
+                <?php } } ?>
             </div>
         </div>
     </div>
