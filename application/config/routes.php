@@ -59,6 +59,8 @@ $route['bai-viet/(:any)']     = 'web/page_post_detail/$1';
 $route['blog/(:any)']         = 'web/page_post_detail/$1';
 $route['khu-dan-cu/(:any)']   = 'web/page_khudancu_detail/$1';
 $route['khu-dan-cu']          = 'web/page_khudancu_all';
+$route['chu-dau-tu']          = 'web/page_chudautu_list';
+$route['chu-dau-tu/(:any)']   = 'web/page_chudautu_detail/$1';
 // end route
 
 $route['admin']							= 'admin/category';

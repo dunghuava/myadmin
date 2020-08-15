@@ -198,15 +198,15 @@
             <?php foreach ($list_investor as $key => $investor) {?>
                 <div class="col-md-2 col-xs-6">
                     <div class="item-chudautu">
-                        <a href="">
-                            <img src="<?=base_url('upload/images/'.$investor['investor_img'].'')?>" alt="" style="height: 100px">
+                        <a title="<?=$investor['investor_title']?>" href="<?=base_url('chu-dau-tu/'.$investor['investor_alias'].'-'.$investor['investor_id'])?>">
+                            <img src="<?=resizeImg($investor['investor_img'],150,90,2)?>" alt="<?=$investor['investor_title']?>">
                         </a>
                         
                     </div>
                 </div>
             <?php } ?>
             <div class="col-md-12">
-                <p><br><a href="">Xem thêm chủ đầu tư <span class="fa fa-angle-right"></span></a></p>
+                <p><br><a href="<?=base_url('chu-dau-tu')?>">Xem thêm chủ đầu tư <span class="fa fa-angle-right"></span></a></p>
             </div>
         </div>
     </div>
