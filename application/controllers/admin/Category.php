@@ -14,8 +14,6 @@ class Category extends MY_Controller {
 		$data['page_name']='Danh mục';
 		$data['page_menu']='category';
 		$data['arr_category']=$this->Category_M->all(['cate_parent_id'=>0],'desc');
-		echo $this->db->last_query();
-		die;
 		$this->getHeader($data);
 		$this->load->view('admin/pages/category/category');
 		$this->getFooter();

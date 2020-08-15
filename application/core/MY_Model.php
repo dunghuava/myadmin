@@ -18,7 +18,7 @@ class MY_Model extends CI_Model {
 			$this->db->where($where);
 		}
 		if (!empty($sort)){
-			$this->db->order_by($this->primarykey,$sort);
+			$this->db->order_by($this->key,$sort);
 		}
 		return $this->db->get($this->table)->result_array();
 	}
