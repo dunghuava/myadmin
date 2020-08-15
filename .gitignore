@@ -3,3 +3,7 @@ upload/images/
 application/config/database.php
 application/config/config.php
 cache/*
+*.cache
+*.cache
+cache/timthumb_int_12302fd6b2f70c4eacb95ec134206a2e.timthumb.cache
+*.cache
