@@ -13,11 +13,17 @@ class Web extends MY_Controller {
         $this->load->model('Province_M');
         $this->load->model('District_M');
         $this->load->model('Region_M');
+        $this->load->model('Post_M');
+        
         
     }
-    public function page_post_list($alias=null){
+    
+    public function page_post_list($cate){
+
+        $data['arr_post']=$this->Post_M->all(['post_category_id'=>$cate['cate_id']]);
+        $data['cate']=$cate;
         $this->page_header();
-        $this->view('web/tintuc-list');
+        $this->view('web/tintuc-list',$data);
         $this->page_footer();
     }
     public function page_index(){
@@ -29,8 +35,7 @@ class Web extends MY_Controller {
         $data['mua_region'] = $this->Region_M->getListRegion_byCategory(35);
         $data['thue_region'] = $this->Region_M->getListRegion_byCategory(43);
 
-        // echo "<pre>";
-        // print_r($data['list_residential']);die();
+
         $this->view('web/index',$data);
         $this->page_footer();
     }
@@ -50,9 +55,16 @@ class Web extends MY_Controller {
         $this->page_footer();
     }
     public function page_categories($alias=null){
-        $this->page_header();
-        $this->view('web/tintuc-list');
-        $this->page_footer();
+        
+       $cate = $this->Category_M->all(['cate_alias'=>$alias])[0];
+       if ($cate['cate_module_id']==1){
+           // tin tức
+           $this->page_post_list($cate);
+       }else if ($cate['cate_module_id']==2){
+           // dự án
+           $this->page_project_detail($cate);
+       }
+
     }
     public function page_chudautu_list($alias=null){
         $this->page_header();

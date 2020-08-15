@@ -52,6 +52,9 @@ function dd ($data,$die=false){
 	}
 }
 function resizeImg ($image,$w=100,$h=100,$zc=2){
+	if (!file_exists('upload/images/'.$image) || empty($image)){
+		$image='nophoto.png';
+	}
 	return base_url('thumb.php?src='.base_url('upload/images/'.$image.'&w='.$w.'&h='.$h.'&zc='.$zc));
 }
 function getLink($arr_permission,$link,$is_admin){

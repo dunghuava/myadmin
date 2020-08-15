@@ -1,18 +1,21 @@
+<?php 
+    
+?>
 <section class="sec-tintuc-list">
     <div class="container">
-        <h3 class="title">Tin tức nổi bật</h3>
+        <h3 class="title"><?=$cate['cate_title']?></h3>
         <div class="row">
-            <?php for ($i=0;$i<10;$i++){ ?>
+            <?php foreach ($arr_post as $post){ ?>
                 <div class="col-md-4">
                     <div class="item-tin-list">
-                        <a href="" style="text-decoration:none">
+                        <a title="<?=$post['post_title']?>" href="<?=base_url('post/'.$post['post_alias'])?>" style="text-decoration:none">
                             <div class="cover-img">
-                                <img src="<?=base_url('upload/images/sun.png')?>" alt="">
+                                <img title="<?=$post['post_title']?>" alt="<?=$post['post_title']?>" src="<?=resizeImg($post['post_img'],360,240,0)?>" alt="">
                             </div>
                             <div class="content">
-                                <h4 class="title">Dự án bất động sản newland</h4>
-                                <i>Tháng Tám 13, 2020</i>
-                                <p>Dự án Căn hộ The Sun Avenue Novaland đang được các chủ đầu tư chú [...]</p>
+                                <h4 class="title"><?=$post['post_title']?></h4>
+                                <i><?=date('d/m/Y',strtotime($post['created_at']))?></i>
+                                <p><?=substr($post['post_title'],0,100)?> [...]</p>
                             </div>
                         </a>
                     </div><br>
