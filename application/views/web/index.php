@@ -45,9 +45,34 @@
         </div>
     </div>
 </section>
+<section class="sec-khuvuc">
+    <div class="container">
+        <h3 class="main-title">Dự án theo khu vực</h3>
+        <div class="row">
+            <div class="slick-khuvuc">
+
+                <?php foreach ($duan_region as $key => $duan_re) {
+                    $info_district_region = $this->District_M->find_row(['district_id'=>$duan_re['region_id_district']]);
+                ?>
+                    <div class="col-md-3">
+                        <div class="item-khuvuc">
+                            <a href="">
+                                <img src="<?=base_url('upload/images/'.$duan_re['region_img'].'')?>" alt="">
+                               <div class="content">
+                                    <p class="title"><?php echo $info_district_region['district_name'] ?></p>
+                               </div>
+                            </a>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="sec-project">
     <div class="container">
-        <h3 class="main-title">Nhà bán</h3>
+        <h3 class="main-title">Nhà bán nổi bậc</h3>
         <div class="row">
             <?php for ($i=0;$i<6;$i++){ ?>
                 <div class="col-md-4">
@@ -80,9 +105,34 @@
         </div>
     </div>
 </section>
+
+<section class="sec-khuvuc">
+    <div class="container">
+        <h3 class="main-title">Nhà bán theo khu vực</h3>
+        <div class="row">
+            <div class="slick-khuvuc">
+                <?php foreach ($mua_region as $key => $mua_re) {
+                    $info_district_region = $this->District_M->find_row(['district_id'=>$mua_re['region_id_district']]);
+                ?>
+                    <div class="col-md-3">
+                        <div class="item-khuvuc">
+                            <a href="">
+                                <img src="<?=base_url('upload/images/'.$mua_re['region_img'].'')?>" alt="">
+                               <div class="content">
+                                    <p class="title"><?php echo $info_district_region['district_name'] ?></p>
+                               </div>
+                            </a>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="sec-project">
     <div class="container">
-        <h3 class="main-title">Cho thuê</h3>
+        <h3 class="main-title">Cho thuê nổi bậc</h3>
         <div class="row">
             <?php for ($i=0;$i<6;$i++){ ?>
                 <div class="col-md-4">
@@ -115,15 +165,40 @@
         </div>
     </div>
 </section>
+
+<section class="sec-khuvuc">
+    <div class="container">
+        <h3 class="main-title">Cho thuê theo khu vực</h3>
+        <div class="row">
+            <div class="slick-khuvuc">
+                <?php foreach ($thue_region as $key => $thue_re) {
+                    $info_district_region = $this->District_M->find_row(['district_id'=>$thue_re['region_id_district']]);
+                ?>
+                    <div class="col-md-3">
+                        <div class="item-khuvuc">
+                            <a href="">
+                                <img src="<?=base_url('upload/images/'.$thue_re['region_img'].'')?>" alt="">
+                               <div class="content">
+                                    <p class="title"><?php echo $info_district_region['district_name'] ?></p>
+                               </div>
+                            </a>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="sec-chudautu">
     <div class="container">
         <h3 class="main-title">Chủ đầu tư nổi bật</h3>
         <p>Thông tin cơ bản và danh mục dự án của các chủ đầu tư bất động sản uy tín hiện nay</p>
         <div class="row">
-            <?php for ($i=0;$i<12;$i++){ ?>
+            <?php foreach ($list_investor as $key => $investor) {?>
                 <div class="col-md-2 col-xs-4">
                     <div class="item-chudautu">
-                        <img src="<?=base_url('upload/images/cdt.jpg')?>" alt="">
+                        <img src="<?=base_url('upload/images/'.$investor['investor_img'].'')?>" alt="" style="height: 100px">
                     </div>
                 </div>
             <?php } ?>
@@ -174,7 +249,7 @@
     <div class="container">
         <h3 class="main-title">Thông tin - Blog</h3>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="item-blog">
                     <div class="title-blog">
                         <span class="fa fa-bars"></span><h3>Tư vấn luật</h3>
@@ -197,7 +272,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="item-blog">
                     <div class="title-blog">
                         <span class="fa fa-bars"></span><h3>Tư vấn luật</h3>
@@ -220,7 +295,30 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
+                <div class="item-blog">
+                    <div class="title-blog">
+                        <span class="fa fa-bars"></span><h3>Tư vấn luật</h3>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-larger">
+                            <a href="">
+                                <img src="<?=base_url('upload/images/blog.jpg')?>" alt="">
+                                <p class="title">Chi phí quản lý dự án hủy bỏ được tính như thế nào ?</p>
+                            </a>
+                        </div>
+                        <?php for ($i=0;$i<3;$i++){ ?>
+                         <div class="blog-small">
+                             <a href="" style="display:inline-flex">
+                                <img src="<?=base_url('upload/images/blog.jpg')?>" alt="">
+                                <p class="title">Chi phí quản lý dự án hủy bỏ được tính như thế nào ?</p>
+                             </a>
+                         </div>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
                 <div class="item-blog">
                     <div class="title-blog">
                         <span class="fa fa-bars"></span><h3>Tư vấn luật</h3>
@@ -251,18 +349,21 @@
         <h3 class="main-title">Khu dân cư</h3>
         <p>Thông tin phân tích chi tiết, danh mục dự án và nhà đất đăng bán & cho thuê tại các khu vực nổi bật</p>
         <div class="row">
-            <?php for ($i=0;$i<6;$i++){ ?>
+            <?php foreach ($list_residential as $key => $residential) {
+                $info_province = $this->Province_M->find_row(['province_id'=>$residential['residential_province_id']]);
+                $info_district = $this->District_M->find_row(['district_id'=>$residential['residential_district_id']]);
+            ?>
                 <div class="col-md-4">
                     <a href="">
                         <div class="item-khudancu">
                             <div class="cover-img">
-                                <img src="<?=base_url('upload/images/kdc.jpg')?>" alt="">
+                                <img src="<?=base_url('upload/images/'.$residential['residential_img'].'')?>" alt="" style="height: 250px">
                             </div>
                             <div class="content">
                                 <br>
-                                <h3 class="title">Khu đô thị mới thủ thiêm 2</h3>
+                                <h3 class="title"><?php echo $residential['residential_title'] ?></h3>
                                 <hr>
-                                <p class="address">Quận 02, TP.Hồ Chí Minh</p>
+                                <p class="address"><?php echo $info_district['district_name'].', '.$info_province['province_name'] ?></p>
                             </div>
                         </div>
                     </a>
@@ -270,27 +371,6 @@
             <?php } ?>
             <div class="col-md-12">
                 <p><a href="">Xem thêm khu dân cư <span class="fa fa-angle-right"></span></a></p>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="sec-khuvuc">
-    <div class="container">
-        <h3 class="main-title">Dự án theo khu vực</h3>
-        <div class="row">
-            <div class="slick-khuvuc">
-                <?php for ($i=0;$i<6;$i++){ ?>
-                    <div class="col-md-3">
-                        <div class="item-khuvuc">
-                            <a href="">
-                                <img src="<?=base_url('upload/images/kdc.jpg')?>" alt="">
-                               <div class="content">
-                                    <p class="title">Quận 01</p>
-                               </div>
-                            </a>
-                        </div>
-                    </div>
-                <?php } ?>
             </div>
         </div>
     </div>

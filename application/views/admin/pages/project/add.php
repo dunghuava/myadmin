@@ -73,7 +73,7 @@
 
             <div class="col-md-12 inline-flex" style="padding-right: 0px;">
             	<label for="" style="margin-left: 113px">Diện tích (m²)</label>
-            	<input type="number" name="project_acreage" id="project_acreage" class="form-control" placeholder="" required>
+            	<input type="text" name="project_acreage" id="project_acreage" class="form-control" placeholder="" required>
             </div>
             <div class="col-md-12 inline-flex" style="padding-right: 0px;">
             	<label for="" style="margin-left: 113px">Giá</label>
@@ -124,7 +124,7 @@
 
         <div class="col-md-8 inline-flex">
             <label for="">Nội thất</label>
-            <select name="project_furniture[]" id="project_furniture" class="form-control select2" required multiple="multiple">
+            <select name="project_furniture[]" id="project_furniture" class="form-control select2" multiple="multiple">
             	<?php foreach ($list_furniture as $furniture) {
             		echo '<option value="'.$furniture['id_furniture_project'].'">'.$furniture['furniture_project'].'</option>';
             	} ?>

@@ -19,6 +19,16 @@ class Region_M extends MY_model {
 		$this->db->where('region_id !=', $id);
 		return $this->db->delete('db_region');
 	}
+
+	public function getListRegion_byCategory($category)
+	{
+		$this->db->select('*');
+		$this->db->where("region_active",1);
+		$this->db->where("region_category",$category);
+		$this->db->order_by("region_highlights", "desc");
+		$this->db->order_by("region_id ", "asc");
+		return $this->db->get($this->table)->result_array();
+	}
 }
 
 /* End of file Account_M.php */

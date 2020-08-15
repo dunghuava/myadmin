@@ -21,7 +21,7 @@
                 foreach ($arr_category as $val){
                     $str='<span class="fa fa-caret-right"></span>';
                     include ('item_table_row.php');
-                    $sub = $this->Category_M->all(['cate_parent_id'=>$val['cate_id']]);
+                    $sub = $this->Category_M->all(['cate_parent_id'=>$val['cate_id']],['cate_stt'=>'asc']);
                     if (count($sub)>0){
                         foreach ($sub as $val){
                             $str='|____';

@@ -9,7 +9,7 @@
         <?php 
             foreach ($categories as $cate)
             {
-            $sub = $this->Category_M->all(['cate_parent_id'=>$cate['cate_id']]);
+            $sub = $this->Category_M->all(['cate_parent_id'=>$cate['cate_id']],'asc');
             $classes = count($sub) > 0 ? 'class="dropdown"':'';
         ?>
         <li <?=$classes?>>

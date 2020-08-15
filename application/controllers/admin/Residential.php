@@ -18,7 +18,7 @@ class Residential extends MY_Controller {
 	{
 		$data['page_name']='Danh sách khu dân cư';
 		$data['page_menu']='extend';
-		$data['list_residential']=$this->Residential_M->all();
+		$data['list_residential']=$this->Residential_M->all('',['residential_id'=>'desc']);
 		$this->getHeader($data);
 		$this->load->view('admin/pages/residential/index.php',$data);
 		$this->getFooter();
@@ -69,6 +69,12 @@ class Residential extends MY_Controller {
                 $lng = '';
             }
 
+            if ($post['residential_tag']!='') {
+            	$tag = implode(',', $post['residential_tag']);
+            }else{
+            	$tag = '';
+            }
+
 
 			$data_insert = array(
 				'residential_title' => $post['residential_title'], 
@@ -84,7 +90,7 @@ class Residential extends MY_Controller {
 				'residential_ward_id' => $post['residential_ward_id'], 
 				'residential_lat' => $lat, 
 				'residential_lng' => $lng, 
-				'residential_tag' => implode(',', $post['residential_tag']), 
+				'residential_tag' => $tag, 
 				'residential_habitat' => $post['residential_habitat'], 
 				'residential_community' => $post['residential_community'], 
 				'residential_utility' => $post['residential_utility'], 
@@ -185,6 +191,12 @@ class Residential extends MY_Controller {
                 $lng = '';
             }
 
+            if ($post['residential_tag']!='') {
+            	$tag = implode(',', $post['residential_tag']);
+            }else{
+            	$tag = '';
+            }
+
 
 			$data_update = array(
 				'residential_title' => $post['residential_title'], 
@@ -199,7 +211,7 @@ class Residential extends MY_Controller {
 				'residential_ward_id' => $post['residential_ward_id'], 
 				'residential_lat' => $lat, 
 				'residential_lng' => $lng, 
-				'residential_tag' => implode(',', $post['residential_tag']), 
+				'residential_tag' => $tag, 
 				'residential_habitat' => $post['residential_habitat'], 
 				'residential_community' => $post['residential_community'], 
 				'residential_utility' => $post['residential_utility'], 

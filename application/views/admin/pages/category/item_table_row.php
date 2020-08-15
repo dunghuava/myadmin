@@ -26,8 +26,8 @@
                     <span class="fa fa-eye"></span>
             </button>
         </a>
-        <button onclick="onDelete(<?=$val['cate_id']?>)" class="btn btn-default">
+        <!-- <button onclick="onDelete(<?=$val['cate_id']?>)" class="btn btn-default">
             <span class="fa fa-trash"></span>
-        </button>
+        </button> -->
     </td>
 </tr>
