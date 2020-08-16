@@ -17,8 +17,7 @@ class Web extends MY_Controller {
         $this->load->model('Post_M');
         $this->load->model('Project_M');
         $this->load->model('Status_M');
-        
-        
+        $this->load->model('Project_Images_M');
         
     }
     
@@ -132,7 +131,6 @@ class Web extends MY_Controller {
     public function page_project_detail($alias=null){
         $duan_id = getID($alias);
         $data['duan']=$this->Project_M->find_row(['project_id'=>$duan_id]);
-        dd($data);
         $this->page_header();
         $this->view('web/duan-detail');
         $this->page_footer();

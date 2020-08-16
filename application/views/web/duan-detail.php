@@ -1,13 +1,16 @@
+<?php 
+    $duan_img = $this->Project_Images_M->all(['project_id'=>$duan['project_id']]);
+?>
 <div class="product-detailt">
     <!-- begin -->
     <!-- detailt -->
     <section class="project-slider">
-        <?php for($i=1;$i<=4;$i++){  ?>
+        <div class="item-slider">
+            <img src="<?=base_url('upload/images/da'.$duan['project_img'])?>" alt="">
+        </div>
+        <?php foreach ($duan_img as $img){  ?>
             <div class="item-slider">
-                <img src="<?=base_url('upload/images/da'.$i.'.jpg')?>" alt="">
-            </div>
-            <div class="item-slider">
-                <img src="<?=base_url('upload/images/da'.$i.'.jpg')?>" alt="">
+                <img src="<?=base_url('upload/images/da'.$img['project_images'])?>" alt="">
             </div>
         <?php } ?>
     </section>
@@ -18,14 +21,14 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <div class="project-small-slider">
-                        <?php for($i=1;$i<=4;$i++){  ?>
-                            <div class="item-slider">
-                                <img src="<?=base_url('upload/images/da'.$i.'.jpg')?>" alt="">
-                            </div>
-                            <div class="item-slider">
-                                <img src="<?=base_url('upload/images/da'.$i.'.jpg')?>" alt="">
-                            </div>
-                        <?php } ?>
+                        <div class="item-slider">
+                            <img src="<?=base_url('upload/images/da'.$duan['project_img'])?>" alt="">
+                        </div>
+                    <?php foreach ($duan_img as $img){  ?>
+                        <div class="item-slider">
+                            <img src="<?=base_url('upload/images/da'.$img['project_images'])?>" alt="">
+                        </div>
+                    <?php } ?>
                     </div>
                 </div>
                 <div class="col-md-2"></div>
@@ -36,11 +39,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                    <h3 class="title-prj">ONE VERANDAH</h3>
-                    <p><span class="fa fa-map-marker"></span>&nbsp; One Verandah, Bát Nàn, Thanh My Loi, Quận 2, Ho Chi Minh City, Vietnam</p>
+                    <h3 class="title-prj"><?=$duan['project_title']?></h3>
+                    <p><span class="fa fa-map-marker"></span>&nbsp; <?=$duan['project_address']?></p>
                 </div>
                 <div class="col-md-3"><br><br>
-                    <p>Giá: <b style="font-size:18px">65.00 tr - 85.00 tr /m²</b></p>
+                    <p>Giá: <b style="font-size:18px"><?=$duan['project_price']?></b></p>
                 </div>
             </div>
         </div>
@@ -49,15 +52,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
+                    <h3>Tổng quan</h3>
+                    <p><?=$duan['project_introduce']?></p>
                     <div id="mycollapse">
                         <div class="item-collapse">
                             <div class="head-collapse">
-                                <p>Title</p>
+                                <p>Tổng quan</p>
                             </div>
                             <div class="content-collapse">
-                            Saigon Royal Residence là khu phức hợp căn hộ, văn phòng và thương mại nằm ở vị trí thuận lợi nhất của thành phố Hồ Chí Minh, ngay tại trung tâm thành phố. Hội tụ đủ 3 yếu tố tốt nhất trong phong thủy: Cận lộ - Cận giang - Cận thị. Được thiết kế với phong cách châu Âu hiện đại sang trọng hướng nhìn ra sông tuyệt đẹp.
-
-Với hệ thống an ninh tuyệt đối 24/7 cùng đơn vị quản lý và đội ngũ nhân viên bảo trì chuyên nghiệp, Saigon Royal Residence có đầy đủ tất cả tiện nghi nội ngoại khu bao gồm trường học, bệnh viện, trung tâm hành chính, ngân hàng, diện tích hầm đậu xe lớn, 2 hồ bơi (người lớn, trẻ em), phòng gym hiện đại, vườn trên mây, sân chơi trẻ em, cửa hàng tiện lợi... giúp Saigon Royal Residence trở thành nơi đáng sống nhất trong trung tâm thành phố.
+                                ....
                             </div>
                         </div>
                         <div class="item-collapse">
