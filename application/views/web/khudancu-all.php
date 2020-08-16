@@ -1,5 +1,5 @@
-<section class="page-khudancu-detail">
-    <div class="banner" style="background:url(<?=base_url('upload/images/kdc_bg.jpg')?>)">
+<section class="page-khudancu-detail font18">
+    <div class="banner" style="background:url(<?=resizeImg('kdc_bg.jpg',1350,400,0)?>)">
         <div class="abs-content container">
             <div class="col-md-12 pd0">
                 <p>Tổng hợp các khu dân cư, khu đô thị đáng sống hiện nay</p>

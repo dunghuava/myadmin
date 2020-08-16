@@ -125,7 +125,8 @@ class Web extends MY_Controller {
     }
     public function page_chudautu_list($alias=null){
         $this->page_header();
-        $this->view('web/chudautu-list');
+        $data['list_investor']=$this->Investor_M->all(['investor_active'=>1]);
+        $this->view('web/chudautu-list',$data);
         $this->page_footer();
     }
     public function page_project_detail($alias=null){

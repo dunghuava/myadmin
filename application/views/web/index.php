@@ -192,7 +192,7 @@
                        </div>
                     </a>
                 </div>
-                <p><br><a href="">Xem thêm bài viết <span class="fa fa-angle-right"></span></a></p>
+                <p><br><a href="<?=base_url('danh-muc/tin-tuc')?>">Xem thêm bài viết <span class="fa fa-angle-right"></span></a></p>
             </div>
             <div class="col-md-6">
                 <?php foreach ($list_post as $key => $post) {
