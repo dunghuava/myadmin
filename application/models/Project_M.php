@@ -5,7 +5,7 @@ class Project_M extends MY_model {
 	protected $table = 'db_project';
 	protected $key   = 'project_id';
 
-	public function getListProject_In_Residential($where=array(),$limit)
+	public function getListProject($where=array(),$limit)
 	{
 		$this->db->select('*');
 		if (!empty($where)){

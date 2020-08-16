@@ -28,8 +28,8 @@
                     <input type="hidden" id="cate_id" value="<?=$cate_id?>">
                     <select name="" id="" class="form-control">
                         <option value="0">---Loại dự án---</option>
-                        <option value="">---Mua---</option>
-                        <option value="">---Bán---</option>
+                        <option value="">---Dự án---</option>
+                        <option value="">---Mua/Bán---</option>
                         <option value="">---Cho thuê---</option>
                     </select>
                     <input id="project_title" placeholder="Tìm kiếm theo tên dự án, khu vực..." type="text" class="form-control">

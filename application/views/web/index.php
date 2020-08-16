@@ -20,20 +20,25 @@
     <div class="container">
         <h3 class="main-title">Dự án nổi bật</h3>
         <div class="row">
-            <?php for ($i=0;$i<6;$i++){ ?>
+            <?php foreach ($list_du_an as $key => $du_an) {
+                $info_province_duan = $this->Province_M->find_row(['province_id'=>$du_an['project_province_id']]);
+                $info_district_duan = $this->District_M->find_row(['district_id'=>$du_an['project_district_id']]);
+                $info_ward_duan = $this->Ward_M->find_row(['ward_id'=>$du_an['project_ward_id']]);
+                $info_status_duan = $this->Status_M->find_row(['id_status_project'=>$du_an['project_status']]);
+            ?>
                 <div class="col-md-4 col-xs-12">
                     <div class="item-project">
                         <a href="">
                             <div class="project-info">
-                                <img src="<?=base_url('upload/images/image.jpg')?>" alt="">
+                                <img src="<?=resizeImg($du_an['project_img'],360,203,0)?>" alt="">
                                 <div class="status">
-                                    <span>Đang mở bán</span>
+                                    <span><?=$info_status_duan['status_project']?></span>
                                 </div>
                             </div>
                             <div class="project-content">
-                                <h3 class="title">Eco green Saigon</h3>
-                                <p class="address">12/07 Trần Não-Q2-HCMC</p>
-                                <p class="price">Giá bán: 3.65 tỷ</p>
+                                <h3 class="title text-overflow"><?=$du_an['project_title']?></h3>
+                                <p class="address"><?=$info_ward_duan['ward_name'].', '.$info_district_duan['district_name'].', '.$info_province_duan['province_name']?></b></p></p>
+                                <p class="price">Giá bán: <?=$du_an['project_price']?></p>
                             </div>
                         </a>
                     </div>
@@ -74,26 +79,25 @@
     <div class="container">
         <h3 class="main-title">Nhà bán nổi bậc</h3>
         <div class="row">
-            <?php for ($i=0;$i<6;$i++){ ?>
-                <div class="col-md-4">
+            <?php foreach ($list_mua as $key => $mua) {
+                $info_province_mua = $this->Province_M->find_row(['province_id'=>$mua['project_province_id']]);
+                $info_district_mua = $this->District_M->find_row(['district_id'=>$mua['project_district_id']]);
+                $info_ward_mua = $this->Ward_M->find_row(['ward_id'=>$mua['project_ward_id']]);
+                $info_status_mua = $this->Status_M->find_row(['id_status_project'=>$mua['project_status']]);
+            ?>
+                <div class="col-md-4 col-xs-12">
                     <div class="item-project">
                         <a href="">
                             <div class="project-info">
-                                <img src="<?=base_url('upload/images/image.jpg')?>" alt="">
+                                <img src="<?=resizeImg($mua['project_img'],360,203,0)?>" alt="">
                                 <div class="status">
-                                    <span>Đang mở bán</span>
+                                    <span><?=$info_status_mua['status_project']?></span>
                                 </div>
                             </div>
                             <div class="project-content">
-                                <ul class="extends">
-                                    <li class="big-price">9.50 Tỷ</li>
-                                    <li>2WC</li>
-                                    <li>4PN</li>
-                                    <li>150 m²</li>
-                                </ul>
-                                <div class="clear"></div>
-                                <p><span class="fa fa-map-marker"></span> <b>Quận 04</b></p>
-                                <p class="text-overflow">Cho thuê căn hộ Vinhomes Central Park 4PN, tầng sang chảnh tiện nghi</p>
+                                <h3 class="title text-overflow"><?=$mua['project_title']?></h3>
+                                <p class="address"><?=$info_ward_mua['ward_name'].', '.$info_district_mua['district_name'].', '.$info_province_mua['province_name']?></b></p></p>
+                                <p class="price">Giá bán: <?=$mua['project_price']?></p>
                             </div>
                         </a>
                     </div>
@@ -134,26 +138,25 @@
     <div class="container">
         <h3 class="main-title">Cho thuê nổi bậc</h3>
         <div class="row">
-            <?php for ($i=0;$i<6;$i++){ ?>
-                <div class="col-md-4">
+            <?php foreach ($list_thue as $key => $thue) {
+                $info_province_thue = $this->Province_M->find_row(['province_id'=>$thue['project_province_id']]);
+                $info_district_thue = $this->District_M->find_row(['district_id'=>$thue['project_district_id']]);
+                $info_ward_thue = $this->Ward_M->find_row(['ward_id'=>$thue['project_ward_id']]);
+                $info_status_thue = $this->Status_M->find_row(['id_status_project'=>$thue['project_status']]);
+            ?>
+                <div class="col-md-4 col-xs-12">
                     <div class="item-project">
                         <a href="">
                             <div class="project-info">
-                                <img src="<?=base_url('upload/images/image.jpg')?>" alt="">
+                                <img src="<?=resizeImg($thue['project_img'],360,203,0)?>" alt="">
                                 <div class="status">
-                                    <span>Đang mở bán</span>
+                                    <span><?=$info_status_thue['status_project']?></span>
                                 </div>
                             </div>
                             <div class="project-content">
-                                <ul class="extends">
-                                    <li class="big-price">9.50 Tỷ</li>
-                                    <li>2WC</li>
-                                    <li>4PN</li>
-                                    <li>150 m²</li>
-                                </ul>
-                                <div class="clear"></div>
-                                <p><span class="fa fa-map-marker"></span> <b>Quận 04</b></p>
-                                <p class="text-overflow">Cho thuê căn hộ Vinhomes Central Park 4PN, tầng sang chảnh tiện nghi</p>
+                                <h3 class="title text-overflow"><?=$thue['project_title']?></h3>
+                                <p class="address"><?=$info_ward_thue['ward_name'].', '.$info_district_thue['district_name'].', '.$info_province_thue['province_name']?></b></p></p>
+                                <p class="price">Giá bán: <?=$thue['project_price']?></p>
                             </div>
                         </a>
                     </div>
