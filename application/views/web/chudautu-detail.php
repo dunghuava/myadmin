@@ -75,7 +75,9 @@
                 <p>
                      <?=$cdt['investor_address']?>
                 </p>
-                <p><?=$cdt['investor_introduce']?></p>
+                <p>
+                     <?=$cdt['investor_description']?>
+                    </p>
                 <button class="btn btn-primary">Liên hệ tư vấn</button>
             </div>
         </div>
@@ -86,9 +88,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h3>Giới thiệu</h3>
-                    <p>
-                     <?=$cdt['investor_description']?>
-                    </p>
+                    <p><?=$cdt['investor_introduce']?></p>
                 </div>
             </div>
         </div>
@@ -97,7 +97,7 @@
     <div class="container">
         <h3>Dự án đang mở bán</h3>
         <div class="row">
-            <?php include ('duan-item.php') ?>
+            <?php $col=4;include ('duan-item.php') ?>
         </div>
     </div>
 </section>
