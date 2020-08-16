@@ -21,7 +21,7 @@
     }
 </style>
 <script>
-    var project_locate = [];
+   var project_locate = [];
 </script>
 <section class="sec-duan-list" style="margin-top:10px">
     <div id="container_h" class="container" style="width:98%;margin:auto;height:84vh;background:#fff;"><br>
@@ -81,10 +81,13 @@
             success: function (response) {
                 response=JSON.parse(response);
                 console.log(response);
+                project_locate=response.project_locate;
+                initMap();
                 setTimeout(() => {
                     $('#spinner').hide();
                     $('#root_project').html(response.data_html);
                     $('#root_project').fadeIn();
+
                 }, 500);
             }
         });
