@@ -29,7 +29,7 @@
             <div class="col-md-2 col-xs-8">
                 <div class="logo">
                    <a href="<?=base_url()?>">
-                        <img src="<?=base_url('upload/logo.png')?>" alt="">
+                        <img src="<?=resizeImg($info[0]['logo_img'],165,47,0)?>" alt="">
                    </a>
                 </div>
             </div>
