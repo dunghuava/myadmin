@@ -8,34 +8,34 @@
                 <div class="flex">
                     <span class="fa fa-phone"></span>
                     <span>Hotline</span>
-                    <p>(+48) 0383868205</p>
+                    <p>(+48) <?=$info[0]['phone']?></p>
                 </div>
             </div>
             <div class="col-md-3 col-xs-6">
                 <div class="flex">
                     <span class="fa fa-envelope"></span>
                     <span>Email</span>
-                    <p>(+48) 0383868205</p>
+                    <p>(+48) <?=$info[0]['email']?></p>
                 </div>
             </div>
             <div class="col-md-3 col-xs-6">
                 <div class="flex">
-                    <span class="fa fa-phone"></span>
-                    <span>Hotline</span>
-                    <p>(+48) 0383868205</p>
+                    <span class="fa fa-address"></span>
+                    <span>Địa chỉ</span>
+                    <p><?=$info[0]['address']?></p>
                 </div>
             </div>
-            <div class="col-md-3 col-xs-6">
+            <!-- <div class="col-md-3 col-xs-6">
                 <div class="flex">
                     <span class="fa fa-envelope"></span>
                     <span>Email</span>
                     <p>(+48) 0383868205</p>
                 </div>
-            </div>
+            </div> -->
         </div><hr>
         <div class="row">
             <div class="col-md-3">
-                <p>Toà nhà EBM 394 Ung Văn Khiêm, phường 25, Quận Bình Thạnh, Thành Phố Hồ Chí Minh</p>
+                <p><?=$info[0]['company']?></p>
             </div>
             <div class="col-md-3">
                 <div class="title-footer">Dự án</div>
@@ -48,7 +48,7 @@
                 </ul>
             </div>
             <div class="col-md-3">
-                <div class="title-footer">Giới thiệu</div>
+                <div class="title-footer">Blog</div>
                 <ul class="list-footer">
                     <li><a href="">RIVERGATE RESIDENT</a></li>
                     <li><a href="">THE SUN AVENUE</a></li>
@@ -58,7 +58,7 @@
                 </ul>
             </div>
             <div class="col-md-3">
-                <div class="title-footer">Chuyên mục</div>
+                <div class="title-footer">Nhà đẹp</div>
                 <ul class="list-footer">
                     <li><a href="">RIVERGATE RESIDENT</a></li>
                     <li><a href="">THE SUN AVENUE</a></li>
@@ -71,7 +71,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="text-left">
-                    <span>© 2019 liveinsaigon.com</span>
+                    <span>© <?=$info[0]['coppy_right']?></span>
                 </div>
             </div>
             <div class="col-md-6">

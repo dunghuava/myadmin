@@ -34,6 +34,7 @@ class MY_Controller extends CI_Controller {
 		$this->load->view('web/header.php',$data);
 	}
 	public function page_footer($data=null){
+		$data['info'] = $this->Info_M->all();
 		$this->load->view('web/footer.php',$data);
 	}
 	public function view($view,$data=null){

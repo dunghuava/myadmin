@@ -187,7 +187,7 @@
                             <img src="<?=resizeImg($list_post[0]['post_img'],555,319,0)?>" alt="">
                             <div class="news-content">
                                 <h3 class="title"><?=$list_post[0]['post_title']?></h3>
-                                <p><?=date('d-m-Y',$list_post[0]['post_date_time'])?></p>
+                                <p><span class="fa fa-calendar">&nbsp;</span><?=date('d/m/Y',strtotime($list_post[0]['created_at']))?></p>
                             </div>
                        </div>
                     </a>
@@ -205,7 +205,7 @@
                             </div>
                             <div class="news-title">
                                 <h3 class="title font16"><?=$post['post_title']?></h3>
-                                <p class="datetime font16"><?=date('d-m-Y',$post['post_date_time'])?></p>
+                                <p class="datetime font16"><span class="fa fa-calendar">&nbsp;</span><?=date('d/m/Y',strtotime($post['created_at']))?></p>
                             </div>
                         </a>
                     </div>

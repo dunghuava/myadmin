@@ -26,7 +26,7 @@
         </div>
 
         <div class="col-md-8 inline-flex">
-            <label for="">Số Điện thoại</label>
+            <label for="">Hotline</label>
             <input type="text" name="phone" id="phone" value="<?php if(!empty($info['phone'])) echo $info['phone']; else echo '';?>" class="form-control">
         </div>   
 
