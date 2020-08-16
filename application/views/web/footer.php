@@ -1,7 +1,7 @@
 <br><br>
 <?php include ('botchat.php') ?>
 
-<footer class="app-footer">
+<footer class="app-footer font18">
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-xs-6">

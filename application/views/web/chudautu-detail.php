@@ -62,7 +62,7 @@
     background: #c72528!important;
 }
 </style>
-<section class="sec-chudautu">
+<section class="sec-chudautu font18">
     <div class="container">
         <div class="row">
             <div class="col-md-3">
@@ -75,7 +75,6 @@
                 <p>
                     <?=$cdt['investor_name']?>
                 </p>
-                <br>
                 <p>Thành lập: <?=$cdt['investor_establish']?></p>
                 <p>Địa chỉ: <?=$cdt['investor_address']?></p>
                 <p>Website: <?=$cdt['investor_website']?></p>
@@ -84,7 +83,7 @@
         </div>
     </div>
 </section><br><br>
-<section style="background:#F4F5F9">
+<section style="background:#F4F5F9" class="font18">
     <div class="container" >
             <div class="row">
                 <div class="col-md-12">
@@ -96,7 +95,7 @@
             </div>
         </div>
 </section>
-<section>
+<section class="font18">
     <div class="container">
         <h3>Các dự án của <?=$cdt['investor_title']?></h3>
         <div class="row">
@@ -111,7 +110,7 @@
                         <a title="<?=$du_an['project_title']?>" href="<?=base_url('chi-tiet-du-an/'.$du_an['project_alias'].'-'.$du_an['project_id'])?>">
                             <div class="project-info">
                                 <img src="<?=resizeImg($du_an['project_img'],360,203,0)?>" alt="">
-                                <div class="status">
+                                <div class="status font17">
                                     <span><?=$info_status_duan['status_project']?></span>
                                 </div>
                             </div>
@@ -130,7 +129,7 @@
         </div>
     </div>
 </section>
-<section class="contact-bg-block" style=" background: url(https://static.rever.vn/images/bg-contact-block.jpg) 50% 50% / cover no-repeat;">
+<section class="contact-bg-block font18" style=" background: url(https://static.rever.vn/images/bg-contact-block.jpg) 50% 50% / cover no-repeat;">
         <div class="width1140 developer-padding-tb">
             <div class="contact-inner text-white text-center">
                 <p>Nhận tin tức mới nhất, tình hình giao dịch, biến động giá cả của các dự án thuộc Khang Điền,
@@ -141,7 +140,7 @@
             </div>
         </div>
 </section>
-<section>
+<section class="font18">
     <div class="container">
         <h3>Chủ đầu tư nổi bật</h3>
         <div class="row">
