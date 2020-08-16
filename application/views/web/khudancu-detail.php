@@ -94,40 +94,9 @@ vertical-align: -0.125em;
                 <!-- item -->
 
                 <?php
-                if (!empty($list_mua)) {
-                 foreach ($list_mua as $key => $mua) {
-                    $info_province_mua = $this->Province_M->find_row(['province_id'=>$mua['project_province_id']]);
-                    $info_district_mua = $this->District_M->find_row(['district_id'=>$mua['project_district_id']]);
-                    $info_ward_mua = $this->Ward_M->find_row(['ward_id'=>$mua['project_ward_id']]);
-                    $info_status_mua = $this->Status_M->find_row(['id_status_project'=>$mua['project_status']]);
-                    
+                    $arr_project = $list_mua;
+                    $col = 4; include ('duan-item.php');
                 ?>
-                <div class="col-md-4">
-                    <div class="item-project">
-                        <a href="">
-                            <div class="project-info">
-                                <img src="<?=resizeImg($mua['project_img'],360,203,0)?>" alt="">
-                                <div class="status">
-                                    <span><?=$info_status_mua['status_project']?></span>
-                                </div>
-                            </div>
-                            <div class="project-content">
-                                <ul class="extends">
-                                    <li class="big-price"><?=$mua['project_price']?></li>
-                                    <li title="Diện tích"><span class="icon-acreage" style="padding-right: 5px"></span> <?=$mua['project_acreage']?></li>
-                                    <li title="Phòng ngủ"><span class="icon-bedroom" style="padding-right: 5px"></span> <?=$mua['number_bedroom']?></li>
-                                </ul>
-                                <div class="clear"></div>
-                                <p><span class="fa fa-map-marker"></span> <b><?=$info_ward_mua['ward_name'].', '.$info_district_mua['district_name'].', '.$info_province_mua['province_name']?></b></p>
-                                <p class="text-overflow"><?=$mua['project_title']?></p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            <?php } }else{ ?>
-                <div class="text-center" style="color:red"><h4>Dữ liệu đang được cập nhật...</h4></div>
-                <br>
-            <?php } ?>
                 <!-- item -->
             </div>
         </div>
@@ -140,40 +109,9 @@ vertical-align: -0.125em;
             <div class="row">
                 <!-- item -->
                 <?php
-                if (!empty($list_thue)) {
-                 foreach ($list_thue as $key => $thue) {
-                    $info_province_thue = $this->Province_M->find_row(['province_id'=>$thue['project_province_id']]);
-                    $info_district_thue = $this->District_M->find_row(['district_id'=>$thue['project_district_id']]);
-                    $info_ward_thue = $this->Ward_M->find_row(['ward_id'=>$thue['project_ward_id']]);
-                    $info_status_thue = $this->Status_M->find_row(['id_status_project'=>$thue['project_status']]);
-                    
+                    $arr_project = $list_thue;
+                    $col = 4; include ('duan-item.php');
                 ?>
-                <div class="col-md-4">
-                    <div class="item-project">
-                        <a href="">
-                            <div class="project-info">
-                                <img src="<?=resizeImg($thue['project_img'],360,203,0)?>" alt="">
-                                <div class="status">
-                                    <span><?=$info_status_thue['status_project']?></span>
-                                </div>
-                            </div>
-                            <div class="project-content">
-                                <ul class="extends">
-                                    <li class="big-price"><?=$thue['project_price']?></li>
-                                    <li title="Diện tích"><span class="icon-acreage" style="padding-right: 5px"></span> <?=$thue['project_acreage']?></li>
-                                    <li title="Phòng ngủ"><span class="icon-bedroom" style="padding-right: 5px"></span> <?=$thue['number_bedroom']?></li>
-                                </ul>
-                                <div class="clear"></div>
-                                <p><span class="fa fa-map-marker"></span> <b><?=$info_ward_thue['ward_name'].', '.$info_district_thue['district_name'].', '.$info_province_thue['province_name']?></b></p>
-                                <p class="text-overflow"><?=$thue['project_title']?></p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            <?php } }else{ ?>
-                <div class="text-center" style="color:red"><h4>Dữ liệu đang được cập nhật...</h4></div>
-                <br>
-            <?php } ?>
                 <!-- item -->
             </div>
         </div>
