@@ -130,6 +130,9 @@ class Web extends MY_Controller {
         $this->page_footer();
     }
     public function page_project_detail($alias=null){
+        $duan_id = getID($alias);
+        $data['duan']=$this->Project_M->find_row(['project_id'=>$duan_id]);
+        dd($data);
         $this->page_header();
         $this->view('web/duan-detail');
         $this->page_footer();

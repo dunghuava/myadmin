@@ -9,7 +9,7 @@
     function initMap() {
     var map = new google.maps.Map(document.getElementById("map"), {
         zoom: 10,
-        center: { lat: -33.9, lng: 151.2 }
+        center: { lat: parseInt(project_locate[0].lat), lng: parseInt(project_locate[0].lng) }
     });
     setMarkers(map);
     }
@@ -37,13 +37,12 @@
     for (let i = 0; i < project_locate.length; i++) {
         const project = project_locate[i];
         new google.maps.Marker({
-        position: { lat: project[1], lng: project[2] },
+        position: { lat: parseInt(project.lat), lng: parseInt(project.lng) },
         map,
         icon: image,
-
         shape: shape,
-        title: project[0],
-        zIndex: project[3]
+        title: project.title,
+        zIndex: parseInt(project.lng)
         });
     }
     }
