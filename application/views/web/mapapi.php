@@ -2,11 +2,12 @@
 <div style="width:100%;" id="map"></div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqAHaMV9ZVcSX992nMQOgZ_Vy80GUZ_8I&callback=initMap&libraries=&v=weekly" defer></script>
 <script>
-    // The following example creates complex markers to indicate beaches near
+    // The following example creates complex markers to indicate project_locate near
     // Sydney, NSW, Australia. Note that the anchor is set to (0,32) to correspond
     // to the base of the flagpole.
+
     function initMap() {
-    const map = new google.maps.Map(document.getElementById("map"), {
+    var map = new google.maps.Map(document.getElementById("map"), {
         zoom: 10,
         center: { lat: -33.9, lng: 151.2 }
     });
@@ -14,13 +15,6 @@
     }
     // Data for the markers consisting of a name, a LatLng and a zIndex for the
     // order in which these markers should display on top of each other.
-    const beaches = [
-        ["Bondi Beach", -33.890542, 151.274856, 4],
-        ["Coogee Beach", -33.923036, 151.259052, 5],
-        ["Cronulla Beach", -34.028249, 151.157507, 3],
-        ["Manly Beach", -33.80010128657071, 151.28747820854187, 2],
-        ["Maroubra Beach", -33.950198, 151.259302, 1]
-    ];
 
     function setMarkers(map) {
     // Adds markers to the map.
@@ -29,13 +23,8 @@
     // Origins, anchor positions and coordinates of the marker increase in the X
     // direction to the right and in the Y direction down.
     const image = {
-        url:"https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+        url:"<?=base_url('dist/marker.png')?>",
         // This marker is 20 pixels wide by 32 pixels high.
-        size: new google.maps.Size(20, 32),
-        // The origin for this image is (0, 0).
-        origin: new google.maps.Point(0, 0),
-        // The anchor for this image is the base of the flagpole at (0, 32).
-        anchor: new google.maps.Point(0, 32)
     };
     // Shapes define the clickable region of the icon. The type defines an HTML
     // <area> element 'poly' which traces out a polygon as a series of X,Y points.
@@ -45,16 +34,16 @@
         type: "poly"
     };
 
-    for (let i = 0; i < beaches.length; i++) {
-        const beach = beaches[i];
+    for (let i = 0; i < project_locate.length; i++) {
+        const project = project_locate[i];
         new google.maps.Marker({
-        position: { lat: beach[1], lng: beach[2] },
+        position: { lat: project[1], lng: project[2] },
         map,
         icon: image,
 
         shape: shape,
-        title: beach[0],
-        zIndex: beach[3]
+        title: project[0],
+        zIndex: project[3]
         });
     }
     }
