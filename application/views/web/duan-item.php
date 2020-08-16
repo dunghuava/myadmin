@@ -17,7 +17,7 @@
     $info_ward = $this->Ward_M->find_row(['ward_id'=>$item['project_ward_id']]);
     $info_status = $this->Status_M->find_row(['id_status_project'=>$item['project_status']]);
 ?>
-    <div class="col-md-6">
+    <div class="col-md-<?=$col ? $col:'6'?>">
         <div class="item-project">
             <a title="<?=$item['project_title']?>" href="<?=base_url('chi-tiet-du-an/'.$item['project_alias'].'-'.$item['project_id'])?>">
                 <div class="project-info">
