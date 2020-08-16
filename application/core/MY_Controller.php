@@ -13,6 +13,7 @@ class MY_Controller extends CI_Controller {
 		$this->load->model('Setting_M');
 		$this->load->model('Permission_M');
 		$this->load->model('Web_M');
+		$this->load->model('Info_M');
 
 		$this->user_infor = $this->session->get_userdata('user_infor');
 		$user_id=$this->user_infor['user_infor']['user_id'];
@@ -29,6 +30,7 @@ class MY_Controller extends CI_Controller {
 		}
 	}
 	public function page_header($data=null){
+		$data['info'] = $this->Info_M->all();
 		$this->load->view('web/header.php',$data);
 	}
 	public function page_footer($data=null){
