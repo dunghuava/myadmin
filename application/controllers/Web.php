@@ -146,8 +146,19 @@ class Web extends MY_Controller {
             'project_category'=>$project_category,
             'project_title'=>$project_title
         );
-        $data['arr_project']= $this->Project_M->searchApi($search);
-        $this->load->view('web/duan-item', $data);
+        $arr_project= $this->Project_M->searchApi($search);
+        $project_locate=array();
+        foreach ($arr_project as $item){
+            $project_locate []=array(
+                'title'=>$item['project_title'],
+                'lat'=>$item['project_lat'],
+                'lng'=>$item['project_lng']
+            );
+        }
+        $data['arr_project']=$arr_project;
+        $data['project_locate']=$project_locate;
+        $data['data_html']= $this->load->view('web/duan-item', $data,true);
+        echo json_encode($data);
     }
     public function page_chudautu_detail($alias=null){
 

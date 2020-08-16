@@ -10,6 +10,7 @@
     }
 </style>
 <br>
+<h1>lalalalla</h1>
 <?php 
     foreach ($arr_project as $item){ 
     $info_province = $this->Province_M->find_row(['province_id'=>$item['project_province_id']]);

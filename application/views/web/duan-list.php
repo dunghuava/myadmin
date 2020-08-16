@@ -20,6 +20,9 @@
         background-color: #65BA69;
     }
 </style>
+<script>
+    var project_locate = [];
+</script>
 <section class="sec-duan-list" style="margin-top:10px">
     <div id="container_h" class="container" style="width:98%;margin:auto;height:84vh;background:#fff;"><br>
         <div class="row">
@@ -34,9 +37,9 @@
                     </select>
                     <input id="project_title" placeholder="Tìm kiếm theo tên dự án, khu vực..." type="text" class="form-control">
                     <button type="submit" style="background:#fff" class="btn btn-default"><span class="fa fa-search"></span></button>
-                    <button type="button" style="background:#fff" class="btn btn-default">Loại hình&nbsp;<span class="fa fa-angle-down"></span></button>
-                    <button type="button" style="background:#fff" class="btn btn-default">Phòng ngủ&nbsp;<span class="fa fa-angle-down"></span></button>
-                    <button type="button" style="background:#fff" class="btn btn-default">Diện tích&nbsp;<span class="fa fa-angle-down"></span></button>
+                    <button type="button" style="background:#fff" class="btn btn-default hidden-xs ">Loại hình&nbsp;<span class="fa fa-angle-down"></span></button>
+                    <button type="button" style="background:#fff" class="btn btn-default hidden-xs ">Phòng ngủ&nbsp;<span class="fa fa-angle-down"></span></button>
+                    <button type="button" style="background:#fff" class="btn btn-default hidden-xs ">Diện tích&nbsp;<span class="fa fa-angle-down"></span></button>
                 </form>
                 <div class="row">
                     <div id="spinner" class="text-center"><br><br><br><br><br><br><br><br>
@@ -46,7 +49,7 @@
                     <div style="overflow:auto;" id="root_project"></div>
                 </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-5 hidden-xs">
                 <?php include ('mapapi.php') ?>
             </div>
         </div>
@@ -76,9 +79,11 @@
             url: "<?=base_url('web/searchApi')?>",
             data: {'data':data},
             success: function (response) {
+                response=JSON.parse(response);
+                console.log(response);
                 setTimeout(() => {
                     $('#spinner').hide();
-                    $('#root_project').html(response);
+                    $('#root_project').html(response.data_html);
                     $('#root_project').fadeIn();
                 }, 500);
             }
