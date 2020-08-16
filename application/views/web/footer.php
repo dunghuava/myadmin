@@ -11,16 +11,26 @@
                     <p>(+48) <?=$info[0]['phone']?></p>
                 </div>
             </div>
+
+            <div class="col-md-3 col-xs-6">
+                <div class="flex">
+                    <span class="fa fa-phone"></span>
+                    <span>Khiếu nại, phản hồi</span>
+                    <p>(+48) <?=$info[0]['phone']?></p>
+                </div>
+            </div>
+
+            
             <div class="col-md-3 col-xs-6">
                 <div class="flex">
                     <span class="fa fa-envelope"></span>
                     <span>Email</span>
-                    <p>(+48) <?=$info[0]['email']?></p>
+                    <p><?=$info[0]['email']?></p>
                 </div>
             </div>
             <div class="col-md-3 col-xs-6">
                 <div class="flex">
-                    <span class="fa fa-address"></span>
+                    <span class="fa fa-address-card-o"></span>
                     <span>Địa chỉ</span>
                     <p><?=$info[0]['address']?></p>
                 </div>
@@ -35,36 +45,40 @@
         </div><hr>
         <div class="row">
             <div class="col-md-3">
-                <p><?=$info[0]['company']?></p>
+                <div style="font-weight: bold;font-size: 30px"><?=$info[0]['company']?></div>
+                
+                <div style="font-weight: bold;font-size: 25px;" class="col-md-12">
+                    <a href="<?=$info[0]['facebook']?>" style="color: white;"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                    <a href="<?=$info[0]['youtube']?>" style="color: white;"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                    <a href="<?=$info[0]['twitter']?>" style="color: white;"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a href="<?=$info[0]['instagram']?>" style="color: white;"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                </div>
             </div>
             <div class="col-md-3">
                 <div class="title-footer">Dự án</div>
                 <ul class="list-footer">
-                    <li><a href="">RIVERGATE RESIDENT</a></li>
-                    <li><a href="">THE SUN AVENUE</a></li>
-                    <li><a href="">QUAN 02 Thao Dien</a></li>
-                    <li><a href="">RIVERGATE RESIDENT</a></li>
-                    <li><a href="">RIVERGATE RESIDENT</a></li>
+                    <?php foreach ($du_an_footer as $key => $daf) {?>
+                        <li><a href="<?=base_url('chi-tiet-du-an/'.$daf['project_alias'].'-'.$daf['project_id'])?>"><?=$daf['project_title']?></a></li>
+                    <?php } ?>
                 </ul>
             </div>
             <div class="col-md-3">
                 <div class="title-footer">Blog</div>
                 <ul class="list-footer">
-                    <li><a href="">RIVERGATE RESIDENT</a></li>
-                    <li><a href="">THE SUN AVENUE</a></li>
-                    <li><a href="">QUAN 02 Thao Dien</a></li>
-                    <li><a href="">RIVERGATE RESIDENT</a></li>
-                    <li><a href="">RIVERGATE RESIDENT</a></li>
+                    <?php foreach ($blog_footer as $key => $bf) {?>
+                        <li><a href="<?=base_url('bai-viet/'.$bf['post_alias'].'-'.$bf['post_id'])?>"><?=$bf['post_title']?></a></li>
+                    <?php } ?>
                 </ul>
             </div>
             <div class="col-md-3">
-                <div class="title-footer">Nhà đẹp</div>
+                <div class="title-footer">Chuyên mục</div>
                 <ul class="list-footer">
-                    <li><a href="">RIVERGATE RESIDENT</a></li>
-                    <li><a href="">THE SUN AVENUE</a></li>
-                    <li><a href="">QUAN 02 Thao Dien</a></li>
-                    <li><a href="">RIVERGATE RESIDENT</a></li>
-                    <li><a href="">RIVERGATE RESIDENT</a></li>
+
+                    <?php
+                    $categories = $this->Category_M->all(['cate_parent_id'=>0,'cate_is_menu'=>1,'cate_is_public'=>1],'asc');
+                     foreach ($categories as $key => $cate) {?>
+                        <li><a href="<?=base_url('danh-muc/'.$s_cate['cate_alias'])?>"><?=$cate['cate_title']?></a></li>
+                    <?php } ?>
                 </ul>
             </div>
         </div><hr>
