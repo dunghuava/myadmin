@@ -10,7 +10,7 @@ vertical-align: -0.125em;
 }
 }
 </style>
-<section class="page-khudancu-detail font17">
+<section class="page-khudancu-detail font18">
     <div class="banner" style="background:url(<?=resizeImg($kdc['residential_img'],1350,400,0)?>)">
         <div class="abs-content container">
             <div class="col-md-12 pd0">

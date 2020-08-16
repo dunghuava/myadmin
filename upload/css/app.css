@@ -36,6 +36,10 @@ a:active {
   font-size: 17px !important;
 }
 
+.font16 {
+  font-size: 16px !important;
+}
+
 ul {
   margin: 0px;
   padding: 0px;
@@ -79,7 +83,7 @@ img {
 
 .main-menu li {
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
   text-transform: uppercase;
   padding: 15px 15px;
   display: -webkit-inline-box;

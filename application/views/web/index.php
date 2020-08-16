@@ -1,4 +1,4 @@
-<section class="sec-slider relative">
+<section class="sec-slider relative font18">
     <?php include ('slider.php') ?>
     <div id="form-absolute" class="absolute hidden-xs">
         <form class="form-group" action="" method="get">
@@ -9,14 +9,14 @@
                     <button class="btn_choose_type" type="button">Mua bán</button>
                 </div>
                 <div class="form-inline" style="display: flex;">
-                    <input type="search" class="form-control" name="" id="" placeholder="Nhập địa điểm hoặc từ khóa (Ví dụ : Đảo kim cương)">
+                    <input type="search" class="form-control font18" name="" id="" placeholder="Nhập địa điểm hoặc từ khóa (Ví dụ : Đảo kim cương)">
                     <button class="btn_search" type="submit"><span class="fa fa-search"></span></button>
                 </div>
             </div>
         </form>
     </div>
 </section>
-<section class="sec-project">
+<section class="sec-project font18">
     <div class="container">
         <h3 class="main-title">Dự án nổi bật</h3>
         <div class="row">
@@ -31,7 +31,7 @@
                         <a title="<?=$du_an['project_title']?>" href="<?=base_url('chi-tiet-du-an/'.$du_an['project_alias'].'-'.$du_an['project_id'])?>">
                             <div class="project-info">
                                 <img src="<?=resizeImg($du_an['project_img'],360,203,0)?>" alt="">
-                                <div class="status">
+                                <div class="status font17">
                                     <span><?=$info_status_duan['status_project']?></span>
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
         </div>
     </div>
 </section>
-<section class="sec-khuvuc">
+<section class="sec-khuvuc font18">
     <div class="container">
         <h3 class="main-title">Dự án theo khu vực</h3>
         <div class="row">
@@ -75,7 +75,7 @@
     </div>
 </section>
 
-<section class="sec-project">
+<section class="sec-project font18">
     <div class="container">
         <h3 class="main-title">Nhà bán nổi bậc</h3>
         <div class="row">
@@ -91,7 +91,7 @@
     </div>
 </section>
 
-<section class="sec-khuvuc">
+<section class="sec-khuvuc font18">
     <div class="container">
         <h3 class="main-title">Nhà bán theo khu vực</h3>
         <div class="row">
@@ -115,7 +115,7 @@
     </div>
 </section>
 
-<section class="sec-project">
+<section class="sec-project font18">
     <div class="container">
         <h3 class="main-title">Cho thuê nổi bậc</h3>
         <div class="row">
@@ -130,7 +130,7 @@
     </div>
 </section>
 
-<section class="sec-khuvuc">
+<section class="sec-khuvuc font18">
     <div class="container">
         <h3 class="main-title">Cho thuê theo khu vực</h3>
         <div class="row">
@@ -154,7 +154,7 @@
     </div>
 </section>
 
-<section class="sec-chudautu">
+<section class="sec-chudautu font18">
     <div class="container">
         <h3 class="main-title">Chủ đầu tư nổi bật</h3>
         <p>Thông tin cơ bản và danh mục dự án của các chủ đầu tư bất động sản uy tín hiện nay</p>
@@ -175,7 +175,7 @@
         </div>
     </div>
 </section>
-<section class="sec-tintuc">
+<section class="sec-tintuc font18">
     <div class="container">
         <h3 class="main-title">Tin tức</h3>
         <p>Tin tức mới nhất, phân tích xu hướng thị trường, cập nhật nhanh chóng và chính xác hàng ngày</p>
@@ -204,8 +204,8 @@
                                 <img src="<?=resizeImg($post['post_img'],145,96,0)?>" alt="">
                             </div>
                             <div class="news-title">
-                                <h3 class="title"><?=$post['post_title']?></h3>
-                                <p class="datetime"><?=date('d-m-Y',$post['post_date_time'])?></p>
+                                <h3 class="title font16"><?=$post['post_title']?></h3>
+                                <p class="datetime font16"><?=date('d-m-Y',$post['post_date_time'])?></p>
                             </div>
                         </a>
                     </div>
@@ -214,7 +214,7 @@
         </div>
     </div>
 </section>
-<section class="sec-blog">
+<section class="sec-blog font18">
     <div class="container">
         <h3 class="main-title">Thông tin - Blog</h3>
         <div class="row">
@@ -225,7 +225,7 @@
                     </div>
                     <div class="blog-content">
                         <div class="blog-larger">
-                            <a href="<?=base_url('blog/'.$tin_mua_ban[0]['post_alias'].'-'.$tin_mua_ban[0]['post_id'])?>">
+                            <a href="<?=base_url('bai-viet/'.$tin_mua_ban[0]['post_alias'].'-'.$tin_mua_ban[0]['post_id'])?>">
                                 <img src="<?=resizeImg($tin_mua_ban[0]['post_img'],338,160,0)?>" alt="">
                                 <p style="height: 43px" class="title font17"><?=$tin_mua_ban[0]['post_title']?></p>
                             </a>
@@ -236,7 +236,7 @@
                          <div class="blog-small">
                              <a href="<?=base_url('bai-viet/'.$tmb['post_alias'].'-'.$tmb['post_id'])?>" style="display:inline-flex">
                                 <img src="<?=resizeImg($tmb['post_img'],100,65,0)?>" alt="">
-                                <p class="title"><?=$tmb['post_title']?></p>
+                                <p class="title font16"><?=$tmb['post_title']?></p>
                              </a>
                          </div>
                         <?php } } ?>
@@ -261,7 +261,7 @@
                          <div class="blog-small">
                              <a href="<?=base_url('bai-viet/'.$tvl['post_alias'].'-'.$tvl['post_id'])?>" style="display:inline-flex">
                                 <img src="<?=resizeImg($tvl['post_img'],100,65,0)?>" alt="">
-                                <p class="title"><?=$tvl['post_title']?></p>
+                                <p class="title font16"><?=$tvl['post_title']?></p>
                              </a>
                          </div>
                         <?php } } ?>
@@ -286,7 +286,7 @@
                          <div class="blog-small">
                              <a href="<?=base_url('bai-viet/'.$bg['post_alias'].'-'.$bg['post_id'])?>" style="display:inline-flex">
                                 <img src="<?=resizeImg($bg['post_img'],100,65,0)?>" alt="">
-                                <p class="title"><?=$bg['post_title']?></p>
+                                <p class="title font16"><?=$bg['post_title']?></p>
                              </a>
                          </div>
                         <?php } } ?>
@@ -296,7 +296,7 @@
         </div>
     </div>
 </section>
-<section class="sec-khudancu">
+<section class="sec-khudancu font18">
     <div class="container">
         <h3 class="main-title">Khu dân cư</h3>
         <p>Thông tin phân tích chi tiết, danh mục dự án và nhà đất đăng bán & cho thuê tại các khu vực nổi bật</p>

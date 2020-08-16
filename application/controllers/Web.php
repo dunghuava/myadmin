@@ -87,6 +87,8 @@ class Web extends MY_Controller {
     public function page_post_detail($alias=null){
         $post_id = getID($alias);
         $data['post']=$this->Post_M->find_row(['post_id'=>$post_id]);
+
+        $data['post_involve']=$this->Post_M->getListPost_Involve($post_id,$data['post']['post_category_id'],10);
         $this->page_header();
         $this->view('web/tintuc-detail',$data);
         $this->page_footer();
@@ -168,7 +170,7 @@ class Web extends MY_Controller {
         $cdt_id = getID($alias);
         $data['cdt']=$this->Investor_M->find_row(['investor_id'=>$cdt_id]);
         $data['list_investor'] = $this->Investor_M->getListInvestor();
-        $data['arr_project']   = $this->Project_M->all(['project_investor'=>$cdt_id]);
+        $data['arr_project']   = $this->Project_M->all(['project_investor'=>$cdt_id,'project_kind'=>'0']);
         $this->page_header();
         $this->view('web/chudautu-detail',$data);
         $this->page_footer();
