@@ -17,8 +17,8 @@ class Project_M extends MY_model {
 		return $this->db->get($this->table)->result_array();
 	}
 	public function searchApi($search){
-		if (isset($search['project_category'])){
-			$this->db->or_where('project_category',$search['project_category']);
+		if (isset($search['arr_category'])){
+			$this->db->where_in('project_category',$search['arr_category']);
 		}
 		if (isset($search['project_title']) && !empty($search['project_title'])){
 			$this->db->or_like('project_title',$search['project_title']);
