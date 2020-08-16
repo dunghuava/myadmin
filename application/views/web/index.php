@@ -225,7 +225,7 @@
                     </div>
                     <div class="blog-content">
                         <div class="blog-larger">
-                            <a href="<?=base_url('blog/'.$tin_mua_ban[0]['post_alias'].'-'.$tin_mua_ban[0]['post_id'])?>">
+                            <a href="<?=base_url('bai-viet/'.$tin_mua_ban[0]['post_alias'].'-'.$tin_mua_ban[0]['post_id'])?>">
                                 <img src="<?=resizeImg($tin_mua_ban[0]['post_img'],338,160,0)?>" alt="">
                                 <p style="height: 43px" class="title font17"><?=$tin_mua_ban[0]['post_title']?></p>
                             </a>

@@ -3,8 +3,10 @@
     div img{
         max-width:100%;
     }
+
+    .item-blog .blog-content .blog-small .title {
 </style>
-<section class="sec-post-detail">
+<section class="sec-post-detail font18">
     <div class="container">
         <div class="row">
             <div class="col-md-8">
@@ -16,18 +18,13 @@
                     <!-- <li style="margin-right:15px"><span class="fa fa-eye"></span> 0</li> -->
                 </ul>
                 <?php include ('shares.php') ?>
-                <style>
-                    .post-content *{
-                        font-size:18px; 
-                    }
-                </style>
                 <div class="post-content">
                     <p>
                         <span><?=$post['post_content']?></span>
                     </p>
                     <hr>
                     <div class="text-left">
-                        <p><span class="fa fa-edit"></span>&nbsp;Tác giả </p>
+                        <p><span class="fa fa-edit"></span>&nbsp;Nguồn: <?=$post['post_author']?></p>
                     </div>
                 </div>
             </div>
@@ -38,19 +35,22 @@
                     </div>
                     <div class="blog-content">
                         <div class="blog-larger">
-                            <a href="">
-                                <img src="<?=base_url('upload/images/blog.jpg')?>" alt="">
-                                <p class="title">Chi phí quản lý dự án hủy bỏ được tính như thế nào ?</p>
+                            <a href="<?=base_url('bai-viet/'.$post_involve[0]['post_alias'].'-'.$post_involve[0]['post_id'])?>">
+                                <img src="<?=resizeImg($post_involve[0]['post_img'],338,160,0)?>" alt="">
+                                <p style="height: 43px" class="title font17"><?=$post_involve[0]['post_title']?></p>
                             </a>
                         </div>
-                        <?php for ($i=0;$i<3;$i++){ ?>
+                        <br>
+                        <?php foreach ($post_involve as $key => $involve) {
+                            if ($key>0) {
+                        ?>
                         <div class="blog-small">
-                            <a href="" style="display:inline-flex">
-                                <img src="<?=base_url('upload/images/blog.jpg')?>" alt="">
-                                <p class="title">Chi phí quản lý dự án hủy bỏ được tính như thế nào ?</p>
-                            </a>
+                            <a href="<?=base_url('bai-viet/'.$involve['post_alias'].'-'.$involve['post_id'])?>" style="display:inline-flex">
+                                <img src="<?=resizeImg($involve['post_img'],100,65,0)?>" alt="">
+                                <p class="title font16"><?=$involve['post_title']?></p>
+                             </a>
                         </div>
-                        <?php } ?>
+                        <?php } } ?>
                     </div>
                 </div>
             </div>
