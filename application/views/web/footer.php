@@ -77,7 +77,7 @@
                     <?php
                     $categories = $this->Category_M->all(['cate_parent_id'=>0,'cate_is_menu'=>1,'cate_is_public'=>1],'asc');
                      foreach ($categories as $key => $cate) {?>
-                        <li><a href="<?=base_url('danh-muc/'.$s_cate['cate_alias'])?>"><?=$cate['cate_title']?></a></li>
+                        <li><a href="<?=base_url('danh-muc/'.$cate['cate_alias'])?>"><?=$cate['cate_title']?></a></li>
                     <?php } ?>
                 </ul>
             </div>
