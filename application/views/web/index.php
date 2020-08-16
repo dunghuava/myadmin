@@ -20,20 +20,25 @@
     <div class="container">
         <h3 class="main-title">Dự án nổi bật</h3>
         <div class="row">
-            <?php for ($i=0;$i<6;$i++){ ?>
+            <?php foreach ($list_du_an as $key => $du_an) {
+                $info_province_duan = $this->Province_M->find_row(['province_id'=>$du_an['project_province_id']]);
+                $info_district_duan = $this->District_M->find_row(['district_id'=>$du_an['project_district_id']]);
+                $info_ward_duan = $this->Ward_M->find_row(['ward_id'=>$du_an['project_ward_id']]);
+                $info_status_duan = $this->Status_M->find_row(['id_status_project'=>$du_an['project_status']]);
+            ?>
                 <div class="col-md-4 col-xs-12">
                     <div class="item-project">
                         <a href="">
                             <div class="project-info">
-                                <img src="<?=base_url('upload/images/image.jpg')?>" alt="">
+                                <img src="<?=resizeImg($du_an['project_img'],360,203,0)?>" alt="">
                                 <div class="status">
-                                    <span>Đang mở bán</span>
+                                    <span><?=$info_status_duan['status_project']?></span>
                                 </div>
                             </div>
                             <div class="project-content">
-                                <h3 class="title">Eco green Saigon</h3>
-                                <p class="address">12/07 Trần Não-Q2-HCMC</p>
-                                <p class="price">Giá bán: 3.65 tỷ</p>
+                                <h3 class="title"><?=$du_an['project_title']?></h3>
+                                <p class="address"><?=$info_ward_duan['ward_name'].', '.$info_district_duan['district_name'].', '.$info_province_duan['province_name']?></b></p></p>
+                                <p class="price">Giá bán: <?=$du_an['project_price']?></p>
                             </div>
                         </a>
                     </div>

@@ -75,6 +75,12 @@ class Web extends MY_Controller {
 
         $data['tin_mua_ban'] = $tin_mua_ban;
 
+        $data['list_du_an']= $this->Project_M->getListProject(['project_kind'=>0],6);
+
+        $data['list_mua']= $this->Project_M->getListProject(['project_kind'=>1],6);
+
+        $data['list_thue']= $this->Project_M->getListProject(['project_kind'=>2],6);
+
         $this->view('web/index',$data);
         $this->page_footer();
     }
@@ -89,9 +95,9 @@ class Web extends MY_Controller {
         $kdc_id = getID($alias);
         $data['kdc']= $this->Residential_M->find_row(['residential_id'=>$kdc_id]);
 
-        $data['list_mua']= $this->Project_M->getListProject_In_Residential(['project_residential'=>$data['kdc']['residential_id'],'project_kind'=>1],3);
+        $data['list_mua']= $this->Project_M->getListProject(['project_residential'=>$data['kdc']['residential_id'],'project_kind'=>1],3);
 
-        $data['list_thue']= $this->Project_M->getListProject_In_Residential(['project_residential'=>$data['kdc']['residential_id'],'project_kind'=>2],3);
+        $data['list_thue']= $this->Project_M->getListProject(['project_residential'=>$data['kdc']['residential_id'],'project_kind'=>2],3);
         
         $this->page_header();
         $this->view('web/khudancu-detail',$data);
