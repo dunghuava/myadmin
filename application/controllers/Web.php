@@ -149,4 +149,14 @@ class Web extends MY_Controller {
         $data['arr_project']= $this->Project_M->searchApi($search);
         $this->load->view('web/duan-item', $data);
     }
+    public function page_chudautu_detail($alias=null){
+
+        $cdt_id = getID($alias);
+        $data['cdt']=$this->Investor_M->find_row(['investor_id'=>$cdt_id]);
+        $data['list_investor'] = $this->Investor_M->getListInvestor();
+        $data['arr_project']   = $this->Project_M->all(['project_investor'=>$cdt_id]);
+        $this->page_header();
+        $this->view('web/chudautu-detail',$data);
+        $this->page_footer();
+    }
 }
