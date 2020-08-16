@@ -21,7 +21,7 @@
         <div class="item-project">
             <a title="<?=$item['project_title']?>" href="<?=base_url('chi-tiet-du-an/'.$item['project_alias'].'-'.$item['project_id'])?>">
                 <div class="project-info">
-                    <img src="<?=resizeImg($item['project_img'],228,128,1)?>" alt="<?=$item['project_title']?>">
+                    <img src="<?=resizeImg($item['project_img'],360,203,0)?>" alt="<?=$item['project_title']?>">
                     <div class="status">
                         <span><?=$info_status['status_project']?></span>
                     </div>

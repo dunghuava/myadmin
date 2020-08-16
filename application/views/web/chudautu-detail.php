@@ -67,15 +67,18 @@
         <div class="row">
             <div class="col-md-3">
                 <div style="border: 1px solid #dcdcdc;padding:10px">
-                    <img src="<?=resizeImg($cdt['investor_img'],400,250,1)?>" alt="<?=$cdt['investor_title']?>">
+                    <img src="<?=resizeImg($cdt['investor_img'],260,243,0)?>" alt="<?=$cdt['investor_title']?>">
                 </div>
             </div>
             <div class="col-md-9">
                 <h3><?=$cdt['investor_title']?></h3>
                 <p>
-                     <?=$cdt['investor_address']?>
+                    <?=$cdt['investor_name']?>
                 </p>
-                <p><?=$cdt['investor_introduce']?></p>
+                <br>
+                <p>Thành lập: <?=$cdt['investor_establish']?></p>
+                <p>Địa chỉ: <?=$cdt['investor_address']?></p>
+                <p>Website: <?=$cdt['investor_website']?></p>
                 <button class="btn btn-primary">Liên hệ tư vấn</button>
             </div>
         </div>
@@ -87,7 +90,7 @@
                 <div class="col-md-12">
                     <h3>Giới thiệu</h3>
                     <p>
-                     <?=$cdt['investor_description']?>
+                     <?=$cdt['investor_introduce']?>
                     </p>
                 </div>
             </div>
@@ -97,7 +100,7 @@
     <div class="container">
         <h3>Dự án đang mở bán</h3>
         <div class="row">
-            <?php include ('duan-item.php') ?>
+            <?php $col = 4; include ('duan-item.php') ?>
         </div>
     </div>
 </section>
