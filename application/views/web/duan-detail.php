@@ -198,9 +198,13 @@
                                 <p>Chủ đầu tư</p>
                             </div>
                             <div class="content-collapse font18_all">
-                                <img style="width:150px;border:1px solid #dcdcdc" src="<?=resizeImg($cdt['investor_img'],150,150,2)?>" alt="<?=$cdt['investor_title']?>">
-                                <h3><b><?=$cdt['investor_title']?></b></h3>
-                                <p><?=$cdt['investor_introduce']?></p>
+                                <div class="col-md-3">
+                                    <img style="width:150px;border:1px solid #dcdcdc" src="<?=resizeImg($cdt['investor_img'],170,170,2)?>" alt="<?=$cdt['investor_title']?>">
+                                </div>
+                                <div class="col-md-9">
+                                    <h3><b><?=$cdt['investor_title']?></b></h3>
+                                    <p><?=$cdt['investor_introduce']?></p>
+                                </div>
                             </div>
                         </div>
                         <div class="item-collapse" id="p_location">
