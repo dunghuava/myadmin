@@ -668,7 +668,7 @@ img {
 
 .page-khudancu-detail .overview-toolbar {
   padding: 2px 0px;
-  border-bottom: 2px solid black;
+  border-bottom: 1px solid #dcdcdc;
 }
 
 .page-khudancu-detail .overview-toolbar.sticky {
@@ -994,6 +994,10 @@ img {
 
 .swal2-title{
   font-size: 18px!important;
+}
+
+.form-control{
+  font-size: 16px;
 }
 
 
