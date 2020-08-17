@@ -177,7 +177,7 @@ $primary_color:#88AD6A;
        li{
            padding:5px 0px;
            a{
-               font-size: 13px;
+               font-size: 16px;
                color: #F3F4F7;
            }
        }
@@ -240,6 +240,44 @@ $primary_color:#88AD6A;
         bottom: -100px;
     }
 }
+.div-contact{
+    background-color: #f4f4f4;
+    padding-left: 0px;
+    height: 85px;
+  }
+  
+  .div-contact-img{
+    padding: 7px;
+    width: 85px;
+    float: left;
+  }
+  
+  .img-contact{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+  }
+  
+  .div-contact-tel{
+    background-color: #88AD6A;
+    text-align: center;
+    margin-top: 15px;
+    border-radius: 1px;
+    height: 45px;
+    line-height: 45px;
+    color: white;
+    font-weight: bold;
+  }
+  .swal2-icon{
+    font-size: 18px!important;
+  }
+  
+  .swal2-title{
+    font-size: 18px!important;
+  }
+  .name-contact{
+    padding: 13px;
+  }
 @import 'page_index';
 @import 'page_khudancu';
 @import 'page_project';
