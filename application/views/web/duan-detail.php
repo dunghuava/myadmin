@@ -152,7 +152,7 @@
                         <li style="padding-left:0px"><a href="<?=fullAddress().'#p_overview'?>">Tổng quan</a></li>
                         <li><a href="<?=fullAddress().'#p_location'?>">Vị trí</a></li>
                         <li><a href="<?=fullAddress().'#p_forent'?>">Bán & cho thuê</a></li>
-                        <li><a href="<?=fullAddress().'#p_orther_project'?>">Dự án lân cận</a></li>
+                        <li><a href="<?=fullAddress().'#p_orther'?>">Dự án lân cận</a></li>
                     </ul>
                 </div>
             </div>
@@ -331,7 +331,7 @@
                     </div>
                 </div>
             </div>
-            <h3 id="p_orther_project">Dự án lân cận</h3>
+            <h3 id="p_orther">Dự án lân cận</h3>
             <div class="row">
                 <div class="slick">
                     <?php $col=4; include ('duan-item.php') ?>
