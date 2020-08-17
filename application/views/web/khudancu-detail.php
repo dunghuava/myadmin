@@ -177,9 +177,10 @@ vertical-align: -0.125em;
 </section>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqAHaMV9ZVcSX992nMQOgZ_Vy80GUZ_8I&callback=initMap&libraries=drawing,places"></script>
-<script>
+</script>
 <script>
 window.onscroll = function() {addSticky()};
+
     var navbar = document.getElementById("toolbar");
     var sticky = (navbar.offsetTop);
     function addSticky() {
