@@ -97,9 +97,9 @@ class Web extends MY_Controller {
         $kdc_id = getID($alias);
         $data['kdc']= $this->Residential_M->find_row(['residential_id'=>$kdc_id]);
 
-        $data['list_mua']= $this->Project_M->getListProject(['project_residential'=>$data['kdc']['residential_id'],'project_kind'=>1],3);
+        $data['list_mua']= $this->Project_M->getListProject(['project_residential'=>$data['kdc']['residential_id'],'project_kind'=>1],6);
 
-        $data['list_thue']= $this->Project_M->getListProject(['project_residential'=>$data['kdc']['residential_id'],'project_kind'=>2],3);
+        $data['list_thue']= $this->Project_M->getListProject(['project_residential'=>$data['kdc']['residential_id'],'project_kind'=>2],6);
         
         $this->page_header();
         $this->view('web/khudancu-detail',$data);
