@@ -3,8 +3,6 @@
     div img{
         max-width:100%;
     }
-
-    .item-blog .blog-content .blog-small .title {
 </style>
 <section class="sec-post-detail font18">
     <div class="container">

@@ -76,14 +76,17 @@ class Residential extends MY_Controller {
             	$tag = '';
             }
 
+            $residential_introduce = preg_replace('/h>|h1>|h2>|h3>|h4>|em>/', 'p>', $post['residential_introduce']);
+
+            $residential_content = preg_replace('/h>|h1>|h2>|h3>|h4>|em>/', 'p>', $post['residential_content']);
 
 			$data_insert = array(
 				'residential_title' => $post['residential_title'], 
 				'residential_alias' => $post['residential_alias'], 
 				'residential_img' => $filename_img, 
 				'residential_banner' => '', 
-				'residential_introduce' => $post['residential_introduce'], 
-				'residential_content' => $post['residential_content'], 
+				'residential_introduce' => $residential_introduce, 
+				'residential_content' => $residential_content, 
 				'residential_highlights' => 0, 
 				'residential_active' => $post['residential_active'], 
 				'residential_province_id' => $post['residential_province_id'], 
@@ -199,13 +202,18 @@ class Residential extends MY_Controller {
             }
 
 
+            $residential_introduce = preg_replace('/h>|h1>|h2>|h3>|h4>|em>/', 'p>', $post['residential_introduce']);
+
+            $residential_content = preg_replace('/h>|h1>|h2>|h3>|h4>|em>/', 'p>', $post['residential_content']);
+
+
 			$data_update = array(
 				'residential_title' => $post['residential_title'], 
 				'residential_alias' => $post['residential_alias'], 
 				'residential_img' => $filename_img, 
 				'residential_banner' => '', 
-				'residential_introduce' => $post['residential_introduce'], 
-				'residential_content' => $post['residential_content'], 
+				'residential_introduce' => $residential_introduce, 
+				'residential_content' => $residential_content, 
 				'residential_active' => $post['residential_active'], 
 				'residential_province_id' => $post['residential_province_id'], 
 				'residential_district_id' => $post['residential_district_id'], 

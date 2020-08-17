@@ -125,7 +125,8 @@ class Web extends MY_Controller {
     }
     public function page_chudautu_list($alias=null){
         $this->page_header();
-        $this->view('web/chudautu-list');
+        $data['list_investor']=$this->Investor_M->all(['investor_active'=>1]);
+        $this->view('web/chudautu-list',$data);
         $this->page_footer();
     }
     public function page_project_detail($alias=null){
@@ -145,11 +146,32 @@ class Web extends MY_Controller {
         $post = $this->input->post('data');
         $project_category=$post['project_category'];
         $project_title=$post['project_title'];
+
+        $info_category = $this->Category_M->find_row(['cate_id'=>$project_category]);
+
+        $cate_parent_id = $info_category['cate_parent_id'];
+
+        $arr_category = array();
+        if ($cate_parent_id!=0) {
+            array_push($arr_category, $project_category);
+        }else{
+            array_push($arr_category, $project_category);
+            $list_cate_sub = $this->Category_M->all(['cate_parent_id'=>$project_category]);
+            foreach ($list_cate_sub as $key => $sub) {
+                array_push($arr_category, $sub['cate_id']);
+            }
+        }
+        
+
         $search=array(
             'project_category'=>$project_category,
+            'arr_category'=>$arr_category,
             'project_title'=>$project_title
         );
+
+
         $arr_project= $this->Project_M->searchApi($search);
+
         $project_locate=array();
         foreach ($arr_project as $item){
             $project_locate []=array(

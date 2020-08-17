@@ -1,7 +1,4 @@
-<?php 
-    
-?>
-<section class="sec-tintuc-list">
+<section class="sec-tintuc-list font18">
     <div class="container">
         <h3 class="title"><?=$cate['cate_title']?></h3>
         <div class="row">
@@ -14,9 +11,9 @@
                                 <img title="<?=$post['post_title']?>" alt="<?=$post['post_title']?>" src="<?=resizeImg($post['post_img'],360,240,0)?>" alt="">
                             </div>
                             <div class="content">
-                                <h4 class="title"><?=$post['post_title']?></h4>
-                                <i><?=date('d/m/Y',strtotime($post['created_at']))?></i>
-                                <p><?=substr($post['post_title'],0,100)?> [...]</p>
+                                <h3 style="font-weight: bold;font-size: 18px;" class="title text-overflow"><?=$post['post_title']?></h3>
+                                <p><span class="fa fa-calendar">&nbsp;</span><?=date('d/m/Y',strtotime($post['created_at']))?></p>
+                                <p class="text-overflow"><?=$post['post_title']?></p>
                             </div>
                         </a>
                     </div><br>

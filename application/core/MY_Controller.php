@@ -34,6 +34,10 @@ class MY_Controller extends CI_Controller {
 		$this->load->view('web/header.php',$data);
 	}
 	public function page_footer($data=null){
+		$data['info'] = $this->Info_M->all();
+		$data['blog_footer'] = $this->Post_M->getListPost_byCategory(14,4);
+		$data['du_an_footer']= $this->Project_M->getListProject(['project_kind'=>0],4);
+		$data['nha_dep_footer']= $this->Post_M->getListPost_byCategory(21,4);
 		$this->load->view('web/footer.php',$data);
 	}
 	public function view($view,$data=null){

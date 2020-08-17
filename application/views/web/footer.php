@@ -8,70 +8,91 @@
                 <div class="flex">
                     <span class="fa fa-phone"></span>
                     <span>Hotline</span>
-                    <p>(+48) 0383868205</p>
+                    <p>(+48) <?=$info[0]['phone']?></p>
                 </div>
             </div>
-            <div class="col-md-3 col-xs-6">
-                <div class="flex">
-                    <span class="fa fa-envelope"></span>
-                    <span>Email</span>
-                    <p>(+48) 0383868205</p>
-                </div>
-            </div>
+
             <div class="col-md-3 col-xs-6">
                 <div class="flex">
                     <span class="fa fa-phone"></span>
-                    <span>Hotline</span>
-                    <p>(+48) 0383868205</p>
+                    <span>Khiếu nại, phản hồi</span>
+                    <p>(+48) <?=$info[0]['phone']?></p>
+                </div>
+            </div>
+
+            
+            <div class="col-md-3 col-xs-6">
+                <div class="flex">
+                    <span class="fa fa-envelope"></span>
+                    <span>Email</span>
+                    <p><?=$info[0]['email']?></p>
                 </div>
             </div>
             <div class="col-md-3 col-xs-6">
+                <div class="flex">
+                    <span class="fa fa-address-card-o"></span>
+                    <span>Địa chỉ</span>
+                    <p><?=$info[0]['address']?></p>
+                </div>
+            </div>
+            <!-- <div class="col-md-3 col-xs-6">
                 <div class="flex">
                     <span class="fa fa-envelope"></span>
                     <span>Email</span>
                     <p>(+48) 0383868205</p>
                 </div>
-            </div>
+            </div> -->
         </div><hr>
         <div class="row">
             <div class="col-md-3">
-                <p>Toà nhà EBM 394 Ung Văn Khiêm, phường 25, Quận Bình Thạnh, Thành Phố Hồ Chí Minh</p>
+                <div style="font-weight: bold;font-size: 30px"><?=$info[0]['company']?></div>
+                
+                <div style="font-weight: bold;font-size: 25px;" class="col-md-12">
+                    <a href="<?=$info[0]['facebook']?>" style="color: white;"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                    <a href="<?=$info[0]['youtube']?>" style="color: white;"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                    <a href="<?=$info[0]['twitter']?>" style="color: white;"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a href="<?=$info[0]['instagram']?>" style="color: white;"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                </div>
             </div>
             <div class="col-md-3">
                 <div class="title-footer">Dự án</div>
                 <ul class="list-footer">
-                    <li><a href="">RIVERGATE RESIDENT</a></li>
-                    <li><a href="">THE SUN AVENUE</a></li>
-                    <li><a href="">QUAN 02 Thao Dien</a></li>
-                    <li><a href="">RIVERGATE RESIDENT</a></li>
-                    <li><a href="">RIVERGATE RESIDENT</a></li>
+                    <?php foreach ($du_an_footer as $key => $daf) {?>
+                        <li><a href="<?=base_url('chi-tiet-du-an/'.$daf['project_alias'].'-'.$daf['project_id'])?>"><?=$daf['project_title']?></a></li>
+                    <?php } ?>
                 </ul>
             </div>
             <div class="col-md-3">
-                <div class="title-footer">Giới thiệu</div>
+                <div class="title-footer">Blog</div>
                 <ul class="list-footer">
-                    <li><a href="">RIVERGATE RESIDENT</a></li>
-                    <li><a href="">THE SUN AVENUE</a></li>
-                    <li><a href="">QUAN 02 Thao Dien</a></li>
-                    <li><a href="">RIVERGATE RESIDENT</a></li>
-                    <li><a href="">RIVERGATE RESIDENT</a></li>
+
+                    <?php
+                    $blog = $this->Category_M->all(['cate_parent_id'=>11,'cate_is_public'=>1],'asc');
+                    foreach ($blog as $key1 => $bl) {
+                        if ($key1 <4) {
+                    ?>
+                        <li><a href="<?=base_url('danh-muc/'.$bl['cate_alias'])?>"><?=$bl['cate_title']?></a></li>
+                    <?php } } ?>
                 </ul>
             </div>
             <div class="col-md-3">
                 <div class="title-footer">Chuyên mục</div>
                 <ul class="list-footer">
-                    <li><a href="">RIVERGATE RESIDENT</a></li>
-                    <li><a href="">THE SUN AVENUE</a></li>
-                    <li><a href="">QUAN 02 Thao Dien</a></li>
-                    <li><a href="">RIVERGATE RESIDENT</a></li>
-                    <li><a href="">RIVERGATE RESIDENT</a></li>
+
+                    <?php
+                    $categories = $this->Category_M->all(['cate_parent_id'=>0,'cate_is_menu'=>1,'cate_is_public'=>1],'asc');
+                     foreach ($categories as $key2 => $cate) {
+                        if ($key2 <4) {
+                    ?>
+                        <li><a href="<?=base_url('danh-muc/'.$cate['cate_alias'])?>"><?=$cate['cate_title']?></a></li>
+                    <?php } } ?>
                 </ul>
             </div>
         </div><hr>
         <div class="row">
             <div class="col-md-6">
                 <div class="text-left">
-                    <span>© 2019 liveinsaigon.com</span>
+                    <span>© <?=$info[0]['coppy_right']?></span>
                 </div>
             </div>
             <div class="col-md-6">

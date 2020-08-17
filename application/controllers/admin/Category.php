@@ -74,6 +74,7 @@ class Category extends MY_Controller {
 
 			$max_stt = $this->Category_M->getMaxCateStt($post['cate_parent_id']);
 			$post['cate_stt'] = $max_stt['cate_stt']+1;
+			$post['cate_is_public'] = 1;
 			$this->Category_M->create($post);
 			$status = array(
 				'code'=>'success',

@@ -26,7 +26,9 @@
 			$('input').attr('autocomplete','off');
 			$('.cpicker').colorpicker();
 			$('.form-validate').validate();
-			$('.datatable').DataTable();
+			$('.datatable').DataTable({
+				"order": []
+			});
 			$('input[data-type="currency"]').trigger('keyup');
 		});
 	</script>

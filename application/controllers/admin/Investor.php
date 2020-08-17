@@ -36,6 +36,7 @@ class Investor extends MY_Controller {
 				$post['investor_active'] = 0;
 			}
 
+			$investor_introduce = preg_replace('/h>|h1>|h2>|h3>|h4>|em>/', 'p>', $post['investor_introduce']);
 
 			$data_insert = array(
 				'investor_title' => $post['investor_title'], 
@@ -45,7 +46,7 @@ class Investor extends MY_Controller {
 				'investor_establish' => $post['investor_establish'], 
 				'investor_address' => $post['investor_address'], 
 				'investor_website' => $post['investor_website'], 
-				'investor_introduce' => $post['investor_introduce'], 
+				'investor_introduce' => $investor_introduce, 
 				'investor_keyword' => $post['investor_keyword'], 
 				'investor_description' => $post['investor_description'], 
 				'investor_active' => $post['investor_active'], 
@@ -110,6 +111,8 @@ class Investor extends MY_Controller {
 				$post['investor_active'] = 0;
 			}
 
+			$investor_introduce = preg_replace('/h>|h1>|h2>|h3>|h4>|em>/', 'p>', $post['investor_introduce']);
+
 			$data_update = array(
 				'investor_title' => $post['investor_title'], 
 				'investor_alias' => $post['investor_alias'], 
@@ -118,7 +121,7 @@ class Investor extends MY_Controller {
 				'investor_establish' => $post['investor_establish'], 
 				'investor_address' => $post['investor_address'], 
 				'investor_website' => $post['investor_website'], 
-				'investor_introduce' => $post['investor_introduce'], 
+				'investor_introduce' => $investor_introduce, 
 				'investor_keyword' => $post['investor_keyword'], 
 				'investor_description' => $post['investor_description'], 
 				'investor_active' => $post['investor_active'], 

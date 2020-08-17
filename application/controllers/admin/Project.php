@@ -69,15 +69,17 @@ class Project extends MY_Controller {
             	$furniture = '';
             }
 
+            $project_introduce = preg_replace('/h>|h1>|h2>|h3>|h4>|em>/', 'p>', $post['project_introduce']);
+
 
 			$data_insert = array(
 				'project_category' => $post['project_category'], 
 				'project_kind' => $post['project_kind'], 
 				'project_title' => $post['project_title'], 
 				'project_alias' => $post['project_alias'], 
-				'project_introduce' => $post['project_introduce'], 
+				'project_introduce' => $project_introduce, 
 				'project_img' => $filename, 
-				'project_content' => $post['project_content'], 
+				// 'project_content' => $post['project_content'], 
 				'project_highlights' => 0, 
 				'project_active' => $post['project_active'], 
 				'project_address' => $post['project_address'], 
@@ -268,15 +270,16 @@ class Project extends MY_Controller {
             	$furniture = '';
             }
 
-
+            $project_introduce = preg_replace('/h>|h1>|h2>|h3>|h4>|em>/', 'p>', $post['project_introduce']);
+            
 			$data_update = array(
 				'project_category' => $post['project_category'], 
 				'project_kind' => $post['project_kind'], 
 				'project_title' => $post['project_title'], 
 				'project_alias' => $post['project_alias'], 
-				'project_introduce' => $post['project_introduce'], 
+				'project_introduce' => $project_introduce, 
 				'project_img' => $filename, 
-				'project_content' => $post['project_content'], 
+				// 'project_content' => $post['project_content'], 
 				'project_active' => $post['project_active'], 
 				'project_address' => $post['project_address'], 
 				'project_province_id' => $post['project_province_id'], 
@@ -371,19 +374,19 @@ class Project extends MY_Controller {
 		$str='';
 		foreach ($all as $val){
 			$str.='<option value="'.$val['cate_id'].'">'.$val['cate_title'].'</option>';
-			$sub1 = $this->Category_M->all(['cate_parent_id'=>$val['cate_id']],$oder_by);
+			$sub1 = $this->Category_M->all(['cate_parent_id'=>$val['cate_id'],'cate_module_id'=>$cate_module_id],$oder_by);
 			if (count($sub1) >0){
 				foreach ($sub1 as $val1){
 					$str.='<option value="'.$val1['cate_id'].'">|__'.$val1['cate_title'].'</option>';
-					$sub2 = $this->Category_M->all(['cate_parent_id'=>$val1['cate_id']],$oder_by);
+					$sub2 = $this->Category_M->all(['cate_parent_id'=>$val1['cate_id'],'cate_module_id'=>$cate_module_id],$oder_by);
 					if (count($sub2) >0){
 						foreach ($sub2 as $val2){
 							$str.='<option value="'.$val2['cate_id'].'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__'.$val2['cate_title'].'</option>';
-							$sub3 = $this->Category_M->all(['cate_parent_id'=>$val2['cate_id']],$oder_by);
+							$sub3 = $this->Category_M->all(['cate_parent_id'=>$val2['cate_id'],'cate_module_id'=>$cate_module_id],$oder_by);
 							if (count($sub3) >0){
 								foreach ($sub3 as $val3){
 									$str.='<option value="'.$val3['cate_id'].'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__'.$val3['cate_title'].'</option>';
-									$sub4 = $this->Category_M->all(['cate_parent_id'=>$val3['cate_id']],$oder_by);
+									$sub4 = $this->Category_M->all(['cate_parent_id'=>$val3['cate_id'],'cate_module_id'=>$cate_module_id],$oder_by);
 									if (count($sub4) >0){
 										foreach ($sub4 as $val4){
 											$str.='<option value="'.$val4['cate_id'].'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__'.$val4['cate_title'].'</option>';

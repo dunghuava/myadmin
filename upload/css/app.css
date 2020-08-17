@@ -218,7 +218,7 @@ img {
 }
 
 .app-footer ul.list-footer li a {
-  font-size: 13px;
+  font-size: 16px;
   color: #F3F4F7;
 }
 
@@ -338,7 +338,7 @@ img {
 }
 
 .main-title {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   color: #fff;
   width: -webkit-fit-content;
@@ -429,7 +429,7 @@ img {
 
 .item-project .project-content .title {
   margin: 5px 0px;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: bold;
 }
 
@@ -953,4 +953,39 @@ img {
 .page-cdt .item-list-cdt .content h3 {
   margin: 0px;
 }
+
+
+.div-contact{
+  background-color: #f4f4f4;
+  padding-left: 0px;
+  height: 85px;
+}
+
+.div-contact-img{
+  padding: 7px;
+  width: 85px;
+  float: left;
+}
+
+.img-contact{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.div-contact-tel{
+  background-color: #88AD6A;
+  text-align: center;
+  margin-top: 15px;
+  border-radius: 1px;
+  height: 45px;
+  line-height: 45px;
+  color: white;
+  font-weight: bold;
+}
+
+.name-contact{
+  padding: 13px;
+}
+
 /*# sourceMappingURL=app.css.map */

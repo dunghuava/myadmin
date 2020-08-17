@@ -23,7 +23,7 @@
 <script>
    var project_locate = [];
 </script>
-<section class="sec-duan-list" style="margin-top:10px">
+<section class="sec-duan-list font18" style="margin-top:10px">
     <div id="container_h" class="container" style="width:98%;margin:auto;height:84vh;background:#fff;"><br>
         <div class="row">
             <div class="col-md-7">
