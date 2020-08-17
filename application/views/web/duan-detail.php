@@ -244,7 +244,7 @@
                             </div>
                             <div class="content-collapse font18_all">
                                 <div class="col-md-3">
-                                    <img style="width:150px;border:1px solid #dcdcdc" src="<?=resizeImg($cdt['investor_img'],170,170,2)?>" alt="<?=$cdt['investor_title']?>">
+                                    <img style="width:170px;border:1px solid #dcdcdc" src="<?=resizeImg($cdt['investor_img'],170,170,2)?>" alt="<?=$cdt['investor_title']?>">
                                 </div>
                                 <div class="col-md-9">
                                     <h3><b><?=$cdt['investor_title']?></b></h3>
