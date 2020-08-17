@@ -10,7 +10,7 @@
         </div>
         <?php foreach ($duan_img as $img){  ?>
             <div class="item-slider">
-                <img src="<?=base_url('upload/images/da'.$img['project_images'])?>" alt="">
+                <img src="<?=base_url('upload/images/'.$img['project_images'])?>" alt="">
             </div>
         <?php } ?>
     </section>
@@ -22,11 +22,12 @@
                 <div class="col-md-8">
                     <div class="project-small-slider">
                         <div class="item-slider">
-                            <img src="<?=base_url('upload/images/da'.$duan['project_img'])?>" alt="">
+                            <img src="<?=base_url('upload/images/'.$duan['project_img'])?>" alt="">
                         </div>
-                    <?php foreach ($duan_img as $img){  ?>
+                    <?php
+                     foreach ($duan_img as $img){  ?>
                         <div class="item-slider">
-                            <img src="<?=base_url('upload/images/da'.$img['project_images'])?>" alt="">
+                            <img src="<?=base_url('upload/images/'.$img['project_images'])?>" alt="">
                         </div>
                     <?php } ?>
                     </div>
@@ -92,19 +93,33 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="boxed">
-                        <h4>Liên hệ đại lý ủy quyền</h4>
-                            <p><strong>Kathy V&otilde;</strong></p>
-                            <p>0707777117</p>
-                            <p>trucvo@liveinsaigon.com</p>
-                    </div>
-                    <div class="boxed">
+                    <div class="boxed font18">
+                        <div class="col-md-12 div-contact">
+                            <div class="div-contact-img">
+                                <img class="img-contact" src="https://s3.ap-southeast-1.amazonaws.com/timnha-vn/admin/1566015622789/tran-hong-thao.jpg">
+                            </div>
+                            <div class="col-md-8 name-contact">
+                                <p class="font18" style="font-weight: bold;">Trương Công Ánh</p>
+                                <p class="font17">Sale manager</p>
+                            </div>
+
+                        </div>
+                        <div class="col-md-12 div-contact-tel">
+                            <a style="color: white;text-decoration: none;" href="tel:0123456789"><i class="fa fa-phone" aria-hidden="true"></i> 0123456789</a>
+
+                        </div>
+                        <div class="col-md-12">
+                            <p style="text-align: center;margin-top: 15px;">Hoặc</p>
+                            <hr>
+                        </div>
+
+
+
                         <form id="form-contact" action="" method="post">
-                            <h4>Liên hệ tư vấn</h4>
                             <input type="text" class="form-control" placeholder="Họ và tên">
                             <input type="text" class="form-control" placeholder="Số điện thoại">
                             <input type="text" class="form-control" placeholder="Địa chỉ email">
-                            <textarea name="" id="" rows="4" class="form-control"></textarea>
+                            <textarea name="" id="" rows="4" class="form-control" placeholder="Hỏi thông tin"></textarea>
                             <button class="btn btn-block btn-primary">Gửi</button>
                         </form>
                     </div>
@@ -114,3 +129,5 @@
     </section>
     <!-- end -->
 </div>
+
+
