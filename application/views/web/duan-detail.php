@@ -140,7 +140,7 @@
                                         <p class="left">Chủ đầu tư</p>
                                         <p class="right">
                                             <span class="comma">
-                                                    <a href="<?=base_url()?>/chu-dau-tu/<?=$cdt['investor_alias']?>">
+                                                    <a href="<?=base_url()?>/chu-dau-tu/<?=$cdt['investor_alias'].'-'.$cdt['investor_id']?>">
                                                         <?=$cdt['investor_title']?>
                                                     </a>
                                             </span>
