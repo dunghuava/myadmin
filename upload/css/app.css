@@ -734,12 +734,13 @@ img {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  padding: 15px;
+  padding: 16px;
 }
 
 .overview-toolbar ul li a {
   text-decoration: none;
   font-weight: bold;
+  font-size: 16px;
 }
 
 .overview-toolbar ul li:hover a {
@@ -940,6 +941,29 @@ img {
 
 .frm-top-search button {
   border-left: 0px;
+}
+
+.detail-more-top {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #dcdcdd;
+}
+
+.detail-more-top li {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 24%;
+}
+
+.detail-more-top li p.right {
+  font-weight: bold;
+  float: right;
+  width: 48%;
+}
+
+.detail-more-top li p.left {
+  float: left;
+  width: 48%;
 }
 
 .page-cdt .banner {

@@ -107,3 +107,23 @@
         border-left: 0px;
     }
 }
+
+.detail-more-top{
+    padding-bottom: 15px;
+    border-bottom: 1px solid #dcdcdd;
+    li{
+        display:inline-flex;
+        width:24%;
+        p{
+            &.right{
+                font-weight: bold;
+                float: right;
+                width: 48%;
+            }
+            &.left{
+                float: left;
+                width: 48%;
+            }
+        }
+    }
+}

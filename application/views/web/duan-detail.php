@@ -44,6 +44,7 @@
     padding-right: 10px;
     color: rgb(34, 145, 160);
 }
+
 </style>
 <?php 
     $duan_img = $this->Project_Images_M->all(['project_id'=>$duan['project_id']]);
@@ -85,6 +86,63 @@
             </div>
         </div>
     </section>
+    <section class="sec-head">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <h3 class="title-prj"><?=$duan['project_title']?></h3>
+                    <p><span class="fa fa-map-marker"></span>&nbsp; <?=$duan['project_address']?></p>
+                </div>
+                <div class="col-md-3"><br><br>
+                    <p>Giá: <b style="font-size:18px"><?=$duan['project_price']?></b></p>
+                </div>
+            </div>
+        </div>
+    </section><br>
+    <section class="container">
+        <div class="row">
+        <div class="col-md-12">
+                <!-- detail -->
+                <ul class="detail-more-top font18_all">
+                    <li>
+                        <p class="left">Số block</p>
+                        <p class="right"><?=$duan['number_blocks']?></p>
+                    </li>
+                    <li>
+                        <p class="left">Số tầng</p>
+                        <p class="right"><?=$duan['number_floors']?></p>
+                    </li>
+                    <li>
+                        <p class="left">Số căn hộ</p>
+                        <p class="right"><?=$duan['number_units']?></p>
+                    </li>
+                    <li>
+                        <p class="left">Số toles</p>
+                        <p class="right"><?=$duan['number_tolet']?></p>
+                    </li>
+                    <li>
+                        <p class="left">Số phòng ngủ</p>
+                        <p class="right"><?=$duan['number_bedroom']?></p>
+                    </li>
+                    <li>
+                        <p class="left">Diện tích căn hộ</p>
+                        <p class="right"><?=$duan['project_acreage']?></p>
+                    </li>
+                    <li>
+                        <p class="left">Chủ đầu tư</p>
+                        <p class="right">
+                            <span class="comma">
+                                    <a href="<?=base_url()?>/chu-dau-tu/<?=$cdt['investor_alias'].'-'.$cdt['investor_id']?>">
+                                        <?=$cdt['investor_title']?>
+                                    </a>
+                            </span>
+                        </p>
+                    </li>
+                </ul>
+                <!-- detail -->
+                </div>
+        </div>
+    </section>
     <!-- overview-toolbar -->
     <div id="toolbar" class="overview-toolbar hidden-xs" style="border-bottom:0px solid #dcdcdc">
         <div class="container">
@@ -93,8 +151,8 @@
                     <ul>
                         <li style="padding-left:0px"><a href="<?=fullAddress().'#p_overview'?>">Tổng quan</a></li>
                         <li><a href="<?=fullAddress().'#p_location'?>">Vị trí</a></li>
-                        <li><a href="<?=fullAddress().'#p_orther_project'?>">Dự án lân cận</a></li>
                         <li><a href="<?=fullAddress().'#p_forent'?>">Bán & cho thuê</a></li>
+                        <li><a href="<?=fullAddress().'#p_orther_project'?>">Dự án lân cận</a></li>
                     </ul>
                 </div>
             </div>
@@ -113,26 +171,13 @@
         }
     </script>
     <!-- overview-toolbar -->
-    <section class="sec-head">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-9">
-                    <h3 class="title-prj"><?=$duan['project_title']?></h3>
-                    <p><span class="fa fa-map-marker"></span>&nbsp; <?=$duan['project_address']?></p>
-                </div>
-                <div class="col-md-3"><br><br>
-                    <p>Giá: <b style="font-size:18px"><?=$duan['project_price']?></b></p>
-                </div>
-            </div>
-        </div>
-    </section><br>
     <section class="sec-body">
         <div class="container">
             <div class="row">
                 <div id="p_overview" class="col-md-8">
                     <h3>Tổng quan</h3>
                     <div id="read01" class="font18_all readmore closed"><span><?=$duan['project_introduce']?></span></div>
-                    <p><a class="font18" style="color:#65BA69;cursor:pointer"  parent="#read01" onclick="readmore(this)">Xem thêm...</a></p>
+                    <p><a class="font18" style="color:#65BA69;cursor:pointer"  parent="#read01" onclick="readmore(this)">Xem thêm <span class="fa fa-angle-down"></span></a></p>
                     <div id="mycollapse">
                         <div class="item-collapse">
                             <div class="head-collapse">
