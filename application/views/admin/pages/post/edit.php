@@ -59,6 +59,11 @@
         </div> 
 
         <div class="col-md-8 inline-flex">
+            <label for="">Nguồn</label>
+            <textarea name="post_author" id="post_author" cols="30" rows="3" class="form-control"><?php echo $info_post['post_author'] ?></textarea>
+        </div> 
+
+        <div class="col-md-8 inline-flex">
             <label for="">Keyword (SEO)</label>
             <textarea name="post_keyword" id="post_keyword" cols="30" rows="3" class="form-control"><?php echo $info_post['post_keyword'] ?></textarea>
         </div>  

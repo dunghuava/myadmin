@@ -48,6 +48,7 @@ class Post extends MY_Controller {
 				'post_alias' => $post['post_alias'], 
 				'post_introduce' => $post['post_introduce'], 
 				'post_content' => $post['post_content'], 
+				'post_author' => $post['post_author'], 
 				'post_keyword' => $post['post_keyword'], 
 				'post_description' => $post['post_description'], 
 				'post_highlights' => 0, 
@@ -55,6 +56,7 @@ class Post extends MY_Controller {
 				'post_date_time' => $date_time,
 				'post_img' => $filename, 
 			);
+			// print_r($data_insert);die();
 
 			$this->Post_M->create($data_insert);
 
@@ -111,6 +113,7 @@ class Post extends MY_Controller {
 				'post_alias' => $post['post_alias'], 
 				'post_introduce' => $post['post_introduce'], 
 				'post_content' => $post['post_content'], 
+				'post_author' => $post['post_author'], 
 				'post_keyword' => $post['post_keyword'], 
 				'post_description' => $post['post_description'], 
 				'post_active' => $post['post_active'], 

@@ -73,9 +73,14 @@
             <input type="text" name="project_alias" id="project_alias" value="<?php echo $info_project['project_alias'] ?>" class="form-control" placeholder="Tạo đường dẫn tự động">
         </div>
 
+        <div class="col-md-12 inline-flex">
+            <label for="">Giới Thiệu</label>
+            <textarea name="project_introduce" id="project_introduce" cols="30" rows="5" class="form-control html_editor" required><?php echo $info_project['project_introduce'] ?></textarea>
+        </div> 
+
 
         <div class="col-md-8" style="display: block;">
-            <label for="">Tổng quang dự án</label>
+            <label for="">Thông tin chi tiết</label>
             <br>
             <div class="col-md-12 inline-flex" style="padding-right: 0px;">
             	<label for="" style="margin-left: 113px">Trạng thái</label>
@@ -139,15 +144,6 @@
             
         </div>
 
-        <div class="col-md-8 inline-flex">
-            <label for="">Mô tả</label>
-            <textarea name="project_introduce" id="project_introduce" cols="30" rows="3" class="form-control" required><?php echo $info_project['project_introduce'] ?></textarea>
-        </div>   
-
-        <div class="col-md-12 inline-flex">
-            <label for="">Nội dung</label>
-            <textarea name="project_content" id="project_content" cols="30" rows="5" class="form-control html_editor" required><?php echo $info_project['project_content'] ?></textarea>
-        </div> 
 
          <div class="col-md-8 inline-flex">
             <label for="">Tiện ích</label>
