@@ -334,6 +334,7 @@
                         <style>
                             #form-contact input.form-control{
                                 height:45px;
+                                font-size: 17px;
                             }
                         </style>
                         <form id="form-contact" action="" method="post">
@@ -343,7 +344,7 @@
                             <input type="text" name="contact_email" id="contact_email" class="form-control" placeholder="Địa chỉ email">
                             <input type="hidden" name="contact_project_title" id="contact_project_title" class="form-control" value="<?=$duan['project_title']?>">
                             <input type="text" name="" id="" class="form-control text-overflow" value="<?=$duan['project_title']?>" disabled style="background: gainsboro;">
-                            <textarea name="contact_info" id="contact_info" rows="4" class="form-control" placeholder="Hỏi thông tin"></textarea>
+                            <textarea name="contact_info" id="contact_info" rows="4" class="form-control font17" placeholder="Hỏi thông tin"></textarea>
                             <button type="submit" class="btn btn-block btn-primary font17">Gửi</button>
                         </form>
                     </div>
