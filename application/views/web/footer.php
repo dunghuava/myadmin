@@ -65,9 +65,14 @@
             <div class="col-md-3">
                 <div class="title-footer">Blog</div>
                 <ul class="list-footer">
-                    <?php foreach ($blog_footer as $key => $bf) {?>
-                        <li><a href="<?=base_url('bai-viet/'.$bf['post_alias'].'-'.$bf['post_id'])?>"><?=$bf['post_title']?></a></li>
-                    <?php } ?>
+
+                    <?php
+                    $blog = $this->Category_M->all(['cate_parent_id'=>11,'cate_is_public'=>1],'asc');
+                    foreach ($blog as $key1 => $bl) {
+                        if ($key1 <4) {
+                    ?>
+                        <li><a href="<?=base_url('danh-muc/'.$bl['cate_alias'])?>"><?=$bl['cate_title']?></a></li>
+                    <?php } } ?>
                 </ul>
             </div>
             <div class="col-md-3">
@@ -76,9 +81,11 @@
 
                     <?php
                     $categories = $this->Category_M->all(['cate_parent_id'=>0,'cate_is_menu'=>1,'cate_is_public'=>1],'asc');
-                     foreach ($categories as $key => $cate) {?>
+                     foreach ($categories as $key2 => $cate) {
+                        if ($key2 <4) {
+                    ?>
                         <li><a href="<?=base_url('danh-muc/'.$cate['cate_alias'])?>"><?=$cate['cate_title']?></a></li>
-                    <?php } ?>
+                    <?php } } ?>
                 </ul>
             </div>
         </div><hr>

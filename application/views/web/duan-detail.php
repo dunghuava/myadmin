@@ -96,7 +96,7 @@
                     <div class="boxed font18">
                         <div class="col-md-12 div-contact">
                             <div class="div-contact-img">
-                                <img class="img-contact" src="https://s3.ap-southeast-1.amazonaws.com/timnha-vn/admin/1566015622789/tran-hong-thao.jpg">
+                                <img class="img-contact" src="<?=resizeImg('sale_manager.jpg',70,70,0)?>">
                             </div>
                             <div class="col-md-8 name-contact">
                                 <p class="font18" style="font-weight: bold;">Trương Công Ánh</p>
