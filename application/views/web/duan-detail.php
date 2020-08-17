@@ -111,7 +111,7 @@
                             </div>
                             <div class="content-collapse">
                                 <!-- detail -->
-                                <ul class="detail-more">
+                                <ul class="detail-more font18_all">
                                     <li>
                                         <p class="left">Số block</p>
                                         <p class="right"><?=$duan['number_blocks']?></p>
@@ -156,7 +156,7 @@
                             </div>
                             <div class="content-collapse">
                                 <!-- tiện ích -->
-                                <ul class="detail-commodities">
+                                <ul class="detail-commodities font18_all">
                                     <?php foreach ($tienich as $item){ ?>
                                         <li><?=$item['extension_name']?></li>
                                     <?php } ?>
@@ -169,7 +169,7 @@
                                 <p>Chủ đầu tư</p>
                             </div>
                             <div class="content-collapse font18_all">
-                                <img style="width:200px;border:1px solid #dcdcdc" src="<?=resizeImg($cdt['investor_img'],100,100,2)?>" alt="<?=$cdt['investor_title']?>">
+                                <img style="width:150px;border:1px solid #dcdcdc" src="<?=resizeImg($cdt['investor_img'],150,150,2)?>" alt="<?=$cdt['investor_title']?>">
                                 <h3><?=$cdt['investor_title']?></h3>
                                 <p><?=$cdt['investor_introduce']?></p>
                             </div>
