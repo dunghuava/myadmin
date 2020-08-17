@@ -50,7 +50,7 @@
     $cdt = $this->Investor_M->find_row(['investor_id'=>$duan['project_investor']]);
     $arr_project = $duan_lancan;
 ?>
-<div class="product-detailt">
+<div class="product-detailt font18">
     <!-- begin -->
     <!-- detailt -->
     <section class="project-slider">
