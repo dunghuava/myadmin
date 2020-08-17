@@ -133,6 +133,9 @@ class Web extends MY_Controller {
     public function page_project_detail($alias=null){
         $duan_id = getID($alias);
         $data['duan']=$this->Project_M->find_row(['project_id'=>$duan_id]);
+        $data['duan_lancan']= $this->Project_M->getDuAnLanCan($duan_id);
+        $data['tienich'] = $this->Project_M->getTienich($data['duan']['project_extension']);
+
         $this->page_header();
         $this->view('web/duan-detail',$data);
         $this->page_footer();

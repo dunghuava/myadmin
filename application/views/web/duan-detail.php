@@ -48,6 +48,7 @@
 <?php 
     $duan_img = $this->Project_Images_M->all(['project_id'=>$duan['project_id']]);
     $cdt = $this->Investor_M->find_row(['investor_id'=>$duan['project_investor']]);
+    $arr_project = $duan_lancan;
 ?>
 <div class="product-detailt">
     <!-- begin -->
@@ -160,16 +161,9 @@
                             <div class="content-collapse">
                                 <!-- tiện ích -->
                                 <ul class="detail-commodities">
-                                    <li>Chỗ đậu xe</li>
-                                    <li>Sân nướng BBQ</li>
-                                    <li>Thang máy</li>
-                                    <li>Trung tâm thương mại</li>
-                                    <li>Hồ bơi</li>
-                                    <li>Phòng sinh hoạt cộng đồng</li>
-                                    <li>Phòng tập gym</li>
-                                    <li>Công viên</li>
-                                    <li>Bảo vệ 24/7</li>
-                                    <li>Sân chơi trẻ em</li>
+                                    <?php foreach ($tienich as $item){ ?>
+                                        <li><?=$item['extension_name']?></li>
+                                    <?php } ?>
                                 </ul>
                                 <!-- tiện ích -->
                             </div>
@@ -218,7 +212,6 @@
                                         }
                                     </script>
                                 </div>
-                                <br><br>
                                 <!-- google map -->
                             </div>
                         </div>
@@ -256,6 +249,10 @@
                         </form>
                     </div>
                 </div>
+            </div>
+            <h3>Dự án lân cận</h3>
+            <div class="row">
+                <?php $col=4; include ('duan-item.php') ?>
             </div>
         </div>
     </section>

@@ -25,6 +25,15 @@ class Project_M extends MY_model {
 		}
 		return $this->db->get($this->table)->result_array();
 	}
+	public function getTienich($id_tienich){
+		$sql = "select * from db_extension where extension_id in ($id_tienich) ";
+		return $this->db->query($sql)->result_array();
+	}
+	public function getDuAnLanCan($duan_id){
+		$this->db->where('project_id !=',$duan_id);
+		$this->db->limit(5);
+		return $this->db->get($this->table)->result_array();
+	}
 }
 
 /* End of file Account_M.php */
