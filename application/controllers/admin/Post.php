@@ -42,12 +42,14 @@ class Post extends MY_Controller {
 			$date_post_format = substr($post['date_post'],  6, 4). substr($post['date_post'],  3, 2).substr($post['date_post'],  0, 2);
 			$date_time = $date_post_format.$post['time_post'];
 
+			$content = preg_replace('/h>|h1>|h2>|h3>|h4>|em>/', 'p>', $post['post_content']);
+
 			$data_insert = array(
 				'post_category_id' => $post['post_category_id'], 
 				'post_title' => $post['post_title'], 
 				'post_alias' => $post['post_alias'], 
 				'post_introduce' => $post['post_introduce'], 
-				'post_content' => $post['post_content'], 
+				'post_content' => $content, 
 				'post_author' => $post['post_author'], 
 				'post_keyword' => $post['post_keyword'], 
 				'post_description' => $post['post_description'], 
@@ -56,7 +58,6 @@ class Post extends MY_Controller {
 				'post_date_time' => $date_time,
 				'post_img' => $filename, 
 			);
-			// print_r($data_insert);die();
 
 			$this->Post_M->create($data_insert);
 
@@ -107,12 +108,14 @@ class Post extends MY_Controller {
 			$date_post_format = substr($post['date_post'],  6, 4). substr($post['date_post'],  3, 2).substr($post['date_post'],  0, 2);
 			$date_time = $date_post_format.$post['time_post'];
 
+			$content = preg_replace('/h>|h1>|h2>|h3>|h4>|em>/', 'p>', $post['post_content']);
+
 			$data_update = array(
 				'post_category_id' => $post['post_category_id'], 
 				'post_title' => $post['post_title'], 
 				'post_alias' => $post['post_alias'], 
 				'post_introduce' => $post['post_introduce'], 
-				'post_content' => $post['post_content'], 
+				'post_content' => $content, 
 				'post_author' => $post['post_author'], 
 				'post_keyword' => $post['post_keyword'], 
 				'post_description' => $post['post_description'], 

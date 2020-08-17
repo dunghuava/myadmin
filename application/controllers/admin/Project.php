@@ -69,13 +69,15 @@ class Project extends MY_Controller {
             	$furniture = '';
             }
 
+            $project_introduce = preg_replace('/h>|h1>|h2>|h3>|h4>|em>/', 'p>', $post['project_introduce']);
+
 
 			$data_insert = array(
 				'project_category' => $post['project_category'], 
 				'project_kind' => $post['project_kind'], 
 				'project_title' => $post['project_title'], 
 				'project_alias' => $post['project_alias'], 
-				'project_introduce' => $post['project_introduce'], 
+				'project_introduce' => $project_introduce, 
 				'project_img' => $filename, 
 				// 'project_content' => $post['project_content'], 
 				'project_highlights' => 0, 
@@ -268,13 +270,14 @@ class Project extends MY_Controller {
             	$furniture = '';
             }
 
-
+            $project_introduce = preg_replace('/h>|h1>|h2>|h3>|h4>|em>/', 'p>', $post['project_introduce']);
+            
 			$data_update = array(
 				'project_category' => $post['project_category'], 
 				'project_kind' => $post['project_kind'], 
 				'project_title' => $post['project_title'], 
 				'project_alias' => $post['project_alias'], 
-				'project_introduce' => $post['project_introduce'], 
+				'project_introduce' => $project_introduce, 
 				'project_img' => $filename, 
 				// 'project_content' => $post['project_content'], 
 				'project_active' => $post['project_active'], 
