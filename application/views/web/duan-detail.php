@@ -170,7 +170,7 @@
                             </div>
                             <div class="content-collapse font18_all">
                                 <img style="width:150px;border:1px solid #dcdcdc" src="<?=resizeImg($cdt['investor_img'],150,150,2)?>" alt="<?=$cdt['investor_title']?>">
-                                <h3><?=$cdt['investor_title']?></h3>
+                                <h3><b><?=$cdt['investor_title']?></b></h3>
                                 <p><?=$cdt['investor_introduce']?></p>
                             </div>
                         </div>
