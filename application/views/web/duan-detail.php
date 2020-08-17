@@ -98,12 +98,19 @@
             </div>
         </div>
     </section><br>
+    <style>
+        .readmore.closed{
+            max-height:100px;
+            overflow:hidden;
+        }
+    </style>
     <section class="sec-body">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
                     <h3>Tổng quan</h3>
-                    <div class="font18_all"><span><?=$duan['project_introduce']?></span></div>
+                    <div id="read01" class="font18_all readmore closed"><span><?=$duan['project_introduce']?></span></div>
+                    <p><a class="font18" style="color:#65BA69;cursor:pointer"  parent="#read01" onclick="readmore(this)">Xem thêm...</a></p>
                     <div id="mycollapse">
                         <div class="item-collapse">
                             <div class="head-collapse">

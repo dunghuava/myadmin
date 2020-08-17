@@ -159,3 +159,13 @@ $('#mycollapse .item-collapse .head-collapse').click(function (e) {
 $('#backtotop').click(function (e) { 
    $('html,body').animate({ scrollTop: 0 }, 500);
 });
+
+function readmore(me){
+  var parent = me.getAttribute('parent');
+  $(parent).toggleClass('closed');
+  if ($(parent).hasClass('closed')){
+    me.innerHTML='Xem thêm...';
+  }else{
+    me.innerHTML='Thu gọn...'; 
+  }
+}
