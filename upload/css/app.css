@@ -81,6 +81,11 @@ img {
   padding: 15px;
 }
 
+.readmore.closed {
+  max-height: 100px;
+  overflow: hidden;
+}
+
 .main-menu li {
   cursor: pointer;
   font-size: 16px;
@@ -218,7 +223,7 @@ img {
 }
 
 .app-footer ul.list-footer li a {
-  font-size: 16px;
+  font-size: 13px;
   color: #F3F4F7;
 }
 
@@ -338,7 +343,7 @@ img {
 }
 
 .main-title {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   color: #fff;
   width: -webkit-fit-content;
@@ -429,7 +434,7 @@ img {
 
 .item-project .project-content .title {
   margin: 5px 0px;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: bold;
 }
 
@@ -645,6 +650,61 @@ img {
   color: #fff;
 }
 
+.overview-toolbar {
+  padding: 2px 0px;
+  border-bottom: 2px solid black;
+}
+
+.overview-toolbar.sticky {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  background: #fff;
+  z-index: 999;
+  -webkit-animation: fade-down 0.3s;
+          animation: fade-down 0.3s;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.overview-toolbar .btn {
+  border: 1px solid black;
+  padding: 10px 12px;
+  border-radius: 0px;
+  margin-top: 4px;
+  font-weight: bold;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.overview-toolbar .btn:hover {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.overview-toolbar .btn.red {
+  color: #fff;
+  background: #88AD6A;
+}
+
+.overview-toolbar ul li {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 15px;
+}
+
+.overview-toolbar ul li a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.overview-toolbar ul li:hover a {
+  color: red;
+}
+
 .page-khudancu-detail .banner {
   height: 400px;
   width: 100%;
@@ -664,61 +724,6 @@ img {
   background: rgba(0, 0, 0, 0.75);
   margin: auto;
   background-repeat: no-repeat;
-}
-
-.page-khudancu-detail .overview-toolbar {
-  padding: 2px 0px;
-  border-bottom: 1px solid #dcdcdc;
-}
-
-.page-khudancu-detail .overview-toolbar.sticky {
-  position: fixed;
-  width: 100%;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  background: #fff;
-  z-index: 999;
-  -webkit-animation: fade-down 0.3s;
-          animation: fade-down 0.3s;
-  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-}
-
-.page-khudancu-detail .overview-toolbar .btn {
-  border: 1px solid black;
-  padding: 10px 12px;
-  border-radius: 0px;
-  margin-top: 4px;
-  font-weight: bold;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-}
-
-.page-khudancu-detail .overview-toolbar .btn:hover {
-  color: #fff;
-  background: rgba(0, 0, 0, 0.75);
-}
-
-.page-khudancu-detail .overview-toolbar .btn.red {
-  color: #fff;
-  background: #88AD6A;
-}
-
-.page-khudancu-detail .overview-toolbar ul li {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  padding: 15px;
-}
-
-.page-khudancu-detail .overview-toolbar ul li a {
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.page-khudancu-detail .overview-toolbar ul li:hover a {
-  color: red;
 }
 
 .page-khudancu-detail .house-selling {
@@ -953,53 +958,4 @@ img {
 .page-cdt .item-list-cdt .content h3 {
   margin: 0px;
 }
-
-
-.div-contact{
-  background-color: #f4f4f4;
-  padding-left: 0px;
-  height: 85px;
-}
-
-.div-contact-img{
-  padding: 7px;
-  width: 85px;
-  float: left;
-}
-
-.img-contact{
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-}
-
-.div-contact-tel{
-  background-color: #88AD6A;
-  text-align: center;
-  margin-top: 15px;
-  border-radius: 1px;
-  height: 45px;
-  line-height: 45px;
-  color: white;
-  font-weight: bold;
-}
-
-.name-contact{
-  padding: 13px;
-}
-
-.swal2-icon{
-  font-size: 18px!important;
-}
-
-.swal2-title{
-  font-size: 18px!important;
-}
-
-.form-control{
-  font-size: 16px;
-}
-
-
-
 /*# sourceMappingURL=app.css.map */

@@ -59,6 +59,10 @@ $primary_color:#88AD6A;
 .pd10{padding:10px}
 .pd15{padding:15px}
 
+.readmore.closed{
+    max-height:100px;
+    overflow:hidden;
+}
 // header area
 .main-menu{
     li{

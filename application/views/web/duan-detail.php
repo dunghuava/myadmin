@@ -85,6 +85,34 @@
             </div>
         </div>
     </section>
+    <!-- overview-toolbar -->
+    <div id="toolbar" class="overview-toolbar hidden-xs" style="border-bottom:0px solid #dcdcdc">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul>
+                        <li style="padding-left:0px"><a href="<?=fullAddress().'#p_overview'?>">Tổng quan</a></li>
+                        <li><a href="<?=fullAddress().'#p_location'?>">Vị trí</a></li>
+                        <li><a href="<?=fullAddress().'#p_orther_project'?>">Dự án lân cận</a></li>
+                        <li><a href="<?=fullAddress().'#p_forent'?>">Bán & cho thuê</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onscroll = function() {addSticky()};
+        var navbar = document.getElementById("toolbar");
+        var sticky = (navbar.offsetTop)/10;
+        function addSticky() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("sticky")
+            } else {
+                navbar.classList.remove("sticky");
+            }
+        }
+    </script>
+    <!-- overview-toolbar -->
     <section class="sec-head">
         <div class="container">
             <div class="row">
@@ -98,16 +126,10 @@
             </div>
         </div>
     </section><br>
-    <style>
-        .readmore.closed{
-            max-height:100px;
-            overflow:hidden;
-        }
-    </style>
     <section class="sec-body">
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
+                <div id="p_overview" class="col-md-8">
                     <h3>Tổng quan</h3>
                     <div id="read01" class="font18_all readmore closed"><span><?=$duan['project_introduce']?></span></div>
                     <p><a class="font18" style="color:#65BA69;cursor:pointer"  parent="#read01" onclick="readmore(this)">Xem thêm...</a></p>
@@ -181,7 +203,7 @@
                                 <p><?=$cdt['investor_introduce']?></p>
                             </div>
                         </div>
-                        <div class="item-collapse">
+                        <div class="item-collapse" id="p_location">
                             <div class="head-collapse opened">
                                 <p>Vị trí dự án</p>
                             </div>
@@ -256,7 +278,13 @@
                     </div>
                 </div>
             </div>
-            <h3>Dự án lân cận</h3>
+            <h3 id="p_orther_project">Dự án lân cận</h3>
+            <div class="row">
+                <div class="slick">
+                    <?php $col=4; include ('duan-item.php') ?>
+                </div>
+            </div>
+            <h3 id="p_forent">Bán & Cho thuê</h3>
             <div class="row">
                 <div class="slick">
                     <?php $col=4; include ('duan-item.php') ?>
@@ -297,5 +325,6 @@
     });
 
 </script>
+
 
 
