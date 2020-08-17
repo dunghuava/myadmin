@@ -164,8 +164,8 @@ function readmore(me){
   var parent = me.getAttribute('parent');
   $(parent).toggleClass('closed');
   if ($(parent).hasClass('closed')){
-    me.innerHTML='Xem thêm...';
+    me.innerHTML='Xem thêm <span class="fa fa-angle-down"></span>';
   }else{
-    me.innerHTML='Thu gọn...'; 
+    me.innerHTML='Thu gọn <span class="fa fa-angle-up"></span>'; 
   }
 }

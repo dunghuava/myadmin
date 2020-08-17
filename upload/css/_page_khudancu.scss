@@ -31,10 +31,11 @@
     ul{
         li{
             display: inline-flex;
-            padding: 15px;
+            padding: 16px;
             a{
                 text-decoration: none;
                 font-weight: bold;
+                font-size: 16px;
             }
             &:hover{
                 a{
