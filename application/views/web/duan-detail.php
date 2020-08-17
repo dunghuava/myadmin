@@ -10,7 +10,7 @@
         </div>
         <?php foreach ($duan_img as $img){  ?>
             <div class="item-slider">
-                <img src="<?=base_url('upload/images/da'.$img['project_images'])?>" alt="">
+                <img src="<?=base_url('upload/images/'.$img['project_images'])?>" alt="">
             </div>
         <?php } ?>
     </section>
@@ -22,11 +22,11 @@
                 <div class="col-md-8">
                     <div class="project-small-slider">
                         <div class="item-slider">
-                            <img src="<?=base_url('upload/images/da'.$duan['project_img'])?>" alt="">
+                            <img src="<?=base_url('upload/images/'.$duan['project_img'])?>" alt="">
                         </div>
                     <?php foreach ($duan_img as $img){  ?>
                         <div class="item-slider">
-                            <img src="<?=base_url('upload/images/da'.$img['project_images'])?>" alt="">
+                            <img src="<?=base_url('upload/images/'.$img['project_images'])?>" alt="">
                         </div>
                     <?php } ?>
                     </div>
