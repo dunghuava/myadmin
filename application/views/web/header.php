@@ -20,7 +20,17 @@
     <script src="<?=base_url('upload/bootstrap/js/bootstrap.js')?>"></script>
     <script src="<?=base_url('upload/slick/slick.min.js')?>"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
-    
+    <style type="text/css">
+        .icon-bedroom:before {
+            content: url('https://api.iconify.design/zmdi-airline-seat-individual-suite.svg?height=16&inline=true');
+            vertical-align: -0.125em;
+        }
+
+        .icon-acreage:before {
+            content: url('https://api.iconify.design/zmdi-photo-size-select-small.svg?height=16&inline=true');
+            vertical-align: -0.125em;
+        }
+    </style>
 </head>
 <body>
 <header id="nav-bar" class="app-header">

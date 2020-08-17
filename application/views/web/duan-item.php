@@ -1,14 +1,3 @@
-<style type="text/css">
-    .icon-bedroom:before {
-        content: url('https://api.iconify.design/zmdi-airline-seat-individual-suite.svg?height=16&inline=true');
-        vertical-align: -0.125em;
-    }
-
-    .icon-acreage:before {
-        content: url('https://api.iconify.design/zmdi-photo-size-select-small.svg?height=16&inline=true');
-        vertical-align: -0.125em;
-    }
-</style>
 <br>
 <?php 
     foreach ($arr_project as $item){ 

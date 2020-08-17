@@ -71,12 +71,12 @@
                 <div class="col-md-8">
                     <div class="project-small-slider">
                         <div class="item-slider">
-                            <img src="<?=base_url('upload/images/'.$duan['project_img'])?>" alt="">
+                            <img src="<?=resizeImg($duan['project_img'],85,70,1)?>" alt="<?=$duan['project_title']?>">
                         </div>
                     <?php
                      foreach ($duan_img as $img){  ?>
                         <div class="item-slider">
-                            <img src="<?=base_url('upload/images/'.$img['project_images'])?>" alt="">
+                            <img src="<?=resizeImg($img['project_images'],85,70,1)?>" alt="<?=$duan['project_title']?>">
                         </div>
                     <?php } ?>
                     </div>
@@ -103,7 +103,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <h3>Tổng quan</h3>
-                    <p><?=$duan['project_introduce']?></p>
+                    <div class="font18_all"><span><?=$duan['project_introduce']?></span></div>
                     <div id="mycollapse">
                         <div class="item-collapse">
                             <div class="head-collapse">
@@ -146,10 +146,6 @@
                                             </span>
                                         </p>
                                     </li>
-                                    <li>
-                                        <p class="left">Công ty quản lý</p>
-                                        <p class="right">Sunshine Service</p>
-                                    </li>
                                 </ul>
                                 <!-- detailt -->
                             </div>
@@ -172,8 +168,8 @@
                             <div class="head-collapse">
                                 <p>Chủ đầu tư</p>
                             </div>
-                            <div class="content-collapse">
-                                <img style="width:200px;border:1px solid #dcdcdc" src="<?=resizeImg($cdt['investor_img'],100,100,1)?>" alt="<?=$cdt['investor_title']?>">
+                            <div class="content-collapse font18_all">
+                                <img style="width:200px;border:1px solid #dcdcdc" src="<?=resizeImg($cdt['investor_img'],100,100,2)?>" alt="<?=$cdt['investor_title']?>">
                                 <h3><?=$cdt['investor_title']?></h3>
                                 <p><?=$cdt['investor_introduce']?></p>
                             </div>
@@ -252,7 +248,9 @@
             </div>
             <h3>Dự án lân cận</h3>
             <div class="row">
-                <?php $col=4; include ('duan-item.php') ?>
+                <div class="slick">
+                    <?php $col=4; include ('duan-item.php') ?>
+                </div>
             </div>
         </div>
     </section>

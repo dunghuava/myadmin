@@ -29,9 +29,10 @@ class Project_M extends MY_model {
 		$sql = "select * from db_extension where extension_id in ($id_tienich) ";
 		return $this->db->query($sql)->result_array();
 	}
-	public function getDuAnLanCan($duan_id){
+	public function getDuAnLanCan($duan_id,$id_loai){
 		$this->db->where('project_id !=',$duan_id);
-		$this->db->limit(5);
+		$this->db->where('project_category',$id_loai);
+		$this->db->limit(4);
 		return $this->db->get($this->table)->result_array();
 	}
 }
