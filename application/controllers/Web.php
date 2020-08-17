@@ -18,6 +18,7 @@ class Web extends MY_Controller {
         $this->load->model('Project_M');
         $this->load->model('Status_M');
         $this->load->model('Project_Images_M');
+        $this->load->model('Contact_M');
         
     }
     
@@ -194,5 +195,20 @@ class Web extends MY_Controller {
         $this->page_header();
         $this->view('web/chudautu-detail',$data);
         $this->page_footer();
+    }
+
+
+    public function addContact()
+    {
+        $post = $this->input->post();
+
+        $data_insert = array(
+            'contact_name' => $post['contact_name'],
+            'contact_phone' => $post['contact_phone'], 
+            'contact_email' => $post['contact_email'], 
+            'contact_info' => $post['contact_info'], 
+        );
+
+        $this->Contact_M->create($data_insert);
     }
 }

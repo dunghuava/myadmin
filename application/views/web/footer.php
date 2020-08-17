@@ -104,5 +104,6 @@
     </div>
 </footer>
 <script src="<?=base_url('upload/js/app.js?v='.time())?>"></script>
+<script src="<?=base_url()?>upload/js/sweetalert2.js"></script>
 </body>
 </html>

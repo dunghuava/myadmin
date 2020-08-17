@@ -116,11 +116,11 @@
 
 
                         <form id="form-contact" action="" method="post">
-                            <input type="text" class="form-control" placeholder="Họ và tên">
-                            <input type="text" class="form-control" placeholder="Số điện thoại">
-                            <input type="text" class="form-control" placeholder="Địa chỉ email">
-                            <textarea name="" id="" rows="4" class="form-control" placeholder="Hỏi thông tin"></textarea>
-                            <button class="btn btn-block btn-primary">Gửi</button>
+                            <input type="text" name="contact_name" id="contact_name" class="form-control" placeholder="Họ và tên">
+                            <input type="text" name="contact_phone" id="contact_phone" class="form-control" placeholder="Số điện thoại">
+                            <input type="text" name="contact_email" id="contact_email" class="form-control" placeholder="Địa chỉ email">
+                            <textarea name="contact_info" id="contact_info" rows="4" class="form-control" placeholder="Hỏi thông tin"></textarea>
+                            <button type="submit" class="btn btn-block btn-primary">Gửi</button>
                         </form>
                     </div>
                 </div>
@@ -129,5 +129,35 @@
     </section>
     <!-- end -->
 </div>
+<script type="text/javascript">
+        
+    $('#form-contact').submit(function(event){  
+        event.preventDefault();  
+
+            $.ajax({  
+                url:"<?=base_url()?>web/addContact",  
+                method:"POST",  
+                data:$('#form-contact').serialize(),  
+                success: function (data) {
+                    const toast = swal.mixin({
+                        toast: true,
+                        position: 'center',
+                        showConfirmButton: false,
+                        timer: 2500
+                    });
+
+                    toast({
+                        type: 'success',
+                        title: 'Thông tin đã được gửi',
+                    });
+
+                    $('#form-contact').find('input').val('');
+                    $('#form-contact').find('textarea').val('');
+                }
+            });  
+
+    });
+
+</script>
 
 
