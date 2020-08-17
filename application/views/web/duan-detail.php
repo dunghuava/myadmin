@@ -309,7 +309,11 @@
                         </div>
 
 
-
+                        <style>
+                            #form-contact input.form-control{
+                                height:45px;
+                            }
+                        </style>
                         <form id="form-contact" action="" method="post">
                             <h4>Liên hệ tư vấn</h4>
                             <input type="text" name="contact_name" id="contact_name" class="form-control" placeholder="Họ và tên">

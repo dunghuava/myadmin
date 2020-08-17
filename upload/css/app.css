@@ -882,6 +882,10 @@ img {
           transform: rotate(180deg);
 }
 
+#mycollapse .item-collapse .head-collapse.opened .content-collapse {
+  display: block;
+}
+
 #mycollapse .item-collapse .content-collapse {
   padding: 10px 0px;
   display: none;
