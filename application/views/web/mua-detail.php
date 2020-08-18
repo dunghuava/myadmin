@@ -302,7 +302,8 @@
             </div>
             <div class="col-md-9">
                 <h3 style="margin:0px"><b><?=$kdc['residential_title']?></b></h3>
-                <p><?=$kdc['residential_introduce']?></p>
+                <div id="read02" class="readmore closed"><p><?=$kdc['residential_introduce']?></p></div>
+                <p><a class="font18" style="color:#65BA69;cursor:pointer"  parent="#read02" onclick="readmore(this)">Xem thêm <span class="fa fa-angle-down"></span></a></p>
             </div>
         </div>
     </section>
