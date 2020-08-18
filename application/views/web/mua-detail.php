@@ -176,7 +176,7 @@
     <script>
         window.onscroll = function() {addSticky()};
         var navbar = document.getElementById("toolbar");
-        var sticky = (navbar.offsetTop)/5;
+        var sticky = (navbar.offsetTop)/3;
         function addSticky() {
             if (window.pageYOffset >= sticky) {
                 navbar.classList.add("sticky")
@@ -278,27 +278,32 @@
                     <?php include ('form-contact.php') ?>
                 </div>
             </div>
-            <h3 id="p_orther">Nhà đất lân cận</h3>
-            <div class="row">
-                <div class="slick">
-                    <?php $col=4; include ('duan-item.php') ?>
-                </div>
-            </div>
             <div class="row" id="p_location">
                 <div class="col-md-12">
                     <h3>Vị trí</h3>
                     <?php include ('google-map-project.php') ?>
                 </div>                
             </div>
+            <br>
+
+            <h3 id="p_orther">Nhà đất lân cận</h3>
+            <div class="row">
+                <div class="slick">
+                    <?php $col=4; include ('duan-item.php') ?>
+                </div>
+            </div>
+
         </div>
     </section>
+
+<?php if (!empty($kdc)) {?>
     <section class="container">
         <div class="row">
             <div class="col-md-12">
                <h3>Khu dân cư</h3>
             </div>
             <div class="col-md-3">
-                <img style="width:100%;border:1px solid #dcdcdc" src="<?=resizeImg($kdc['residential_img'],350,220,2)?>" alt="<?=$cdt['investor_title']?>">
+                <img src="<?=resizeImg($kdc['residential_img'],262,165,2)?>" alt="<?=$kdc['residential_img']?>">
             </div>
             <div class="col-md-9">
                 <h3 style="margin:0px"><b><?=$kdc['residential_title']?></b></h3>
@@ -307,6 +312,7 @@
             </div>
         </div>
     </section>
+<?php } ?>
     <!-- end -->
 </div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqAHaMV9ZVcSX992nMQOgZ_Vy80GUZ_8I&callback=initMap&libraries=drawing,places"></script>
