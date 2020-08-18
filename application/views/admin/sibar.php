@@ -101,6 +101,29 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item has-treeview <?=$page_menu=='post' ? 'menu-open':''?>">
+            <a href="javascript:void(0)" class="nav-link">
+              <i class="nav-icon fas fa-file"></i>
+              <p>
+                Bài viết
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?=getLink($arr_permissionAllowed,'admin/post',$user_infor['is_admin'])?>" class="nav-link">
+                  <i class="fas fa-angle-right nav-icon"></i>
+                  <p>Tất cả</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?=getLink($arr_permissionAllowed,'admin/post/add',$user_infor['is_admin'])?>" class="nav-link">
+                  <i class="fas fa-angle-right nav-icon"></i>
+                  <p>Thêm bài viết</p>
+                </a>
+              </li>
+            </ul>
+          </li>
 
           <li class="nav-item has-treeview <?=$page_menu=='extend' ? 'menu-open':''?>">
             <a href="javascript:void(0)" class="nav-link">
@@ -131,29 +154,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview <?=$page_menu=='post' ? 'menu-open':''?>">
-            <a href="javascript:void(0)" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>
-                Bài viết
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?=getLink($arr_permissionAllowed,'admin/post',$user_infor['is_admin'])?>" class="nav-link">
-                  <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Tất cả</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?=getLink($arr_permissionAllowed,'admin/post/add',$user_infor['is_admin'])?>" class="nav-link">
-                  <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Thêm bài viết</p>
-                </a>
-              </li>
-            </ul>
-          </li>
+          
           <li class="nav-item has-treeview <?=$page_menu=='themes' ? 'menu-open':''?>">
             <a href="javascript:void(0)" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
@@ -176,16 +177,16 @@
                   <p>Thông tin</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="<?=getLink($arr_permissionAllowed,'admin/themes/orther',$user_infor['is_admin'])?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Khác</p>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
           <li class="nav-header">Nâng cao</li>
-          <li class="nav-item has-treeview <?=$page_menu=='account' ? 'menu-open':''?> ">
+         <!--  <li class="nav-item has-treeview <?=$page_menu=='account' ? 'menu-open':''?> ">
             <a href="javascript:void(0)" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>
@@ -213,7 +214,7 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li> -->
           <li class="nav-item has-treeview <?=$page_menu=='setting' ? 'menu-open':''?>">
             <a href="<?=getLink($arr_permissionAllowed,'admin/setting',$user_infor['is_admin'])?>" class="nav-link">
               <i class="nav-icon fa fa-file"></i>
