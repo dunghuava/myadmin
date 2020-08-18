@@ -185,6 +185,16 @@
               </li> -->
             </ul>
           </li>
+
+          <li class="nav-item has-treeview <?=$page_menu=='contact' ? 'menu-open':''?>">
+            <a href="<?=getLink($arr_permissionAllowed,'admin/contact',$user_infor['is_admin'])?>" class="nav-link">
+              <i class="nav-icon fa fa-file"></i>
+              <p>
+                Liên hệ
+              </p>
+            </a>
+          </li>
+
           <li class="nav-header">Nâng cao</li>
          <!--  <li class="nav-item has-treeview <?=$page_menu=='account' ? 'menu-open':''?> ">
             <a href="javascript:void(0)" class="nav-link">
