@@ -175,7 +175,7 @@
         <div class="container">
             <div class="row">
                 <div id="p_overview" class="col-md-8">
-                    <h3>Giới thiệu</h3>
+                    <h3><b>Giới thiệu</b></h3>
                     <div id="read01" class="font18_all readmore closed"><span><?=$duan['project_introduce']?></span></div>
                     <p><a class="font18" style="color:#65BA69;cursor:pointer"  parent="#read01" onclick="readmore(this)">Xem thêm <span class="fa fa-angle-down"></span></a></p>
                     <div id="mycollapse">
