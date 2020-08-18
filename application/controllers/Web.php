@@ -219,6 +219,9 @@ class Web extends MY_Controller {
             'contact_phone' => $post['contact_phone'], 
             'contact_email' => $post['contact_email'], 
             'contact_info' => $post['contact_info'], 
+            'contact_title' => $post['contact_title'], 
+            'contact_status' => 0, 
+            
         );
 
         $this->Contact_M->create($data_insert);
