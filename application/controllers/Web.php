@@ -19,6 +19,8 @@ class Web extends MY_Controller {
         $this->load->model('Status_M');
         $this->load->model('Project_Images_M');
         $this->load->model('Contact_M');
+        $this->load->model('Type_M');
+        $this->load->model('Furniture_M');
         
     }
     
@@ -138,7 +140,13 @@ class Web extends MY_Controller {
         $data['tienich'] = $this->Project_M->getTienich($data['duan']['project_extension']);
 
         $this->page_header();
-        $this->view('web/duan-detail',$data);
+        if ($data['duan']['project_kind']==0){
+            // dự án
+            $this->view('web/duan-detail',$data);
+        }else{
+            // mua
+            $this->view('web/mua-detail',$data);
+        }
         $this->page_footer();
     }
     public function page_project_list($cate=null){

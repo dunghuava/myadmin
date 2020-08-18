@@ -40,9 +40,14 @@
     padding-right: 10px;
 }
 .detail-commodities li::before {
-    content: "•";
+    content: "✔";
     padding-right: 10px;
     color: rgb(34, 145, 160);
+}
+.detail-commodities li.no::before {
+    content: "✖";
+    padding-right: 10px;
+    color: red;
 }
 
 .overview-toolbar ul li a {
@@ -54,6 +59,8 @@
     $duan_img = $this->Project_Images_M->all(['project_id'=>$duan['project_id']]);
     $cdt = $this->Investor_M->find_row(['investor_id'=>$duan['project_investor']]);
     $arr_project = $duan_lancan;
+    $loai_hinh = $this->Type_M->all();
+    $noi_that = $this->Furniture_M->all();
 ?>
 <div class="product-detailt font18">
     <!-- begin -->
@@ -94,7 +101,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                    <h3 class="title-prj"><?=$duan['project_title']?></h3>
+                    <h3 class="title-prj"><b><?=$duan['project_title']?></b></h3>
                     <p><span class="fa fa-map-marker"></span>&nbsp; <?=$duan['project_address']?></p>
                 </div>
                 <div class="col-md-3"><br><br>
@@ -158,8 +165,8 @@
                 <div class="col-md-12">
                     <ul>
                         <li style="padding-left:0px"><a href="<?=fullAddress().'#p_overview'?>">Tổng quan</a></li>
+                        <li><a href="<?=fullAddress().'#p_forent'?>">Nhà đất lân cận</a></li>
                         <li><a href="<?=fullAddress().'#p_location'?>">Vị trí</a></li>
-                        <li><a href="<?=fullAddress().'#p_forent'?>">Bán & cho thuê</a></li>
                         <li><a href="<?=fullAddress().'#p_orther'?>">Dự án lân cận</a></li>
                     </ul>
                 </div>
@@ -186,121 +193,123 @@
                     <h3><b>Giới thiệu</b></h3>
                     <div id="read01" class="font18_all readmore closed"><span><?=$duan['project_introduce']?></span></div>
                     <p><a class="font18" style="color:#65BA69;cursor:pointer"  parent="#read01" onclick="readmore(this)">Xem thêm <span class="fa fa-angle-down"></span></a></p>
-                    <div id="mycollapse">
-                        <div class="item-collapse">
-                            <div class="head-collapse">
-                                <p>Thông tin chi tiết</p>
-                            </div>
-                            <div class="content-collapse">
-                                <!-- detail -->
-                                <ul class="detail-more font18_all">
-                                    <li>
-                                        <p class="left">Số block</p>
-                                        <p class="right"><?=$duan['number_blocks']?$duan['number_blocks']:'Đang cập nhập';?></p>
-                                    </li>
-                                    <li>
-                                        <p class="left">Số tầng</p>
-                                        <p class="right"><?=$duan['number_floors']?$duan['number_floors']:'Đang cập nhập';?></p>
-                                    </li>
-                                    <li>
-                                        <p class="left">Số căn hộ</p>
-                                        <p class="right"><?=$duan['number_units']?$duan['number_units']:'Đang cập nhập';?></p>
-                                    </li>
-                                    <li>
-                                        <p class="left">Số toles</p>
-                                        <p class="right"><?=$duan['number_tolet']?$duan['number_tolet']:'Đang cập nhập';?></p>
-                                    </li>
-                                    <li>
-                                        <p class="left">Số phòng ngủ</p>
-                                        <p class="right"><?=$duan['number_bedroom']?$duan['number_bedroom']:'Đang cập nhập';?></p>
-                                    </li>
-                                    <li>
-                                        <p class="left">Diện tích căn hộ</p>
-                                        <p class="right"><?=$duan['project_acreage']?$duan['project_acreage']:'Đang cập nhập';?></p>
-                                    </li>
-                                    <li>
-                                        <p class="left">Chủ đầu tư</p>
-                                        <p class="right">
-                                            <span class="comma">
-                                                <?php if ($cdt['investor_id']!='') {?>
-                                                    <a href="<?=base_url()?>/chu-dau-tu/<?=$cdt['investor_alias'].'-'.$cdt['investor_id']?>">
-                                                        <?=$cdt['investor_title']?>
-                                                    </a>
-                                                <?php }else{ ?>
-                                                    Đang cập nhật
-                                                <?php } ?>
-                                            </span>
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p class="left">Giá</p>
-                                        <p class="right">
-                                           <?=$duan['project_price']?>
-                                        </p>
-                                    </li>
-                                </ul>
-                                <!-- detailt -->
-                            </div>
-                        </div>
-                        <div class="item-collapse">
-                            <div class="head-collapse">
-                                <p>Tiện ích</p>
-                            </div>
-                            <div class="content-collapse">
-                                <!-- tiện ích -->
-                                <ul class="detail-commodities font18_all">
-                                    <?php foreach ($tienich as $item){ ?>
-                                        <li><?=$item['extension_name']?></li>
-                                    <?php } ?>
-                                </ul>
-                                <!-- tiện ích -->
-                            </div>
-                        </div>
-                        <div class="item-collapse">
-                            <div class="head-collapse">
-                                <p>Chủ đầu tư</p>
-                            </div>
-                            <div class="content-collapse font18_all">
-                                <div class="col-md-3">
-                                    <img style="width:170px;border:1px solid #dcdcdc" src="<?=resizeImg($cdt['investor_img'],170,170,2)?>" alt="<?=$cdt['investor_title']?>">
-                                </div>
-                                <div class="col-md-9">
-                                    <h3><b><?=$cdt['investor_title']?></b></h3>
-                                    <p><?=$cdt['investor_introduce']?></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item-collapse" id="p_location">
-                            <div class="head-collapse opened">
-                                <p>Vị trí dự án</p>
-                            </div>
-                            <div class="content-collapse" style="display:block">
-                                <?php include ('google-map-project.php') ?>
-                            </div>
-                        </div>
+                    <div class="content-mua">
+                        <!-- mua -->
+                            <!-- detail -->
+                            <h3>Thông tin chi tiết</h3>
+                            <ul class="detail-more font18_all">
+                                <li>
+                                    <p class="left">Số block</p>
+                                    <p class="right"><?=$duan['number_blocks']?$duan['number_blocks']:'Đang cập nhập';?></p>
+                                </li>
+                                <li>
+                                    <p class="left">Số tầng</p>
+                                    <p class="right"><?=$duan['number_floors']?$duan['number_floors']:'Đang cập nhập';?></p>
+                                </li>
+                                <li>
+                                    <p class="left">Số căn hộ</p>
+                                    <p class="right"><?=$duan['number_units']?$duan['number_units']:'Đang cập nhập';?></p>
+                                </li>
+                                <li>
+                                    <p class="left">Số toles</p>
+                                    <p class="right"><?=$duan['number_tolet']?$duan['number_tolet']:'Đang cập nhập';?></p>
+                                </li>
+                                <li>
+                                    <p class="left">Số phòng ngủ</p>
+                                    <p class="right"><?=$duan['number_bedroom']?$duan['number_bedroom']:'Đang cập nhập';?></p>
+                                </li>
+                                <li>
+                                    <p class="left">Diện tích căn hộ</p>
+                                    <p class="right"><?=$duan['project_acreage']?$duan['project_acreage']:'Đang cập nhập';?></p>
+                                </li>
+                                <li>
+                                    <p class="left">Chủ đầu tư</p>
+                                    <p class="right">
+                                        <span class="comma">
+                                            <?php if ($cdt['investor_id']!='') {?>
+                                                <a href="<?=base_url()?>/chu-dau-tu/<?=$cdt['investor_alias'].'-'.$cdt['investor_id']?>">
+                                                    <?=$cdt['investor_title']?>
+                                                </a>
+                                            <?php }else{ ?>
+                                                Đang cập nhật
+                                            <?php } ?>
+                                        </span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="left">Giá</p>
+                                    <p class="right">
+                                        <?=$duan['project_price']?>
+                                    </p>
+                                </li>
+                            </ul>
+                            <!-- detailt -->
+                            <h3>Loại hình</h3>
+                            <!-- tiện ích -->
+                            <ul class="detail-commodities font18_all">
+                                <?php foreach ($loai_hinh as $item){ ?>
+                                    <li <?=$duan['project_type']!=$item['id_type_project'] ? 'class="no"':''?>><?=$item['type_project']?></li>
+                                <?php } ?>
+                            </ul>
+                            <!-- tiện ích -->
+                            <h3>Tiên ích</h3>
+                            <!-- tiện ích -->
+                            <ul class="detail-commodities font18_all">
+                                <?php foreach ($tienich as $item){ ?>
+                                    <li><?=$item['extension_name']?></li>
+                                <?php } ?>
+                            </ul>
+                            <h3>Nội thất</h3>
+                            <!-- tiện ích -->
+                            <ul class="detail-commodities font18_all">
+                                <?php
+                                    $explor = explode(',',$duan['project_furniture']);
+                                    foreach ($noi_that as $item){ 
+                                ?>
+                                    <li class="<?php if(!in_array($item['id_furniture_project'],$explor)) {echo "no";} ?>" ><?=$item['furniture_project']?></li>
+                                <?php } ?>
+                            </ul>
+                            <!-- tiện ích -->
+                            <!-- tiện ích -->
+                        <!-- mua -->
                     </div>
                 </div>
                 <div class="col-md-4">
                     <?php include ('form-contact.php') ?>
                 </div>
             </div>
-            <h3 id="p_orther">Dự án lân cận</h3>
+            <h3 id="p_orther">Nhà đất lân cận</h3>
             <div class="row">
                 <div class="slick">
                     <?php $col=4; include ('duan-item.php') ?>
                 </div>
             </div>
-            <h3 id="p_forent">Bán & Cho thuê</h3>
             <div class="row">
-                <div class="slick">
-                    <?php $col=4; include ('duan-item.php') ?>
-                </div>
+                <div class="col-md-12">
+                    <h3>Vị trí</h3>
+                </div>                
+            </div>
+        </div>
+    </section>
+    <?php include ('google-map-project.php') ?>
+    <section class="container">
+        <div class="row">
+            <div class="col-md-12">
+               <h3>Khu dân cư</h3>
+            </div>
+            <div class="col-md-4">
+                <img style="width:100%;border:1px solid #dcdcdc" src="<?=resizeImg($cdt['investor_img'],400,220,2)?>" alt="<?=$cdt['investor_title']?>">
+            </div>
+            <div class="col-md-8">
+                <h3><b><?=$cdt['investor_title']?></b></h3>
+                <p><?=$cdt['investor_introduce']?></p>
             </div>
         </div>
     </section>
     <!-- end -->
 </div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqAHaMV9ZVcSX992nMQOgZ_Vy80GUZ_8I&callback=initMap&libraries=drawing,places"></script>
+
 
 
 
