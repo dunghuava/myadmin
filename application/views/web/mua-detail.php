@@ -301,7 +301,7 @@
                 <img style="width:100%;border:1px solid #dcdcdc" src="<?=resizeImg($kdc['residential_img'],350,220,2)?>" alt="<?=$cdt['investor_title']?>">
             </div>
             <div class="col-md-9">
-                <h3><b><?=$kdc['residential_title']?></b></h3>
+                <h3 style="margin:0px"><b><?=$kdc['residential_title']?></b></h3>
                 <p><?=$kdc['residential_introduce']?></p>
             </div>
         </div>
