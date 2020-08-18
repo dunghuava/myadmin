@@ -10,7 +10,7 @@
     <form action="" method="post" enctype="multipart/form-data">
         <div class="col-md-8 inline-flex">
             <label for="">Ngày</label>
-            <input text value="<?php echo $info_contact['created_at'] ?>" class="form-control">
+            <input text value="<?php echo date('d-m-Y H:i:s', strtotime($info_contact['created_at'])) ?>" class="form-control">
         </div>
 
         <div class="col-md-8 inline-flex">
@@ -43,7 +43,7 @@
         <br>
         <div class="col-md-6 inline-flex">
             <label for=""></label>
-            <a href="<?=base_url('admin/contact/')?>"><button type="submit" class="btn btn-primary">Quay lại</button></a>
+            <a href="<?=base_url('admin/contact/')?>"><button type="button" class="btn btn-primary">Quay lại</button></a>
         </div>
     </form>
     <br><br>

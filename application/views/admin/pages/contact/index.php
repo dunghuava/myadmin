@@ -31,7 +31,7 @@
                              <td><?=$item['contact_name']?></td>
                              <td><?=$item['contact_email']?></td>
                              <td><?=$item['contact_phone']?></td>
-                             <td>trang thái</td>
+                             <td><?=$status?></td>
                              <td>
                                 <a href="<?=base_url().'admin/contact/details/'.$item['contact_id']?>">
                                     <button type="button" class="btn btn-default">
@@ -69,7 +69,7 @@
     //     });
     // }
 
-    function contact_id(contact_id){
+    function onDelete(contact_id){
         var contact_id = contact_id;
         // console.log(post_id);
         Swal.fire({

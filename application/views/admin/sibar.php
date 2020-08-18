@@ -14,6 +14,16 @@
       font-weight: bold;
       display: block;
     }
+
+    .number-contact{
+      background-color: red;
+      color: #fff;
+      display: inline-block;
+      padding-left: 8px;
+      padding-right: 8px;
+      text-align: center;
+      border-radius: 50%
+    }
 </style>
 <?php 
   function appSay(){
@@ -190,7 +200,11 @@
             <a href="<?=getLink($arr_permissionAllowed,'admin/contact',$user_infor['is_admin'])?>" class="nav-link">
               <i class="nav-icon fa fa-file"></i>
               <p>
-                Liên hệ
+                <?php $list_contact = $this->Contact_M->all(['contact_status' => 0]); ?>
+                Liên hệ 
+                <?php if (count($list_contact) >0) {?>
+                  <span class="number-contact"><?php echo count($list_contact) ?></span>
+                <?php } ?>
               </p>
             </a>
           </li>
