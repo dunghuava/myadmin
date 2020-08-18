@@ -57,7 +57,7 @@
 </style>
 <?php 
     $duan_img = $this->Project_Images_M->all(['project_id'=>$duan['project_id']]);
-    $cdt = $this->Investor_M->find_row(['investor_id'=>$duan['project_investor']]);
+    $kdc = $this->Residential_M->find_row(['residential_id'=>$duan['project_residential']]);
     $arr_project = $duan_lancan;
     $loai_hinh = $this->Type_M->all();
     $noi_that = $this->Furniture_M->all();
@@ -287,22 +287,22 @@
             <div class="row">
                 <div class="col-md-12">
                     <h3>Vị trí</h3>
+                    <?php include ('google-map-project.php') ?>
                 </div>                
             </div>
         </div>
     </section>
-    <?php include ('google-map-project.php') ?>
     <section class="container">
         <div class="row">
             <div class="col-md-12">
                <h3>Khu dân cư</h3>
             </div>
-            <div class="col-md-4">
-                <img style="width:100%;border:1px solid #dcdcdc" src="<?=resizeImg($cdt['investor_img'],400,220,2)?>" alt="<?=$cdt['investor_title']?>">
+            <div class="col-md-3">
+                <img style="width:100%;border:1px solid #dcdcdc" src="<?=resizeImg($kdc['residential_img'],350,220,2)?>" alt="<?=$cdt['investor_title']?>">
             </div>
-            <div class="col-md-8">
-                <h3><b><?=$cdt['investor_title']?></b></h3>
-                <p><?=$cdt['investor_introduce']?></p>
+            <div class="col-md-9">
+                <h3><b><?=$kdc['residential_title']?></b></h3>
+                <p><?=$kdc['residential_introduce']?></p>
             </div>
         </div>
     </section>
