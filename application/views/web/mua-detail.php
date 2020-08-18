@@ -165,7 +165,7 @@
                 <div class="col-md-12">
                     <ul>
                         <li style="padding-left:0px"><a href="<?=fullAddress().'#p_overview'?>">Tổng quan</a></li>
-                        <li><a href="<?=fullAddress().'#p_forent'?>">Nhà đất lân cận</a></li>
+                        <li><a href="<?=fullAddress().'#p_orther'?>">Nhà đất lân cận</a></li>
                         <li><a href="<?=fullAddress().'#p_location'?>">Vị trí</a></li>
                         <li><a href="<?=fullAddress().'#p_orther'?>">Dự án lân cận</a></li>
                     </ul>
@@ -284,7 +284,7 @@
                     <?php $col=4; include ('duan-item.php') ?>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" id="p_location">
                 <div class="col-md-12">
                     <h3>Vị trí</h3>
                     <?php include ('google-map-project.php') ?>
