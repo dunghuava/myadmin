@@ -169,7 +169,7 @@
     <script>
         window.onscroll = function() {addSticky()};
         var navbar = document.getElementById("toolbar");
-        var sticky = (navbar.offsetTop)/10;
+        var sticky = (navbar.offsetTop)/5;
         function addSticky() {
             if (window.pageYOffset >= sticky) {
                 navbar.classList.add("sticky")

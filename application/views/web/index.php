@@ -4,9 +4,10 @@
         <form class="form-group" action="" method="get">
             <div class="containers">
                 <div class="form-inline">
-                    <button class="btn_choose_type clicked" type="button">Dự án</button>
-                    <button class="btn_choose_type" type="button">Cho thuê</button>
-                    <button class="btn_choose_type" type="button">Mua bán</button>
+                    <input type="hidden" id="type_check" name="type_check" value="1">
+                    <button class="btn_choose_type 0 clicked" onclick="typeCheck(0)" type="button">Dự án</button>
+                    <button class="btn_choose_type 1" onclick="typeCheck(1)" type="button">Cho thuê</button>
+                    <button class="btn_choose_type 2" onclick="typeCheck(2)" type="button">Mua bán</button>
                 </div>
                 <div class="form-inline" style="display: flex;">
                     <input type="search" class="form-control font18" name="" id="" placeholder="Nhập địa điểm hoặc từ khóa (Ví dụ : Đảo kim cương)">
@@ -327,3 +328,12 @@
         </div>
     </div>
 </section>
+
+
+<script type="text/javascript">
+    function typeCheck(type){
+        $('#type_check').val(type);
+        $('.btn_choose_type').removeClass('clicked');
+        $('.'+type).addClass('clicked');
+    }
+</script>
