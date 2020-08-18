@@ -22,7 +22,7 @@
     float: right;
     color: #444c59;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: bold;
     max-width: 48%;
     overflow: hidden;
     height: 24px;
@@ -43,6 +43,10 @@
     content: "•";
     padding-right: 10px;
     color: rgb(34, 145, 160);
+}
+
+.overview-toolbar ul li a {
+    font-size: 18px!important;
 }
 
 </style>
@@ -106,35 +110,39 @@
                 <ul class="detail-more-top font18_all">
                     <li>
                         <p class="left">Số block</p>
-                        <p class="right"><?=$duan['number_blocks']?></p>
+                        <p class="right"><?=$duan['number_blocks']?$duan['number_blocks']:'Đang cập nhập';?></p>
                     </li>
                     <li>
                         <p class="left">Số tầng</p>
-                        <p class="right"><?=$duan['number_floors']?></p>
+                        <p class="right"><?=$duan['number_floors']?$duan['number_floors']:'Đang cập nhập';?></p>
                     </li>
                     <li>
                         <p class="left">Số căn hộ</p>
-                        <p class="right"><?=$duan['number_units']?></p>
+                        <p class="right"><?=$duan['number_units']?$duan['number_units']:'Đang cập nhập';?></p>
                     </li>
                     <li>
                         <p class="left">Số toles</p>
-                        <p class="right"><?=$duan['number_tolet']?></p>
+                        <p class="right"><?=$duan['number_tolet']?$duan['number_tolet']:'Đang cập nhập';?></p>
                     </li>
                     <li>
                         <p class="left">Số phòng ngủ</p>
-                        <p class="right"><?=$duan['number_bedroom']?></p>
+                        <p class="right"><?=$duan['number_bedroom']?$duan['number_bedroom']:'Đang cập nhập';?></p>
                     </li>
                     <li>
                         <p class="left">Diện tích căn hộ</p>
-                        <p class="right"><?=$duan['project_acreage']?></p>
+                        <p class="right"><?=$duan['project_acreage']?$duan['project_acreage']:'Đang cập nhập';?></p>
                     </li>
                     <li>
                         <p class="left">Chủ đầu tư</p>
                         <p class="right">
                             <span class="comma">
+                                <?php if ($cdt['investor_id']!='') {?>
                                     <a href="<?=base_url()?>/chu-dau-tu/<?=$cdt['investor_alias'].'-'.$cdt['investor_id']?>">
                                         <?=$cdt['investor_title']?>
                                     </a>
+                                <?php }else{ ?>
+                                    Đang cập nhật
+                                <?php } ?>
                             </span>
                         </p>
                     </li>
@@ -161,7 +169,7 @@
     <script>
         window.onscroll = function() {addSticky()};
         var navbar = document.getElementById("toolbar");
-        var sticky = (navbar.offsetTop)/10;
+        var sticky = (navbar.offsetTop)/5;
         function addSticky() {
             if (window.pageYOffset >= sticky) {
                 navbar.classList.add("sticky")
@@ -188,36 +196,46 @@
                                 <ul class="detail-more font18_all">
                                     <li>
                                         <p class="left">Số block</p>
-                                        <p class="right"><?=$duan['number_blocks']?></p>
+                                        <p class="right"><?=$duan['number_blocks']?$duan['number_blocks']:'Đang cập nhập';?></p>
                                     </li>
                                     <li>
                                         <p class="left">Số tầng</p>
-                                        <p class="right"><?=$duan['number_floors']?></p>
+                                        <p class="right"><?=$duan['number_floors']?$duan['number_floors']:'Đang cập nhập';?></p>
                                     </li>
                                     <li>
                                         <p class="left">Số căn hộ</p>
-                                        <p class="right"><?=$duan['number_units']?></p>
+                                        <p class="right"><?=$duan['number_units']?$duan['number_units']:'Đang cập nhập';?></p>
                                     </li>
                                     <li>
                                         <p class="left">Số toles</p>
-                                        <p class="right"><?=$duan['number_tolet']?></p>
+                                        <p class="right"><?=$duan['number_tolet']?$duan['number_tolet']:'Đang cập nhập';?></p>
                                     </li>
                                     <li>
                                         <p class="left">Số phòng ngủ</p>
-                                        <p class="right"><?=$duan['number_bedroom']?></p>
+                                        <p class="right"><?=$duan['number_bedroom']?$duan['number_bedroom']:'Đang cập nhập';?></p>
                                     </li>
                                     <li>
                                         <p class="left">Diện tích căn hộ</p>
-                                        <p class="right"><?=$duan['project_acreage']?></p>
+                                        <p class="right"><?=$duan['project_acreage']?$duan['project_acreage']:'Đang cập nhập';?></p>
                                     </li>
                                     <li>
                                         <p class="left">Chủ đầu tư</p>
                                         <p class="right">
                                             <span class="comma">
+                                                <?php if ($cdt['investor_id']!='') {?>
                                                     <a href="<?=base_url()?>/chu-dau-tu/<?=$cdt['investor_alias'].'-'.$cdt['investor_id']?>">
                                                         <?=$cdt['investor_title']?>
                                                     </a>
+                                                <?php }else{ ?>
+                                                    Đang cập nhật
+                                                <?php } ?>
                                             </span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="left">Giá</p>
+                                        <p class="right">
+                                           <?=$duan['project_price']?>
                                         </p>
                                     </li>
                                 </ul>
@@ -316,6 +334,7 @@
                         <style>
                             #form-contact input.form-control{
                                 height:45px;
+                                font-size: 17px;
                             }
                         </style>
                         <form id="form-contact" action="" method="post">
@@ -325,7 +344,7 @@
                             <input type="text" name="contact_email" id="contact_email" class="form-control" placeholder="Địa chỉ email">
                             <input type="hidden" name="contact_project_title" id="contact_project_title" class="form-control" value="<?=$duan['project_title']?>">
                             <input type="text" name="" id="" class="form-control text-overflow" value="<?=$duan['project_title']?>" disabled style="background: gainsboro;">
-                            <textarea name="contact_info" id="contact_info" rows="4" class="form-control" placeholder="Hỏi thông tin"></textarea>
+                            <textarea name="contact_info" id="contact_info" rows="4" class="form-control font17" placeholder="Hỏi thông tin"></textarea>
                             <button type="submit" class="btn btn-block btn-primary font17">Gửi</button>
                         </form>
                     </div>

@@ -8,6 +8,10 @@ vertical-align: -0.125em;
     content: url('https://api.iconify.design/zmdi-photo-size-select-small.svg?height=16&inline=true');
 vertical-align: -0.125em;
 }
+
+.overview-toolbar ul li a {
+    font-size: 18px!important;
+}
 }
 </style>
 <section class="page-khudancu-detail font18">
@@ -24,7 +28,7 @@ vertical-align: -0.125em;
         </div>
     </div>
     <!-- overview-toolbar -->
-    <div id="toolbar" class="overview-toolbar hidden-xs">
+    <div id="toolbar" class="overview-toolbar hidden-xs" style="border-bottom: 1px solid #dcdcdc;">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
