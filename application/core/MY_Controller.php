@@ -14,6 +14,7 @@ class MY_Controller extends CI_Controller {
 		$this->load->model('Permission_M');
 		$this->load->model('Web_M');
 		$this->load->model('Info_M');
+		$this->load->model('Contact_M');
 
 		$this->user_infor = $this->session->get_userdata('user_infor');
 		$user_id=$this->user_infor['user_infor']['user_id'];
