@@ -213,7 +213,7 @@ class Web extends MY_Controller {
         }
         $data['arr_project']=$arr_project;
         $data['project_locate']=$project_locate;
-        $data['data_html']= $this->load->view('web/duan-item', $data,true);
+        $data['data_html']= $this->load->view('web/duan-item-h', $data,true);
         echo json_encode($data);
     }
     public function page_chudautu_detail($alias=null){

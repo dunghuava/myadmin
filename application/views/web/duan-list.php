@@ -31,8 +31,9 @@
 </style>
 <section id="fullwidth" class="page-duan-list container">
     <div class="row font16_all">
-        <div class="col-md-12 pdl0">
+        <div class="col-md-12">
             <form id="frm-top-search" action="" method="get" class="form-inline form-group">
+                <input type="hidden" id="cate_id" value="<?=$cate_id?>">
                 <select name="" id="" class="form-control">
                     <option value="">Chọn loại bất động sản</option>
                     <option value="">Dự án</option>
@@ -56,10 +57,13 @@
                 <li>Xem thêm</li>
             </ul>
             <div class="text-left">
-                <h3 class="mg0"><b>Mua bán nhà đất căn hộ Hồ Chí Minh...3446 căn</b></h3><br>
+                <!-- <h3 class="mg0"><b>Mua bán nhà đất căn hộ Hồ Chí Minh...3446 căn</b></h3><br> -->
             </div>
-            <div id="root_project" class="list-project-horizontal" style="height:380px;overflow:auto">
-                <?php include ('duan-item-h.php') ?>
+            <div id="spinner" class="text-center"><br><br><br><br>
+                <img style="width:40px;" src="https://www.afri.tn/wp-content/plugins/interactive-3d-flipbook-powered-physics-engine/assets/images/dark-loader.gif" alt="">
+                <p>Đang tải dữ liệu...</p>
+            </div>
+            <div id="root_project" class="list-project-horizontal" style="height:390px;overflow-y:auto;overflow-x:hidden">
             </div>
         </div>
         <div class="col-md-5">
@@ -67,3 +71,40 @@
         </div>
     </div>
 </section>
+
+<script>
+    $('#frm-top-search').submit(function (e) { 
+        e.preventDefault();
+        searchProject();
+    });
+    $(document).ready(function () {
+        searchProject();
+    });
+    function searchProject(){
+        $('#spinner').show();
+        $('#root_project').hide();
+        var data={
+            'search':true,
+            'project_category':$('#cate_id').val(),
+            'project_title':$('#project_title').val()
+        };
+        $.ajax({
+            type: "post",
+            url: "<?=base_url('web/searchApi')?>",
+            data: {'data':data},
+            success: function (response) {
+                response=JSON.parse(response);
+                console.log(response);
+                if (response.project_locate.lenght>0){
+                    project_locate=response.project_locate;
+                }
+                setTimeout(() => {
+                    $('#spinner').hide();
+                    $('#root_project').html(response.data_html);
+                    $('#root_project').fadeIn();
+
+                }, 500);
+            }
+        });
+    }
+</script>

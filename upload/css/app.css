@@ -1014,6 +1014,7 @@ img {
   display: inline-flex;
   margin: 5px 0px;
   width: 100%;
+  border-bottom: 1px solid #dcdcdd;
 }
 
 .duan-item-h .left {
@@ -1030,6 +1031,12 @@ img {
   font-weight: bold;
   width: calc(100%-10px);
   font-size: 17px !important;
+}
+
+.duan-item-h .right .price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #88AD6A;
 }
 
 .page-cdt .banner {
