@@ -1,3 +1,21 @@
+@media screen and (max-width: 680px) {
+  img {
+    margin-bottom: 5px;
+  }
+  .boxed.font18 {
+    padding: 0px;
+  }
+  .detail-more-top li {
+    width: 100%;
+  }
+  .detail-more-top li p.right {
+    text-align: right;
+  }
+  .detail-more li {
+    width: 100% !important;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .app-header .logo img {
     width: 165px;

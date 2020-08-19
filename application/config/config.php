@@ -24,7 +24,7 @@ date_default_timezone_set('Asia/Ho_chi_minh');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost:8080/myadmin/';
+$config['base_url'] = 'http://localhost/myadmin/';
 
 /*
 |--------------------------------------------------------------------------

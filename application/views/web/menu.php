@@ -31,5 +31,8 @@
         <?php 
             }
         ?>
+        <li>
+            <a href="<?=base_url('dang-nhap')?>">Đăng nhập</a>
+        </li>
     </ul>
 </nav>

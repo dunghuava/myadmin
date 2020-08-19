@@ -123,8 +123,21 @@ class Web extends MY_Controller {
        }else if ($cate['cate_module_id']==2){
            // dự án
            $this->page_project_list($cate);
+       }else if ($cate['cate_module_id']==4){
+           // đăng nhập
+           $this->page_user_login();
        }
 
+    }
+    public function page_user_login(){
+        $data['title']='Đăng nhập';
+        $this->page_header($data);
+        $this->view('web/user-login');
+    }
+    public function page_user_reset(){
+        $data['title']='Quyên mật khẩu';
+        $this->page_header($data);
+        $this->view('web/user-reset');
     }
     public function page_chudautu_list($alias=null){
         $this->page_header();
