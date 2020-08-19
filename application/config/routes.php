@@ -54,6 +54,7 @@ $route['404_override'] 			= '';
 $route['translate_uri_dashes'] 	= FALSE;
 
 // web route
+$route['danh-muc/danh-sach-chu-dau-tu']     = 'web/page_chudautu_list';
 $route['danh-muc/(:any)']     = 'web/page_categories/$1';
 $route['bai-viet/(:any)']     = 'web/page_post_detail/$1';
 $route['blog/(:any)']         = 'web/page_post_detail/$1';
