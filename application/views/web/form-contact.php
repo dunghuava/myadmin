@@ -58,7 +58,9 @@
                         title: 'Thông tin đã được gửi',
                     });
 
-                    $('#form-contact').find('input').val('');
+                    $('#form-contact').find('#contact_name').val('');
+                    $('#form-contact').find('#contact_phone').val('');
+                    $('#form-contact').find('#contact_email').val('');
                     $('#form-contact').find('textarea').val('');
                 }
             });  
