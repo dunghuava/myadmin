@@ -64,6 +64,7 @@ $route['chu-dau-tu/(:any)']   = 'web/page_chudautu_detail/$1';
 $route['chi-tiet-du-an/(:any)'] = 'web/page_project_detail/$1';
 $route['dang-nhap']            = 'web/page_user_login'; 
 $route['quen-mat-khau']            = 'web/page_user_reset'; 
+$route['dang-ky']              = 'web/page_user_register';
 // end route
 
 $route['admin']							= 'admin/category';

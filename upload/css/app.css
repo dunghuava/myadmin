@@ -40,6 +40,10 @@ a:active {
   font-size: 16px !important;
 }
 
+.font16_all * {
+  font-size: 16px !important;
+}
+
 ul {
   margin: 0px;
   padding: 0px;

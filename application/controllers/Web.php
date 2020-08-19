@@ -139,6 +139,11 @@ class Web extends MY_Controller {
         $this->page_header($data);
         $this->view('web/user-reset');
     }
+    public function page_user_register(){
+        $data['title']='Đăng ký tài khoản';
+        $this->page_header($data);
+        $this->view('web/user-register');
+    }
     public function page_chudautu_list($alias=null){
         $this->page_header();
         $data['list_investor']=$this->Investor_M->all(['investor_active'=>1]);

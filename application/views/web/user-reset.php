@@ -9,18 +9,22 @@
         border-radius:0px !important;
         height:42px;
     }
+    .btn{
+        color:#fff;
+        background:#65BA69 !important;
+    }
 </style>
 <section class="page-login" style="background:#F9F9F9">
     <div class="container">
         <div class="col-md-3"></div>
-        <div class="col-md-6"><br><br>
-            <form action="" class="login-form form-group">
+        <div class="col-md-6"><br>
+            <form action="" class="login-form form-group font16_all">
                 <div class="text-center"><h3>Reset mật khẩu</h3></div>
                 <p><input type="text" class="form-control" placeholder="Nhập địa chỉ email"></p>
-                <p><button class="btn btn-block btn-primary">Reset</button></p>
-                <p><div class="text-center"><a href="">Đăng ký tài khoản mới</a></div></p>
+                <p><button class="btn btn-block btn-default">Reset password</button></p>
+                <p><div class="text-center"><a href="<?=base_url('dang-ky')?>">Đăng ký tài khoản mới</a></div></p>
                 <br>
-            </form>
+            </form><br><br>
         </div>
         <div class="col-md-3"></div>
     </div>
