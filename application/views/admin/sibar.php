@@ -56,7 +56,7 @@
         <div class="info">
           <a href="javascript:void(0)" class="d-block">
               <?=appSay().''.$user_infor['user_fullname']?>
-              <span style="font-size: 11px;position: absolute;bottom: 0;right: 0;"><?=sprintf('%02d',$online)?> Online</span>
+              <!-- <span style="font-size: 11px;position: absolute;bottom: 0;right: 0;"><?=sprintf('%02d',$online)?> Online</span> -->
           </a>
         </div>
       </div>
@@ -75,13 +75,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=getLink($arr_permissionAllowed,'admin/category',$user_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=getLink('admin/category',$user_infor['is_admin'])?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Tất cả</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=getLink($arr_permissionAllowed,'admin/category/add',$user_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=getLink('admin/category/add',$user_infor['is_admin'])?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Thêm danh mục</p>
                 </a>
@@ -98,13 +98,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=getLink($arr_permissionAllowed,'admin/project',$user_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=getLink('admin/project',$user_infor['is_admin'])?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Tất cả</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=getLink($arr_permissionAllowed,'admin/project/add',$user_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=getLink('admin/project/add',$user_infor['is_admin'])?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Thêm dự án</p>
                 </a>
@@ -121,13 +121,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=getLink($arr_permissionAllowed,'admin/post',$user_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=getLink('admin/post',$user_infor['is_admin'])?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Tất cả</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=getLink($arr_permissionAllowed,'admin/post/add',$user_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=getLink('admin/post/add',$user_infor['is_admin'])?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Thêm bài viết</p>
                 </a>
@@ -145,19 +145,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=getLink($arr_permissionAllowed,'admin/region',$user_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=getLink('admin/region',$user_infor['is_admin'])?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Khu vực hiển thị</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=getLink($arr_permissionAllowed,'admin/residential',$user_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=getLink('admin/residential',$user_infor['is_admin'])?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Khu dân cư</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=getLink($arr_permissionAllowed,'admin/investor',$user_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=getLink('admin/investor',$user_infor['is_admin'])?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Chủ đầu tư</p>
                 </a>
@@ -176,13 +176,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=getLink($arr_permissionAllowed,'admin/themes/banner',$user_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=getLink('admin/themes/banner',$user_infor['is_admin'])?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Banner</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=getLink($arr_permissionAllowed,'admin/themes/info',$user_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=getLink('admin/themes/info',$user_infor['is_admin'])?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Thông tin</p>
                 </a>
@@ -197,7 +197,7 @@
           </li>
 
           <li class="nav-item has-treeview <?=$page_menu=='contact' ? 'menu-open':''?>">
-            <a href="<?=getLink($arr_permissionAllowed,'admin/contact',$user_infor['is_admin'])?>" class="nav-link">
+            <a href="<?=getLink('admin/contact',$user_infor['is_admin'])?>" class="nav-link">
               <i class="nav-icon fa fa-file"></i>
               <p>
                 <?php $list_contact = $this->Contact_M->all(['contact_status' => 0]); ?>
@@ -210,7 +210,7 @@
           </li>
 
           <li class="nav-header">Nâng cao</li>
-         <!--  <li class="nav-item has-treeview <?=$page_menu=='account' ? 'menu-open':''?> ">
+          <li class="nav-item has-treeview <?=$page_menu=='account' ? 'menu-open':''?> ">
             <a href="javascript:void(0)" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>
@@ -220,27 +220,23 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=getLink($arr_permissionAllowed,'admin/account',$user_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=getLink('admin/user',$user_infor['is_admin'])?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Tất cả</p>
                 </a>
               </li>
+
               <li class="nav-item">
-                <a href="<?=getLink($arr_permissionAllowed,'admin/permission',$user_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=getLink('admin/user/add',$user_infor['is_admin'])?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Permission</p>
+                  <p>Thêm tài khoản</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="<?=getLink($arr_permissionAllowed,'admin/permission/group',$user_infor['is_admin'])?>" class="nav-link">
-                  <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Permission group</p>
-                </a>
-              </li>
+
             </ul>
-          </li> -->
+          </li>
           <li class="nav-item has-treeview <?=$page_menu=='setting' ? 'menu-open':''?>">
-            <a href="<?=getLink($arr_permissionAllowed,'admin/setting',$user_infor['is_admin'])?>" class="nav-link">
+            <a href="<?=getLink('admin/setting',$user_infor['is_admin'])?>" class="nav-link">
               <i class="nav-icon fa fa-file"></i>
               <p>
                 Cài đặt

@@ -57,11 +57,11 @@ function resizeImg ($image,$w=100,$h=100,$zc=2){
 	}
 	return base_url('thumb.php?src='.base_url('upload/images/'.$image.'&w='.$w.'&h='.$h.'&zc='.$zc));
 }
-function getLink($arr_permission,$link,$is_admin){
+function getLink($link,$is_admin){
 	$next_link=base_url($link);
-	if(in_array($next_link,$arr_permission) || $is_admin==1){
+	// if($is_admin==1){
 		return base_url().$link;
-	}
+	// }
 	return 'javascript:void(0)';
 }
 

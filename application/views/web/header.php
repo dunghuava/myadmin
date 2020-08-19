@@ -30,6 +30,10 @@
             content: url('https://api.iconify.design/zmdi-photo-size-select-small.svg?height=16&inline=true');
             vertical-align: -0.125em;
         }
+
+        .main-title {
+            font-size: 22px!important;
+        }
     </style>
 </head>
 <body>

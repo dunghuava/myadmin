@@ -1,53 +1,7 @@
 <style>
-    .permission-label{
-        padding: 5px;
-        background: <?=$setting['sibar_background_color']?>;
-        color: #fff;
-        font-size: 12px;
-        border-radius: 8px;
-        margin-right: 5px;
-        cursor:pointer;
-    }
+    
 </style>
 <div class="container-fluid">
-	<form action="" method="post">
-	 <div class="row">
-     	<div class="col-md-6">
-             <div class="col-md-12 inline-flex">
-             	    <label for="">Họ tên</label>
-                    <input id="user_id" type="hidden" name="user_id" value="">
-     		        <input id="user_fullname" value="" type="text" name="user_fullname" class="form-control" required></input>
-             </div>
-
-             <div class="col-md-12 inline-flex">
-                    <label for="">Email</label>
-                    <input id="user_email" value="" type="text" name="user_email" class="form-control" required></input>
-             </div>
-
-             <div class="col-md-12 inline-flex">
-             	    <label for="">Tên đăng nhập</label>
-     		        <input minlength="5" required id="user_name" type="text" name="user_name" class="form-control"></input>
-             </div>
-             <div class="col-md-12 inline-flex">
-             	    <label for="">Mật khẩu</label>
-     		        <input required id="user_password" type="text" name="user_password" class="form-control"></input>
-             </div>
-             <div class="col-md-12 inline-flex">
-             	    <label for=""></label>
-             	    <a href="<?=base_url('medicine/add')?>" title="">
-	     		        <button type="button" class="btn btn-danger">
-	     		        	<span class="fa fa-arrow-left"></span>
-	     		        	Trở về
-	     		        </button>
-             	    </a>
-     		        <button type="submit" name="btn_save" style="margin-left: 10px" class="btn btn-success">
-     		        	<span class="fa fa-save"></span>
-     		        	Lưu lại
-     		        </button>
-             </div>
-     	</div>
-     </div>
-	 </form> <br>
      <div class="row">
            <div class="col-md-12">
               <div class="col-md-12">
@@ -55,6 +9,7 @@
                 <thead>
                     <tr>
                         <th>Họ tên</th>
+                        <th>Đia chỉ email</th>
                         <th>Tên đăng nhập</th>
                         <th style="width: 11%">Thao tác</th>
                     </tr>
@@ -63,6 +18,7 @@
                     <?php foreach ($arr_account as $item){ ?>
                         <tr>
                              <td><?=$item['user_fullname']?></td>
+                             <td><?=$item['user_email']?></td>
                              <td><?=$item['user_name']?></td>
                              <td>
                                  <button onclick="onEdit(<?=$item['user_id']?>,'<?=$item['user_fullname']?>','<?=$item['user_name']?>')"  class="btn btn-default">
