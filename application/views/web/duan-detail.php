@@ -266,8 +266,7 @@
                                 </div>
                                 <div class="col-md-9">
                                     <h3><b><?=$cdt['investor_title']?></b></h3>
-                                    <div id="read04" class="readmore closed"><p><?=$cdt['investor_introduce']?></p></div>
-                                    <p><a class="font18" style="color:#65BA69;cursor:pointer"  parent="#read04" onclick="readmore(this)">Xem thêm <span class="fa fa-angle-down"></span></a></p>
+                                    <p id="read04" class="readmore closed"><?=$cdt['investor_introduce']?></p>
                                 </div>
                             </div>
                         </div>

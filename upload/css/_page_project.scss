@@ -90,24 +90,26 @@
         background: $primary-color;
     }
 }
-.frm-top-search{
+#frm-top-search{
     display: flex;
     .form-control,.btn{
         border-radius: 0px;
         outline: none;
         box-shadow: none;
         height: 40px;
-        border-color: $primary-color !important;
+        border-color: #dcdcdd !important;
     }
     select{
         width: fit-content;
         border-right: 0px;
     }
     input{
-        border-right: 0px;
+        border-left:0px;
+        width:100%;
     }
     button{
-        border-left: 0px;
+        border-right: 0px;
+        background:#fff;
     }
 }
 
@@ -127,6 +129,43 @@
                 float: left;
                 width: 48%;
             }
+        }
+    }
+}
+.list_option{
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    padding: 5px 0px;
+    li{
+        display: inline-flex;
+        padding: 10px 15px;
+        cursor: pointer;
+        &:first-child{
+            padding-left: 0px;
+        }
+        &::after{
+            content: '\f107';
+            font-family: 'FontAwesome';
+            margin-left: 5px;
+        }
+    }
+}
+
+.duan-item-h{
+    display: inline-flex;
+    margin: 5px 0px;
+    width: 100%;
+    .left{
+        width: 28%;
+    }
+    .right{
+        width: 70%;
+        padding: 0px 8px;
+        .title{
+            margin: 4px 0px;
+            font-weight: bold;
+            width: calc(100%-10px);
+            font-size: 17px !important;
         }
     }
 }
