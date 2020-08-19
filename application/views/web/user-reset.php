@@ -20,7 +20,7 @@
         <div class="col-md-6"><br>
             <form action="" class="login-form form-group font16_all">
                 <div class="text-center"><h3>Reset mật khẩu</h3></div>
-                <p><input type="text" class="form-control" placeholder="Nhập địa chỉ email"></p>
+                <p><input type="text" class="form-control" placeholder="Nhập địa chỉ email đã đăng ký"></p>
                 <p><button class="btn btn-block btn-default">Reset password</button></p>
                 <p><div class="text-center"><a href="<?=base_url('dang-ky')?>">Đăng ký tài khoản mới</a></div></p>
                 <br>
