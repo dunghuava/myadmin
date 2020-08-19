@@ -21,7 +21,7 @@
     }
 </style>
 <script>
-   var project_locate = [];
+   var project_locate = [{title:'null',lat:0,lng:0}];
 </script>
 <section class="sec-duan-list font18" style="margin-top:10px">
     <div id="container_h" class="container" style="width:98%;margin:auto;height:84vh;background:#fff;"><br>
@@ -41,7 +41,7 @@
                     <button type="button" style="background:#fff" class="btn btn-default hidden-xs ">Phòng ngủ&nbsp;<span class="fa fa-angle-down"></span></button>
                     <button type="button" style="background:#fff" class="btn btn-default hidden-xs ">Diện tích&nbsp;<span class="fa fa-angle-down"></span></button>
                 </form>
-                <div class="row">
+                <div class="row"><br>
                     <div id="spinner" class="text-center"><br><br><br><br><br><br><br><br>
                         <img style="width:40px;" src="https://www.afri.tn/wp-content/plugins/interactive-3d-flipbook-powered-physics-engine/assets/images/dark-loader.gif" alt="">
                         <p>Đang tải dữ liệu...</p>
@@ -81,7 +81,9 @@
             success: function (response) {
                 response=JSON.parse(response);
                 console.log(response);
-                project_locate=response.project_locate;
+                if (response.project_locate.lenght>0){
+                    project_locate=response.project_locate;
+                }
                 initMap();
                 setTimeout(() => {
                     $('#spinner').hide();
