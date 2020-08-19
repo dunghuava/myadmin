@@ -25,7 +25,7 @@
                     </label>
                 </p>
                 <p><button class="btn btn-block btn-primary">Đăng nhập</button></p>
-                <p><div class="text-center"><a href="<?=base_url('quen-mat-khau')?>">Quyên mật khẩu</a></div></p>
+                <p><div class="text-center"><a href="<?=base_url('quen-mat-khau')?>">Quên mật khẩu</a></div></p>
                 <br>
             </form>
         </div>
