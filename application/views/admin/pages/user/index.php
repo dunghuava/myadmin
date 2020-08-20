@@ -21,9 +21,11 @@
                              <td><?=$item['user_email']?></td>
                              <td><?=$item['user_name']?></td>
                              <td>
-                                 <button onclick="onEdit(<?=$item['user_id']?>,'<?=$item['user_fullname']?>','<?=$item['user_name']?>')"  class="btn btn-default">
-                                     <span class="fa fa-eye"></span>
-                                 </button>
+                                <a href="<?=base_url().'admin/user/edit/'.$item['user_id']?>">
+                                    <button type="button" class="btn btn-default">
+                                        <span class="fa fa-eye"></span>
+                                    </button>
+                                </a>
                                  <button onclick="onDelete(<?=$item['user_id']?>)" class="btn btn-default">
                                      <span class="fa fa-trash"></span>
                                  </button>
@@ -59,12 +61,13 @@
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
+            cancelButtonText: 'Hủy',
             confirmButtonText: 'Xóa'
             }).then((result) => {
             if (result.value) {
                 $.ajax({
                     type: "post",
-                    url: "<?=base_url('admin/account/destroy')?>",
+                    url: "<?=base_url('admin/user/destroy')?>",
                     data: {'user_id':user_id},
                     success: function (response) {
                         location.reload();
