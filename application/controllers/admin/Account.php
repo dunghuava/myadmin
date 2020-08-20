@@ -32,15 +32,7 @@ class Account extends CI_Controller {
 		}
 		$this->load->view('admin/login');
 	}
-	public function destroy(){
-		$user_id = $this->input->post('user_id');
-		$this->Account_M->destroy($user_id);
-		$status = array(
-			'code'=>'success',
-			'message'=>'Đã xóa'
-		);
-		$this->session->set_flashdata('reponse',$status);
-	}
+	
 	public function logout(){
 		$this->session->unset_userdata('user_infor');
 		redirect(base_url().'admin/login','location');

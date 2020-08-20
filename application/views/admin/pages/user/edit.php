@@ -1,27 +1,26 @@
-
 <div class="container-fluid">
 	<form action="" method="post">
 	 <div class="row">
      	<div class="col-md-12">
              <div class="col-md-6 inline-flex">
              	    <label for="">Họ tên</label>
-     		        <input id="user_fullname" value="" type="text" name="user_fullname" class="form-control" required>
+     		        <input id="user_fullname" value="<?php echo $info_user['user_fullname'] ?>" type="text" name="user_fullname" class="form-control" required>
              </div>
 
              <div class="col-md-6 inline-flex">
                     <label for="">Email</label>
-                    <input id="user_email" value="" type="email" name="user_email" class="form-control" required>
+                    <input id="user_email" value="<?php echo $info_user['user_email'] ?>" type="email" name="user_email" class="form-control" required>
              </div>
 
              <div class="col-md-12 inline-flex">
                     <label for="">Tên đăng nhập</label>
-                    <input id="user_name" value="" type="text" name="user_name" class="form-control" required style="width: 435px;">
+                    <input id="user_name" value="<?php echo $info_user['user_name'] ?>" type="text" name="user_name" class="form-control" required style="width: 435px;">
                     <span id="result" style="color: red;margin-left: 5px;"></span>
              </div>
 
              <div class="col-md-6 inline-flex">
-             	    <label for="">Mật khẩu</label>
-     		        <input required id="user_password" type="password" name="user_password" class="form-control">
+             	    <label for="">Mật khẩu mới</label>
+     		        <input id="user_password" type="password" name="user_password" class="form-control">
              </div>
 
              <div class="col-md-6 inline-flex">
@@ -62,7 +61,7 @@
             $.ajax({
               url:"<?php echo base_url() ?>admin/user/check_user_name",
               type:"POST",
-              data:{user_name:user_name,user_id:''},
+              data:{user_name:user_name,user_id:'<?php echo $info_user['user_id'] ?>'},
               success: function(data){
               if (data=='exist') {
                 $('#result').html('Tên đăng nhập đã tồn tại. Vui lòng chọn tên khác.');

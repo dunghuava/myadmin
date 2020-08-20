@@ -59,9 +59,9 @@ function resizeImg ($image,$w=100,$h=100,$zc=2){
 }
 function getLink($link,$is_admin){
 	$next_link=base_url($link);
-	// if($is_admin==1){
+	if($is_admin==1){
 		return base_url().$link;
-	// }
+	}
 	return 'javascript:void(0)';
 }
 

@@ -19,11 +19,11 @@ class Account_M extends MY_model {
 	public function destroy($user_id){
 		return $this->db->delete($this->table,['user_id'=>$user_id]);
 	}
-	public function update($user_id,$data){
-		$data['updated_at']=dateinsert();
-		$this->db->where(['user_id'=>$user_id]);
-		return $this->db->update($this->table,$data);
-	}
+	// public function update($user_id,$data){
+	// 	$data['updated_at']=dateinsert();
+	// 	$this->db->where(['user_id'=>$user_id]);
+	// 	return $this->db->update($this->table,$data);
+	// }
 
 	public function Check_Username($user_name,$user_id)
 	{

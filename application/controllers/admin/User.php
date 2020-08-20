@@ -57,22 +57,24 @@ class User extends MY_Controller {
 
 		$post = $this->input->post();
 		if ($this->input->post()) {
+
+			$data_insert = array(
+				'user_fullname' => $post['user_fullname'], 
+				'user_email' => $post['user_email'], 
+				'user_name' => $post['user_name'], 
+				'user_password' => md5($post['user_password']), 
+				'is_admin' => 0, 
+			);
 			
-				$check = $this->Account_M->find(['user_name'=>$post['user_name']]);
-				if (empty($check)){
-					$this->Account_M->create($post);
-					$status = array(
-						'code'=>'success',
-						'message'=>'Đăng ký thành công'
-					);
-				}else{
-					$status = array(
-						'code'=>'warning',
-						'message'=>'Tên đăng nhập đã tồn tại'
-					);
-				}
+
+			$this->Account_M->create($data_insert);
+			$status = array(
+				'code'=>'success',
+				'message'=>'Đăng ký thành công'
+			);
+
 			$this->session->set_flashdata('reponse',$status);
-			// redirect(base_url('admin/user/add'),'location');
+			redirect(base_url('admin/user/add'),'location');
 		}
 
 		$_data['page_name']='Thêm tài khoản';
@@ -80,6 +82,61 @@ class User extends MY_Controller {
 		$this->getHeader($_data);
 		$this->load->view('admin/pages/user/add.php');
 		$this->getFooter();
+	}
+
+	public function edit($id)
+	{
+		$info_user = $this->Account_M->find_row(['user_id'=>$id]);
+		$post = $this->input->post();
+		if ($this->input->post()) {
+
+			if (!empty($post['user_password'])) {
+				$data_update = array(
+					'user_fullname' => $post['user_fullname'], 
+					'user_email' => $post['user_email'], 
+					'user_name' => $post['user_name'], 
+					'user_password' => md5($post['user_password']), 
+				);
+			}else{
+				$data_update = array(
+					'user_fullname' => $post['user_fullname'], 
+					'user_email' => $post['user_email'], 
+					'user_name' => $post['user_name'], 
+				);
+			}
+			 // print_r($data_update);die();
+			
+
+			$this->Account_M->update(['user_id' => $id],$data_update);
+			$status = array(
+				'code'=>'success',
+				'message'=>'Đã sửa'
+			);
+
+			$this->session->set_flashdata('reponse',$status);
+			redirect(base_url('admin/user/edit/'.$id),'location');
+		}
+
+
+
+		$_data['page_name']='Thêm tài khoản';
+		$_data['page_menu']='account';
+
+		$_data['info_user']=$info_user;
+		$this->getHeader($_data);
+		$this->load->view('admin/pages/user/edit.php',$_data);
+		$this->getFooter();
+	}
+
+
+	public function destroy(){
+		$user_id = $this->input->post('user_id');
+		$this->Account_M->destroy($user_id);
+		$status = array(
+			'code'=>'success',
+			'message'=>'Đã xóa'
+		);
+		$this->session->set_flashdata('reponse',$status);
 	}
 
 	public function check_user_name()
