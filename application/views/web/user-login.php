@@ -29,7 +29,9 @@
                     </label>
                 </p>
                 <p><button class="btn btn-block btn-default">Đăng nhập</button></p>
-                <p><div class="text-center"><a href="<?=base_url('quen-mat-khau')?>">Quên mật khẩu</a></div></p>
+                <p>
+                    <div class="text-center" style="float: left;"><a href="<?=base_url('dang-ky')?>">Đăng kí tài khoản</a></div>
+                    <div class="text-center" style="float: right;"><a href="<?=base_url('quen-mat-khau')?>">Quên mật khẩu</a></div></p>
                 <br>
             </form><br><br>
         </div>

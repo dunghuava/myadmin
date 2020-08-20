@@ -133,6 +133,7 @@ class Web extends MY_Controller {
         $data['title']='Đăng nhập';
         $this->page_header($data);
         $this->view('web/user-login');
+        $this->page_footer();
     }
     public function page_user_reset(){
         $data['title']='Quyên mật khẩu';
@@ -143,6 +144,7 @@ class Web extends MY_Controller {
         $data['title']='Đăng ký tài khoản';
         $this->page_header($data);
         $this->view('web/user-register');
+        $this->page_footer();
     }
     public function page_chudautu_list($alias=null){
         $this->page_header();
@@ -243,5 +245,21 @@ class Web extends MY_Controller {
         );
 
         $this->Contact_M->create($data_insert);
+    }
+
+    public function registerUser()
+    {
+        $post = $this->input->post();
+
+        $data_insert = array(
+            'user_fullname' => $post['user_fullname'],
+            'user_email' => $post['user_email'], 
+            'user_name' => $post['user_name'], 
+            'user_password' => md5($post['user_password']), 
+            'is_admin' => 0, 
+            
+        );
+
+        $this->Account_M->create($data_insert);
     }
 }

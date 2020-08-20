@@ -46,12 +46,8 @@
 
     $("#btn_save").on('click', function() {
         var text = $('#result').html();
-
-        console.log(text);
         if (text !='') {
-            alert('aaaaaaa');
-            return false;
-
+          return false;
         }
     });
 
