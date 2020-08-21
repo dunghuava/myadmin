@@ -11,7 +11,7 @@ class Account extends CI_Controller {
 	}
 	public function login()
 	{
-		if ($this->session->has_userdata('user_infor')){
+		if ($this->session->has_userdata('admin_infor')){
 			redirect(base_url('admin/category'),'location');
 		}
 		$post = $this->input->post();
@@ -23,10 +23,10 @@ class Account extends CI_Controller {
 				if ($is_login){
 					$infor = $this->Account_M->all(['user_name'=>$user_name,'is_admin'=>'1']);
 					// print_r($infor);die();
-					$this->session->set_userdata('user_infor', $infor[0] );
+					$this->session->set_userdata('admin_infor', $infor[0] );
 					redirect(base_url('admin'),'location');
 				}else{
-					$this->session->set_flashdata('reponse','Tên đăng nhập / mật khẩu ko đúng.');
+					$this->session->set_flashdata('reponse','Tên đăng nhập hoặc mật khẩu không đúng.');
 				}
 			}
 		}
@@ -34,7 +34,7 @@ class Account extends CI_Controller {
 	}
 	
 	public function logout(){
-		$this->session->unset_userdata('user_infor');
+		$this->session->unset_userdata('admin_infor');
 		redirect(base_url().'admin/login','location');
 	}
 

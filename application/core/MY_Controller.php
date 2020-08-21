@@ -12,9 +12,6 @@ class MY_Controller extends CI_Controller {
 		$this->load->model('Web_M');
 		$this->load->model('Info_M');
 		$this->load->model('Contact_M');
-
-		$this->user_infor = $this->session->get_userdata('user_infor');
-		$user_id=$this->user_infor['user_infor']['user_id'];
 	}
 	public function page_header($data=null){
 		$data['info'] = $this->Info_M->all();
@@ -35,7 +32,7 @@ class MY_Controller extends CI_Controller {
 	// 	$this->Web_M->insert_on_duplicate($ip_address);
 	// }
 	public function getHeader($data=null){
-		if (!$this->session->has_userdata('user_infor')){
+		if (!$this->session->has_userdata('admin_infor')){
 			redirect(base_url('admin/login'),'location');
 		}
 		// $this->isOnline();
@@ -53,7 +50,8 @@ class MY_Controller extends CI_Controller {
 
 		// $data['online'] = $this->Web_M->count(['LEFT(created_at,15)'=>substr(date('Y-m-d h:i'),0,15)]);
 		// $data['arr_permission_allow']=$this->arr_permission_allow;
-		$data['user_infor']=$this->user_infor['user_infor'];
+		$this->admin_infor = $this->session->get_userdata('admin_infor');
+		$data['admin_infor']=$this->admin_infor['admin_infor'];
 		$data['setting']=$this->Setting_M->find(['setting_id'=>1]);
 		$this->load->view('admin/header.php',$data);
 	}
