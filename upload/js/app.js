@@ -169,3 +169,25 @@ function readmore(me){
     me.innerHTML='Thu gọn <span class="fa fa-angle-up"></span>'; 
   }
 }
+
+$('#input_search').keyup(function (e) { 
+  var _val = $(this).val();
+  if (_val.trim().length>3){
+    $.ajax({
+      type: "post",
+      url: $('#base_url').attr('href')+'web/livesearch',
+      data: {'query':_val},
+      success: function (response) {
+        $('#livesearch').show();
+        response=JSON.parse(response);
+        if (response.data_html!=''){
+           $('#livesearch').html(response.data_html);
+        }else{
+           $('#livesearch').html('<li>Không tìm thấy kết quả nào phù hợp</li>');
+        }
+      }
+    });
+  }{
+    $('#livesearch').hide();
+  }
+});

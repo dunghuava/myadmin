@@ -16,6 +16,12 @@ class Project_M extends MY_model {
 		$this->db->limit($limit);
 		return $this->db->get($this->table)->result_array();
 	}
+	public function livesearch($query){
+		if (!empty($query)){
+			return $this->db->like('project_title',$query,'both')->get($this->table)->result_array();
+		}
+		return [];
+	}
 	public function searchApi($search){
 		if (isset($search['arr_category'])){
 			$this->db->where_in('project_category',$search['arr_category']);
