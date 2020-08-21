@@ -1,7 +1,7 @@
 <section class="sec-slider relative font18">
     <?php include ('slider.php') ?>
     <div id="form-absolute" class="absolute hidden-xs">
-        <form class="form-group" action="" method="get">
+        <form class="form-group" action="<?=base_url('search')?>" method="get">
             <div class="containers">
                 <div class="form-inline">
                     <input type="hidden" id="type_check" name="type_check" value="1">
@@ -9,9 +9,11 @@
                     <button class="btn_choose_type 1" onclick="typeCheck(1)" type="button">Cho thuê</button>
                     <button class="btn_choose_type 2" onclick="typeCheck(2)" type="button">Mua bán</button>
                 </div>
-                <div class="form-inline" style="display: flex;">
-                    <input type="search" class="form-control font18" name="" id="" placeholder="Nhập địa điểm hoặc từ khóa (Ví dụ : Đảo kim cương)">
+                <div class="form-inline relative" style="display: flex;">
+                    <input type="search" class="form-control font18" name="" id="input_search" placeholder="Nhập địa điểm hoặc từ khóa (Ví dụ : Đảo kim cương)">
                     <button class="btn_search" type="submit"><span class="fa fa-search"></span></button>
+                    <section id="livesearch" class="absolute">
+                    </section>
                 </div>
             </div>
         </form>

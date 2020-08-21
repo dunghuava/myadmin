@@ -262,4 +262,25 @@ class Web extends MY_Controller {
 
         $this->Account_M->create($data_insert);
     }
+    public function livesearch(){
+        $query = $this->input->post('query');
+        $data['data_html']='';
+        $result = $this->Project_M->livesearch($query);
+        $html='';
+        if (!empty($result)){
+            foreach ($result as $item){
+                $info_province = $this->Province_M->find_row(['province_id'=>$item['project_province_id']]);
+                $info_district = $this->District_M->find_row(['district_id'=>$item['project_district_id']]);
+                $info_ward = $this->Ward_M->find_row(['ward_id'=>$item['project_ward_id']]);
+                $address = $info_ward['ward_prefix'].'&nbsp;'.$info_ward['ward_name'].', '.$info_district['district_name'].', '.$info_province['province_name'];
+                $html.='<li>
+                            <a style="text-decoration:none" title="'.$item['project_title'].'" 
+                                href="'.base_url().'chi-tiet-du-an/'.$item['project_alias'].'-'.$item['project_id'].'">'.$item['project_title'].' - <i class="font_small">'.$address.'</i>
+                            </a>
+                        </li>';
+            }
+        }
+        $data['data_html']=$html;
+        echo json_encode($data);
+    }
 }
