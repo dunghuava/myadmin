@@ -108,7 +108,7 @@ img {
   cursor: pointer;
   font-size: 16px;
   text-transform: uppercase;
-  padding: 15px 15px;
+  padding: 15px 12px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -413,7 +413,12 @@ img {
   list-style: none;
   margin-bottom: 5px;
   padding: 5px 15px 5px 15px;
+  border-bottom: 1px solid rgba(131, 131, 131, 0.2);
   cursor: pointer;
+}
+
+#form-absolute #livesearch li:last-child {
+  border-bottom: 0px;
 }
 
 #form-absolute #livesearch li:hover {
@@ -1016,6 +1021,7 @@ img {
 }
 
 .list_option li {
+  position: relative;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -1031,6 +1037,58 @@ img {
   content: '\f107';
   font-family: 'FontAwesome';
   margin-left: 5px;
+}
+
+.list_option li:last-child input {
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 1px solid #cccccc;
+  padding: 5px 8px;
+  position: relative;
+}
+
+.list_option li:last-child button.search-item {
+  background: none;
+  outline: none;
+  border: 1px solid #cccccc;
+  border-left: 0px;
+  padding: 0px 8px;
+}
+
+.list_option li:last-child::after {
+  content: '';
+}
+
+.list_option li .list-modal {
+  position: absolute;
+  left: 0px;
+  top: 110%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 10px;
+  background: #fff;
+  z-index: 99999;
+  display: none;
+  -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+.list_option li .list-modal li {
+  padding: 5px 15px 5px 0px;
+}
+
+.list_option li .list-modal li::after {
+  content: '';
+}
+
+.list_option li .list-modal li button {
+  border-radius: 0px;
+  margin-right: 10px;
+  padding: 4px 14px;
+  font-size: 15px !important;
+  height: 35px;
 }
 
 .duan-item-h {
@@ -1062,6 +1120,28 @@ img {
   font-size: 20px;
   font-weight: bold;
   color: #88AD6A;
+}
+
+.duan-item-h .extends li {
+  padding: 0px 8px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.duan-item-h .extends li .fa {
+  margin-bottom: -10px;
+}
+
+.duan-item-h .extends li:last-child {
+  float: right;
+  padding: 5px 10px;
+  border: 1px solid #88AD6A;
+  margin-top: -5px;
+  background: #65BA69;
+  border-radius: 2px;
+  color: #fff;
+  z-index: 99999;
 }
 
 .page-cdt .banner {

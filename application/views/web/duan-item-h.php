@@ -20,6 +20,7 @@
                     <ul class="extends">
                         <li title="Diện tích"><span class="icon-acreage" style="padding-right: 5px"></span> <?=$item['project_acreage']?></li>
                         <li title="Phòng ngủ"><span class="icon-bedroom" style="padding-right: 5px"></span> <?=$item['number_bedroom']?></li>
+                        <li onclick="locatin.href='<?=base_url('lien-he')?>'"><span class="fa fa-phone"></span>&nbsp;Liên hệ</li>
                     </ul>
                 </div>
             </div>

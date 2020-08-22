@@ -29,32 +29,73 @@
         background-color: #65BA69;
     }
 </style>
+<?php 
+    $loaihinh  = $this->Type_M->all();
+    $tienich = $this->Extension_M->all();
+?>
 <section id="fullwidth" class="page-duan-list container">
     <div class="row font16_all">
-        <div class="col-md-12">
-            <form id="frm-top-search" action="" method="get" class="form-inline form-group">
-                <input type="hidden" id="cate_id" value="<?=$cate_id?>">
-                <select name="" id="" class="form-control">
-                    <option value="">Chọn loại bất động sản</option>
-                    <option value="">Dự án</option>
-                    <option value="">Cho thuê</option>
-                    <option value="">Mua bán</option>
-                </select>
-                <button class="btn"><span class="fa fa-search"></span></button>
-                <input type="search" name="" id="" class="form-control" placeholder="Tìm kiếm dự án...">
-            </form>
-        </div>
-        <div class="col-md-6 text-right">
-        </div>
-    </div>
-    <div class="row font16_all list_option">
         <div class="col-md-7">
-            <ul>
-                <li>Loại hình</li>
-                <li>Phòng ngủ</li>
-                <li>Khoảng giá</li>
-                <li>Chọn diện tích</li>
-                <li>Xem thêm</li>
+            <input type="hidden" id="cate_id" value="<?=$cate_id?>">
+            <ul class="list_option">
+                <li class="root_modal">Trạng thái
+                    <ul class="m1 list-modal">
+                        <li><input type="radio" name="" id="">&nbsp;Đang mở bán</li>
+                        <li><input type="radio" name="" id="">&nbsp;Sắp mở bán</li>
+                        <li><input type="radio" name="" id="">&nbsp;Đã bán</li>
+                        <li>
+                            <hr>
+                            <button class="closed_modal btn btn-danger">Hủy</button>
+                            <button class="btn btn-primary">Áp dụng</button>
+                        </li>
+                    </ul>
+                </li>
+                <li class="root_modal">
+                    Loại hình
+                    <ul class="m2 list-modal" style="width:340px">
+                        <?php foreach ($loaihinh as $k => $item){ ?>
+                            <li style="width:125px"><input type="radio" name="loaihinh" value="<?=$item['id_type_project']?>" id="">&nbsp;<?=$item['type_project']?></li>
+                        <?php } ?>
+                        <li>
+                            <hr>
+                            <button class="closed_modal btn btn-danger">Hủy</button>
+                            <button class="btn btn-primary">Áp dụng</button>
+                        </li>
+                    </ul>
+                </li>
+                <li class="root_modal">
+                    Phòng ngủ
+                    <ul class="m3 list-modal" style="width:250px">
+                        <li style="float:left"><input type="radio" name="phongngu[]">&nbsp;01 phòng</li>
+                        <li style="float:left"><input type="radio" name="phongngu[]">&nbsp;02 phòng</li>
+                        <li style="float:left"><input type="radio" name="phongngu[]">&nbsp;03 phòng</li>
+                        <li style="float:left"><input type="radio" name="phongngu[]">&nbsp;04 phòng</li>
+                        <li style="float:left"><input type="radio" name="phongngu[]">&nbsp;05 phòng</li>
+                        <li style="float:left"><input type="radio" name="phongngu[]">&nbsp;06 phòng</li>
+                        <li>
+                            <hr>
+                            <button class="closed_modal btn btn-danger">Hủy</button>
+                            <button class="btn btn-primary">Áp dụng</button>
+                        </li>
+                    </ul>
+                </li>
+                <li class="root_modal">
+                    Xem thêm
+                    <ul class="m4 list-modal" style="width:500px">
+                        <?php foreach ($tienich as $k => $item){ ?>
+                            <li style="width:fit-content"><input type="checkbox" name="ckb_<?=$k?>" value="<?=$item['extension_id']?>" id="">&nbsp;<?=$item['extension_name']?></li>
+                        <?php } ?>
+                        <li style="width:100%">
+                            <hr>
+                            <button class="closed_modal btn btn-danger">Hủy</button>
+                            <button class="btn btn-primary">Áp dụng</button>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <input type="search" placeholder="Tìm kiếm dự án..." id=""/>
+                    <button class="search-item" type="button"><span class="fa fa-search"></span></button>
+                </li>
             </ul>
             <div class="text-left">
                 <!-- <h3 class="mg0"><b>Mua bán nhà đất căn hộ Hồ Chí Minh...3446 căn</b></h3><br> -->
@@ -107,4 +148,11 @@
             }
         });
     }
+    $('.root_modal').click(function (e) { 
+        $('.list-modal').hide();
+        $(this).find('.list-modal').show();
+    });
+    $('.closed_modal').click(function (e) { 
+        console.log($(this).parents('.root_modal').find('.list-modal'));
+    });
 </script>
