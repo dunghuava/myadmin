@@ -13,8 +13,9 @@ class MY_Controller extends CI_Controller {
 		$this->load->model('Info_M');
 		$this->load->model('Contact_M');
 	}
-	public function page_header($data=null){
+	public function page_header($seo=array()){
 		$data['info'] = $this->Info_M->all();
+		$data['seo'] = $seo;
 		$this->load->view('web/header.php',$data);
 	}
 	public function page_footer($data=null){
@@ -70,7 +71,7 @@ class MY_Controller extends CI_Controller {
 		$data['setting']=$this->Setting_M->find(['setting_id'=>1]);
 		$this->load->view('user/header.php',$data);
 	}
-	
+
 	function do_upload($userfile)
 	{		
 		$dir='./upload/img/';
