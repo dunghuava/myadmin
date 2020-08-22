@@ -50,7 +50,7 @@
                         <li>
                             <hr>
                             <button class="closed_modal btn btn-danger">Hủy</button>
-                            <button class="btn btn-primary">Áp dụng</button>
+                            <button class="btn_apply btn btn-primary">Áp dụng</button>
                         </li>
                     </ul>
                 </li>
@@ -63,7 +63,7 @@
                         <li>
                             <hr>
                             <button class="closed_modal btn btn-danger">Hủy</button>
-                            <button class="btn btn-primary">Áp dụng</button>
+                            <button class="btn_apply btn btn-primary">Áp dụng</button>
                         </li>
                     </ul>
                 </li>
@@ -79,7 +79,7 @@
                         <li>
                             <hr>
                             <button class="closed_modal btn btn-danger">Hủy</button>
-                            <button class="btn btn-primary">Áp dụng</button>
+                            <button class="btn_apply btn btn-primary">Áp dụng</button>
                         </li>
                     </ul>
                 </li>
@@ -92,7 +92,7 @@
                         <li style="width:100%">
                             <hr>
                             <button class="closed_modal btn btn-danger">Hủy</button>
-                            <button class="btn btn-primary">Áp dụng</button>
+                            <button class="btn_apply btn btn-primary">Áp dụng</button>
                         </li>
                     </ul>
                 </li>
@@ -125,8 +125,8 @@
     var input_query     = $('#tim_kiem');
     var w_height = $(window).height();
     $('#root_project').css({'height':(w_height)});
-    $('#iframe_map').css({'height':(w_height)});
-    
+    $('#iframe_map').css({'height':(w_height-50)});
+
     $('#tim_kiem').change(function (e) { 
         e.preventDefault();
         searchProject();
@@ -176,20 +176,17 @@
     $('.rdo_trangthai').change(function (e) { 
         if ($(this).is(':checked')){
             input_trangthai.val($(this).val()); 
-            searchProject();
         }
     });
     $('.rdo_loaihinh').change(function (e) { 
         if ($(this).is(':checked')){
             input_loaihinh.val($(this).val()); 
-            searchProject();  
         }
 
     });
     $('.rdo_phongngu').change(function (e) { 
         if ($(this).is(':checked')){
             input_phongngu.val($(this).val());
-            searchProject();   
         }
     });
     $('.rdo_tienich').change(function (e) { 
@@ -202,6 +199,8 @@
         });
         ck_arr=ck_arr.trim(',');
         input_tienich.val(ck_arr);
+    });
+    $('.btn_apply').click(function (e) { 
         searchProject();  
     });
 </script>
