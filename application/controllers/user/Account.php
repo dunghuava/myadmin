@@ -160,9 +160,9 @@ class Account extends MY_Controller {
             $this->Account_M->update(['user_id' => $infor_user['user_id']],$data_update);
 
             $this->_email['user_fullname'] = $infor_user['user_fullname'];
-            $this->_email['new_password'] = $md5_password;
+            $this->_email['new_password'] = $new_password;
             $email_template = $this->load->view('email_template/email_reset_pass.php',$this->_email,TRUE);
-            sendMail($user_email,'[Gianha.vn] Cấp lại mật khẩu。',$email_template);
+            send_mail($user_email,'[Gianha.vn] Cấp lại mật khẩu。',$email_template);
             echo "ok";
         }else{
             echo "error";
