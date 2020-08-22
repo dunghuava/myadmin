@@ -27,7 +27,22 @@ class Project_M extends MY_model {
 			$this->db->where_in('project_category',$search['arr_category']);
 		}
 		if (isset($search['project_title']) && !empty($search['project_title'])){
-			$this->db->or_like('project_title',$search['project_title']);
+			$this->db->like('project_title',$search['project_title'],'both');
+		}
+		if ($search['project_status']!=''){
+			$this->db->where('project_status',$search['project_status']);
+		}
+		if ($search['project_type']!=''){
+			$this->db->where('project_type',$search['project_type']);
+		}
+		if ($search['number_bedroom']!=''){
+			$this->db->where('number_bedroom',$search['number_bedroom']);
+		}
+		if ($search['project_extension']!=''){
+			$arr = explode(',',$search['project_extension']);
+			foreach ($arr as $item){
+				$this->db->like('project_extension',$item,'both');
+			}
 		}
 		return $this->db->get($this->table)->result_array();
 	}

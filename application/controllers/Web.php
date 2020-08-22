@@ -255,6 +255,10 @@ class Web extends MY_Controller {
         $post = $this->input->post('data');
         $project_category=$post['project_category'];
         $project_title=$post['project_title'];
+        $project_status=$post['project_status'];
+        $project_type=$post['project_type'];
+        $number_bedroom=$post['number_bedroom'];
+        $project_extension=trim($post['project_extension'],',');
 
         $info_category = $this->Category_M->find_row(['cate_id'=>$project_category]);
 
@@ -275,11 +279,14 @@ class Web extends MY_Controller {
         $search=array(
             'project_category'=>$project_category,
             'arr_category'=>$arr_category,
-            'project_title'=>$project_title
+            'project_title'=>$project_title,
+            'project_status'=>$project_status,
+            'project_type'=>$project_type,
+            'number_bedroom'=>$number_bedroom,
+            'project_extension'=>$project_extension
         );
-
-
         $arr_project= $this->Project_M->searchApi($search);
+        $data['last_query']=$this->db->last_query();
 
         $project_locate=array();
         foreach ($arr_project as $item){
