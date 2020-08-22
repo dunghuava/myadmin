@@ -18,16 +18,16 @@
     <div class="container">
         <div class="col-md-3"></div>
         <div class="col-md-6"><br>
-            <form id="form_register" action="" class="login-form form-group font16_all">
-                <div class="text-center"><h3>Đăng ký tài khoản</h3></div>
-                <p><input type="text" id="user_fullname" name="user_fullname" class="form-control" placeholder="Họ tên"></p>
-                <p><input type="email" id="user_email" name="user_email" class="form-control" placeholder="Địa chỉ email"></p>
+            <form id="form_register" action="" class="login-form form-group font18_all">
+                <div class="text-center"><h3 style="font-size: 22px!important;font-weight: bold;">Đăng ký tài khoản</h3></div>
+                <p><input type="text" id="user_fullname" name="user_fullname" class="form-control" placeholder="Họ tên" required=""></p>
+                <p><input type="email" id="user_email" name="user_email" class="form-control" placeholder="Địa chỉ email" required=""></p>
                 <p>
-                    <input type="text" id="user_name" name="user_name" class="form-control" placeholder="Tên đăng nhập">
+                    <input type="text" id="user_name" name="user_name" class="form-control" placeholder="Tên đăng nhập" required="">
                     <span id="error_username" style="color: red"></span>
                 </p>
-                <p><input type="password" id="user_password" name="user_password" class="form-control" placeholder="Mật khẩu đăng nhập"></p>
-                <p><input type="password" id="user_password_confirm" name="user_password_confirm" class="form-control" placeholder="Xác nhận mật khẩu"></p>
+                <p><input type="password" id="user_password" name="user_password" class="form-control" placeholder="Mật khẩu đăng nhập" required=""></p>
+                <p><input type="password" id="user_password_confirm" name="user_password_confirm" class="form-control" placeholder="Xác nhận mật khẩu" required=""></p>
                 <p><button class="btn btn-block btn-default">Đăng ký tài khoản</button></p>
                 <p><div class="text-center"><a href="<?=base_url('dang-nhap')?>">Trở về trang đăng nhập</a></div></p>
                 <br>
@@ -71,7 +71,7 @@
         if (user_password == user_password_confirm) {
             if (text =='') {
                 $.ajax({  
-                    url:"<?=base_url()?>web/registerUser",  
+                    url:"<?=base_url()?>user/account/registerUser",  
                     method:"POST",  
                     data:$('#form_register').serialize(),  
                     success: function (data) {

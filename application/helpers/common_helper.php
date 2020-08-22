@@ -79,3 +79,15 @@ $us_language=array(
 	'btn_cancel'=>'Close',
 	'btn_save'=>'Save',
 );
+
+function send_mail($tomail, $subject, $body){
+  $body = mb_convert_encoding($body, "UTF-8","UTF-8");
+  $from_mail = 'truongthuan20041997@gmail.com';
+  $from_name = 'Gianha.vn';
+  $header  = "Return-Path: $from_mail\n";
+  $header .= "From:" . mb_encode_mimeheader($from_name) . "<$from_mail>\n";
+  $header .="MIME-Version: 1.0\r\nContent-Type: text/html; charset=UTF-8\r\n";
+  $header .= "Reply-To: $from_mail\n";
+  $header .= "BCC: $from_mail\n";
+  return mb_send_mail($tomail, $subject, $body, $header);
+} 
