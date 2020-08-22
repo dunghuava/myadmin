@@ -58,7 +58,7 @@
                     Loại hình
                     <ul class="m2 list-modal" style="width:340px">
                         <?php foreach ($loaihinh as $k => $item){ ?>
-                            <li style="width:125px"><input type="radio" name="loaihinh" value="<?=$item['id_type_project']?>" id="">&nbsp;<?=$item['type_project']?></li>
+                            <li style="width:125px"><input type="radio" name="loai_hinh" class="rdo_loaihinh" value="<?=$item['id_type_project']?>" id="">&nbsp;<?=$item['type_project']?></li>
                         <?php } ?>
                         <li>
                             <hr>
@@ -70,12 +70,12 @@
                 <li class="root_modal">
                     Phòng ngủ
                     <ul class="m3 list-modal" style="width:250px">
-                        <li style="float:left"><input type="radio" name="phongngu[]">&nbsp;01 phòng</li>
-                        <li style="float:left"><input type="radio" name="phongngu[]">&nbsp;02 phòng</li>
-                        <li style="float:left"><input type="radio" name="phongngu[]">&nbsp;03 phòng</li>
-                        <li style="float:left"><input type="radio" name="phongngu[]">&nbsp;04 phòng</li>
-                        <li style="float:left"><input type="radio" name="phongngu[]">&nbsp;05 phòng</li>
-                        <li style="float:left"><input type="radio" name="phongngu[]">&nbsp;06 phòng</li>
+                        <li style="float:left"><input type="radio" name="phong_ngu" class="rdo_phongngu" value="1">&nbsp;01 phòng</li>
+                        <li style="float:left"><input type="radio" name="phong_ngu" class="rdo_phongngu" value="2">&nbsp;02 phòng</li>
+                        <li style="float:left"><input type="radio" name="phong_ngu" class="rdo_phongngu" value="3">&nbsp;03 phòng</li>
+                        <li style="float:left"><input type="radio" name="phong_ngu" class="rdo_phongngu" value="4">&nbsp;04 phòng</li>
+                        <li style="float:left"><input type="radio" name="phong_ngu" class="rdo_phongngu" value="5">&nbsp;05 phòng</li>
+                        <li style="float:left"><input type="radio" name="phong_ngu" class="rdo_phongngu" value="6">&nbsp;06 phòng</li>
                         <li>
                             <hr>
                             <button class="closed_modal btn btn-danger">Hủy</button>
@@ -87,7 +87,7 @@
                     Xem thêm
                     <ul class="m4 list-modal" style="width:500px">
                         <?php foreach ($tienich as $k => $item){ ?>
-                            <li style="width:fit-content"><input type="checkbox" name="ckb_<?=$k?>" value="<?=$item['extension_id']?>" id="">&nbsp;<?=$item['extension_name']?></li>
+                            <li style="width:fit-content"><input type="checkbox" name="tien_ich" class="rdo_tienich" value="<?=$item['extension_id']?>">&nbsp;<?=$item['extension_name']?></li>
                         <?php } ?>
                         <li style="width:100%">
                             <hr>
@@ -97,7 +97,7 @@
                     </ul>
                 </li>
                 <li>
-                    <input type="search" placeholder="Tìm kiếm dự án..." id=""/>
+                    <input type="search" placeholder="Tìm kiếm dự án..." id="tim_kiem"/>
                     <button class="search-item" type="button"><span class="fa fa-search"></span></button>
                 </li>
             </ul>
@@ -112,13 +112,22 @@
             </div>
         </div>
         <div class="col-md-5">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6481.03549625265!2d106.73151269999998!3d10.792893800000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317526068f53b349%3A0x8e1091a78fa2c77b!2zS8O9IHTDumMgeMOhIFRyxrDhu51uZyDEkOG6oWkgaOG7jWMgR2lhbyB0aMO0bmcgduG6rW4gdOG6o2kgVHAuSOG7kyBDaMOtIE1pbmg!5e1!3m2!1sen!2s!4v1597851575576!5m2!1sen!2s" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                <iframe id="iframe_map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6481.03549625265!2d106.73151269999998!3d10.792893800000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317526068f53b349%3A0x8e1091a78fa2c77b!2zS8O9IHTDumMgeMOhIFRyxrDhu51uZyDEkOG6oWkgaOG7jWMgR2lhbyB0aMO0bmcgduG6rW4gdOG6o2kgVHAuSOG7kyBDaMOtIE1pbmg!5e1!3m2!1sen!2s!4v1597851575576!5m2!1sen!2s" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
         </div>
     </div>
 </section>
 
 <script>
-    $('#frm-top-search').submit(function (e) { 
+    var input_trangthai = $('#trang_thai');
+    var input_loaihinh  = $('#loai_hinh');
+    var input_phongngu  = $('#phong_ngu');
+    var input_tienich   = $('#tien_ich');
+    var input_query     = $('#tim_kiem');
+    var w_height = $(window).height();
+    $('#root_project').css({'height':(w_height)});
+    $('#iframe_map').css({'height':(w_height)});
+    
+    $('#tim_kiem').change(function (e) { 
         e.preventDefault();
         searchProject();
     });
@@ -129,10 +138,14 @@
         $('#spinner').show();
         $('#root_project').hide();
         var data={
-            'search':true,
-            'project_category':$('#cate_id').val(),
-            'project_title':$('#project_title').val()
+            'project_category' :$('#cate_id').val(),
+            'project_title'    :input_query.val(),
+            'project_status'   :input_trangthai.val(),
+            'project_type'     :input_loaihinh.val(),
+            'number_bedroom'   :input_phongngu.val(),
+            'project_extension':input_tienich.val()
         };
+        console.log(data);
         $.ajax({
             type: "post",
             url: "<?=base_url('web/searchApi')?>",
@@ -158,5 +171,37 @@
     });
     $('.root_modal').mouseleave(function () { 
         $('.list-modal').hide();
+    });
+
+    $('.rdo_trangthai').change(function (e) { 
+        if ($(this).is(':checked')){
+            input_trangthai.val($(this).val()); 
+            searchProject();
+        }
+    });
+    $('.rdo_loaihinh').change(function (e) { 
+        if ($(this).is(':checked')){
+            input_loaihinh.val($(this).val()); 
+            searchProject();  
+        }
+
+    });
+    $('.rdo_phongngu').change(function (e) { 
+        if ($(this).is(':checked')){
+            input_phongngu.val($(this).val());
+            searchProject();   
+        }
+    });
+    $('.rdo_tienich').change(function (e) { 
+        var arr = $('.rdo_tienich');
+        var ck_arr ='';
+        $.each(arr, function (index,item) { 
+            if (item.checked){
+                ck_arr+=item.value+',';
+            }
+        });
+        ck_arr=ck_arr.trim(',');
+        input_tienich.val(ck_arr);
+        searchProject();  
     });
 </script>
