@@ -9,6 +9,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?=$title?></title>
+    <meta property="og:url"                content="<?=fullAddress()?>" />
+    <meta property="og:type"               content="article" />
+    <meta property="og:title"              content="<?=$title?>" />
+    <meta property="og:description"        content="<?=$description?>" />
+    <meta property="og:image"              content="<?=$img_path?>" />
+
     <base id="base_url" href="<?=base_url()?>">
     <link rel="stylesheet" href="<?=base_url('upload/slick/slick.css')?>">
     <link rel="stylesheet" href="<?=base_url('upload/slick/slick-theme.css')?>">

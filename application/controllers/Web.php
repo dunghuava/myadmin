@@ -21,6 +21,8 @@ class Web extends MY_Controller {
         $this->load->model('Contact_M');
         $this->load->model('Type_M');
         $this->load->model('Furniture_M');
+        $this->load->model('Extension_M');
+        
         
     }
     
