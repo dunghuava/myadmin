@@ -31,8 +31,31 @@
         <?php 
             }
         ?>
-        <li>
-            <a href="<?=base_url('dang-nhap')?>">Đăng nhập</a>
+        <?php  
+            $this->user_data = $this->session->get_userdata('user_data');
+            if (!empty($this->user_data['user_data']['user_id'])) {
+                $infor = $this->Account_M->find_row(['user_id'=>$this->user_data['user_data']['user_id']]);
+        ?>
+        <li class="dropdown">
+            <a href="<?=base_url('dang-nhap')?>"><?=$infor['user_fullname']?></a>
+            <ul class="dropdown-list">
+                <li>
+                    <a href="<?=base_url()?>">Trang quản trị</a>
+                </li>
+                <li>
+                    <a href="<?=base_url()?>">Thông tin</a>
+                </li>
+                <li>
+                    <a href="<?=base_url('web/logout')?>">Đăng xuất</a>
+                </li>
+            </ul>
         </li>
+        <?php }else{ ?>
+            <li>
+                <a href="<?=base_url('dang-nhap')?>">Đăng nhập</a>
+            </li>
+            
+        <?php } ?>
+        
     </ul>
 </nav>

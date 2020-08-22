@@ -132,6 +132,25 @@ class Web extends MY_Controller {
 
     }
     public function page_user_login(){
+
+        if ($this->session->has_userdata('user_data')){
+            redirect(base_url(),'location');
+        }
+        $post = $this->input->post();
+        if ($post){
+            $user_name = $post['user_name'];
+            $user_password = md5($post['user_password']);
+            $is_login = $this->Account_M->CheckLogin($user_name,$user_password,0);
+            if ($is_login){
+                $infor = $this->Account_M->all(['user_name'=>$user_name,'is_admin'=>'0']);
+                    // print_r($infor);die();
+                $this->session->set_userdata('user_data', $infor[0] );
+                redirect(base_url(),'location');
+            }else{
+                $this->session->set_flashdata('reponse','Tên đăng nhập hoặc mật khẩu không đúng.');
+            }
+        }
+
         $data['title']='Đăng nhập';
         $this->page_header($data);
         $this->view('web/user-login');
@@ -264,6 +283,11 @@ class Web extends MY_Controller {
 
         $this->Account_M->create($data_insert);
     }
+
+    public function logout(){
+        $this->session->unset_userdata('user_data');
+        redirect(base_url(),'location');
+    }
     public function livesearch(){
         $query = $this->input->post('query');
         $data['data_html']='';
@@ -284,5 +308,6 @@ class Web extends MY_Controller {
         }
         $data['data_html']=$html;
         echo json_encode($data);
+
     }
 }
