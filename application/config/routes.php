@@ -54,7 +54,14 @@ $route['404_override'] 			= '';
 $route['translate_uri_dashes'] 	= FALSE;
 
 // web route
+
+/* router gáng cứng*/
+$route['danh-muc/ky-gui-nha']     = 'user/project';
+$route['danh-muc/dang-ban']     = 'user/project/add';
+$route['danh-muc/dang-cho-thue']     = 'user/project/add';
+$route['danh-muc/dang-tin-nha-dat']     = 'user/post/add';
 $route['danh-muc/danh-sach-chu-dau-tu']     = 'web/page_chudautu_list';
+/* end router gáng cứng*/
 $route['danh-muc/(:any)']     = 'web/page_categories/$1';
 $route['bai-viet/(:any)']     = 'web/page_post_detail/$1';
 $route['blog/(:any)']         = 'web/page_post_detail/$1';
@@ -63,11 +70,19 @@ $route['khu-dan-cu']          = 'web/page_khudancu_all';
 $route['chu-dau-tu']          = 'web/page_chudautu_list';
 $route['chu-dau-tu/(:any)']   = 'web/page_chudautu_detail/$1';
 $route['chi-tiet-du-an/(:any)'] = 'web/page_project_detail/$1';
-$route['dang-nhap']            = 'web/page_user_login'; 
-$route['quen-mat-khau']            = 'web/page_user_reset'; 
-$route['dang-ky']              = 'web/page_user_register';
+$route['dang-nhap']            = 'user/account/page_user_login'; 
+$route['quen-mat-khau']            = 'user/account/page_user_reset'; 
+$route['dang-ky']              = 'user/account/page_user_register';
+
+$route['thong-tin']              = 'user/account/infoUser';
+
 // end route
 
 $route['admin']							= 'admin/category';
 $route['admin/login'] 					= 'admin/account/login';
 $route['admin/logout'] 					= 'admin/account/logout';
+
+
+$route['user']							= 'user/project';
+
+

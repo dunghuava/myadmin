@@ -40,13 +40,13 @@
             <a href="<?=base_url('dang-nhap')?>"><?=$infor['user_fullname']?></a>
             <ul class="dropdown-list">
                 <li>
-                    <a href="<?=base_url()?>">Trang quản trị</a>
+                    <a href="<?=base_url('user')?>">Trang quản trị</a>
                 </li>
                 <li>
-                    <a href="<?=base_url()?>">Thông tin</a>
+                    <a href="<?=base_url('thong-tin')?>">Thông tin</a>
                 </li>
                 <li>
-                    <a href="<?=base_url('web/logout')?>">Đăng xuất</a>
+                    <a href="<?=base_url('user/account/logout')?>">Đăng xuất</a>
                 </li>
             </ul>
         </li>

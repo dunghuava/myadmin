@@ -129,42 +129,7 @@ class Web extends MY_Controller {
        }
 
     }
-    public function page_user_login(){
-
-        if ($this->session->has_userdata('user_data')){
-            redirect(base_url(),'location');
-        }
-        $post = $this->input->post();
-        if ($post){
-            $user_name = $post['user_name'];
-            $user_password = md5($post['user_password']);
-            $is_login = $this->Account_M->CheckLogin($user_name,$user_password,0);
-            if ($is_login){
-                $infor = $this->Account_M->all(['user_name'=>$user_name,'is_admin'=>'0']);
-                    // print_r($infor);die();
-                $this->session->set_userdata('user_data', $infor[0] );
-                redirect(base_url(),'location');
-            }else{
-                $this->session->set_flashdata('reponse','Tên đăng nhập hoặc mật khẩu không đúng.');
-            }
-        }
-
-        $data['title']='Đăng nhập';
-        $this->page_header($data);
-        $this->view('web/user-login');
-        $this->page_footer();
-    }
-    public function page_user_reset(){
-        $data['title']='Quyên mật khẩu';
-        $this->page_header($data);
-        $this->view('web/user-reset');
-    }
-    public function page_user_register(){
-        $data['title']='Đăng ký tài khoản';
-        $this->page_header($data);
-        $this->view('web/user-register');
-        $this->page_footer();
-    }
+    
     public function page_chudautu_list($alias=null){
         $this->page_header();
         $data['list_investor']=$this->Investor_M->all(['investor_active'=>1]);
@@ -266,26 +231,6 @@ class Web extends MY_Controller {
         $this->Contact_M->create($data_insert);
     }
 
-    public function registerUser()
-    {
-        $post = $this->input->post();
-
-        $data_insert = array(
-            'user_fullname' => $post['user_fullname'],
-            'user_email' => $post['user_email'], 
-            'user_name' => $post['user_name'], 
-            'user_password' => md5($post['user_password']), 
-            'is_admin' => 0, 
-            
-        );
-
-        $this->Account_M->create($data_insert);
-    }
-
-    public function logout(){
-        $this->session->unset_userdata('user_data');
-        redirect(base_url(),'location');
-    }
     public function livesearch(){
         $query = $this->input->post('query');
         $data['data_html']='';

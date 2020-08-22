@@ -18,12 +18,12 @@
     <div class="container">
         <div class="col-md-3"></div>
         <div class="col-md-6"><br>
-            <form action="" class="login-form form-group font16_all" method="post">
-                <div class="text-center"><h3>Đăng nhập</h3>
+            <form action="" class="login-form form-group font18_all" method="post">
+                <div class="text-center"><h3 style="font-size: 22px!important;font-weight: bold;">Đăng nhập</h3>
                     <p style="margin:5px 0px;color:red;font-size:12px"><?php if ($this->session->flashdata('reponse')) {echo $this->session->flashdata('reponse');} ?></p>
                 </div>
-                <p><input id="user_name" name="user_name" type="text" class="form-control" placeholder="Tên đăng nhập"></p>
-                <p><input id="user_password" name="user_password" type="password" class="form-control" placeholder="Mật khẩu"></p>
+                <p><input id="user_name" name="user_name" type="text" class="form-control" placeholder="Tên đăng nhập" required=""></p>
+                <p><input id="user_password" name="user_password" type="password" class="form-control" placeholder="Mật khẩu" required=""></p>
                 <p>
                     <label for="">
                         <input type="checkbox" name="" id="">

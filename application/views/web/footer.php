@@ -105,5 +105,19 @@
 </footer>
 <script src="<?=base_url('upload/js/app.js?v='.time())?>"></script>
 <script src="<?=base_url()?>upload/js/sweetalert2.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<script type="text/javascript">
+    $(function() {
+    $('button[data-modal]').on('click', function() {
+      
+      $('#form_pass').css("display","block");
+      $($(this).data('modal')).modal({
+        fadeDuration: 250
+      });
+      return false;
+    });
+  });
+</script>
 </body>
 </html>

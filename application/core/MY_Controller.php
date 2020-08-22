@@ -59,6 +59,18 @@ class MY_Controller extends CI_Controller {
 		$this->load->view('admin/footer.php');
 		$this->load->view('admin/script.php');
 	}
+
+
+	public function getHeaderUser($data=null){
+		if (!$this->session->has_userdata('user_data')){
+			redirect(base_url('dang-nhap'),'location');
+		}
+		$this->user_infor = $this->session->get_userdata('user_data');
+		$data['user_infor']=$this->user_infor['user_data'];
+		$data['setting']=$this->Setting_M->find(['setting_id'=>1]);
+		$this->load->view('user/header.php',$data);
+	}
+	
 	function do_upload($userfile)
 	{		
 		$dir='./upload/img/';
