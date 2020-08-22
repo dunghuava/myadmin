@@ -23,7 +23,6 @@ class Project_M extends MY_model {
 		return [];
 	}
 	public function searchApi($search){
-		dd($search);
 		if (isset($search['arr_category'])){
 			$this->db->where_in('project_category',$search['arr_category']);
 		}
@@ -42,7 +41,7 @@ class Project_M extends MY_model {
 		if ($search['project_extension']!=''){
 			$arr = explode(',',$search['project_extension']);
 			foreach ($arr as $item){
-				$this->db->or_like('project_extension',$item,'both');
+				$this->db->like('project_extension',$item,'both');
 			}
 		}
 		return $this->db->get($this->table)->result_array();

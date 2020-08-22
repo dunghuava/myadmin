@@ -49,7 +49,7 @@
                         <li><input type="radio" name="trang_thai" class="rdo_trangthai" value="3" id="">&nbsp;Đã bán</li>
                         <li>
                             <hr>
-                            <button class="closed_modal btn btn-danger">Hủy</button>
+                            <button class="cancel_trangthai btn btn-danger">Hủy</button>
                             <button class="btn_apply btn btn-primary">Áp dụng</button>
                         </li>
                     </ul>
@@ -62,7 +62,7 @@
                         <?php } ?>
                         <li>
                             <hr>
-                            <button class="closed_modal btn btn-danger">Hủy</button>
+                            <button class="cancel_loaihinh btn btn-danger">Hủy</button>
                             <button class="btn_apply btn btn-primary">Áp dụng</button>
                         </li>
                     </ul>
@@ -78,7 +78,7 @@
                         <li style="float:left"><input type="radio" name="phong_ngu" class="rdo_phongngu" value="6">&nbsp;06 phòng</li>
                         <li>
                             <hr>
-                            <button class="closed_modal btn btn-danger">Hủy</button>
+                            <button class="cancel_phongngu btn btn-danger">Hủy</button>
                             <button class="btn_apply btn btn-primary">Áp dụng</button>
                         </li>
                     </ul>
@@ -91,7 +91,7 @@
                         <?php } ?>
                         <li style="width:100%">
                             <hr>
-                            <button class="closed_modal btn btn-danger">Hủy</button>
+                            <button class="cancel_tienich btn btn-danger">Hủy</button>
                             <button class="btn_apply btn btn-primary">Áp dụng</button>
                         </li>
                     </ul>
@@ -112,7 +112,7 @@
             </div>
         </div>
         <div class="col-md-5">
-                <iframe id="iframe_map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6481.03549625265!2d106.73151269999998!3d10.792893800000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317526068f53b349%3A0x8e1091a78fa2c77b!2zS8O9IHTDumMgeMOhIFRyxrDhu51uZyDEkOG6oWkgaOG7jWMgR2lhbyB0aMO0bmcgduG6rW4gdOG6o2kgVHAuSOG7kyBDaMOtIE1pbmg!5e1!3m2!1sen!2s!4v1597851575576!5m2!1sen!2s" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            <div id="iframe_map"><?php include ('map-multile-marker.php') ?></div>
         </div>
     </div>
 </section>
@@ -202,5 +202,22 @@
     });
     $('.btn_apply').click(function (e) { 
         searchProject();  
+    });
+
+    $('.cancel_tienich').click(function (e) { 
+        $('.rdo_tienich').removeAttr('checked');  
+        input_tienich.val('');
+    });
+    $('.cancel_trangthai').click(function (e) { 
+        $('.rdo_trangthai').removeAttr('checked');  
+        input_trangthai.val('');
+    });
+    $('.cancel_loaihinh').click(function (e) { 
+        $('.rdo_loaihinh').removeAttr('checked');  
+        input_loaihinh.val('');
+    });
+    $('.cancel_phongngu').click(function (e) { 
+        $('.rdo_phongngu').removeAttr('checked');  
+        input_phongngu.val('');
     });
 </script>

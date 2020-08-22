@@ -201,10 +201,11 @@
     width: 100%;
     border-bottom: 1px solid #dcdcdd;
     .left{
-        width: 28%;
+        .cover-img{
+            width: 100%;
+        }
     }
     .right{
-        width: 70%;
         padding: 0px 8px;
         .title{
             margin: 4px 0px;

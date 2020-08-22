@@ -196,6 +196,7 @@ class Web extends MY_Controller {
             'project_extension'=>$project_extension
         );
         $arr_project= $this->Project_M->searchApi($search);
+        $data['last_query']=$this->db->last_query();
 
         $project_locate=array();
         foreach ($arr_project as $item){

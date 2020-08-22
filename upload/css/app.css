@@ -83,6 +83,10 @@ img {
   padding: 0px;
 }
 
+.pdr0 {
+  padding-right: 0px;
+}
+
 .pd05 {
   padding: 05px;
 }
@@ -1100,12 +1104,11 @@ img {
   border-bottom: 1px solid #dcdcdd;
 }
 
-.duan-item-h .left {
-  width: 28%;
+.duan-item-h .left .cover-img {
+  width: 100%;
 }
 
 .duan-item-h .right {
-  width: 70%;
   padding: 0px 8px;
 }
 
