@@ -44,9 +44,13 @@ class Account extends MY_Controller {
                 $this->session->set_flashdata('reponse','Tên đăng nhập hoặc mật khẩu không đúng.');
             }
         }
+        
+        /*SEO*/
+        $seo = array(
+            'title' => 'Đăng nhập', 
+        );      
 
-        $data['title']='Đăng nhập';
-        $this->page_header($data);
+        $this->page_header($seo);
         $this->view('user/pages/account/user-login');
         $this->page_footer();
     }
@@ -54,8 +58,11 @@ class Account extends MY_Controller {
         if ($this->session->has_userdata('user_data')){
             redirect(base_url(),'location');
         }
-        $data['title']='Quyên mật khẩu';
-        $this->page_header($data);
+        /*SEO*/
+        $seo = array(
+            'title' => 'Quyên mật khẩu', 
+        );  
+        $this->page_header($seo);
         $this->view('user/pages/account/user-reset');
         $this->page_footer();
     }
@@ -63,8 +70,12 @@ class Account extends MY_Controller {
         if ($this->session->has_userdata('user_data')){
             redirect(base_url(),'location');
         }
-        $data['title']='Đăng ký tài khoản';
-        $this->page_header($data);
+
+        /*SEO*/
+        $seo = array(
+            'title' => 'Đăng ký tài khoản', 
+        );  
+        $this->page_header($seo);
         $this->view('user/pages/account/user-register');
         $this->page_footer();
     }
@@ -100,8 +111,12 @@ class Account extends MY_Controller {
         $infor_user = $this->Account_M->find_row(['user_id'=>$user_id]);
 
         $data['infor_user']= $infor_user;
-        $data['title']='Thông tin tài khoản';
-        $this->page_header($data);
+
+        /*SEO*/
+        $seo = array(
+            'title' => 'Thông tin tài khoản', 
+        );  
+        $this->page_header($seo);
         $this->view('user/pages/account/user-info');
         $this->page_footer();
 

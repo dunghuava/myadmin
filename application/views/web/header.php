@@ -8,12 +8,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?=$title?></title>
-    <meta property="og:url"                content="<?=fullAddress()?>" />
-    <meta property="og:type"               content="article" />
-    <meta property="og:title"              content="<?=$title?>" />
-    <meta property="og:description"        content="<?=$description?>" />
-    <meta property="og:image"              content="<?=$img_path?>" />
+    <title><?php if(!empty($seo['title'])) echo $seo['title']?></title>
+    <!-- -->
+    <meta name="keywords" content="<?php if(!empty($seo['keywords'])) echo $seo['keywords']?>" />
+    <meta name="description" content="<?php if(!empty($seo['description'])) echo $seo['description']?>" />
+    <!-- google -->
+    <meta itemprop="name" content="<?php if(!empty($seo['title'])) echo $seo['title']?>">
+    <meta itemprop="description" content="<?php if(!empty($seo['description'])) echo $seo['description']?>">
+    <meta itemprop="image" content="<?php if(!empty($seo['image'])) echo resizeImg($seo['image'],600,600,0)?>">
+    <!-- facebook -->
+    <meta property="og:title" content="<?php if(!empty($seo['title'])) echo $seo['title']?>" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="<?=fullAddress() ?>" />
+    <meta property="og:image" content="<?php if(!empty($seo['image'])) echo resizeImg($seo['image'],600,600,0)?>" />
+    <meta property="og:description" content="<?php if(!empty($seo['description'])) echo $seo['description']?>" />
+
+
 
     <base id="base_url" href="<?=base_url()?>">
     <link rel="stylesheet" href="<?=base_url('upload/slick/slick.css')?>">

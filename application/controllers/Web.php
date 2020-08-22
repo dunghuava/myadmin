@@ -30,12 +30,29 @@ class Web extends MY_Controller {
 
         $data['arr_post']=$this->Post_M->all(['post_category_id'=>$cate['cate_id']]);
         $data['cate']=$cate;
-        $this->page_header();
+            
+        /*SEO*/
+        $description = mb_substr($data['cate']['cate_description'], 0, 150,"UTF-8");
+        
+        $seo = array(
+            'title' => $data['cate']['cate_title'], 
+            'description' => $description, 
+            'keywords' => $data['cate']['cate_keyword'], 
+            'image' => $data['cate']['cate_img'], 
+        );
+        $this->page_header($seo);
         $this->view('web/tintuc-list',$data);
         $this->page_footer();
     }
     public function page_index(){
-        $this->page_header();
+        $seo = array(
+            'title' => 'Trang chủ', 
+            'description' => '', 
+            'keywords' => '', 
+            'image' => '', 
+        );
+
+        $this->page_header($seo);
         $data['list_investor'] = $this->Investor_M->getListInvestor();
         $data['list_residential'] = $this->Residential_M->getListResidential();
 
@@ -93,7 +110,22 @@ class Web extends MY_Controller {
         $data['post']=$this->Post_M->find_row(['post_id'=>$post_id]);
 
         $data['post_involve']=$this->Post_M->getListPost_Involve($post_id,$data['post']['post_category_id'],10);
-        $this->page_header();
+        
+        /*SEO*/
+        if (!empty($data['post']['post_description'])) {
+            $description = mb_substr($data['post']['post_description'], 0, 150,"UTF-8");
+        }else{
+            $description = mb_substr($data['post']['post_introduce'], 0, 150,"UTF-8");
+        }
+        
+        $seo = array(
+            'title' => $data['post']['post_title'], 
+            'description' => $description, 
+            'keywords' => $data['post']['post_keyword'], 
+            'image' => $data['post']['post_img'], 
+        );
+
+        $this->page_header($seo);
         $this->view('web/tintuc-detail',$data);
         $this->page_footer();
     }
@@ -105,14 +137,37 @@ class Web extends MY_Controller {
 
         $data['list_thue']= $this->Project_M->getListProject(['project_residential'=>$data['kdc']['residential_id'],'project_kind'=>2],6);
         
-        $this->page_header();
+
+        /*SEO*/
+        if (!empty($data['kdc']['residential_description'])) {
+            $description = mb_substr($data['kdc']['residential_description'], 0, 150,"UTF-8");
+        }else{
+            $description = mb_substr($data['kdc']['residential_introduce'], 0, 150,"UTF-8");
+        }
+        
+        $seo = array(
+            'title' => $data['kdc']['residential_title'], 
+            'description' => $description, 
+            'keywords' => $data['kdc']['residential_keyword'], 
+            'image' => $data['kdc']['residential_img'], 
+        );
+
+        $this->page_header($seo);
         $this->view('web/khudancu-detail',$data);
         $this->page_footer();
     }
     public function page_khudancu_all($alias=null){
 
+        /*SEO*/
+        $seo = array(
+            'title' => 'Danh sách khu dân cư', 
+            'description' => '', 
+            'keywords' => '', 
+            'image' => '', 
+        );
+
         $data['arr_kdc']=$this->Residential_M->all('','desc');
-        $this->page_header();
+        $this->page_header($seo);
         $this->view('web/khudancu-all',$data);
         $this->page_footer();
     }
@@ -133,7 +188,15 @@ class Web extends MY_Controller {
     }
     
     public function page_chudautu_list($alias=null){
-        $this->page_header();
+        /*SEO*/
+        $seo = array(
+            'title' => 'Danh sách chủ đầu tư', 
+            'description' => '', 
+            'keywords' => '', 
+            'image' => '', 
+        );
+
+        $this->page_header($seo);
         $data['list_investor']=$this->Investor_M->all(['investor_active'=>1]);
         $this->view('web/chudautu-list',$data);
         $this->page_footer();
@@ -145,7 +208,22 @@ class Web extends MY_Controller {
         $data['duan_lancan']= $this->Project_M->getDuAnLanCan($duan_id,$id_loai);
         $data['tienich'] = $this->Project_M->getTienich($data['duan']['project_extension']);
 
-        $this->page_header();
+        /*SEO*/
+        if (!empty($data['duan']['project_description'])) {
+            $description = mb_substr($data['duan']['project_description'], 0, 150,"UTF-8");
+        }else{
+            $description = mb_substr($data['duan']['project_introduce'], 0, 150,"UTF-8");
+        }
+        
+        $seo = array(
+            'title' => $data['duan']['project_title'], 
+            'description' => $description, 
+            'keywords' => $data['duan']['project_keyword'], 
+            'image' => $data['duan']['project_img'], 
+        );
+
+
+        $this->page_header($seo);
         if ($data['duan']['project_kind']==0){
             // dự án
             $this->view('web/duan-detail',$data);
@@ -157,7 +235,19 @@ class Web extends MY_Controller {
     }
     public function page_project_list($cate=null){
         $data['cate_id']=$cate['cate_id'];
-        $this->page_header();
+
+        $info_cate = $this->Category_M->find_row(['cate_id'=>$cate['cate_id']]);
+        /*SEO*/
+
+        $description = mb_substr($info_cate['cate_description'], 0, 150,"UTF-8");
+        $seo = array(
+            'title' => $info_cate['cate_title'], 
+            'description' => $description, 
+            'keywords' => $info_cate['cate_keyword'], 
+            'image' => $info_cate['cate_img'], 
+        );
+
+        $this->page_header($seo);
         $this->view('web/duan-list',$data);
         //$this->page_footer();
     }
@@ -210,7 +300,22 @@ class Web extends MY_Controller {
         $data['cdt']=$this->Investor_M->find_row(['investor_id'=>$cdt_id]);
         $data['list_investor'] = $this->Investor_M->getListInvestor();
         $data['arr_project']   = $this->Project_M->all(['project_investor'=>$cdt_id,'project_kind'=>'0']);
-        $this->page_header();
+
+        /*SEO*/
+        if (!empty($data['cdt']['investor_description'])) {
+            $description = mb_substr($data['cdt']['investor_description'], 0, 150,"UTF-8");
+        }else{
+            $description = mb_substr($data['cdt']['investor_introduce'], 0, 150,"UTF-8");
+        }
+        
+        $seo = array(
+            'title' => $data['cdt']['investor_title'], 
+            'description' => $description, 
+            'keywords' => $data['cdt']['investor_keyword'], 
+            'image' => $data['cdt']['investor_img'], 
+        );
+
+        $this->page_header($seo);
         $this->view('web/chudautu-detail',$data);
         $this->page_footer();
     }
