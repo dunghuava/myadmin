@@ -37,12 +37,16 @@
     <div class="row font16_all">
         <div class="col-md-7">
             <input type="hidden" id="cate_id" value="<?=$cate_id?>">
+            <input type="hidden" id="trang_thai">
+            <input type="hidden" id="loai_hinh">
+            <input type="hidden" id="phong_ngu">
+            <input type="hidden" id="tien_ich">
             <ul class="list_option">
                 <li class="root_modal">Trạng thái
                     <ul class="m1 list-modal">
-                        <li><input type="radio" name="" id="">&nbsp;Đang mở bán</li>
-                        <li><input type="radio" name="" id="">&nbsp;Sắp mở bán</li>
-                        <li><input type="radio" name="" id="">&nbsp;Đã bán</li>
+                        <li><input type="radio" name="trang_thai" class="rdo_trangthai" value="1" id="">&nbsp;Đang mở bán</li>
+                        <li><input type="radio" name="trang_thai" class="rdo_trangthai" value="2" id="">&nbsp;Sắp mở bán</li>
+                        <li><input type="radio" name="trang_thai" class="rdo_trangthai" value="3" id="">&nbsp;Đã bán</li>
                         <li>
                             <hr>
                             <button class="closed_modal btn btn-danger">Hủy</button>
@@ -150,9 +154,9 @@
     }
     $('.root_modal').click(function (e) { 
         $('.list-modal').hide();
-        $(this).find('.list-modal').show();
+        $(this).find('.list-modal').toggle();
     });
-    $('.closed_modal').click(function (e) { 
-        console.log($(this).parents('.root_modal').find('.list-modal'));
+    $('.root_modal').mouseleave(function () { 
+        $('.list-modal').hide();
     });
 </script>
