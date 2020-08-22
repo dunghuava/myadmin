@@ -1029,7 +1029,7 @@ img {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  padding: 10px 15px;
+  padding: 10px 8px;
   cursor: pointer;
 }
 

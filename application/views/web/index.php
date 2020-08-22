@@ -1,7 +1,7 @@
 <section class="sec-slider relative font18">
     <?php include ('slider.php') ?>
     <div id="form-absolute" class="absolute hidden-xs">
-        <form class="form-group" action="<?=base_url('search')?>" method="get">
+        <form class="form-group" action="<?=base_url('tim-kiem')?>" method="get">
             <div class="containers">
                 <div class="form-inline">
                     <input type="hidden" id="type_check" name="type_check" value="1">

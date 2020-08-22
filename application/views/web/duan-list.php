@@ -41,6 +41,7 @@
             <input type="hidden" id="loai_hinh">
             <input type="hidden" id="phong_ngu">
             <input type="hidden" id="khu_vuc">
+            <input type="hidden" id="kind">
             <ul class="list_option">
                 <li class="root_modal">Trạng thái
                     <ul class="m1 list-modal">
@@ -50,6 +51,18 @@
                         <li>
                             <hr>
                             <button class="cancel_trangthai btn btn-danger">Xóa chọn</button>
+                            <button class="btn_apply btn btn-primary">Áp dụng</button>
+                        </li>
+                    </ul>
+                </li>
+                <li class="root_modal">Loại dự án
+                    <ul class="m1 list-modal">
+                        <li style="width:120px"><input type="radio" name="kind" class="rdo_kind" value="0" id="">&nbsp;Dự án</li>
+                        <li style="width:120px"><input type="radio" name="kind" class="rdo_kind" value="1" id="">&nbsp;Mua</li>
+                        <li style="width:120px"><input type="radio" name="kind" class="rdo_kind" value="2" id="">&nbsp;Cho Thuê</li>
+                        <li>
+                            <hr>
+                            <button class="cancel_kind btn btn-danger">Xóa chọn</button>
                             <button class="btn_apply btn btn-primary">Áp dụng</button>
                         </li>
                     </ul>
@@ -122,7 +135,8 @@
     var input_trangthai = $('#trang_thai');
     var input_loaihinh  = $('#loai_hinh');
     var input_phongngu  = $('#phong_ngu');
-    var input_khuvuc   = $('#khu_vuc');
+    var input_khuvuc    = $('#khu_vuc');
+    var input_kind      = $('#kind');
     var input_query     = $('#tim_kiem');
     var w_height = $(window).height();
     $('#root_project').css({'height':(w_height)});
@@ -144,7 +158,8 @@
             'project_status'     :input_trangthai.val(),
             'project_type'       :input_loaihinh.val(),
             'number_bedroom'     :input_phongngu.val(),
-            'project_district_id':input_khuvuc.val()
+            'project_district_id':input_khuvuc.val(),
+            'project_kind':input_kind.val()
         };
         console.log(data);
         $.ajax({
@@ -168,15 +183,23 @@
     }
     $('.root_modal').click(function (e) { 
         $('.list-modal').hide();
-        $(this).find('.list-modal').toggle();
+        $(this).find('.list-modal').fadeIn();
     });
+
     $('.root_modal').mouseleave(function () { 
-        $('.list-modal').hide();
+        setTimeout(() => {
+            $('.list-modal').fadeOut();
+        }, 2000);
     });
 
     $('.rdo_trangthai').change(function (e) { 
         if ($(this).is(':checked')){
             input_trangthai.val($(this).val()); 
+        }
+    });
+    $('.rdo_kind').change(function (e) { 
+        if ($(this).is(':checked')){
+            input_kind.val($(this).val()); 
         }
     });
     $('.rdo_loaihinh').change(function (e) { 
@@ -208,6 +231,10 @@
     $('.cancel_khuvuc').click(function (e) { 
         $('.rdo_khuvuc').removeAttr('checked');  
         input_khuvuc.val('');
+    });
+    $('.cancel_kind').click(function (e) { 
+        $('.rdo_kind').removeAttr('checked');  
+        input_kind.val('');
     });
     $('.cancel_trangthai').click(function (e) { 
         $('.rdo_trangthai').removeAttr('checked');  

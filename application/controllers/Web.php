@@ -233,6 +233,10 @@ class Web extends MY_Controller {
         }
         $this->page_footer();
     }
+    public function page_search(){
+        $this->page_header();
+        $this->view('web/duan-list');  
+    }
     public function page_project_list($cate=null){
         $data['cate_id']=$cate['cate_id'];
 
@@ -258,23 +262,25 @@ class Web extends MY_Controller {
         $project_status=$post['project_status'];
         $project_type=$post['project_type'];
         $number_bedroom=$post['number_bedroom'];
+        $project_kind=$post['project_kind'];
         $project_district_id=$post['project_district_id'];
 
-        $info_category = $this->Category_M->find_row(['cate_id'=>$project_category]);
-
-        $cate_parent_id = $info_category['cate_parent_id'];
-
         $arr_category = array();
-        if ($cate_parent_id!=0) {
-            array_push($arr_category, $project_category);
-        }else{
-            array_push($arr_category, $project_category);
-            $list_cate_sub = $this->Category_M->all(['cate_parent_id'=>$project_category]);
-            foreach ($list_cate_sub as $key => $sub) {
-                array_push($arr_category, $sub['cate_id']);
+        
+        if ($project_category!=''){
+            $info_category = $this->Category_M->find_row(['cate_id'=>$project_category]);
+
+            $cate_parent_id = $info_category['cate_parent_id'];
+            if ($cate_parent_id!=0) {
+                array_push($arr_category, $project_category);
+            }else{
+                array_push($arr_category, $project_category);
+                $list_cate_sub = $this->Category_M->all(['cate_parent_id'=>$project_category]);
+                foreach ($list_cate_sub as $key => $sub) {
+                    array_push($arr_category, $sub['cate_id']);
+                }
             }
         }
-        
 
         $search=array(
             'project_category'=>$project_category,
@@ -283,7 +289,8 @@ class Web extends MY_Controller {
             'project_status'=>$project_status,
             'project_type'=>$project_type,
             'number_bedroom'=>$number_bedroom,
-            'project_district_id'=>$project_district_id
+            'project_district_id'=>$project_district_id,
+            'project_kind'=>$project_kind
         );
         $arr_project= $this->Project_M->searchApi($search);
         $data['last_query']=$this->db->last_query();
