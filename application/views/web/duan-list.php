@@ -112,11 +112,12 @@
             </div>
         </div>
         <div class="col-md-5">
-            <div id="iframe_map"><?php include ('map-multile-marker.php') ?></div>
+            <div id="map"><?php include ('map-multile-marker.php') ?></div>
         </div>
     </div>
 </section>
 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqAHaMV9ZVcSX992nMQOgZ_Vy80GUZ_8I&callback=initMap&libraries=drawing,places"></script>
 <script>
     var input_trangthai = $('#trang_thai');
     var input_loaihinh  = $('#loai_hinh');
@@ -125,7 +126,7 @@
     var input_query     = $('#tim_kiem');
     var w_height = $(window).height();
     $('#root_project').css({'height':(w_height)});
-    $('#iframe_map').css({'height':(w_height-50)});
+    $('#map').css({'height':(w_height-100)});
 
     $('#tim_kiem').change(function (e) { 
         e.preventDefault();
