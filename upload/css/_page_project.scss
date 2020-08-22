@@ -177,6 +177,7 @@
             background: #fff;
             z-index: 99999;
             display: none;
+            animation: fadeinup 0.4s;
             box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
             li{
                 padding: 5px 15px 5px 0px;
@@ -192,9 +193,22 @@
                 }
             }
         }
+        &:hover{
+            .list-modal{
+                display: block;
+            }
+        }
     }
 }
-
+@keyframes fadeinup{
+    from{
+        top: 150%;
+        opacity: 0.5;
+    }
+    to{
+        opacity: 1;
+    }
+}
 .duan-item-h{
     display: inline-flex;
     margin: 5px 0px;

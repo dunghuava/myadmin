@@ -181,16 +181,16 @@
             }
         });
     }
-    $('.root_modal').click(function (e) { 
-        $('.list-modal').hide();
-        $(this).find('.list-modal').fadeIn();
-    });
+    // $('.root_modal').click(function (e) { 
+    //     $('.list-modal').hide();
+    //     $(this).find('.list-modal').toggle();
+    // });
 
-    $('.root_modal').mouseleave(function () { 
-        setTimeout(() => {
-            $('.list-modal').fadeOut();
-        }, 2000);
-    });
+    // $('.root_modal').mouseleave(function () { 
+    //     setTimeout(() => {
+    //         $('.list-modal').fadeOut();
+    //     }, 2000);
+    // });
 
     $('.rdo_trangthai').change(function (e) { 
         if ($(this).is(':checked')){

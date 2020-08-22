@@ -4,7 +4,6 @@
         <form class="form-group" action="<?=base_url('tim-kiem')?>" method="get">
             <div class="containers">
                 <div class="form-inline">
-                    <input type="hidden" id="type_check" name="type_check" value="1">
                     <button class="btn_choose_type 0 clicked" onclick="typeCheck(0)" type="button">Dự án</button>
                     <button class="btn_choose_type 1" onclick="typeCheck(1)" type="button">Cho thuê</button>
                     <button class="btn_choose_type 2" onclick="typeCheck(2)" type="button">Mua bán</button>
@@ -334,7 +333,6 @@
 
 <script type="text/javascript">
     function typeCheck(type){
-        $('#type_check').val(type);
         $('.btn_choose_type').removeClass('clicked');
         $('.'+type).addClass('clicked');
     }

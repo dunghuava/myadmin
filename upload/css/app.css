@@ -1075,6 +1075,8 @@ img {
   background: #fff;
   z-index: 99999;
   display: none;
+  -webkit-animation: fadeinup 0.4s;
+          animation: fadeinup 0.4s;
   -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
 }
@@ -1093,6 +1095,30 @@ img {
   padding: 4px 14px;
   font-size: 15px !important;
   height: 35px;
+}
+
+.list_option li:hover .list-modal {
+  display: block;
+}
+
+@-webkit-keyframes fadeinup {
+  from {
+    top: 150%;
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeinup {
+  from {
+    top: 150%;
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .duan-item-h {
