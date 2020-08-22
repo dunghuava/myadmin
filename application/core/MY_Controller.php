@@ -60,8 +60,6 @@ class MY_Controller extends CI_Controller {
 		$this->load->view('admin/footer.php');
 		$this->load->view('admin/script.php');
 	}
-
-
 	public function getHeaderUser($data=null){
 		if (!$this->session->has_userdata('user_data')){
 			redirect(base_url('dang-nhap'),'location');

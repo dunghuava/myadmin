@@ -23,6 +23,7 @@ class Project_M extends MY_model {
 		return [];
 	}
 	public function searchApi($search){
+
 		if (isset($search['arr_category'])){
 			$this->db->where_in('project_category',$search['arr_category']);
 		}
@@ -38,11 +39,8 @@ class Project_M extends MY_model {
 		if ($search['number_bedroom']!=''){
 			$this->db->where('number_bedroom',$search['number_bedroom']);
 		}
-		if ($search['project_extension']!=''){
-			$arr = explode(',',$search['project_extension']);
-			foreach ($arr as $item){
-				$this->db->like('project_extension',$item,'both');
-			}
+		if ($search['project_district_id']!=''){
+			$this->db->where('project_district_id',$search['project_district_id']);
 		}
 		return $this->db->get($this->table)->result_array();
 	}

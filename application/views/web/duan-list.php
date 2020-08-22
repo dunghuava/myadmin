@@ -31,7 +31,7 @@
 </style>
 <?php 
     $loaihinh  = $this->Type_M->all();
-    $tienich = $this->Extension_M->all();
+    $khuvuc = $this->Type_M->o_fetch("select a.project_district_id,b.district_name from db_project a inner join db_district b on a.project_district_id = b.district_id group by a.project_district_id");
 ?>
 <section id="fullwidth" class="page-duan-list container">
     <div class="row font16_all">
@@ -40,7 +40,7 @@
             <input type="hidden" id="trang_thai">
             <input type="hidden" id="loai_hinh">
             <input type="hidden" id="phong_ngu">
-            <input type="hidden" id="tien_ich">
+            <input type="hidden" id="khu_vuc">
             <ul class="list_option">
                 <li class="root_modal">Trạng thái
                     <ul class="m1 list-modal">
@@ -49,7 +49,7 @@
                         <li><input type="radio" name="trang_thai" class="rdo_trangthai" value="3" id="">&nbsp;Đã bán</li>
                         <li>
                             <hr>
-                            <button class="cancel_trangthai btn btn-danger">Hủy</button>
+                            <button class="cancel_trangthai btn btn-danger">Xóa chọn</button>
                             <button class="btn_apply btn btn-primary">Áp dụng</button>
                         </li>
                     </ul>
@@ -62,7 +62,7 @@
                         <?php } ?>
                         <li>
                             <hr>
-                            <button class="cancel_loaihinh btn btn-danger">Hủy</button>
+                            <button class="cancel_loaihinh btn btn-danger">Xóa chọn</button>
                             <button class="btn_apply btn btn-primary">Áp dụng</button>
                         </li>
                     </ul>
@@ -78,20 +78,20 @@
                         <li style="float:left"><input type="radio" name="phong_ngu" class="rdo_phongngu" value="6">&nbsp;06 phòng</li>
                         <li>
                             <hr>
-                            <button class="cancel_phongngu btn btn-danger">Hủy</button>
+                            <button class="cancel_phongngu btn btn-danger">Xóa chọn</button>
                             <button class="btn_apply btn btn-primary">Áp dụng</button>
                         </li>
                     </ul>
                 </li>
                 <li class="root_modal">
-                    Xem thêm
-                    <ul class="m4 list-modal" style="width:500px">
-                        <?php foreach ($tienich as $k => $item){ ?>
-                            <li style="width:fit-content"><input type="checkbox" name="tien_ich" class="rdo_tienich" value="<?=$item['extension_id']?>">&nbsp;<?=$item['extension_name']?></li>
+                    Khu vực
+                    <ul class="m4 list-modal">
+                        <?php foreach ($khuvuc as $k => $item){ ?>
+                            <li style="width:150px"><input type="radio" name="khu_vuc" class="rdo_khuvuc" value="<?=$item['project_district_id']?>">&nbsp;<?=$item['district_name']?></li>
                         <?php } ?>
                         <li style="width:100%">
                             <hr>
-                            <button class="cancel_tienich btn btn-danger">Hủy</button>
+                            <button class="cancel_khuvuc btn btn-danger">Xóa chọn</button>
                             <button class="btn_apply btn btn-primary">Áp dụng</button>
                         </li>
                     </ul>
@@ -122,7 +122,7 @@
     var input_trangthai = $('#trang_thai');
     var input_loaihinh  = $('#loai_hinh');
     var input_phongngu  = $('#phong_ngu');
-    var input_tienich   = $('#tien_ich');
+    var input_khuvuc   = $('#khu_vuc');
     var input_query     = $('#tim_kiem');
     var w_height = $(window).height();
     $('#root_project').css({'height':(w_height)});
@@ -139,12 +139,12 @@
         $('#spinner').show();
         $('#root_project').hide();
         var data={
-            'project_category' :$('#cate_id').val(),
-            'project_title'    :input_query.val(),
-            'project_status'   :input_trangthai.val(),
-            'project_type'     :input_loaihinh.val(),
-            'number_bedroom'   :input_phongngu.val(),
-            'project_extension':input_tienich.val()
+            'project_category'   :$('#cate_id').val(),
+            'project_title'      :input_query.val(),
+            'project_status'     :input_trangthai.val(),
+            'project_type'       :input_loaihinh.val(),
+            'number_bedroom'     :input_phongngu.val(),
+            'project_district_id':input_khuvuc.val()
         };
         console.log(data);
         $.ajax({
@@ -190,8 +190,8 @@
             input_phongngu.val($(this).val());
         }
     });
-    $('.rdo_tienich').change(function (e) { 
-        var arr = $('.rdo_tienich');
+    $('.rdo_khuvuc').change(function (e) { 
+        var arr = $('.rdo_khuvuc');
         var ck_arr ='';
         $.each(arr, function (index,item) { 
             if (item.checked){
@@ -199,15 +199,15 @@
             }
         });
         ck_arr=ck_arr.trim(',');
-        input_tienich.val(ck_arr);
+        input_khuvuc.val(ck_arr);
     });
     $('.btn_apply').click(function (e) { 
         searchProject();  
     });
 
-    $('.cancel_tienich').click(function (e) { 
-        $('.rdo_tienich').removeAttr('checked');  
-        input_tienich.val('');
+    $('.cancel_khuvuc').click(function (e) { 
+        $('.rdo_khuvuc').removeAttr('checked');  
+        input_khuvuc.val('');
     });
     $('.cancel_trangthai').click(function (e) { 
         $('.rdo_trangthai').removeAttr('checked');  

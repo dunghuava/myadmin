@@ -258,7 +258,7 @@ class Web extends MY_Controller {
         $project_status=$post['project_status'];
         $project_type=$post['project_type'];
         $number_bedroom=$post['number_bedroom'];
-        $project_extension=trim($post['project_extension'],',');
+        $project_district_id=$post['project_district_id'];
 
         $info_category = $this->Category_M->find_row(['cate_id'=>$project_category]);
 
@@ -283,7 +283,7 @@ class Web extends MY_Controller {
             'project_status'=>$project_status,
             'project_type'=>$project_type,
             'number_bedroom'=>$number_bedroom,
-            'project_extension'=>$project_extension
+            'project_district_id'=>$project_district_id
         );
         $arr_project= $this->Project_M->searchApi($search);
         $data['last_query']=$this->db->last_query();
