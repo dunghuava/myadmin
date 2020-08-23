@@ -237,11 +237,18 @@ class Web extends MY_Controller {
 
         $input_search = $this->input->get('input_search');
         $project_kind = $this->input->get('type');
-        // print_r($project_kind);die();
+
+        $district = $this->input->get('district');
+
+        /*SEO*/
+        $seo = array(
+            'title' => 'Danh sách tìm kiếm', 
+        );
 
         $data['input_search'] = $input_search;
         $data['project_kind'] = $project_kind;
-        $this->page_header();
+        $data['district'] = $district;
+        $this->page_header($seo);
         $this->view('web/duan-list',$data);  
     }
     public function page_project_list($cate=null){

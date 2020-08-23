@@ -59,7 +59,7 @@ function setMarkers(map) {
     console.log(i);
     // const beach = beaches[i];
     new google.maps.Marker({
-      position: { lat: parseFloat(beaches[i]['lat']), lng: parseFloat(beaches[i]['lng']) },
+      position: { lat: Number(beaches[i]['lat']), lng: Number(beaches[i]['lng']) },
       map: map,
       icon: false,
 

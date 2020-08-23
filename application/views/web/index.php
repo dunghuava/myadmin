@@ -6,8 +6,8 @@
             <div class="containers">
                 <div class="form-inline">
                     <button class="btn_choose_type 0 clicked" onclick="typeCheck(0)" type="button">Dự án</button>
-                    <button class="btn_choose_type 1" onclick="typeCheck(1)" type="button">Cho thuê</button>
-                    <button class="btn_choose_type 2" onclick="typeCheck(2)" type="button">Mua bán</button>
+                    <button class="btn_choose_type 1" onclick="typeCheck(1)" type="button">Mua bán</button>
+                    <button class="btn_choose_type 2" onclick="typeCheck(2)" type="button">Cho thuê</button>
                 </div>
                 <div class="form-inline relative" style="display: flex;">
                     <input type="search" class="form-control font18" name="input_search" id="input_search" placeholder="Nhập địa điểm hoặc từ khóa (Ví dụ : Đảo kim cương)">
@@ -64,7 +64,7 @@
                 ?>
                     <div class="col-md-3">
                         <div class="item-khuvuc">
-                            <a href="">
+                            <a href="<?=base_url('tim-kiem?type=0&district='.$duan_re['region_id_district'].'')?>">
                                 <img src="<?=base_url('upload/images/'.$duan_re['region_img'].'')?>" alt="">
                                <div class="content">
                                     <p class="title"><?php echo $info_district_region['district_name'] ?></p>
@@ -104,7 +104,7 @@
                 ?>
                     <div class="col-md-3">
                         <div class="item-khuvuc">
-                            <a href="">
+                            <a href="<?=base_url('tim-kiem?type=1&district='.$mua_re['region_id_district'].'')?>">
                                 <img src="<?=base_url('upload/images/'.$mua_re['region_img'].'')?>" alt="">
                                <div class="content">
                                     <p class="title"><?php echo $info_district_region['district_name'] ?></p>
@@ -143,7 +143,7 @@
                 ?>
                     <div class="col-md-3">
                         <div class="item-khuvuc">
-                            <a href="">
+                            <a href="<?=base_url('tim-kiem?type=2&district='.$thue_re['region_id_district'].'')?>">
                                 <img src="<?=base_url('upload/images/'.$thue_re['region_img'].'')?>" alt="">
                                <div class="content">
                                     <p class="title"><?php echo $info_district_region['district_name'] ?></p>

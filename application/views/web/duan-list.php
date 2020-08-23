@@ -31,10 +31,10 @@
 </style>
 <?php 
     $loaihinh  = $this->Type_M->all();
-    $khuvuc = $this->Type_M->o_fetch("select a.project_district_id,b.district_name from db_project a inner join db_district b on a.project_district_id = b.district_id group by a.project_district_id");
+    $khuvuc = $this->District_M->all(['province_id' => '1']);
 ?>
 <section id="fullwidth" class="page-duan-list container">
-    <div class="row font16_all">
+    <div class="row font18_all">
         <div class="col-md-7">
             <input type="hidden" id="cate_id" value="<?=$cate_id?>">
             <input type="hidden" id="trang_thai">
@@ -98,9 +98,9 @@
                 </li>
                 <li class="root_modal">
                     Khu vực
-                    <ul class="m4 list-modal">
+                    <ul class="m2 list-modal" style="width:340px">
                         <?php foreach ($khuvuc as $k => $item){ ?>
-                            <li style="width:150px"><input type="radio" name="khu_vuc" class="rdo_khuvuc" value="<?=$item['project_district_id']?>">&nbsp;<?=$item['district_name']?></li>
+                            <li style="width:125px"><input type="radio" name="khu_vuc" class="rdo_khuvuc" value="<?=$item['district_id']?>" <?php if (isset($district) && $district ==$item['district_id']) echo "checked"; ?>>&nbsp;<?=$item['district_name']?></li>
                         <?php } ?>
                         <li style="width:100%">
                             <hr>
@@ -110,8 +110,8 @@
                     </ul>
                 </li>
                 <li>
-                    <input type="search" placeholder="Tìm kiếm dự án..." id="tim_kiem" value="<?php if(!empty($input_search))echo $input_search ?>" />
-                    <button class="search-item" type="button"><span class="fa fa-search"></span></button>
+                    <input type="search" placeholder="Tìm kiếm dự án..." id="tim_kiem" value="<?php if(!empty($input_search))echo $input_search ?>" style="width: 205px;border-radius: 20px;" />
+                    <!-- <button class="search-item" type="button"><span class="fa fa-search"></span></button> -->
                 </li>
             </ul>
             <div class="text-left">
@@ -133,7 +133,7 @@
     var input_trangthai = $('#trang_thai');
     var input_loaihinh  = $('#loai_hinh');
     var input_phongngu  = $('#phong_ngu');
-    var input_khuvuc    = $('#khu_vuc');
+    var input_khuvuc    = $('input[name="khu_vuc"]:checked');
     var input_query     = $('#tim_kiem');
     var input_kind      = $('input[name="kind"]:checked');
     var w_height = $(window).height();
@@ -217,15 +217,10 @@
         }
     });
     $('.rdo_khuvuc').change(function (e) { 
-        var arr = $('.rdo_khuvuc');
-        var ck_arr ='';
-        $.each(arr, function (index,item) { 
-            if (item.checked){
-                ck_arr+=item.value+',';
-            }
-        });
-        ck_arr=ck_arr.trim(',');
-        input_khuvuc.val(ck_arr);
+        if ($(this).is(':checked')){
+            input_khuvuc    = $('input[name="khu_vuc"]:checked');
+        }
+        
     });
     $('.btn_apply').click(function (e) { 
         searchProject();  
