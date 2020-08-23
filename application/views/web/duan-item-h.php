@@ -30,7 +30,7 @@
                             ?>
                                 <li title="Phòng ngủ"><span class="icon-bedroom" style="padding-right: 5px"></span> <?=$item['number_bedroom']?></li>
                             <?php } ?>
-                            <li><span style="margin-top:2px" class="fa fa-phone"></span>&nbsp;Liên hệ</li>
+                            <li style="background: #f3f4f7;border: 1px solid #f3f4f7;"><button href="#" data-modal="#form_contact_modal" data-id ="<?=$item['project_title']?>" class="btn_modal_contact btn btn-block btn-default" style="background: #88ad6a;border: 1px solid #88ad6a;color: white;"><span style="margin-top:2px" class="fa fa-phone"></span>&nbsp;Liên hệ</button></li>
                         </ul>
                     </div>
                 </div>
