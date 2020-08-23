@@ -204,9 +204,13 @@ class Web extends MY_Controller {
     public function page_project_detail($alias=null){
         $duan_id = getID($alias);
         $data['duan']=$this->Project_M->find_row(['project_id'=>$duan_id]);
-        $id_loai = $data['duan']['project_category'];
-        $data['duan_lancan']= $this->Project_M->getDuAnLanCan($duan_id,$id_loai);
+        // $id_loai = $data['duan']['project_category'];
+        // $data['duan_lancan']= $this->Project_M->getDuAnLanCan($duan_id,$id_loai);
         $data['tienich'] = $this->Project_M->getTienich($data['duan']['project_extension']);
+
+        $data['duan_lancan']= $this->Project_M->getDuanLanCan($duan_id,$data['duan']['project_district_id'],0);
+
+        $data['thue_ban_lancan']= $this->Project_M->getThueMuaLanCan($duan_id,$data['duan']['project_district_id'],0);
 
         /*SEO*/
         if (!empty($data['duan']['project_description'])) {

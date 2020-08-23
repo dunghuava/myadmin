@@ -287,13 +287,20 @@
             <h3 id="p_orther">Dự án lân cận</h3>
             <div class="row">
                 <div class="slick">
-                    <?php $col=4; include ('duan-item.php') ?>
+                    
+                    <?php 
+                        $arr_project = $duan_lancan;
+                        $col=4; include ('duan-item.php') 
+                    ?>
                 </div>
             </div>
-            <h3 id="p_forent">Bán & Cho thuê</h3>
+            <h3 id="p_forent">Bán & Cho thuê lân cận</h3>
             <div class="row">
                 <div class="slick">
-                    <?php $col=4; include ('duan-item.php') ?>
+                    <?php 
+                        $arr_project = $thue_ban_lancan;
+                        $col=4; include ('duan-item.php') 
+                    ?>
                 </div>
             </div>
         </div>

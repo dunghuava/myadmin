@@ -51,10 +51,23 @@ class Project_M extends MY_model {
 		$sql = "select * from db_extension where extension_id in ($id_tienich) ";
 		return $this->db->query($sql)->result_array();
 	}
-	public function getDuAnLanCan($duan_id,$id_loai){
-		$this->db->where('project_id !=',$duan_id);
-		$this->db->where('project_category',$id_loai);
-		$this->db->limit(4);
+	public function getThueMuaLanCan($project_id,$district_id,$type){
+		$this->db->where('project_id !=',$project_id);
+		$this->db->where('project_kind !=',$type);
+		$this->db->where('project_district_id',$district_id);
+		$this->db->order_by("project_highlights", "desc");
+		$this->db->order_by("project_id", "desc");
+		$this->db->limit(6);
+		return $this->db->get($this->table)->result_array();
+	}
+
+	public function getDuanLanCan($project_id,$district_id,$type){
+		$this->db->where('project_id !=',$project_id);
+		$this->db->where('project_kind',$type);
+		$this->db->where('project_district_id',$district_id);
+		$this->db->order_by("project_highlights", "desc");
+		$this->db->order_by("project_id", "desc");
+		$this->db->limit(6);
 		return $this->db->get($this->table)->result_array();
 	}
 }
