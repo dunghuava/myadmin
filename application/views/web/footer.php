@@ -109,7 +109,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <script type="text/javascript">
     $(function() {
-    $('button[data-modal]').on('click', function() {
+    $('#btn_modal').on('click', function() {
       
       $('#form_pass').css("display","block");
       $($(this).data('modal')).modal({
@@ -118,6 +118,19 @@
       return false;
     });
   });
+
+    // $(function() {
+    // $('.container').on('click', '.btn_modal_contact', function() {
+
+    //     console.log('aaaaa');
+      
+    //   $('#form_contact_modal').css("display","block");
+    //   $($(this).data('modal')).modal({
+    //     fadeDuration: 250
+    //   });
+    //   return false;
+    // });
+  // });
 </script>
 </body>
 </html>

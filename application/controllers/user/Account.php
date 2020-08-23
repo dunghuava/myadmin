@@ -117,7 +117,7 @@ class Account extends MY_Controller {
             'title' => 'Thông tin tài khoản', 
         );  
         $this->page_header($seo);
-        $this->view('user/pages/account/user-info');
+        $this->view('user/pages/account/user-info',$data);
         $this->page_footer();
 
     }
