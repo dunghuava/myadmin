@@ -1,23 +1,35 @@
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqAHaMV9ZVcSX992nMQOgZ_Vy80GUZ_8I&callback=initMap&libraries=drawing,places"></script>
+
 <script>
 // The following example creates complex markers to indicate beaches near
 // Sydney, NSW, Australia. Note that the anchor is set to (0,32) to correspond
 // to the base of the flagpole.
+var beaches   = <?php echo json_encode($project_locate) ?>;
+
+// console.log(beaches.length);
 function initMap() {
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 10,
-    center: { lat: -33.9, lng: 151.2 }
+    center: { lat: 10.762622, lng: 106.660172 }
   });
   setMarkers(map);
 }
 // Data for the markers consisting of a name, a LatLng and a zIndex for the
 // order in which these markers should display on top of each other.
-const beaches = [
-  ["Bondi Beach", -33.890542, 151.274856, 4],
-  ["Coogee Beach", -33.923036, 151.259052, 5],
-  ["Cronulla Beach", -34.028249, 151.157507, 3],
-  ["Manly Beach", -33.80010128657071, 151.28747820854187, 2],
-  ["Maroubra Beach", -33.950198, 151.259302, 1]
-];
+
+// const beaches = []
+
+// for (let i = 0; i < beaches.length; i++) {
+
+// console.log(beaches[i]['title']);
+// }
+
+// $.each(list_locate, function (i, elem) {
+//   beaches[] = [
+//     [elem['title'], elem['lat'], elem['lng'], i+1],
+//   ];
+// });
+
 
 function setMarkers(map) {
   // Adds markers to the map.
@@ -43,16 +55,17 @@ function setMarkers(map) {
     type: "poly"
   };
 
-  for (let i = 0; i < beaches.length; i++) {
-    const beach = beaches[i];
+  for (var i = 0; i < beaches.length; i++) {
+    console.log(i);
+    // const beach = beaches[i];
     new google.maps.Marker({
-      position: { lat: beach[1], lng: beach[2] },
-      map,
-      icon: image,
+      position: { lat: parseFloat(beaches[i]['lat']), lng: parseFloat(beaches[i]['lng']) },
+      map: map,
+      icon: false,
 
       shape: shape,
-      title: beach[0],
-      zIndex: beach[3]
+      title: beaches[i]['title'],
+      zIndex: i+1
     });
   }
 }

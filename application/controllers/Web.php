@@ -234,8 +234,15 @@ class Web extends MY_Controller {
         $this->page_footer();
     }
     public function page_search(){
+
+        $input_search = $this->input->get('input_search');
+        $project_kind = $this->input->get('type');
+        // print_r($project_kind);die();
+
+        $data['input_search'] = $input_search;
+        $data['project_kind'] = $project_kind;
         $this->page_header();
-        $this->view('web/duan-list');  
+        $this->view('web/duan-list',$data);  
     }
     public function page_project_list($cate=null){
         $data['cate_id']=$cate['cate_id'];
@@ -306,6 +313,8 @@ class Web extends MY_Controller {
         $data['arr_project']=$arr_project;
         $data['project_locate']=$project_locate;
         $data['data_html']= $this->load->view('web/duan-item-h', $data,true);
+
+        $data['maps']= $this->load->view('web/map-multile-marker', $data,true);
         echo json_encode($data);
     }
     public function page_chudautu_detail($alias=null){

@@ -7,14 +7,14 @@
 ?>
     <div class="duan-item-h">
             <div class="row" style="width:100%">
-                <div class="left col-md-3 pdr0">
+                <div class="left col-md-5 pdr0">
                     <div class="cover-img">
                         <a style="text-decoration:none" title="<?=$item['project_title']?>" href="<?=base_url('chi-tiet-du-an/'.$item['project_alias'].'-'.$item['project_id'])?>">
-                            <img src="<?=resizeImg($item['project_img'],450,350,0)?>" alt="<?=$item['project_title']?>">
+                            <img src="<?=resizeImg($item['project_img'],270,180,0)?>" alt="<?=$item['project_title']?>" style="width: 270px;height: 180px;">
                         </a>
                     </div>
                 </div>
-                <div class="right col-md-9">
+                <div class="right col-md-7">
                     <div class="info">
                         <h3 class="title text-overflow">
                             <a style="text-decoration:none" title="<?=$item['project_title']?>" href="<?=base_url('chi-tiet-du-an/'.$item['project_alias'].'-'.$item['project_id'])?>">

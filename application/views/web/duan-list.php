@@ -57,9 +57,9 @@
                 </li>
                 <li class="root_modal">Loại dự án
                     <ul class="m1 list-modal">
-                        <li style="width:120px"><input type="radio" name="kind" class="rdo_kind" value="0" id="">&nbsp;Dự án</li>
-                        <li style="width:120px"><input type="radio" name="kind" class="rdo_kind" value="1" id="">&nbsp;Mua</li>
-                        <li style="width:120px"><input type="radio" name="kind" class="rdo_kind" value="2" id="">&nbsp;Cho Thuê</li>
+                        <li style="width:120px"><input type="radio" name="kind" class="rdo_kind" value="0" id="" <?php if (isset($project_kind) && $project_kind ==0) echo "checked"; ?>>&nbsp;Dự án</li>
+                        <li style="width:120px"><input type="radio" name="kind" class="rdo_kind" value="1" id="" <?php if (isset($project_kind) && $project_kind ==1) echo "checked"; ?>>&nbsp;Mua</li>
+                        <li style="width:120px"><input type="radio" name="kind" class="rdo_kind" value="2" id="" <?php if (isset($project_kind) && $project_kind ==2) echo "checked"; ?>>&nbsp;Cho Thuê</li>
                         <li>
                             <hr>
                             <button class="cancel_kind btn btn-danger">Xóa chọn</button>
@@ -110,7 +110,7 @@
                     </ul>
                 </li>
                 <li>
-                    <input type="search" placeholder="Tìm kiếm dự án..." id="tim_kiem"/>
+                    <input type="search" placeholder="Tìm kiếm dự án..." id="tim_kiem" value="<?php if(!empty($input_search))echo $input_search ?>" />
                     <button class="search-item" type="button"><span class="fa fa-search"></span></button>
                 </li>
             </ul>
@@ -125,24 +125,22 @@
             </div>
         </div>
         <div class="col-md-5">
-            <div id="map"><?php include ('map-multile-marker.php') ?></div>
+            <div id="map"></div>
         </div>
     </div>
 </section>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqAHaMV9ZVcSX992nMQOgZ_Vy80GUZ_8I&callback=initMap&libraries=drawing,places"></script>
 <script>
     var input_trangthai = $('#trang_thai');
     var input_loaihinh  = $('#loai_hinh');
     var input_phongngu  = $('#phong_ngu');
     var input_khuvuc    = $('#khu_vuc');
-    var input_kind      = $('#kind');
     var input_query     = $('#tim_kiem');
+    var input_kind      = $('input[name="kind"]:checked');
     var w_height = $(window).height();
-    $('#root_project').css({'height':(w_height)});
+    $('#root_project').css({'height':(w_height-140)});
     $('#map').css({'height':(w_height-100)});
 
-    $('#tim_kiem').change(function (e) { 
+    $('#tim_kiem').on('keyup', function(e) {
         e.preventDefault();
         searchProject();
     });
@@ -176,6 +174,8 @@
                     $('#spinner').hide();
                     $('#root_project').html(response.data_html);
                     $('#root_project').fadeIn();
+                    $('#map').html(response.maps);
+                    $('#map').fadeIn();
 
                 }, 500);
             }
@@ -199,7 +199,10 @@
     });
     $('.rdo_kind').change(function (e) { 
         if ($(this).is(':checked')){
-            input_kind.val($(this).val()); 
+            $('#cate_id').val('');
+            input_kind = $('input[name="kind"]:checked');
+
+            // console.log(input_kind);
         }
     });
     $('.rdo_loaihinh').change(function (e) { 

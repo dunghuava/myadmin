@@ -2,6 +2,7 @@
     <?php include ('slider.php') ?>
     <div id="form-absolute" class="absolute hidden-xs">
         <form class="form-group" action="<?=base_url('tim-kiem')?>" method="get">
+            <input type="hidden" id="type" name="type" value="0">
             <div class="containers">
                 <div class="form-inline">
                     <button class="btn_choose_type 0 clicked" onclick="typeCheck(0)" type="button">Dự án</button>
@@ -9,7 +10,7 @@
                     <button class="btn_choose_type 2" onclick="typeCheck(2)" type="button">Mua bán</button>
                 </div>
                 <div class="form-inline relative" style="display: flex;">
-                    <input type="search" class="form-control font18" name="" id="input_search" placeholder="Nhập địa điểm hoặc từ khóa (Ví dụ : Đảo kim cương)">
+                    <input type="search" class="form-control font18" name="input_search" id="input_search" placeholder="Nhập địa điểm hoặc từ khóa (Ví dụ : Đảo kim cương)">
                     <button class="btn_search" type="submit"><span class="fa fa-search"></span></button>
                     <section id="livesearch" class="absolute">
                     </section>
@@ -335,5 +336,7 @@
     function typeCheck(type){
         $('.btn_choose_type').removeClass('clicked');
         $('.'+type).addClass('clicked');
+
+        $('#type').val(type);
     }
 </script>
