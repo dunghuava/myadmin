@@ -1,3 +1,9 @@
+
+<style type="text/css">
+  th{
+    white-space: nowrap;
+  }
+</style>
 <div class="container-fluid">
      <div class="row">
            <div class="col-md-12">
@@ -18,6 +24,7 @@
                         <th>Cập nhật</th>
                         <th>Nổi bậc</th>
                         <th>Hiển thị</th>
+                        <th>Người đăng</th>
                         <th style="width: 11%">Thao tác</th>
                     </tr>
                 </thead>
@@ -38,7 +45,18 @@
                              <td><?=$item['updated_at']?></td>
                              <td><input onchange="setCkb(this,'post_highlights',<?=$item['post_id']?>)" type="checkbox" <?=$item['post_highlights']==1 ? 'checked':''?>></td>
                              <td><input onchange="setCkb(this,'post_active',<?=$item['post_id']?>)" type="checkbox" <?=$item['post_active']==1 ? 'checked':''?> ></td>
-                             <td>
+                              <td>
+                                <?php  
+                                  if ($item['post_user_id'] == 0) {
+                                      echo "Admin";
+                                  }else{
+                                      $info_user = $this->Account_M->find_row(['user_id'=>$item['post_user_id']]);
+                                      echo $info_user['user_fullname'];
+                                  }
+                                ?>
+                             </td>
+                             <td style="white-space: nowrap;">
+
                                 <a href="<?=base_url().'admin/post/edit/'.$item['post_id']?>">
                                     <button type="button" class="btn btn-default">
                                         <span class="fa fa-eye"></span>
@@ -49,6 +67,12 @@
                                  <button onclick="onDelete(<?=$item['post_id']?>)" type="button" class="btn btn-default">
                                      <span class="fa fa-trash"></span>
                                  </button>
+
+                                 <a href="<?=base_url('bai-viet/'.$item['post_alias'].'-'.$item['post_id'])?>">
+                                    <button type="button" class="btn btn-default">
+                                        <i class="fa fa-link" aria-hidden="true"></i>
+                                    </button>
+                                </a>
                              </td>
                         </tr>
                     <?php } ?>

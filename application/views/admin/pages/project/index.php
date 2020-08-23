@@ -1,3 +1,7 @@
+<style type="text/css">
+    th{white-space: nowrap;}
+</style>
+
 <div class="container-fluid">
      <div class="row">
            <div class="col-md-12">
@@ -17,6 +21,7 @@
                         <th>Hình ảnh</th>
                         <th>Nổi bậc</th>
                         <th>Hiển thị</th>
+                        <th>Người đăng</th>
                         <th style="width: 11%">Thao tác</th>
                     </tr>
                 </thead>
@@ -38,6 +43,17 @@
                              <td><img src="<?=resizeImg($item['project_img'],80,50,0)?>" style="max-height: 90px;"></td>
                              <td><input onchange="setCkb(this,'project_highlights',<?=$item['project_id']?>)" type="checkbox" <?=$item['project_highlights']==1 ? 'checked':''?>></td>
                              <td><input onchange="setCkb(this,'project_active',<?=$item['project_id']?>)" type="checkbox" <?=$item['project_active']==1 ? 'checked':''?> ></td>
+
+                             <td>
+                                <?php  
+                                if ($item['project_user_id'] == 0) {
+                                    echo "Admin";
+                                }else{
+                                    $info_user = $this->Account_M->find_row(['user_id'=>$item['project_user_id']]);
+                                    echo $info_user['user_fullname'];
+                                }
+                                ?>
+                             </td>
                              <td>
                                 <a href="<?=base_url().'admin/project/edit/'.$item['project_id']?>">
                                     <button type="button" class="btn btn-default">
@@ -49,6 +65,7 @@
                                  <button onclick="onDelete(<?=$item['project_id']?>)" type="button" class="btn btn-default">
                                      <span class="fa fa-trash"></span>
                                  </button>
+
                              </td>
                         </tr>
                     <?php } ?>
