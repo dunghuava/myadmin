@@ -191,3 +191,13 @@ $('#input_search').keyup(function (e) {
     $('#livesearch').hide();
   }
 });
+
+$('#openmenu_bar').click(function (e) { 
+    e.preventDefault();
+    $('.nav-menu').toggleClass('opened');
+    if ($('.nav-menu').hasClass('opened')){
+      $('html,body').css({'overflow':'hidden'});
+    }else{
+      $('html,body').css({'overflow':'auto'});
+    }
+});

@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div class="col-xs-4 hidden-md hidden-lg text-right">
-                <a href="#">
+                <a id="openmenu_bar" href="javascript:void(0)">
                     <span class="btnBar fa fa-bars"></span>
                 </a>
             </div>

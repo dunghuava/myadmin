@@ -3,8 +3,9 @@
     padding:0px;
     font-family: 'Roboto Condensed', sans-serif;
 }
-html {
+html,body {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 a{
@@ -160,7 +161,7 @@ $primary_color:#88AD6A;
         color: $primary_color;
         border:1px solid $primary_color;
         margin-top: 5px;
-        border-radius: 2px;
+        border-radius: 5px;
     }
 }
 @keyframes fade-down{
