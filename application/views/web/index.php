@@ -48,7 +48,7 @@
                 </div>
             <?php } ?>
             <div class="col-md-12">
-                <div><a href="">Xem thêm dự án <span class="fa fa-angle-right"></span></a></div>
+                <br><a href="">Xem thêm dự án <span class="fa fa-angle-right"></span></a>
             </div>
         </div>
     </div>
@@ -88,7 +88,7 @@
                 $col = 4; include ('duan-item.php');
              ?>
             <div class="col-md-12">
-               <div> <a href="">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a></div>
+               <br><a href="">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a>
             </div>
         </div>
     </div>
@@ -127,7 +127,7 @@
                 $col = 4; include ('duan-item.php');
              ?>
             <div class="col-md-12">
-                <div><a href="">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a></div>
+                <a href="">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a>
             </div>
         </div>
     </div>
@@ -173,7 +173,7 @@
                 </div>
             <?php } ?>
             <div class="col-md-12">
-                <div><br><a href="<?=base_url('chu-dau-tu')?>">Xem thêm chủ đầu tư <span class="fa fa-angle-right"></span></a></div>
+                <br><a href="<?=base_url('chu-dau-tu')?>">Xem thêm chủ đầu tư <span class="fa fa-angle-right"></span></a>
             </div>
         </div>
     </div>
