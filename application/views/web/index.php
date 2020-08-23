@@ -47,9 +47,7 @@
                     </div>
                 </div>
             <?php } ?>
-            <div class="col-md-12">
-                <br><a href="">Xem thêm dự án <span class="fa fa-angle-right"></span></a>
-            </div>
+            <br><a href="">Xem thêm dự án <span class="fa fa-angle-right"></span></a>
         </div>
     </div>
 </section>
@@ -82,14 +80,11 @@
     <div class="container">
         <h3 class="main-title">Nhà bán nổi bậc</h3>
         <div class="row">
-
             <?php
                 $arr_project = $list_mua;
                 $col = 4; include ('duan-item.php');
              ?>
-            <div class="col-md-12">
-               <br><a href="">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a>
-            </div>
+            <br><a href="">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a>
         </div>
     </div>
 </section>
@@ -126,9 +121,7 @@
                 $arr_project = $list_thue;
                 $col = 4; include ('duan-item.php');
              ?>
-            <div class="col-md-12">
-                <a href="">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a>
-            </div>
+            <a href="">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a>
         </div>
     </div>
 </section>
@@ -172,9 +165,7 @@
                     </div>
                 </div>
             <?php } ?>
-            <div class="col-md-12">
-                <br><a href="<?=base_url('chu-dau-tu')?>">Xem thêm chủ đầu tư <span class="fa fa-angle-right"></span></a>
-            </div>
+            <br><a href="<?=base_url('chu-dau-tu')?>">Xem thêm chủ đầu tư <span class="fa fa-angle-right"></span></a>
         </div>
     </div>
 </section>
@@ -324,9 +315,7 @@
                     </a>
                 </div>
             <?php } ?>
-            <div class="col-md-12">
-                <a href="<?=base_url('khu-dan-cu')?>">Xem thêm khu dân cư <span class="fa fa-angle-right"></span></a>
-            </div>
+            <br><a href="<?=base_url('khu-dan-cu')?>">Xem thêm khu dân cư <span class="fa fa-angle-right"></span></a>
         </div>
     </div>
 </section>
