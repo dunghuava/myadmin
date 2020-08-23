@@ -47,7 +47,7 @@
                     </div>
                 </div>
             <?php } ?>
-            <br><a href="">Xem thêm dự án <span class="fa fa-angle-right"></span></a>
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Xem thêm dự án <span class="fa fa-angle-right"></span></a>
         </div>
     </div>
 </section>
@@ -84,7 +84,7 @@
                 $arr_project = $list_mua;
                 $col = 4; include ('duan-item.php');
              ?>
-            <br><a href="">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a>
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a>
         </div>
     </div>
 </section>
@@ -121,7 +121,7 @@
                 $arr_project = $list_thue;
                 $col = 4; include ('duan-item.php');
              ?>
-            <a href="">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a>
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a>
         </div>
     </div>
 </section>
@@ -165,7 +165,7 @@
                     </div>
                 </div>
             <?php } ?>
-            <br><a href="<?=base_url('chu-dau-tu')?>">Xem thêm chủ đầu tư <span class="fa fa-angle-right"></span></a>
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?=base_url('chu-dau-tu')?>">Xem thêm chủ đầu tư <span class="fa fa-angle-right"></span></a>
         </div>
     </div>
 </section>
@@ -315,7 +315,7 @@
                     </a>
                 </div>
             <?php } ?>
-            <br><a href="<?=base_url('khu-dan-cu')?>">Xem thêm khu dân cư <span class="fa fa-angle-right"></span></a>
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?=base_url('khu-dan-cu')?>">Xem thêm khu dân cư <span class="fa fa-angle-right"></span></a>
         </div>
     </div>
 </section>
