@@ -48,7 +48,7 @@
                 </div>
             <?php } ?>
             <div class="col-md-12">
-                <p><a href="">Xem thêm dự án <span class="fa fa-angle-right"></span></a></p>
+                <div><a href="">Xem thêm dự án <span class="fa fa-angle-right"></span></a></div>
             </div>
         </div>
     </div>
@@ -88,7 +88,7 @@
                 $col = 4; include ('duan-item.php');
              ?>
             <div class="col-md-12">
-                <p><a href="">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a></p>
+               <div> <a href="">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a></div>
             </div>
         </div>
     </div>
@@ -127,7 +127,7 @@
                 $col = 4; include ('duan-item.php');
              ?>
             <div class="col-md-12">
-                <p><a href="">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a></p>
+                <div><a href="">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a></div>
             </div>
         </div>
     </div>
@@ -173,7 +173,7 @@
                 </div>
             <?php } ?>
             <div class="col-md-12">
-                <p><br><a href="<?=base_url('chu-dau-tu')?>">Xem thêm chủ đầu tư <span class="fa fa-angle-right"></span></a></p>
+                <div><br><a href="<?=base_url('chu-dau-tu')?>">Xem thêm chủ đầu tư <span class="fa fa-angle-right"></span></a></div>
             </div>
         </div>
     </div>
@@ -195,7 +195,7 @@
                        </div>
                     </a>
                 </div>
-                <p><br><a href="<?=base_url('danh-muc/tin-tuc')?>">Xem thêm bài viết <span class="fa fa-angle-right"></span></a></p>
+                <br><a href="<?=base_url('danh-muc/tin-tuc')?>">Xem thêm bài viết <span class="fa fa-angle-right"></span></a>
             </div>
             <div class="col-md-6">
                 <?php foreach ($list_post as $key => $post) {
@@ -325,7 +325,7 @@
                 </div>
             <?php } ?>
             <div class="col-md-12">
-                <p><a href="<?=base_url('khu-dan-cu')?>">Xem thêm khu dân cư <span class="fa fa-angle-right"></span></a></p>
+                <a href="<?=base_url('khu-dan-cu')?>">Xem thêm khu dân cư <span class="fa fa-angle-right"></span></a>
             </div>
         </div>
     </div>
