@@ -66,6 +66,8 @@
         top: 0.5px!important;
         right: 1.5px!important;
     }
+
+
 </style>
 <section class="sec-chudautu font18">
     <div class="container">
@@ -165,7 +167,9 @@
     </div>
 </section>
 
-<div id="form_contact_modal" class="boxed font18 modal col-md-4" style="display: none;background: white;margin-left: 33%">
+
+
+<section class="modal contact-bg-block font18" id="form_contact_modal">
     <div class="col-md-12 div-contact">
         <div class="div-contact-img">
             <img class="img-contact" src="<?=resizeImg('sale_manager.jpg',70,70,0)?>">
@@ -202,7 +206,8 @@
         <textarea name="contact_info" id="contact_info" rows="4" class="form-control font17" placeholder="Hỏi thông tin"></textarea>
         <button type="submit" class="btn btn-block font17" style="color: white">Gửi</button>
     </form>
-</div>
+</section>
+
 
 
 <script type="text/javascript">

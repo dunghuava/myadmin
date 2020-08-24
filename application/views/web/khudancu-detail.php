@@ -12,7 +12,10 @@ vertical-align: -0.125em;
 .overview-toolbar ul li a {
     font-size: 18px!important;
 }
-}
+.modal a.close-modal {
+        top: 0.5px!important;
+        right: 1.5px!important;
+    }
 </style>
 <section class="page-khudancu-detail font18">
     <div class="banner" style="background:url(<?=resizeImg($kdc['residential_img'],1350,400,0)?>)">
@@ -41,8 +44,8 @@ vertical-align: -0.125em;
                     </ul>
                 </div>
                 <div class="col-md-4 text-right">
-                    <a href="tel:900" class="btn"><span class="fa fa-phone"></span>&nbsp;0909990000</a>
-                    <a href="tel:900" class="btn red"><span class="fa fa-info"></span>&nbsp;Yêu cầu thông tin</a>
+                    <a href="tel:0984455285" class="btn"><span class="fa fa-phone"></span>&nbsp;0984455285</a>
+                    <a type="button" href="#" data-modal="#form_contact_modal" data-id ="<?=$kdc['residential_title']?>" class="btn_modal_contact btn red"><span class="fa fa-info"></span>&nbsp;Yêu cầu thông tin</a>
                 </div>
             </div>
         </div>
@@ -178,6 +181,48 @@ vertical-align: -0.125em;
             <p><?=$kdc['residential_content']?></p>
         </div>
     </div>
+
+    
+</section>
+
+<section class="modal contact-bg-block font18" id="form_contact_modal">
+
+    <div class="col-md-12 div-contact">
+        <div class="div-contact-img">
+            <img class="img-contact" src="<?=resizeImg('sale_manager.jpg',70,70,0)?>">
+        </div>
+        <div class="col-md-8 name-contact">
+            <p class="font18" style="font-weight: bold;">Trương Công Ánh</p>
+            <p class="font17">Sale manager</p>
+        </div>
+
+    </div>
+    <div class="col-md-12 div-contact-tel">
+        <a style="color: white;text-decoration: none;" href="tel:0984455285"><i class="fa fa-phone" aria-hidden="true"></i> 0984455285</a>
+
+    </div>
+    <div class="col-md-12">
+        <p style="text-align: center;margin-top: 15px;">Hoặc</p>
+        <hr>
+    </div>
+
+
+    <style>
+        #form-contact input.form-control{
+            height:45px;
+            font-size: 17px;
+        }
+    </style>
+    <form id="form-contact" action="" method="post">
+        <h4>Liên hệ tư vấn</h4>
+        <input type="text" name="contact_name" id="contact_name" class="form-control" placeholder="Họ và tên">
+        <input type="text" name="contact_phone" id="contact_phone" class="form-control" placeholder="Số điện thoại">
+        <input type="text" name="contact_email" id="contact_email" class="form-control" placeholder="Địa chỉ email">
+        <input type="hidden" name="contact_title" id="contact_title" class="form-control" value="">
+        <input type="text" name="contact_title_show" id="contact_title_show" class="form-control text-overflow" value="" disabled style="background: gainsboro;">
+        <textarea name="contact_info" id="contact_info" rows="4" class="form-control font17" placeholder="Hỏi thông tin"></textarea>
+        <button type="submit" class="btn btn-block font17" style="color: white">Gửi</button>
+    </form>
 </section>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqAHaMV9ZVcSX992nMQOgZ_Vy80GUZ_8I&callback=initMap&libraries=drawing,places"></script>
@@ -194,4 +239,41 @@ window.onscroll = function() {addSticky()};
             navbar.classList.remove("sticky");
         }
     }
+
+    $('.btn_modal_contact').on('click', function() {
+        var title = $(this).data('id');
+
+        $('#contact_title').val(title);
+        $('#contact_title_show').val(title);
+
+        $('#form_contact_modal').css("display","block");
+        $($(this).data('modal')).modal({
+            fadeDuration: 250
+        });
+        return false;
+    });
+
+    $('#form-contact').submit(function(event){  
+        event.preventDefault();  
+        $.ajax({  
+            url:"<?=base_url()?>web/addContact",  
+            method:"POST",  
+            data:$('#form-contact').serialize(),  
+            success: function (data) {
+                const toast = swal.mixin({
+                    toast: true,
+                    position: 'center',
+                    showConfirmButton: false,
+                    timer: 2500
+                });
+
+                toast({
+                    type: 'success',
+                    title: 'Thông tin đã được gửi',
+                });
+
+                $.modal.close();
+            }
+        });  
+    });
 </script>
