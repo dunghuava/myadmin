@@ -44,7 +44,7 @@ vertical-align: -0.125em;
                     </ul>
                 </div>
                 <div class="col-md-4 text-right">
-                    <a href="tel:0984455285" class="btn"><span class="fa fa-phone"></span>&nbsp;0984455285</a>
+                    <a href="tel:<?=$info[0]['phone']?>" class="btn"><span class="fa fa-phone"></span>&nbsp;<?=$info[0]['phone']?></a>
                     <a type="button" href="#" data-modal="#form_contact_modal" data-id ="<?=$kdc['residential_title']?>" class="btn_modal_contact btn red"><span class="fa fa-info"></span>&nbsp;Yêu cầu thông tin</a>
                 </div>
             </div>
@@ -198,7 +198,7 @@ vertical-align: -0.125em;
 
     </div>
     <div class="col-md-12 div-contact-tel">
-        <a style="color: white;text-decoration: none;" href="tel:0984455285"><i class="fa fa-phone" aria-hidden="true"></i> 0984455285</a>
+        <a style="color: white;text-decoration: none;" href="tel:<?=$info[0]['phone']?>"><i class="fa fa-phone" aria-hidden="true"></i> <?=$info[0]['phone']?></a>
 
     </div>
     <div class="col-md-12">

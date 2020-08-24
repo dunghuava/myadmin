@@ -152,6 +152,8 @@ class Web extends MY_Controller {
             'image' => $data['kdc']['residential_img'], 
         );
 
+        $data['info'] = $this->Info_M->all();
+
         $this->page_header($seo);
         $this->view('web/khudancu-detail',$data);
         $this->page_footer();
@@ -226,7 +228,7 @@ class Web extends MY_Controller {
             'image' => $data['duan']['project_img'], 
         );
 
-
+        $data['info'] = $this->Info_M->all();
         $this->page_header($seo);
         if ($data['duan']['project_kind']==0){
             // dự án
@@ -269,6 +271,7 @@ class Web extends MY_Controller {
             'image' => $info_cate['cate_img'], 
         );
 
+        $data['info'] = $this->Info_M->all();
         $this->page_header($seo);
         $this->view('web/duan-list',$data);
         //$this->page_footer();
@@ -349,6 +352,7 @@ class Web extends MY_Controller {
             'image' => $data['cdt']['investor_img'], 
         );
 
+        $data['info'] = $this->Info_M->all();
         $this->page_header($seo);
         $this->view('web/chudautu-detail',$data);
         $this->page_footer();

@@ -1,6 +1,13 @@
 <br><br>
 <?php include ('botchat.php') ?>
 
+<style type="text/css">
+    @media screen and (max-width: 990px) {
+        .chinh_sach{
+            text-align: left;
+        }
+    }
+</style>
 <footer class="app-footer font18">
     <div class="container">
         <div class="row">
@@ -8,7 +15,7 @@
                 <div class="flex">
                     <span class="fa fa-phone"></span>
                     <span>Hotline</span>
-                    <p>(+48) <?=$info[0]['phone']?></p>
+                    <p>(+84) <?=$info[0]['phone']?></p>
                 </div>
             </div>
 
@@ -16,7 +23,7 @@
                 <div class="flex">
                     <span class="fa fa-phone"></span>
                     <span>Khiếu nại, phản hồi</span>
-                    <p>(+48) <?=$info[0]['phone']?></p>
+                    <p>(+84) <?=$info[0]['phone']?></p>
                 </div>
             </div>
 
@@ -47,7 +54,7 @@
             <div class="col-md-3">
                 <div style="font-weight: bold;font-size: 30px"><?=$info[0]['company']?></div>
                 
-                <div style="font-weight: bold;font-size: 25px;" class="col-md-12">
+                <div style="font-weight: bold;font-size: 25px;margin-left: -14px" class="col-md-12">
                     <a href="<?=$info[0]['facebook']?>" style="color: white;"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
                     <a href="<?=$info[0]['youtube']?>" style="color: white;"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
                     <a href="<?=$info[0]['twitter']?>" style="color: white;"><i class="fa fa-twitter" aria-hidden="true"></i></a>
@@ -96,7 +103,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="text-right">
+                <div class="text-right chinh_sach">
                     <span>Chính sách bảo mật, Điều khoản sử dụng, Phản hồi</span>
                 </div>
             </div>

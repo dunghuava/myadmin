@@ -10,7 +10,7 @@
 
     </div>
     <div class="col-md-12 div-contact-tel">
-        <a style="color: white;text-decoration: none;" href="tel:0984455285"><i class="fa fa-phone" aria-hidden="true"></i> 0984455285</a>
+        <a style="color: white;text-decoration: none;" href="tel:<?=$info[0]['phone']?>"><i class="fa fa-phone" aria-hidden="true"></i> <?=$info[0]['phone']?></a>
 
     </div>
     <div class="col-md-12">
