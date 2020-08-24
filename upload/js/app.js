@@ -202,3 +202,21 @@ $('#openmenu_bar').click(function (e) {
       $('html,body').css({'overflow':'auto'});
     }
 });
+
+$(window).resize(function(){
+    var max_width = $(window).width();
+    if (max_width<680){
+        $('.dropdown').click(function (e) { 
+          $(this).find('.dropdown-list').slideToggle();
+        });
+    }
+});
+$(document).ready(function () {
+  var max_width = $(window).width();
+  if (max_width<680){
+      $('.dropdown').click(function (e) { 
+        $(this).find('.dropdown-list').slideToggle();
+      });
+  }
+});
+

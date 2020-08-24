@@ -27,6 +27,31 @@ $primary_color:#88AD6A;
 }
   
 @media screen and (max-width: 800px) {
+    .duan-item-h{
+        .left{
+            img{
+                width: 105% !important;
+            }
+        }
+    }
+    .list_option{
+        li{
+            &::after{
+                position: absolute;
+                right: 12px;
+            }
+            padding-left: 0px;
+            padding-right: 0px;
+            width: 100%;
+            input{
+                width: 100% !important;
+            }
+        }
+        .root_modal{
+            width: 100%;
+            padding-left: 0px;
+        }
+    }
     .p0mb{
         padding: 0px !important;
     }
@@ -72,10 +97,6 @@ $primary_color:#88AD6A;
                         color: #000000 !important;
                     }
                     &::after{
-                        width: 50px;
-                        height: 50px;
-                        text-align: center;
-                        background: red;
                         color: #000000;
                     }
                 }
@@ -86,6 +107,7 @@ $primary_color:#88AD6A;
                         min-width: 100%;
                         max-width: 100%;
                         box-shadow: none;
+                        display: none;
                     }
                     &::after{
                         position: absolute;
