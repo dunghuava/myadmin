@@ -24,6 +24,8 @@
     <meta property="og:description" content="<?php if(!empty($seo['description'])) echo $seo['description']?>" />
 
 
+    <link rel="icon" type="image/png" href="<?=base_url('upload/images/').$info[0]['icon_img']?>" />
+    <link rel="Shortcut Icon" type="image/png" href="<?=base_url('upload/images/').$info[0]['icon_img']?>" />
 
     <base id="base_url" href="<?=base_url()?>">
     <link rel="stylesheet" href="<?=base_url('upload/slick/slick.css')?>">
