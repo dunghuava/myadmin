@@ -194,6 +194,7 @@ $('#input_search').keyup(function (e) {
 
 $('#openmenu_bar').click(function (e) { 
     e.preventDefault();
+    $('.nav-menu').slideToggle();
     $('.nav-menu').toggleClass('opened');
     if ($('.nav-menu').hasClass('opened')){
       $('html,body').css({'overflow':'hidden'});
