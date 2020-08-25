@@ -30,8 +30,9 @@ $primary_color:#88AD6A;
     .duan-item-h{
         .left{
             img{
-                width: 105% !important;
+                width: 100% !important;
             }
+            padding: 0px !important;
         }
     }
     .list_option{
@@ -51,7 +52,7 @@ $primary_color:#88AD6A;
             width: 100%;
             padding-left: 0px;
             .list-modal{
-                height: 200px;
+                max-height: 200px;
                 overflow: auto;
             }
         }
@@ -112,7 +113,7 @@ $primary_color:#88AD6A;
                         max-width: 100%;
                         box-shadow: none;
                         display: none;
-                        padding-left: 7px;
+                        padding-left: 5px;
                     }
                     &::after{
                         position: absolute;

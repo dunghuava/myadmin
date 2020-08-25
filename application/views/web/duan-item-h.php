@@ -6,7 +6,7 @@
     $info_status = $this->Status_M->find_row(['id_status_project'=>$item['project_status']]);
 ?>
     <div class="duan-item-h">
-            <div class="row" style="width:100%">
+            <div class="row" style="width:100%;margin:auto">
                 <div class="left col-md-5 pdr0">
                     <div class="cover-img">
                         <a style="text-decoration:none" title="<?=$item['project_title']?>" href="<?=base_url('chi-tiet-du-an/'.$item['project_alias'].'-'.$item['project_id'])?>">

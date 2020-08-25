@@ -88,12 +88,12 @@
                 <li class="root_modal">
                     Phòng ngủ
                     <ul class="m3 list-modal" style="width:250px">
-                        <li style="float:left"><input type="radio" name="phong_ngu" class="rdo_phongngu" value="1">&nbsp;01 phòng</li>
-                        <li style="float:left"><input type="radio" name="phong_ngu" class="rdo_phongngu" value="2">&nbsp;02 phòng</li>
-                        <li style="float:left"><input type="radio" name="phong_ngu" class="rdo_phongngu" value="3">&nbsp;03 phòng</li>
-                        <li style="float:left"><input type="radio" name="phong_ngu" class="rdo_phongngu" value="4">&nbsp;04 phòng</li>
-                        <li style="float:left"><input type="radio" name="phong_ngu" class="rdo_phongngu" value="5">&nbsp;05 phòng</li>
-                        <li style="float:left"><input type="radio" name="phong_ngu" class="rdo_phongngu" value="6">&nbsp;06 phòng</li>
+                        <li style="float:left;width:45%"><input type="radio" name="phong_ngu" class="rdo_phongngu" value="1">&nbsp;01 phòng</li>
+                        <li style="float:left;width:45%"><input type="radio" name="phong_ngu" class="rdo_phongngu" value="2">&nbsp;02 phòng</li>
+                        <li style="float:left;width:45%"><input type="radio" name="phong_ngu" class="rdo_phongngu" value="3">&nbsp;03 phòng</li>
+                        <li style="float:left;width:45%"><input type="radio" name="phong_ngu" class="rdo_phongngu" value="4">&nbsp;04 phòng</li>
+                        <li style="float:left;width:45%"><input type="radio" name="phong_ngu" class="rdo_phongngu" value="5">&nbsp;05 phòng</li>
+                        <li style="float:left;width:45%"><input type="radio" name="phong_ngu" class="rdo_phongngu" value="6">&nbsp;06 phòng</li>
                         <li>
                             <hr>
                             <button class="cancel_phongngu btn btn-danger">Xóa chọn</button>

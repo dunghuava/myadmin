@@ -17,8 +17,11 @@
 }
 
 @media screen and (max-width: 800px) {
+  .duan-item-h .left {
+    padding: 0px !important;
+  }
   .duan-item-h .left img {
-    width: 105% !important;
+    width: 100% !important;
   }
   .list_option li {
     padding-left: 0px;
@@ -37,7 +40,7 @@
     padding-left: 0px;
   }
   .list_option .root_modal .list-modal {
-    height: 200px;
+    max-height: 200px;
     overflow: auto;
   }
   .p0mb {
@@ -92,7 +95,7 @@
     -webkit-box-shadow: none;
             box-shadow: none;
     display: none;
-    padding-left: 7px;
+    padding-left: 5px;
   }
   .nav-menu .main-menu li.dropdown::after {
     position: absolute;
