@@ -51,7 +51,7 @@
             <?php if (empty($list_du_an)) {?>
                 <div class="text-center" style="color:red"><h4>Dữ liệu đang được cập nhật...</h4></div>
             <?php } ?>
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?=base_url('tim-kiem?type=0')?>">Xem thêm dự án <span class="fa fa-angle-right"></span></a>
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;<div class="col-md-12"><a href="<?=base_url('tim-kiem?type=0')?>">Xem thêm dự án <span class="fa fa-angle-right"></span></a></div>
         </div>
     </div>
 </section>
@@ -88,7 +88,7 @@
                 $arr_project = $list_mua;
                 $col = 4; include ('duan-item.php');
              ?>
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?=base_url('tim-kiem?type=1')?>">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a>
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;<div class="col-md-12"><a href="<?=base_url('tim-kiem?type=1')?>">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a></div>
         </div>
     </div>
 </section>
@@ -125,7 +125,7 @@
                 $arr_project = $list_thue;
                 $col = 4; include ('duan-item.php');
              ?>
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?=base_url('tim-kiem?type=2')?>">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a>
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;<div class="col-md-12"><a href="<?=base_url('tim-kiem?type=2')?>">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a></div>
         </div>
     </div>
 </section>
