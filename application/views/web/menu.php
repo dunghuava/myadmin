@@ -52,12 +52,12 @@
         </li>
         <?php }else{ ?>
             <li>
-                <a href="<?=base_url('dang-nhap')?>"><span class="fa fa-sign-in"></span>&nbsp;&nbsp;Đăng nhập</a>
+                <a href="<?=base_url('dang-nhap')?>">Đăng nhập</a>
             </li>
             
         <?php } ?>
         <li class="hidden-md hidden-lg">
-            <a href="<?=base_url('tim-kiem')?>"><span class="fa fa-search"></span>&nbsp;&nbsp;Tìm kiếm</a>
+            <a href="<?=base_url('tim-kiem')?>">Tìm kiếm</a>
         </li>  
     </ul>
 </nav>

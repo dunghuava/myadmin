@@ -197,9 +197,11 @@ $('#openmenu_bar').click(function (e) {
     $('.nav-menu').slideToggle();
     $('.nav-menu').toggleClass('opened');
     if ($('.nav-menu').hasClass('opened')){
+      $(this).html('<span class="btnBar fa fa-close"></span>');
       $('html,body').css({'overflow':'hidden'});
     }else{
       $('html,body').css({'overflow':'auto'});
+      $(this).html('<span class="btnBar fa fa-bars"></span>');
     }
 });
 

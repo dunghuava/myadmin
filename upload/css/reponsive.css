@@ -29,12 +29,16 @@
     position: absolute;
     right: 12px;
   }
-  .list_option li input {
+  .list_option li input#tim_kiem {
     width: 100% !important;
   }
   .list_option .root_modal {
     width: 100%;
     padding-left: 0px;
+  }
+  .list_option .root_modal .list-modal {
+    height: 200px;
+    overflow: auto;
   }
   .p0mb {
     padding: 0px !important;
@@ -88,6 +92,7 @@
     -webkit-box-shadow: none;
             box-shadow: none;
     display: none;
+    padding-left: 7px;
   }
   .nav-menu .main-menu li.dropdown::after {
     position: absolute;

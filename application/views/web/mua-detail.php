@@ -174,16 +174,16 @@
         </div>
     </div>
     <script>
-        window.onscroll = function() {addSticky()};
-        var navbar = document.getElementById("toolbar");
-        var sticky = (navbar.offsetTop)/5;
-        function addSticky() {
-            if (window.pageYOffset >= sticky) {
-                navbar.classList.add("sticky")
-            } else {
-                navbar.classList.remove("sticky");
-            }
-        }
+        // window.onscroll = function() {addSticky()};
+        // var navbar = document.getElementById("toolbar");
+        // var sticky = (navbar.offsetTop)/5;
+        // function addSticky() {
+        //     if (window.pageYOffset >= sticky) {
+        //         navbar.classList.add("sticky")
+        //     } else {
+        //         navbar.classList.remove("sticky");
+        //     }
+        // }
     </script>
     <!-- overview-toolbar -->
     <section class="sec-body">

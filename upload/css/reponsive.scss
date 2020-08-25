@@ -43,13 +43,17 @@ $primary_color:#88AD6A;
             padding-left: 0px;
             padding-right: 0px;
             width: 100%;
-            input{
+            input#tim_kiem{
                 width: 100% !important;
             }
         }
         .root_modal{
             width: 100%;
             padding-left: 0px;
+            .list-modal{
+                height: 200px;
+                overflow: auto;
+            }
         }
     }
     .p0mb{
@@ -108,6 +112,7 @@ $primary_color:#88AD6A;
                         max-width: 100%;
                         box-shadow: none;
                         display: none;
+                        padding-left: 7px;
                     }
                     &::after{
                         position: absolute;
