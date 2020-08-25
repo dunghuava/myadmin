@@ -223,7 +223,7 @@ class Web extends MY_Controller {
         
         $seo = array(
             'title' => $data['duan']['project_title'], 
-            'description' => $description, 
+            'description' => strip_tags($description), 
             'keywords' => $data['duan']['project_keyword'], 
             'image' => $data['duan']['project_img'], 
         );
