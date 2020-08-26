@@ -167,16 +167,19 @@
         </div>
     </div>
     <script>
-        // window.onscroll = function() {addSticky()};
-        // var navbar = document.getElementById("toolbar");
-        // var sticky = (navbar.offsetTop)/5;
-        // function addSticky() {
-        //     if (window.pageYOffset >= sticky) {
-        //         navbar.classList.add("sticky")
-        //     } else {
-        //         navbar.classList.remove("sticky");
-        //     }
-        // }
+        var max_width = $(window).width();
+        if (max_width>680){
+            window.onscroll = function() {addSticky()};
+            var navbar = document.getElementById("toolbar");
+            var sticky = (navbar.offsetTop)/5;
+            function addSticky() {
+                if (window.pageYOffset >= sticky) {
+                    navbar.classList.add("sticky")
+                } else {
+                    navbar.classList.remove("sticky");
+                }
+            }
+        }
     </script>
     <!-- overview-toolbar -->
     <section class="sec-body">
