@@ -110,6 +110,7 @@
         </div>
     </div>
 </footer>
+<div class="hidden-md hidden-lg"><br><br><br></div>
 <script src="<?=base_url('upload/js/app.js?v='.time())?>"></script>
 <script src="<?=base_url()?>upload/js/sweetalert2.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>

@@ -283,7 +283,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 p0mb">
                     <?php include ('form-contact.php') ?>
                 </div>
             </div>
