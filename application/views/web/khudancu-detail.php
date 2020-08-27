@@ -225,8 +225,7 @@ vertical-align: -0.125em;
     </form>
 </section>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqAHaMV9ZVcSX992nMQOgZ_Vy80GUZ_8I&callback=initMap&libraries=drawing,places"></script>
-</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjwJQRCuf970OLe6UuBiMvg_DyYW2PL6Y&callback=initMap&libraries=drawing,places"></script>
 <script>
 window.onscroll = function() {addSticky()};
 

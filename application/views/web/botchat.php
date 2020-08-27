@@ -19,6 +19,8 @@
       <!-- Your Chat Plugin code -->
       <div class="fb-customerchat"
         attribution=setup_tool
-        page_id="107857070823040"
-  theme_color="#65BA69">
+        page_id="105661530845155"
+  theme_color="#88AD6A"
+  logged_in_greeting="Hi! How can we help you?"
+  logged_out_greeting="Hi! How can we help you?">
       </div>
