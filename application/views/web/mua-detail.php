@@ -54,6 +54,12 @@
     font-size: 18px!important;
 }
 
+<?php if(check_isMobile()){  ?>
+    #fb-root{
+        display: none;
+    }
+<?php } ?>
+
 </style>
 <?php 
     $duan_img = $this->Project_Images_M->all(['project_id'=>$duan['project_id']]);
@@ -61,6 +67,7 @@
     $arr_project = $duan_lancan;
     $loai_hinh = $this->Type_M->all();
     $noi_that = $this->Furniture_M->all();
+    $tien_ich = $this->Extension_M->all();
 ?>
 <div class="product-detailt font18">
     <!-- begin -->
@@ -250,17 +257,33 @@
                             <h3>Loại hình</h3>
                             <!-- tiện ích -->
                             <ul class="detail-commodities font18_all">
-                                <?php foreach ($loai_hinh as $item){ ?>
-                                    <li <?=$duan['project_type']!=$item['id_type_project'] ? 'class="no"':''?>><?=$item['type_project']?></li>
-                                <?php } ?>
+                                <?php 
+                                    foreach ($loai_hinh as $item){ 
+                                        if(check_isMobile()){ 
+                                            if ($duan['project_type']==$item['id_type_project']) {
+                                                echo '<li>'.$item['type_project'].'</li>';
+                                            }
+                                        }else{
+                                ?>
+                                            <li <?=$duan['project_type']!=$item['id_type_project'] ? 'class="no"':''?>><?=$item['type_project']?></li>
+                                <?php } } ?>
                             </ul>
                             <!-- tiện ích -->
                             <h3>Tiên ích</h3>
                             <!-- tiện ích -->
                             <ul class="detail-commodities font18_all">
-                                <?php foreach ($tienich as $item){ ?>
-                                    <li><?=$item['extension_name']?></li>
-                                <?php } ?>
+                                <?php 
+                                    $explor_extention = explode(',',$duan['project_extension']);
+                                    foreach ($tien_ich as $item){ 
+                                        if(check_isMobile()){ 
+                                            if(in_array($item['extension_id'],$explor_extention)) {
+                                                echo '<li style="width: 42.33%;">'.$item['extension_name'].'</li>';
+                                            }
+                                        }else{
+                                ?>
+                                            <li class="<?php if(!in_array($item['extension_id'],$explor_extention)) {echo "no";} ?>"><?=$item['extension_name']?></li>
+                                <?php } } ?>
+
                             </ul>
                             <h3>Nội thất</h3>
                             <!-- tiện ích -->
@@ -268,9 +291,14 @@
                                 <?php
                                     $explor = explode(',',$duan['project_furniture']);
                                     foreach ($noi_that as $item){ 
+                                        if(check_isMobile()){ 
+                                            if(in_array($item['id_furniture_project'],$explor)) {
+                                                echo '<li style="width: 49.33%;">'.$item['furniture_project'].'</li>';
+                                            }
+                                        }else{
                                 ?>
-                                    <li class="<?php if(!in_array($item['id_furniture_project'],$explor)) {echo "no";} ?>" ><?=$item['furniture_project']?></li>
-                                <?php } ?>
+                                            <li class="<?php if(!in_array($item['id_furniture_project'],$explor)) {echo "no";} ?>" ><?=$item['furniture_project']?></li>
+                                <?php } } ?>
                             </ul>
                             <!-- tiện ích -->
                             <!-- tiện ích -->
@@ -333,7 +361,8 @@
 <?php } ?>
     <!-- end -->
 </div>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqAHaMV9ZVcSX992nMQOgZ_Vy80GUZ_8I&callback=initMap&libraries=drawing,places"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjwJQRCuf970OLe6UuBiMvg_DyYW2PL6Y&callback=initMap&libraries=drawing,places"></script>
+
 
 
 

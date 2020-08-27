@@ -49,6 +49,12 @@
     font-size: 18px!important;
 }
 
+<?php if(check_isMobile()){  ?>
+    #fb-root{
+        display: none;
+    }
+<?php } ?>
+
 </style>
 <?php 
     $duan_img = $this->Project_Images_M->all(['project_id'=>$duan['project_id']]);
