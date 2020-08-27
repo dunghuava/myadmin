@@ -6,7 +6,7 @@ $primary_color:#88AD6A;
     }
     .boxed{
         &.font18{
-            padding: 0px;
+            padding: 10px;
         }
     }
     .detail-more-top{
@@ -27,6 +27,11 @@ $primary_color:#88AD6A;
 }
   
 @media screen and (max-width: 800px) {
+    .product-detailt{
+        .item-slider{
+            height: 200px;
+        }
+    }
     .duan-item-h{
         .left{
             img{
