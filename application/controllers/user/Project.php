@@ -49,7 +49,7 @@ class Project extends MY_Controller {
 				$post['project_active'] = 0;
 			}
 
-			$url = 'https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDqAHaMV9ZVcSX992nMQOgZ_Vy80GUZ_8I&address=' . urlencode($post['project_address']) . '&sensor=true';
+			$url = 'https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyCjwJQRCuf970OLe6UuBiMvg_DyYW2PL6Y&address=' . urlencode($post['project_address']) . '&sensor=true';
             $json = @file_get_contents($url);
             $position = json_decode($json);
             if ($position->status == "OK") {
