@@ -1,4 +1,26 @@
-<div class="boxed font18">
+<style>
+    .form-mobile{
+        width:100%;
+        left:0px;
+        right:0px;
+        bottom:0px;
+        position:fixed;
+        z-index:999;
+        background:#fff;
+        padding:5px;
+    }
+</style>
+<div class="form-mobile hidden-md hidden-lg">
+    <div style="display:flex">
+        <div class="col-md-6 col-xs-6 div-contact-tel" style="margin:2px">
+            <a style="color: white;text-decoration: none;" href="tel:<?=$info[0]['phone']?>"><i class="fa fa-phone" aria-hidden="true"></i> <?=$info[0]['phone']?></a>
+        </div>
+        <div class="col-md-6 col-xs-6 div-contact-tel" style="margin:2px;background:red">
+            <a  style="color: white;text-decoration: none;" href="<?=fullAddress()?>#p_form_contact"><i class="fa fa-info" aria-hidden="true"></i> Yêu cầu thông tin</a>
+        </div>
+    </div>
+</div>
+<div class="boxed font18" id="p_form_contact">
     <div class="col-md-12 div-contact">
         <div class="div-contact-img">
             <img class="img-contact" src="<?=resizeImg('sale_manager.jpg',70,70,0)?>">
@@ -11,7 +33,6 @@
     </div>
     <div class="col-md-12 div-contact-tel">
         <a style="color: white;text-decoration: none;" href="tel:<?=$info[0]['phone']?>"><i class="fa fa-phone" aria-hidden="true"></i> <?=$info[0]['phone']?></a>
-
     </div>
     <div class="col-md-12">
         <p style="text-align: center;margin-top: 15px;">Hoặc</p>
