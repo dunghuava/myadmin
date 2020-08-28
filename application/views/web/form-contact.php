@@ -10,7 +10,7 @@
         padding:5px;
     }
 </style>
-<br><br>
+<div class="hidden-md hidden-lg"><br><br></div>
 <div class="form-mobile hidden-md hidden-lg">
     <div style="display:flex">
         <div class="col-md-6 col-xs-6 div-contact-tel" style="margin:2px">
