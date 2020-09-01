@@ -53,7 +53,7 @@
         </div>
 
 
-        <!-- <div class="col-md-8 inline-flex" >
+        <div class="col-md-8 inline-flex" >
             <label for="">Loại</label>
             <select name="project_kind" id="project_kind" class="form-control" required>
                 <option value="">Chọn loại</option>
@@ -61,7 +61,7 @@
                 <option value="1" <?php if ($info_project['project_kind'] == 1) echo "selected='selected'";?>>Mua</option>
                 <option value="2" <?php if ($info_project['project_kind'] == 2) echo "selected='selected'";?>>Cho thuê</option>
             </select>
-        </div> -->
+        </div>
 
         <div class="col-md-8 inline-flex">
             <label for="">Tiêu đề</label>
@@ -99,15 +99,16 @@
 
             <div class="col-md-12 inline-flex" style="padding-right: 0px;">
             	<label for="" style="margin-left: 113px">Loại hình</label>
-            	<select name="project_type[]" id="project_type" class="form-control select2" multiple="multiple" required>
+            	<select name="project_type" id="project_type" class="form-control">
             		<option value="">Chọn loại hình</option>
-
-                    <?php foreach ($list_type as $type) {
-                    $project_type = explode(',', $info_project['project_type']);
-                ?>
-                    <option value="<?php echo $type['id_type_project'] ?>" <?php foreach ($project_type as $pr_type) {if($type['id_type_project'] == $pr_type) echo "selected='selected'";} ?>><?php echo $type['type_project'] ?></option>
-                <?php } ?>
-
+            		<?php foreach ($list_type as $type) {
+            			if ($type['id_type_project'] == $info_project['project_type']) {
+            				$selected_type = 'selected';
+            			}else{
+            				$selected_type = '';
+            			}
+            			echo '<option value="'.$type['id_type_project'].'" '.$selected_type.'>'.$type['type_project'].'</option>';
+            		} ?>
             	</select>
             </div>
 
@@ -116,56 +117,17 @@
             	<input type="text" name="project_acreage" id="project_acreage" value="<?php echo $info_project['project_acreage'] ?>" class="form-control" placeholder="" required>
             </div>
             <div class="col-md-12 inline-flex" style="padding-right: 0px;">
-            	<label for="" style="margin-left: 113px">Giá bán</label>
+            	<label for="" style="margin-left: 113px">Giá</label>
             	<input type="text" name="project_price" id="project_price" value="<?php echo $info_project['project_price'] ?>" class="form-control" placeholder="" required>
             </div>
-
-            <div class="col-md-12 inline-flex" style="padding-right: 0px;">
-                <label for="" style="margin-left: 113px">Giá thuê</label>
-                <input type="text" name="project_price_lease" id="project_price_lease" class="form-control" placeholder="" value="<?php echo $info_project['project_price_lease'] ?>">
-            </div>
-
-            <div class="col-md-12 inline-flex" style="padding-right: 0px;">
-            <label for="" style="margin-left: 113px">Chủ đầu tư</label>
-            <select name="project_investor" id="project_investor" class="form-control" >
-                <option value="">Chọn chủ đầu tư</option>
-                <?php foreach ($list_investor as $investor) {
-                    if ($investor['investor_id'] == $info_project['project_investor']) {
-                        $selected_investor = 'selected';
-                    }else{
-                        $selected_investor = '';
-                    }
-                    echo '<option value="'.$investor['investor_id'].'" '.$selected_investor.'>'.$investor['investor_title'].'</option>';
-                } ?>
-            </select>
-        </div> 
-
-            <div class="col-md-12 inline-flex" style="padding-right: 0px;">
-                <label for="" style="margin-left: 113px">Thời gian giao nhà</label>
-                <input type="text" name="project_delivery_time" id="project_delivery_time" class="form-control datepicker" placeholder="" value="<?php echo $info_project['project_delivery_time'] ?>" style="padding: 10px;">
-            </div>
-            <div class="col-md-12 inline-flex" style="padding-right: 0px;">
-                <label for="" style="margin-left: 113px">Mật độ xây dựng</label>
-                <input type="text" name="project_building_density" id="project_building_density" class="form-control" placeholder="" value="<?php echo $info_project['project_building_density'] ?>">
-            </div>
-            <div class="col-md-12 inline-flex" style="padding-right: 0px;">
-                <label for="" style="margin-left: 113px">Bàn giao</label>
-                <select name="project_handing_over" id="project_handing_over" class="form-control">
-                    <option value="">Chọn loại bàn giao</option>
-                    <option <?php if($info_project['project_handing_over'] == 1) echo "selected='selected'"; ?> value="1">Thô</option>
-                    <option <?php if($info_project['project_handing_over'] == 2) echo "selected='selected'"; ?> value="2">Nội thất cơ bản</option>
-                    <option <?php if($info_project['project_handing_over'] == 3) echo "selected='selected'"; ?> value="3">Full nội thất</option>
-                </select>
-            </div>
-
-             <!-- <div class="col-md-12 inline-flex" style="padding-right: 0px;">
+             <div class="col-md-12 inline-flex" style="padding-right: 0px;">
             	<label for="" style="margin-left: 113px">Số phòng ngủ</label>
             	<input type="number" name="number_bedroom" id="number_bedroom" value="<?php echo $info_project['number_bedroom'] ?>" class="form-control" placeholder="">
             </div>
              <div class="col-md-12 inline-flex" style="padding-right: 0px;">
             	<label for="" style="margin-left: 113px">Số tolet</label>
             	<input type="number" name="number_tolet" id="number_tolet" value="<?php echo $info_project['number_tolet'] ?>" class="form-control" placeholder="">
-            </div> -->
+            </div>
             <div class="col-md-12 inline-flex" style="padding-right: 0px;">
             	<label for="" style="margin-left: 113px">Số tầng</label>
             	<input type="number" name="number_floors" id="number_floors" value="<?php echo $info_project['number_floors'] ?>" class="form-control" placeholder="">
@@ -194,7 +156,7 @@
             </select>
         </div> 
 
-        <!-- <div class="col-md-8 inline-flex">
+        <div class="col-md-8 inline-flex">
             <label for="">Nội thất</label>
             <select name="project_furniture[]" id="project_furniture" class="form-control select2" multiple="multiple">
             	<?php foreach ($list_furniture as $furniture) {
@@ -204,8 +166,21 @@
             	<?php } ?>
             </select>
         </div> 
- -->
-        
+
+        <div class="col-md-8 inline-flex">
+            <label for="">Chủ đầu tư</label>
+            <select name="project_investor" id="project_investor" class="form-control" >
+            	<option value="">Chọn chủ đầu tư</option>
+            	<?php foreach ($list_investor as $investor) {
+            		if ($investor['investor_id'] == $info_project['project_investor']) {
+            			$selected_investor = 'selected';
+            		}else{
+            			$selected_investor = '';
+            		}
+            		echo '<option value="'.$investor['investor_id'].'" '.$selected_investor.'>'.$investor['investor_title'].'</option>';
+            	} ?>
+            </select>
+        </div> 
 
         <div class="col-md-8 inline-flex">
             <label for="">Khu dân cư</label>

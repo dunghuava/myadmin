@@ -169,7 +169,7 @@
                     </div>
                 </div>
             <?php } ?>
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?=base_url('chu-dau-tu')?>">Xem thêm chủ đầu tư <span class="fa fa-angle-right"></span></a>
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;<div class="col-md-12"><a href="<?=base_url('chu-dau-tu')?>">Xem thêm chủ đầu tư <span class="fa fa-angle-right"></span></a></div>
         </div>
     </div>
 </section>
