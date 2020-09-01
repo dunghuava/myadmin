@@ -108,11 +108,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                    <h3 class="title-prj"><b><?=$duan['project_title']?></b></h3>
+                    <h3 style="font-size:30px" class="title-prj"><b><?=$duan['project_title']?></b></h3>
                     <p><span class="fa fa-map-marker"></span>&nbsp; <?=$duan['project_address']?></p>
                 </div>
                 <div class="col-md-3"><br><br>
-                    <p>Giá: <b style="font-size:18px"><?=$duan['project_price']?></b></p>
+                    <p style="color:red" >Giá: <b style="font-size:18px"><?=$duan['project_price']?></b></p>
                 </div>
             </div>
         </div>
@@ -123,42 +123,37 @@
                 <!-- detail -->
                 <ul class="detail-more-top font18_all">
                     <li>
-                        <p class="left">Số block</p>
-                        <p class="right"><?=$duan['number_blocks']?$duan['number_blocks']:'Đang cập nhập';?></p>
+                        <p class="left">Loại hình</p>
+                        <p class="right">
+                            <?php 
+                                $type= $this->Type_M->find(['id_type_project'=>$duan['project_type']]);
+                                echo $type['type_project'];
+                            ?>
+                        </p>
                     </li>
                     <li>
-                        <p class="left">Số tầng</p>
-                        <p class="right"><?=$duan['number_floors']?$duan['number_floors']:'Đang cập nhập';?></p>
+                        <p class="left">Diện tích</p>
+                        <p class="right"><?=$duan['project_acreage']?$duan['project_acreage']:'Đang cập nhập';?></p>
                     </li>
                     <li>
-                        <p class="left">Số căn hộ</p>
-                        <p class="right"><?=$duan['number_units']?$duan['number_units']:'Đang cập nhập';?></p>
+                        <p class="left">Hướng</p>
+                        <p class="right"><?=$duan['number_huong']?$duan['number_huong']:'Đang cập nhập';?></p>
                     </li>
                     <li>
-                        <p class="left">Số toles</p>
-                        <p class="right"><?=$duan['number_tolet']?$duan['number_tolet']:'Đang cập nhập';?></p>
+                        <p class="left">View</p>
+                        <p class="right"><?=$duan['number_view']?$duan['number_view']:'Đang cập nhập';?></p>
                     </li>
                     <li>
                         <p class="left">Số phòng ngủ</p>
                         <p class="right"><?=$duan['number_bedroom']?$duan['number_bedroom']:'Đang cập nhập';?></p>
                     </li>
                     <li>
-                        <p class="left">Diện tích căn hộ</p>
-                        <p class="right"><?=$duan['project_acreage']?$duan['project_acreage']:'Đang cập nhập';?></p>
+                        <p class="left">Số phòng tắm</p>
+                        <p class="right"><?=$duan['project_phongtam']?$duan['project_phongtam']:'Đang cập nhập';?></p>
                     </li>
                     <li>
-                        <p class="left">Chủ đầu tư</p>
-                        <p class="right">
-                            <span class="comma">
-                                <?php if ($cdt['investor_id']!='') {?>
-                                    <a href="<?=base_url()?>/chu-dau-tu/<?=$cdt['investor_alias'].'-'.$cdt['investor_id']?>">
-                                        <?=$cdt['investor_title']?>
-                                    </a>
-                                <?php }else{ ?>
-                                    Đang cập nhật
-                                <?php } ?>
-                            </span>
-                        </p>
+                        <p class="left">Số tầng</p>
+                        <p class="right"><?=$duan['number_floors']?$duan['number_floors']:'Đang cập nhập';?></p>
                     </li>
                 </ul>
                 <!-- detail -->
@@ -200,14 +195,14 @@
         <div class="container">
             <div class="row">
                 <div id="p_overview" class="col-md-8">
-                    <h3><b>Giới thiệu</b></h3>
+                    <h3><b>Mô tả</b></h3>
                     <div id="read01" class="font18_all readmore closed"><span><?=$duan['project_introduce']?></span></div>
                     <p><a class="font18" style="color:#65BA69;cursor:pointer"  parent="#read01" onclick="readmore(this)">Xem thêm <span class="fa fa-angle-down"></span></a></p>
                     <div class="content-mua">
                         <!-- mua -->
                             <!-- detail -->
-                            <h3>Thông tin chi tiết</h3>
-                            <ul class="detail-more font18_all">
+                            <h3 style="display:none" >Thông tin chi tiết</h3>
+                            <ul style="display:none"  class="detail-more font18_all">
                                 <li>
                                     <p class="left">Số block</p>
                                     <p class="right"><?=$duan['number_blocks']?$duan['number_blocks']:'Đang cập nhập';?></p>
@@ -280,9 +275,10 @@
                                                 echo '<li style="width: 42.33%;">'.$item['extension_name'].'</li>';
                                             }
                                         }else{
+                                        if (in_array($item['extension_id'],$explor_extention)){
                                 ?>
-                                            <li class="<?php if(!in_array($item['extension_id'],$explor_extention)) {echo "no";} ?>"><?=$item['extension_name']?></li>
-                                <?php } } ?>
+                                            <li><?=$item['extension_name']?></li>
+                                <?php } } } ?>
 
                             </ul>
                             <h3>Nội thất</h3>
@@ -296,9 +292,10 @@
                                                 echo '<li style="width: 49.33%;">'.$item['furniture_project'].'</li>';
                                             }
                                         }else{
+                                            if(in_array($item['id_furniture_project'],$explor)) {
                                 ?>
-                                            <li class="<?php if(!in_array($item['id_furniture_project'],$explor)) {echo "no";} ?>" ><?=$item['furniture_project']?></li>
-                                <?php } } ?>
+                                            <li><?=$item['furniture_project']?></li>
+                                <?php } } } ?>
                             </ul>
                             <!-- tiện ích -->
                             <!-- tiện ích -->

@@ -51,7 +51,7 @@ function dd ($data,$die=false){
 		die;
 	}
 }
-function resizeImg ($image,$w=100,$h=100,$zc=2){
+function resizeImg ($image='',$w=100,$h=100,$zc=2){
 	if (!file_exists('upload/images/'.$image) || empty($image)){
 		$image='nophoto.png';
 	}

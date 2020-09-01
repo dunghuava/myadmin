@@ -100,11 +100,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                    <h3 class="title-prj"><?=$duan['project_title']?></h3>
+                    <h3 style="font-size:30px" class="title-prj"><?=$duan['project_title']?></h3>
                     <p><span class="fa fa-map-marker"></span>&nbsp; <?=$duan['project_address']?></p>
                 </div>
                 <div class="col-md-3"><br><br>
-                    <p>Giá: <b style="font-size:18px"><?=$duan['project_price']?></b></p>
+                    <p style="color:red" >Giá: <b style="font-size:18px"><?=$duan['project_price']?></b></p>
                 </div>
             </div>
         </div>
