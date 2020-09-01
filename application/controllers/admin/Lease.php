@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Project extends MY_Controller {
+class Lease extends MY_Controller {
 
 	public function __construct()
 	{
@@ -23,11 +23,11 @@ class Project extends MY_Controller {
 
 	public function index()
 	{
-		$data['page_name']='Danh sách dự án';
-		$data['page_menu']='project';
+		$data['page_name']='Danh sách Bán / Cho Thuê';
+		$data['page_menu']='lease';
 		$data['list_project']=$this->Project_M->all('','desc');
 		$this->getHeader($data);
-		$this->load->view('admin/pages/project/index.php',$data);
+		$this->load->view('admin/pages/lease/index.php',$data);
 		$this->getFooter();
 	}
 
@@ -63,11 +63,11 @@ class Project extends MY_Controller {
 
             // 'project_category' => $post['project_category'], 
 
-            // if (!empty($post['project_furniture'])) {
-            // 	$furniture = implode(',', $post['project_furniture']);
-            // }else{
-            // 	$furniture = '';
-            // }
+            if (!empty($post['project_furniture'])) {
+            	$furniture = implode(',', $post['project_furniture']);
+            }else{
+            	$furniture = '';
+            }
 
             $project_introduce = preg_replace('/h>|h1>|h2>|h3>|h4>|em>/', 'p>', $post['project_introduce']);
 
@@ -76,7 +76,7 @@ class Project extends MY_Controller {
 
 			$data_insert = array(
 				'project_category' => $post['project_category'], 
-				'project_kind' => 0, 
+				'project_kind' => $post['project_kind'], 
 				'project_title' => $post['project_title'], 
 				'project_alias' => $post['project_alias'], 
 				'project_introduce' => $output, 
@@ -93,21 +93,17 @@ class Project extends MY_Controller {
 				'project_stt' => '', 
 				'project_investor' => $post['project_investor'], 
 				'project_status' => $post['project_status'], 
-				'project_type' => implode(',', $post['project_type']), 
+				'project_type' => $post['project_type'], 
 				'project_acreage' => $post['project_acreage'], 
 				'project_price' => $post['project_price'], 
-				'number_bedroom' => 0, 
-				'number_tolet' => 0, 
+				'number_bedroom' => $post['number_bedroom'], 
+				'number_tolet' => $post['number_tolet'], 
 				'number_floors' => $post['number_floors'], 
 				'number_units' => $post['number_units'], 
 				'number_blocks' => $post['number_blocks'], 
 				'project_extension' => implode(',', $post['project_extension']), 
-				'project_furniture' => '', 
+				'project_furniture' => $furniture, 
 				'project_residential' => $post['project_residential'], 
-				'project_price_lease' => $post['project_price_lease'], 
-				'project_delivery_time' => $post['project_delivery_time'], 
-				'project_building_density' => $post['project_building_density'], 
-				'project_handing_over' => $post['project_handing_over'], 
 				'project_keyword' => $post['project_keyword'], 
 				'project_description' => $post['project_description'], 
 			);
@@ -140,7 +136,7 @@ class Project extends MY_Controller {
 				'message'=>'Đã lưu'
 			);
 			$this->session->set_flashdata('reponse',$status);
-			redirect(base_url('admin/project/add/'),'location');
+			redirect(base_url('admin/lease/add/'),'location');
 
 		}
 
@@ -161,9 +157,9 @@ class Project extends MY_Controller {
 		$data['list_investor'] = $list_investor;
 		$data['list_residential'] = $list_residential;
 		$data['page_name']='Thêm dự án';
-		$data['page_menu']='project';
+		$data['page_menu']='lease';
 		$this->getHeader($data);
-		$this->load->view('admin/pages/project/add.php',$data);
+		$this->load->view('admin/pages/lease/add.php',$data);
 		$this->getFooter();
 	}
 
@@ -281,7 +277,7 @@ class Project extends MY_Controller {
             
 			$data_update = array(
 				'project_category' => $post['project_category'], 
-				'project_kind' => 0, 
+				'project_kind' => $post['project_kind'], 
 				'project_title' => $post['project_title'], 
 				'project_alias' => $post['project_alias'], 
 				'project_introduce' => $output, 
@@ -296,21 +292,17 @@ class Project extends MY_Controller {
 				'project_lng' => $lng, 
 				'project_investor' => $post['project_investor'], 
 				'project_status' => $post['project_status'], 
-				'project_type' => implode(',', $post['project_type']), 
+				'project_type' => $post['project_type'], 
 				'project_acreage' => $post['project_acreage'], 
 				'project_price' => $post['project_price'], 
-				'number_bedroom' => 0, 
-				'number_tolet' => 0, 
+				'number_bedroom' => $post['number_bedroom'], 
+				'number_tolet' => $post['number_tolet'], 
 				'number_floors' => $post['number_floors'], 
 				'number_units' => $post['number_units'], 
 				'number_blocks' => $post['number_blocks'], 
 				'project_extension' => implode(',', $post['project_extension']), 
-				'project_furniture' => '', 
+				'project_furniture' => $furniture, 
 				'project_residential' => $post['project_residential'], 
-				'project_price_lease' => $post['project_price_lease'], 
-				'project_delivery_time' => $post['project_delivery_time'], 
-				'project_building_density' => $post['project_building_density'], 
-				'project_handing_over' => $post['project_handing_over'], 
 				'project_keyword' => $post['project_keyword'], 
 				'project_description' => $post['project_description'], 
 			);
@@ -345,7 +337,7 @@ class Project extends MY_Controller {
 				'message'=>'Đã sửa'
 			);
 			$this->session->set_flashdata('reponse',$status);
-			redirect(base_url('admin/project/edit/'.$id),'location');
+			redirect(base_url('admin/lease/edit/'.$id),'location');
 
 		}
 
@@ -367,10 +359,10 @@ class Project extends MY_Controller {
 		$data['list_residential'] = $list_residential;
 		$data['info_project'] = $info_project;
 		$data['list_images'] = $list_images;
-		$data['page_name']='Chỉnh sửa dự án';
-		$data['page_menu']='project';
+		$data['page_name']='Chỉnh sửa Bán / Cho Thuê';
+		$data['page_menu']='lease';
 		$this->getHeader($data);
-		$this->load->view('admin/pages/project/edit.php',$data);
+		$this->load->view('admin/pages/lease/edit.php',$data);
 		$this->getFooter();
 	}
 
@@ -379,7 +371,6 @@ class Project extends MY_Controller {
 		$where['cate_parent_id']=0;
 		if ($cate_module_id!=0){
 			$where['cate_module_id']=$cate_module_id;
-			$where['cate_id']=25;
 		}
 		$oder_by= 'asc';
 		$all = $this->Category_M->all($where,$oder_by);
