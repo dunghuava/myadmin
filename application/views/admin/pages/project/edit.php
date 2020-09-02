@@ -225,11 +225,11 @@
 
         <div class="col-md-8 inline-flex">
             <label for="">Địa chỉ</label>
-            <input type="text" name="project_address" id="project_address" class="form-control" value="<?php echo $info_project['project_address'] ?>" required>
+            <input type="text" name="project_address" id="project_address" onFocus="geolocate()" class="form-control" value="<?php echo $info_project['project_address'] ?>" required>
             
         </div>  
 
-            <div class="col-md-12 inline-flex" >
+            <!-- <div class="col-md-12 inline-flex" >
             	<label for=""></label>
             	<select name="project_province_id" id="project_province_id" class="form-control" required>
             	    <option value="">Chọn Thành Phố - Tỉnh</option>
@@ -248,7 +248,7 @@
             	<select name="project_ward_id" id="project_ward_id" class="form-control" required>
             	    <option value="">Chọn Phường - Xã</option>
             	</select>
-            </div>
+            </div> -->
 
 
         <div class="col-md-8 inline-flex">
@@ -283,7 +283,11 @@
     </form>
     <br><br>
 </div>
-
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjwJQRCuf970OLe6UuBiMvg_DyYW2PL6Y&callback=initAutocomplete&libraries=places&v=weekly"
+      defer
+    ></script>
 <script>
     function addText(e,target){
         var val = make_alias(e.value);
@@ -390,3 +394,81 @@
         });
     }
 </script>
+
+<script>
+      "use strict";
+
+      // This sample uses the Autocomplete widget to help the user select a
+      // place, then it retrieves the address components associated with that
+      // place, and then it populates the form fields with those details.
+      // This sample requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script
+      // src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+      let placeSearch;
+      let project_address;
+      const componentForm = {
+        street_number: "short_name",
+        route: "long_name",
+        locality: "long_name",
+        administrative_area_level_1: "short_name",
+        country: "long_name",
+        postal_code: "short_name"
+      };
+
+      function initAutocomplete() {
+        // Create the autocomplete object, restricting the search predictions to
+        // geographical location types.
+        project_address = new google.maps.places.Autocomplete(
+          document.getElementById("project_address"),
+          {
+            types: ["geocode"]
+          }
+        ); // Avoid paying for data that you don't need by restricting the set of
+        // place fields that are returned to just the address components.
+
+        project_address.setFields(["address_component"]); // When the user selects an address from the drop-down, populate the
+        // address fields in the form.
+
+        project_address.addListener("place_changed", fillInAddress);
+      }
+
+      function fillInAddress() {
+        // Get the place details from the project_address object.
+
+
+        const place = project_address.getPlace();
+
+        for (const component in componentForm) {
+          document.getElementById(component).value = "";
+          document.getElementById(component).disabled = false;
+        } // Get each component of the address from the place details,
+        // and then fill-in the corresponding field on the form.
+
+        for (const component of place.address_components) {
+          const addressType = component.types[0];
+
+          if (componentForm[addressType]) {
+            const val = component[componentForm[addressType]];
+            document.getElementById(addressType).value = val;
+          }
+        }
+      } // Bias the project_address object to the user's geographical location,
+      // as supplied by the browser's 'navigator.geolocation' object.
+
+      function geolocate() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(position => {
+            const geolocation = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            const circle = new google.maps.Circle({
+              center: geolocation,
+              radius: position.coords.accuracy
+            });
+            project_address.setBounds(circle.getBounds());
+          });
+        }
+      }
+    </script>

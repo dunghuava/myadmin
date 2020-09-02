@@ -23,9 +23,9 @@ class Lease extends MY_Controller {
 
 	public function index()
 	{
-		$data['page_name']='Danh sách Bán / Cho Thuê';
+		$data['page_name']='Danh sách nhà đất cho thuê';
 		$data['page_menu']='lease';
-		$data['list_project']=$this->Project_M->all('','desc');
+		$data['list_project']=$this->Project_M->all(['project_kind' => 2],'desc');
 		$this->getHeader($data);
 		$this->load->view('admin/pages/lease/index.php',$data);
 		$this->getFooter();
@@ -37,6 +37,7 @@ class Lease extends MY_Controller {
 		$post = $this->input->post();
 
 		if ($this->input->post()) {
+			
 			if (!empty($_FILES['project_img']['name'])){
 				$file = $_FILES['project_img'];
 				$filename = md5($file['name'].time());
@@ -54,12 +55,19 @@ class Lease extends MY_Controller {
             if ($position->status == "OK") {
                 $lat = $position->results[0]->geometry->location->lat;
                 $lng = $position->results[0]->geometry->location->lng;
+                // $full_address = $position->results[0]->formatted_address;
+                $district_name = $position->results[0]->address_components[count($position->results[0]->address_components) -3]->long_name;
+
+                $district_name_format = preg_replace('/District/', 'Quận', $district_name);
+
             } else {
                 // $this->_data['error'] = 'Chúng tôi không tìm thấy địa chỉ này. Vui lòng nhập đúng địa chỉ';
                 $lat = '';
                 $lng = '';
+                $district_name_format = '';
             }
 
+            $info_district =$this->District_M->find_row(['district_name' => $district_name_format]);
 
             // 'project_category' => $post['project_category'], 
 
@@ -73,37 +81,46 @@ class Lease extends MY_Controller {
 
             $output = preg_replace('/text-align:center;/', '', $project_introduce);
 
+            $address_format = preg_replace('/, Việt Nam/', '', $post['project_address']);
+
 
 			$data_insert = array(
 				'project_category' => $post['project_category'], 
-				'project_kind' => $post['project_kind'], 
+				'project_kind' => 2, 
 				'project_title' => $post['project_title'], 
 				'project_alias' => $post['project_alias'], 
-				'project_introduce' => $output, 
+				'project_introduce' => $project_introduce, 
 				'project_img' => $filename, 
 				// 'project_content' => $post['project_content'], 
 				'project_highlights' => 0, 
 				'project_active' => $post['project_active'], 
-				'project_address' => $post['project_address'], 
-				'project_province_id' => $post['project_province_id'], 
-				'project_district_id' => $post['project_district_id'], 
-				'project_ward_id' => $post['project_ward_id'], 
+				'project_address' => $address_format, 
+				'project_province_id' => '', 
+				'project_district_id' => $info_district['district_id'], 
+				'project_ward_id' => '', 
 				'project_lat' => $lat, 
 				'project_lng' => $lng, 
 				'project_stt' => '', 
-				'project_investor' => $post['project_investor'], 
-				'project_status' => $post['project_status'], 
-				'project_type' => $post['project_type'], 
+				'project_investor' => '', 
+				'project_status' => '', 
+				'project_type' => implode(',', $post['project_type']), 
 				'project_acreage' => $post['project_acreage'], 
 				'project_price' => $post['project_price'], 
 				'number_bedroom' => $post['number_bedroom'], 
 				'number_tolet' => $post['number_tolet'], 
 				'number_floors' => $post['number_floors'], 
-				'number_units' => $post['number_units'], 
-				'number_blocks' => $post['number_blocks'], 
+				'number_units' => 0, 
+				'number_blocks' => 0, 
 				'project_extension' => implode(',', $post['project_extension']), 
 				'project_furniture' => $furniture, 
 				'project_residential' => $post['project_residential'], 
+				'project_price_lease' => '', 
+				'project_delivery_time' => '', 
+				'project_building_density' => '', 
+				'project_handing_over' => '', 
+				'project_direction' => $post['project_direction'], 
+				'project_view' => $post['project_view'], 
+				'in_project' => $post['in_project'], 
 				'project_keyword' => $post['project_keyword'], 
 				'project_description' => $post['project_description'], 
 			);
@@ -140,6 +157,8 @@ class Lease extends MY_Controller {
 
 		}
 
+		$data['list_project']=$this->Project_M->all(['project_kind' => 0],'desc');
+
 		$list_category = $this->get_option_category(2);
 		$list_province = $this->Province_M->all();
 		$list_status = $this->Status_M->all();
@@ -156,7 +175,7 @@ class Lease extends MY_Controller {
 		$data['list_furniture'] = $list_furniture;
 		$data['list_investor'] = $list_investor;
 		$data['list_residential'] = $list_residential;
-		$data['page_name']='Thêm dự án';
+		$data['page_name']='Thêm nhà đất cho thuê';
 		$data['page_menu']='lease';
 		$this->getHeader($data);
 		$this->load->view('admin/pages/lease/add.php',$data);
@@ -260,11 +279,19 @@ class Lease extends MY_Controller {
             if ($position->status == "OK") {
                 $lat = $position->results[0]->geometry->location->lat;
                 $lng = $position->results[0]->geometry->location->lng;
+                // $full_address = $position->results[0]->formatted_address;
+                $district_name = $position->results[0]->address_components[count($position->results[0]->address_components) -3]->long_name;
+
+                $district_name_format = preg_replace('/District/', 'Quận', $district_name);
+
             } else {
                 // $this->_data['error'] = 'Chúng tôi không tìm thấy địa chỉ này. Vui lòng nhập đúng địa chỉ';
                 $lat = '';
                 $lng = '';
+                $district_name_format = '';
             }
+
+            $info_district =$this->District_M->find_row(['district_name' => $district_name_format]);
 
             if (!empty($post['project_furniture'])) {
             	$furniture = implode(',', $post['project_furniture']);
@@ -274,35 +301,45 @@ class Lease extends MY_Controller {
 
             $project_introduce = preg_replace('/h>|h1>|h2>|h3>|h4>|em>/', 'p>', $post['project_introduce']);
             $output = preg_replace('/text-align:center;/', '', $project_introduce);
+
+            $address_format = preg_replace('/, Việt Nam/', '', $post['project_address']);
+
             
 			$data_update = array(
 				'project_category' => $post['project_category'], 
-				'project_kind' => $post['project_kind'], 
+				'project_kind' => 2, 
 				'project_title' => $post['project_title'], 
 				'project_alias' => $post['project_alias'], 
-				'project_introduce' => $output, 
+				'project_introduce' => $project_introduce, 
 				'project_img' => $filename, 
 				// 'project_content' => $post['project_content'], 
 				'project_active' => $post['project_active'], 
-				'project_address' => $post['project_address'], 
-				'project_province_id' => $post['project_province_id'], 
-				'project_district_id' => $post['project_district_id'], 
-				'project_ward_id' => $post['project_ward_id'], 
+				'project_address' => $address_format, 
+				'project_province_id' => '', 
+				'project_district_id' => $info_district['district_id'], 
+				'project_ward_id' => '', 
 				'project_lat' => $lat, 
 				'project_lng' => $lng, 
 				'project_investor' => $post['project_investor'], 
 				'project_status' => $post['project_status'], 
-				'project_type' => $post['project_type'], 
+				'project_type' => implode(',', $post['project_type']), 
 				'project_acreage' => $post['project_acreage'], 
 				'project_price' => $post['project_price'], 
 				'number_bedroom' => $post['number_bedroom'], 
 				'number_tolet' => $post['number_tolet'], 
 				'number_floors' => $post['number_floors'], 
-				'number_units' => $post['number_units'], 
-				'number_blocks' => $post['number_blocks'], 
+				'number_units' => 0, 
+				'number_blocks' => 0, 
 				'project_extension' => implode(',', $post['project_extension']), 
 				'project_furniture' => $furniture, 
 				'project_residential' => $post['project_residential'], 
+				'project_price_lease' => '', 
+				'project_delivery_time' => '', 
+				'project_building_density' => '', 
+				'project_handing_over' => '', 
+				'project_direction' => $post['project_direction'], 
+				'project_view' => $post['project_view'], 
+				'in_project' => $post['in_project'], 
 				'project_keyword' => $post['project_keyword'], 
 				'project_description' => $post['project_description'], 
 			);
@@ -341,6 +378,8 @@ class Lease extends MY_Controller {
 
 		}
 
+		$data['list_project']=$this->Project_M->all(['project_kind' => 0],'desc');
+
 		$list_category = $this->get_option_category(2);
 		$list_province = $this->Province_M->all();
 		$list_status = $this->Status_M->all();
@@ -359,7 +398,7 @@ class Lease extends MY_Controller {
 		$data['list_residential'] = $list_residential;
 		$data['info_project'] = $info_project;
 		$data['list_images'] = $list_images;
-		$data['page_name']='Chỉnh sửa Bán / Cho Thuê';
+		$data['page_name']='Chỉnh sửa nhà đất cho thuê';
 		$data['page_menu']='lease';
 		$this->getHeader($data);
 		$this->load->view('admin/pages/lease/edit.php',$data);
@@ -371,12 +410,13 @@ class Lease extends MY_Controller {
 		$where['cate_parent_id']=0;
 		if ($cate_module_id!=0){
 			$where['cate_module_id']=$cate_module_id;
+			$where['cate_id']=43;
 		}
 		$oder_by= 'asc';
 		$all = $this->Category_M->all($where,$oder_by);
 		$str='';
 		foreach ($all as $val){
-			$str.='<option value="'.$val['cate_id'].'">'.$val['cate_title'].'</option>';
+			// $str.='<option value="'.$val['cate_id'].'">'.$val['cate_title'].'</option>';
 			$sub1 = $this->Category_M->all(['cate_parent_id'=>$val['cate_id'],'cate_module_id'=>$cate_module_id],$oder_by);
 			if (count($sub1) >0){
 				foreach ($sub1 as $val1){

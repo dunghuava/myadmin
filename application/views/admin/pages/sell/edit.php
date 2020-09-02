@@ -116,7 +116,7 @@
                 <input type="text" name="project_acreage" id="project_acreage" value="<?php echo $info_project['project_acreage'] ?>" class="form-control" placeholder="" required>
             </div>
             <div class="col-md-12 inline-flex" style="padding-right: 0px;">
-                <label for="" style="margin-left: 113px">Giá cho thuê</label>
+                <label for="" style="margin-left: 113px">Giá bán</label>
                 <input type="text" name="project_price" id="project_price" value="<?php echo $info_project['project_price'] ?>" class="form-control" placeholder="" required>
             </div>
 

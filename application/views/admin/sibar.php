@@ -112,11 +112,36 @@
             </ul>
           </li>
 
+          <li class="nav-item has-treeview <?=$page_menu=='sell' ? 'menu-open':''?>">
+            <a href="javascript:void(0)" class="nav-link">
+              <i class="nav-icon fas fa-file"></i>
+              <p>
+                Bán
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?=getLink('admin/sell',$admin_infor['is_admin'])?>" class="nav-link">
+                  <i class="fas fa-angle-right nav-icon"></i>
+                  <p>Tất cả</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?=getLink('admin/sell/add',$admin_infor['is_admin'])?>" class="nav-link">
+                  <i class="fas fa-angle-right nav-icon"></i>
+                  <p>Thêm nhà đất bán</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
           <li class="nav-item has-treeview <?=$page_menu=='lease' ? 'menu-open':''?>">
             <a href="javascript:void(0)" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>
-                Bán / Cho Thuê
+                Cho thuê
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -130,7 +155,7 @@
               <li class="nav-item">
                 <a href="<?=getLink('admin/lease/add',$admin_infor['is_admin'])?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Thêm Bán / Cho Thuê</p>
+                  <p>Thêm nhà đất cho thuê</p>
                 </a>
               </li>
             </ul>

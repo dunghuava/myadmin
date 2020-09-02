@@ -55,7 +55,7 @@
                                 ?>
                              </td>
                              <td>
-                                <a href="<?=base_url().'admin/lease/edit/'.$item['project_id']?>">
+                                <a href="<?=base_url().'admin/sell/edit/'.$item['project_id']?>">
                                     <button type="button" class="btn btn-default">
                                         <span class="fa fa-eye"></span>
                                     </button>
@@ -90,7 +90,7 @@
         colset = colset.toString();
         $.ajax({
             type: "post",
-            url: "<?=base_url('admin/lease/update')?>",
+            url: "<?=base_url('admin/sell/update')?>",
             data: {'project_id':project_id,[colset]:ckb},
             success: function (response) {
                 
@@ -115,7 +115,7 @@
             if (result.value) {
                 $.ajax({
                     type: "post",
-                    url: "<?=base_url('admin/lease/destroy')?>",
+                    url: "<?=base_url('admin/sell/destroy')?>",
                     data: {'project_id':project_id},
                     success: function (response) {
                         location.reload();
