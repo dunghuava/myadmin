@@ -21,7 +21,7 @@
 </section>
 <section class="sec-project font18">
     <div class="container">
-        <h3 style="font-size:40px;margin-bottom:15px" class="main-title_">
+        <h3 style="font-size:25px;margin-bottom:15px" class="main-title_">
             <a href="<?=base_url('danh-muc/du-an')?>"><b>Dự án nổi bật</b></a>
         </h3>
         <div class="row">
@@ -62,7 +62,9 @@
 </section>
 <section class="sec-khuvuc font18">
     <div class="container">
-        <h3 class="main-title">Dự án theo khu vực</h3>
+        <h3 style="font-size:25px;margin-bottom:15px" class="main-title_">
+            <a href="<?=base_url('danh-muc/du-an')?>"><b>Dự án theo khu vực</b></a>
+        </h3>
         <div class="row">
             <div class="slick-khuvuc">
 
@@ -87,7 +89,9 @@
 
 <section class="sec-project font18">
     <div class="container">
-        <h3 class="main-title">Nhà bán nổi bậc</h3>
+        <h3 style="font-size:25px;margin-bottom:15px" class="main-title_">
+            <a href="<?=base_url('danh-muc/du-an')?>"><b>Nhà bán nổi bật</b></a>
+        </h3>
         <div class="row">
             <?php
                 $arr_project = $list_mua;
@@ -124,7 +128,9 @@
 
 <section class="sec-project font18">
     <div class="container">
-        <h3 class="main-title">Cho thuê nổi bậc</h3>
+        <h3 style="font-size:25px;margin-bottom:15px" class="main-title_">
+            <a href="<?=base_url('danh-muc/cho-thue')?>"><b>Cho thuê nổi bật</b></a>
+        </h3>
         <div class="row">
             <?php
                 $arr_project = $list_thue;
@@ -180,7 +186,9 @@
 </section>
 <section class="sec-tintuc font18">
     <div class="container">
-        <h3 class="main-title">Tin tức</h3>
+        <h3 style="font-size:25px;margin-bottom:15px" class="main-title_">
+            <a href="<?=base_url('danh-muc/tin-tuc')?>"><b>Tin tức</b></a>
+        </h3>
         <p>Tin tức mới nhất, phân tích xu hướng thị trường, cập nhật nhanh chóng và chính xác hàng ngày</p>
         <div class="row">
             <div class="col-md-6">
