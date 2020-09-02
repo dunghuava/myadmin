@@ -216,12 +216,12 @@
                                         <p class="right"><?=$duan['number_units']?$duan['number_units']:'Đang cập nhập';?></p>
                                     </li>
                                     <li>
-                                        <p class="left">Số toles</p>
-                                        <p class="right"><?=$duan['number_tolet']?$duan['number_tolet']:'Đang cập nhập';?></p>
+                                        <p class="left">Mật độ xây dựng</p>
+                                        <p class="right"><?=$duan['project_building_density']?$duan['project_building_density']:'Đang cập nhập';?></p>
                                     </li>
                                     <li>
-                                        <p class="left">Số phòng ngủ</p>
-                                        <p class="right"><?=$duan['number_bedroom']?$duan['number_bedroom']:'Đang cập nhập';?></p>
+                                        <p class="left">Thời gian giao nhà</p>
+                                        <p class="right"><?=$duan['project_delivery_time']?$duan['project_delivery_time']:'Đang cập nhập';?></p>
                                     </li>
                                     <li>
                                         <p class="left">Diện tích căn hộ</p>
@@ -242,9 +242,19 @@
                                         </p>
                                     </li>
                                     <li>
-                                        <p class="left">Giá</p>
+                                        <p class="left">Bàn giao</p>
                                         <p class="right">
-                                           <?=$duan['project_price']?>
+                                          <?php 
+                                            function bangiao($id){
+                                                switch($id){
+                                                    case 1: return 'Thô';
+                                                    case 2: return 'Nội thất cơ bản';
+                                                    case 3: return 'Full nội thất';
+                                                    default : return 'Đang cập nhật';
+                                                }
+                                            }
+                                            echo bangiao($duan['project_handing_over']);
+                                          ?>
                                         </p>
                                     </li>
                                 </ul>
