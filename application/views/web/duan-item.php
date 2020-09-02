@@ -23,7 +23,7 @@
                             <li title="Phòng ngủ"><span class="icon-bedroom" style="padding-right: 5px"></span> <?=$item['number_bedroom']?></li>
                         </ul>
                         <div class="clear"></div>
-                        <p><span class="fa fa-map-marker"></span> <b><?=$info_ward['ward_name'].', '.$info_district['district_name'].', '.$info_province['province_name']?></b></p>
+                        <p class="text-overflow"><span class="fa fa-map-marker"></span> <b><?=$item['project_address']?></b></p>
                         <p class="text-overflow"><?=$item['project_title']?></p>
                     </div>
                 </a>
@@ -40,7 +40,7 @@
                     </div>
                     <div class="project-content">
                         <h3 class="title text-overflow"><?=$item['project_title']?></h3>
-                        <p class="address"><?=$info_ward['ward_name'].', '.$info_district['district_name'].', '.$info_province['province_name']?></b></p></p>
+                        <p class="address"><?=$item['project_address']?></b></p></p>
                         <p class="price">Giá bán: <?=$item['project_price']?></p>
                         <?php if ($item['project_price_lease']>0){ ?>
                             <p class="price right">Giá thuê: <?=$item['project_price_lease']?></p>
