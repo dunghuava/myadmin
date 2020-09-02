@@ -184,7 +184,7 @@
             </select>
         </div> 
 
-        <!-- <div class="col-md-8 inline-flex">
+        <div class="col-md-8 inline-flex">
             <label for="">Nội thất</label>
             <select name="project_furniture[]" id="project_furniture" class="form-control select2" multiple="multiple">
                 <?php foreach ($list_furniture as $furniture) {
@@ -194,7 +194,6 @@
                 <?php } ?>
             </select>
         </div> 
- -->
         
 
         <div class="col-md-8 inline-flex">

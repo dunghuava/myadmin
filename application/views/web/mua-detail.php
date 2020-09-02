@@ -68,6 +68,8 @@
     $loai_hinh = $this->Type_M->all();
     $noi_that = $this->Furniture_M->all();
     $tien_ich = $this->Extension_M->all();
+
+    $project_type = explode(',', $duan['project_type']);
 ?>
 <div class="product-detailt font18">
     <!-- begin -->
@@ -123,15 +125,6 @@
                 <!-- detail -->
                 <ul class="detail-more-top font18_all">
                     <li>
-                        <p class="left">Loại hình</p>
-                        <p class="right">
-                            <?php 
-                                $type= $this->Type_M->find(['id_type_project'=>$duan['project_type']]);
-                                echo $type['type_project'];
-                            ?>
-                        </p>
-                    </li>
-                    <li>
                         <p class="left">Diện tích</p>
                         <p class="right"><?=$duan['project_acreage']?$duan['project_acreage']:'Đang cập nhập';?></p>
                     </li>
@@ -164,6 +157,24 @@
                             <p class="right"><?=$in_project['project_title']?></p>
                         </li>
                     <?php } ?>
+
+                    <li>
+                        <p class="left">Loại hình</p>
+                        <p class="right" style="white-space: nowrap;">
+                            <?php if (!empty($project_type)) {
+                                $type_format = '';
+                                foreach ($project_type as $type) {
+                                    $info_type = $this->Type_M->find_row(['id_type_project'=>$type]);
+                                    $type_format .= $info_type['type_project'].', ';
+                                }
+                                
+                                echo rtrim($type_format,', ');
+                            }else{
+                                echo "Đang cập nhập";
+                            }
+                            ?>
+                        </p>
+                    </li>
 
                 </ul>
                 <!-- detail -->
@@ -263,20 +274,25 @@
                             <!-- tiện ích -->
                             <ul class="detail-commodities font18_all">
                                 <?php 
+                                    $explor_loai_hinh = explode(',',$duan['project_type']);
                                     foreach ($loai_hinh as $item){ 
                                         if(check_isMobile()){ 
-                                            if ($duan['project_type']==$item['id_type_project']) {
-                                                echo '<li>'.$item['type_project'].'</li>';
+                                            if(in_array($item['id_type_project'],$explor_loai_hinh)) {
+                                                echo '<li style="width: 49.33%;">'.$item['type_project'].'</li>';
                                             }
                                         }else{
+                                            if(in_array($item['id_type_project'],$explor_loai_hinh)) {
+                                                echo '<li style="">'.$item['type_project'].'</li>';
+                                            }
+                                        } 
+                                    } 
+
                                 ?>
-                                            <li <?=$duan['project_type']!=$item['id_type_project'] ? 'class="no"':''?>><?=$item['type_project']?></li>
-                                <?php } } ?>
                             </ul>
                             <!-- tiện ích -->
                             <h3>Tiên ích</h3>
                             <!-- tiện ích -->
-                            <ul class="detail-commodities font18_all">
+                            <!-- <ul class="detail-commodities font18_all">
                                 <?php 
                                     $explor_extention = explode(',',$duan['project_extension']);
                                     foreach ($tien_ich as $item){ 
@@ -289,6 +305,24 @@
                                 ?>
                                             <li><?=$item['extension_name']?></li>
                                 <?php } } } ?>
+
+                            </ul> -->
+
+                            <ul class="detail-commodities font18_all">
+                                <?php 
+                                    $explor_extention = explode(',',$duan['project_extension']);
+                                    foreach ($tien_ich as $item){ 
+                                        if(check_isMobile()){ 
+                                            if(in_array($item['extension_id'],$explor_extention)) {
+                                                echo '<li style="width: 42.33%;">'.$item['extension_name'].'</li>';
+                                            }
+                                        }else{
+                                            if(in_array($item['extension_id'],$explor_extention)) {
+                                                echo '<li style="">'.$item['extension_name'].'</li>';
+                                            }
+                                        } 
+                                    } 
+                                ?>
 
                             </ul>
                             <h3>Nội thất</h3>
@@ -303,9 +337,11 @@
                                             }
                                         }else{
                                             if(in_array($item['id_furniture_project'],$explor)) {
+                                                echo '<li style="">'.$item['furniture_project'].'</li>';
+                                            }
+                                        } 
+                                    } 
                                 ?>
-                                            <li><?=$item['furniture_project']?></li>
-                                <?php } } } ?>
                             </ul>
                             <!-- tiện ích -->
                             <!-- tiện ích -->
