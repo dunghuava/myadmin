@@ -160,7 +160,7 @@
                             <?php if (!empty($project_type)) {
                                 $type_format = '';
                                 foreach ($project_type as $type) {
-                                    $info_type = $this->Type_M->find_row(['id_type_project'=>$type['project_type']]);
+                                    $info_type = $this->Type_M->find_row(['id_type_project'=>$type]);
                                     $type_format .= $info_type['type_project'].', ';
                                 }
                                 
