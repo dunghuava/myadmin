@@ -16,12 +16,12 @@
                 </div>
                 <div class="right" style="width:100%">
                     <div class="info">
-                        <h3 class="title text-overflow">
+                        <h3 class="title text-overflow_">
                             <a style="text-decoration:none" title="<?=$item['project_title']?>" href="<?=base_url('chi-tiet-du-an/'.$item['project_alias'].'-'.$item['project_id'])?>">
                                 <?=$item['project_title']?>
                             </a>
                         </h3>
-                        <p class="text-overflow"><span class="fa fa-map-marker"></span> <b>P.&nbsp;<?=$info_ward['ward_name'].', '.$info_district['district_name'].', '.$info_province['province_name']?></b></p>
+                        <p class="text-overflow__"><span class="fa fa-map-marker"></span> <b>P.&nbsp;<?=$info_ward['ward_name'].', '.$info_district['district_name'].', '.$info_province['province_name']?></b></p>
                         <p style="display:inline-block;color:red" class="price">Giá bán:&nbsp;<?=$item['project_price']?></p>
                         <?php if ($item['project_price_lease']>0){ ?>
                             <p style="display:inline-block;color:red" class="price right">Giá thuê: <?=$item['project_price_lease']?></p>
