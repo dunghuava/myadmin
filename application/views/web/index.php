@@ -21,7 +21,7 @@
 </section>
 <section class="sec-project font18">
     <div class="container">
-        <h3 style="font-size:25px;margin-bottom:15px" class="main-title_">
+        <h3 style="font-size:30px;margin-bottom:15px" class="main-title_">
             <a href="<?=base_url('danh-muc/du-an')?>"><b>Dự án nổi bật</b></a>
         </h3>
         <div class="row">
@@ -62,7 +62,7 @@
 </section>
 <section class="sec-khuvuc font18">
     <div class="container">
-        <h3 style="font-size:25px;margin-bottom:15px" class="main-title_">
+        <h3 style="font-size:30px;margin-bottom:15px" class="main-title_">
             <a href="<?=base_url('danh-muc/du-an')?>"><b>Dự án theo khu vực</b></a>
         </h3>
         <div class="row">
@@ -89,7 +89,7 @@
 
 <section class="sec-project font18">
     <div class="container">
-        <h3 style="font-size:25px;margin-bottom:15px" class="main-title_">
+        <h3 style="font-size:30px;margin-bottom:15px" class="main-title_">
             <a href="<?=base_url('danh-muc/mua')?>"><b>Nhà bán nổi bật</b></a>
         </h3>
         <div class="row">
@@ -104,7 +104,7 @@
 
 <section class="sec-khuvuc font18">
     <div class="container">
-        <h3 style="font-size:25px;margin-bottom:15px" class="main-title_">
+        <h3 style="font-size:30px;margin-bottom:15px" class="main-title_">
             <a href="<?=base_url('danh-muc/mua')?>"><b>Nhà bán theo khu vực</b></a>
         </h3>
         <div class="row">
@@ -130,7 +130,7 @@
 
 <section class="sec-project font18">
     <div class="container">
-        <h3 style="font-size:25px;margin-bottom:15px" class="main-title_">
+        <h3 style="font-size:30px;margin-bottom:15px" class="main-title_">
             <a href="<?=base_url('danh-muc/cho-thue')?>"><b>Cho thuê nổi bật</b></a>
         </h3>
         <div class="row">
@@ -145,7 +145,7 @@
 
 <section class="sec-khuvuc font18">
     <div class="container">
-        <h3 style="font-size:25px;margin-bottom:15px" class="main-title_">
+        <h3 style="font-size:30px;margin-bottom:15px" class="main-title_">
             <a href="<?=base_url('danh-muc/cho-thue')?>"><b>Cho thuê theo khu vực</b></a>
         </h3>
         <div class="row">
@@ -171,7 +171,7 @@
 
 <section class="sec-chudautu font18">
     <div class="container">
-        <h3 style="font-size:25px;margin-bottom:15px" class="main-title_">
+        <h3 style="font-size:30px;margin-bottom:15px" class="main-title_">
             <a href="<?=base_url('danh-muc/danh-sach-chu-dau-tu')?>"><b>Chủ đầu tư nổi bật</b></a>
         </h3>
         <p>Thông tin cơ bản và danh mục dự án của các chủ đầu tư bất động sản uy tín hiện nay</p>
@@ -192,7 +192,7 @@
 </section>
 <section class="sec-tintuc font18">
     <div class="container">
-        <h3 style="font-size:25px;margin-bottom:15px" class="main-title_">
+        <h3 style="font-size:30px;margin-bottom:15px" class="main-title_">
             <a href="<?=base_url('danh-muc/tin-tuc')?>"><b>Tin tức</b></a>
         </h3>
         <p>Tin tức mới nhất, phân tích xu hướng thị trường, cập nhật nhanh chóng và chính xác hàng ngày</p>
@@ -233,7 +233,7 @@
 </section>
 <section class="sec-blog font18">
     <div class="container">
-        <h3 style="font-size:25px;margin-bottom:15px" class="main-title_">
+        <h3 style="font-size:30px;margin-bottom:15px" class="main-title_">
             <a href="#"><b>Thông tin - Blog</b></a>
         </h3>
         <div class="row">
@@ -317,7 +317,7 @@
 </section>
 <section class="sec-khudancu font18">
     <div class="container">
-        <h3 style="font-size:25px;margin-bottom:15px" class="main-title_">
+        <h3 style="font-size:30px;margin-bottom:15px" class="main-title_">
             <a href="<?=base_url('khu-dan-cu')?>"><b>Khu dân cư</b></a>
         </h3>
         <p>Thông tin phân tích chi tiết, danh mục dự án và nhà đất đăng bán & cho thuê tại các khu vực nổi bật</p>
