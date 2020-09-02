@@ -21,7 +21,9 @@
 </section>
 <section class="sec-project font18">
     <div class="container">
-        <h3 class="main-title">Dự án nổi bật</h3>
+        <h3 style="font-size:40px;margin-bottom:15px" class="main-title_">
+            <a href="<?=base_url('danh-muc/du-an')?>"><b>Dự án nổi bật</b></a>
+        </h3>
         <div class="row">
             <?php foreach ($list_du_an as $key => $du_an) {
                 $info_province_duan = $this->Province_M->find_row(['province_id'=>$du_an['project_province_id']]);
@@ -34,7 +36,7 @@
                         <a title="<?=$du_an['project_title']?>" href="<?=base_url('chi-tiet-du-an/'.$du_an['project_alias'].'-'.$du_an['project_id'])?>">
                             <div class="project-info">
                                 <img src="<?=resizeImg($du_an['project_img'],360,203,0)?>" alt="">
-                                <div class="status font17">
+                                <div class="status font17 <?=$du_an['project_status']==3 ? 'sold_out':''?>">
                                     <span><?=$info_status_duan['status_project']?></span>
                                 </div>
                             </div>
@@ -42,6 +44,9 @@
                                 <h3 class="title text-overflow"><?=$du_an['project_title']?></h3>
                                 <p class="address"><?=$info_ward_duan['ward_name'].', '.$info_district_duan['district_name'].', '.$info_province_duan['province_name']?></b></p></p>
                                 <p class="price">Giá bán: <?=$du_an['project_price']?></p>
+                                <?php if ($du_an['project_price_lease']>0){ ?>
+                                    <p class="price right">Giá thuê: <?=$du_an['project_price_lease']?></p>
+                                <?php } ?>
                             </div>
                         </a>
                     </div>
@@ -51,7 +56,7 @@
             <?php if (empty($list_du_an)) {?>
                 <div class="text-center" style="color:red"><h4>Dữ liệu đang được cập nhật...</h4></div>
             <?php } ?>
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;<div class="col-md-12"><a href="<?=base_url('tim-kiem?type=0')?>">Xem thêm dự án <span class="fa fa-angle-right"></span></a></div>
+            <div class="col-md-12"><a href="<?=base_url('tim-kiem?type=0')?>">Xem thêm dự án <span class="fa fa-angle-right"></span></a></div>
         </div>
     </div>
 </section>
@@ -88,7 +93,7 @@
                 $arr_project = $list_mua;
                 $col = 4; include ('duan-item.php');
              ?>
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;<div class="col-md-12"><a href="<?=base_url('tim-kiem?type=1')?>">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a></div>
+            <div class="col-md-12"><a href="<?=base_url('tim-kiem?type=1')?>">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a></div>
         </div>
     </div>
 </section>
@@ -125,7 +130,7 @@
                 $arr_project = $list_thue;
                 $col = 4; include ('duan-item.php');
              ?>
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;<div class="col-md-12"><a href="<?=base_url('tim-kiem?type=2')?>">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a></div>
+           <div class="col-md-12"><a href="<?=base_url('tim-kiem?type=2')?>">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a></div>
         </div>
     </div>
 </section>
@@ -169,7 +174,7 @@
                     </div>
                 </div>
             <?php } ?>
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;<div class="col-md-12"><a href="<?=base_url('chu-dau-tu')?>">Xem thêm chủ đầu tư <span class="fa fa-angle-right"></span></a></div>
+            <div class="col-md-12"><a href="<?=base_url('chu-dau-tu')?>">Xem thêm chủ đầu tư <span class="fa fa-angle-right"></span></a></div>
         </div>
     </div>
 </section>
@@ -319,7 +324,7 @@
                     </a>
                 </div>
             <?php } ?>
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?=base_url('khu-dan-cu')?>">Xem thêm khu dân cư <span class="fa fa-angle-right"></span></a>
+            <a href="<?=base_url('khu-dan-cu')?>">Xem thêm khu dân cư <span class="fa fa-angle-right"></span></a>
         </div>
     </div>
 </section>

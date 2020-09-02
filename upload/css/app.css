@@ -76,6 +76,10 @@ img {
   clear: both;
 }
 
+.right {
+  float: right;
+}
+
 .pdl0 {
   padding-left: 0px;
 }
@@ -371,9 +375,9 @@ img {
 }
 
 #form-absolute button.btn_choose_type {
-  background: #0C714B;
+  background: rgba(255, 255, 255, 0.7);
   padding: 14px 18px;
-  color: #fff;
+  color: #000;
   margin-right: -3px;
   margin-bottom: 2px;
   -webkit-transition: all 0.4s;
@@ -381,7 +385,8 @@ img {
 }
 
 #form-absolute button.btn_choose_type:hover, #form-absolute button.btn_choose_type.clicked {
-  background: orangered;
+  background: #0C714B;
+  color: #fff;
 }
 
 #form-absolute button.btn_search {
@@ -460,7 +465,7 @@ img {
 .item-project {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
 }
@@ -496,6 +501,10 @@ img {
   color: #fff;
   font-size: 12px;
   font-weight: bold;
+}
+
+.item-project .project-info .status.sold_out {
+  background: #000000b8 !important;
 }
 
 .item-project .project-content {
@@ -537,6 +546,9 @@ img {
 .item-project .project-content .price {
   margin: 2px 0px;
   font-weight: bold;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
 .item-chudautu {

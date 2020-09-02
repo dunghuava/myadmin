@@ -12,7 +12,7 @@
                 <a title="<?=$item['project_title']?>" href="<?=base_url('chi-tiet-du-an/'.$item['project_alias'].'-'.$item['project_id'])?>">
                     <div class="project-info">
                         <img src="<?=resizeImg($item['project_img'],360,203,0)?>" alt="<?=$item['project_title']?>">
-                        <div class="status font17">
+                        <div class="status font17 <?=$item['project_status']==3 ? 'sold_out':''?>">
                             <span><?=$info_status['status_project']?></span>
                         </div>
                     </div>
@@ -42,6 +42,10 @@
                         <h3 class="title text-overflow"><?=$item['project_title']?></h3>
                         <p class="address"><?=$info_ward['ward_name'].', '.$info_district['district_name'].', '.$info_province['province_name']?></b></p></p>
                         <p class="price">Giá bán: <?=$item['project_price']?></p>
+                        <?php if ($item['project_price_lease']>0){ ?>
+                            <p class="price right">Giá thuê: <?=$item['project_price_lease']?></p>
+                        <?php } ?>
+                        <div class="clear"></div>
                     </div>
                 </a>
             </div>
