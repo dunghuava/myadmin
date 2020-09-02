@@ -90,7 +90,7 @@
 <section class="sec-project font18">
     <div class="container">
         <h3 style="font-size:25px;margin-bottom:15px" class="main-title_">
-            <a href="<?=base_url('danh-muc/du-an')?>"><b>Nhà bán nổi bật</b></a>
+            <a href="<?=base_url('danh-muc/mua')?>"><b>Nhà bán nổi bật</b></a>
         </h3>
         <div class="row">
             <?php
@@ -104,7 +104,9 @@
 
 <section class="sec-khuvuc font18">
     <div class="container">
-        <h3 class="main-title">Nhà bán theo khu vực</h3>
+        <h3 style="font-size:25px;margin-bottom:15px" class="main-title_">
+            <a href="<?=base_url('danh-muc/mua')?>"><b>Nhà bán theo khu vực</b></a>
+        </h3>
         <div class="row">
             <div class="slick-khuvuc">
                 <?php foreach ($mua_region as $key => $mua_re) {
@@ -143,7 +145,9 @@
 
 <section class="sec-khuvuc font18">
     <div class="container">
-        <h3 class="main-title">Cho thuê theo khu vực</h3>
+        <h3 style="font-size:25px;margin-bottom:15px" class="main-title_">
+            <a href="<?=base_url('danh-muc/cho-thue')?>"><b>Cho thuê theo khu vực</b></a>
+        </h3>
         <div class="row">
             <div class="slick-khuvuc">
                 <?php foreach ($thue_region as $key => $thue_re) {
@@ -167,7 +171,9 @@
 
 <section class="sec-chudautu font18">
     <div class="container">
-        <h3 class="main-title">Chủ đầu tư nổi bật</h3>
+        <h3 style="font-size:25px;margin-bottom:15px" class="main-title_">
+            <a href="<?=base_url('danh-muc/danh-sach-chu-dau-tu')?>"><b>Chủ đầu tư nổi bật</b></a>
+        </h3>
         <p>Thông tin cơ bản và danh mục dự án của các chủ đầu tư bất động sản uy tín hiện nay</p>
         <div class="row">
             <?php foreach ($list_investor as $key => $investor) {?>
@@ -227,7 +233,9 @@
 </section>
 <section class="sec-blog font18">
     <div class="container">
-        <h3 class="main-title">Thông tin - Blog</h3>
+        <h3 style="font-size:25px;margin-bottom:15px" class="main-title_">
+            <a href="#"><b>Thông tin - Blog</b></a>
+        </h3>
         <div class="row">
             <div class="col-md-4">
                 <div class="item-blog">
@@ -309,7 +317,9 @@
 </section>
 <section class="sec-khudancu font18">
     <div class="container">
-        <h3 class="main-title">Khu dân cư</h3>
+        <h3 style="font-size:25px;margin-bottom:15px" class="main-title_">
+            <a href="<?=base_url('khu-dan-cu')?>"><b>Khu dân cư</b></a>
+        </h3>
         <p>Thông tin phân tích chi tiết, danh mục dự án và nhà đất đăng bán & cho thuê tại các khu vực nổi bật</p>
         <div class="row">
             <?php foreach ($list_residential as $key => $residential) {
