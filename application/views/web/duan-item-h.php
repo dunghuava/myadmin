@@ -14,7 +14,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="right">
+                <div class="right" style="width:100%">
                     <div class="info">
                         <h3 class="title text-overflow">
                             <a style="text-decoration:none" title="<?=$item['project_title']?>" href="<?=base_url('chi-tiet-du-an/'.$item['project_alias'].'-'.$item['project_id'])?>">
