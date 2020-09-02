@@ -61,7 +61,7 @@ function setMarkers(map) {
     new google.maps.Marker({
       position: { lat: Number(beaches[i]['lat']), lng: Number(beaches[i]['lng']) },
       map: map,
-      icon: false,
+      icon: '',
 
       shape: shape,
       title: beaches[i]['title'],

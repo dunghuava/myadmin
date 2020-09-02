@@ -1,5 +1,6 @@
 <br><br>
 <?php include ('botchat.php') ?>
+<?php include ('hotline.php') ?>
 
 <style type="text/css">
     @media screen and (max-width: 990px) {

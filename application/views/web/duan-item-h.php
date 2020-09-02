@@ -10,7 +10,7 @@
                 <div class="left col-md-5 pdr0">
                     <div class="cover-img">
                         <a style="text-decoration:none" title="<?=$item['project_title']?>" href="<?=base_url('chi-tiet-du-an/'.$item['project_alias'].'-'.$item['project_id'])?>">
-                            <img src="<?=resizeImg($item['project_img'],270,180,0)?>" alt="<?=$item['project_title']?>" style="width: 270px;height: 180px;">
+                            <img src="<?=resizeImg($item['project_img'],300,180,0)?>" alt="<?=$item['project_title']?>" style="width: 300px;height: 180px;">
                         </a>
                     </div>
                 </div>

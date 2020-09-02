@@ -6,7 +6,7 @@
         border: none;
         outline: none;
         &.btn_choose_type{
-            background: #88ad6abd;
+            background: $primary-color;
             padding:14px 18px;
             color:#fff;
             margin-right: -3px;
@@ -20,7 +20,7 @@
             height: 56px !important;
             padding:0px 35px;  
             font-size: 18px;
-            background: #88ad6a;
+            background: $primary-color;
             color: #fff;
         }
     }

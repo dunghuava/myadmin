@@ -129,7 +129,7 @@ img {
 }
 
 .main-menu li:hover {
-  background: #88AD6A;
+  background: #0C714B;
 }
 
 .main-menu li:hover a {
@@ -207,8 +207,8 @@ img {
 
 .app-header .btnBar {
   padding: 10px 12px;
-  color: #88AD6A;
-  border: 1px solid #88AD6A;
+  color: #0C714B;
+  border: 1px solid #0C714B;
   margin-top: 5px;
   border-radius: 5px;
 }
@@ -228,7 +228,7 @@ img {
 .app-footer {
   color: white;
   padding: 15px 0px;
-  background: #88AD6A;
+  background: #0C714B;
 }
 
 .app-footer .title-footer {
@@ -259,7 +259,7 @@ img {
   -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
           box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
   font-weight: bold;
-  background: #88AD6A;
+  background: #0C714B;
   cursor: pointer;
   position: absolute;
   border-radius: 50%;
@@ -288,7 +288,7 @@ img {
   text-align: center;
   padding-top: 2px;
   cursor: pointer;
-  background: #88AD6A;
+  background: #0C714B;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
   -webkit-animation: fadeup 0.4s;
@@ -371,7 +371,7 @@ img {
 }
 
 #form-absolute button.btn_choose_type {
-  background: #88ad6abd;
+  background: #0C714B;
   padding: 14px 18px;
   color: #fff;
   margin-right: -3px;
@@ -388,7 +388,7 @@ img {
   height: 56px !important;
   padding: 0px 35px;
   font-size: 18px;
-  background: #88ad6a;
+  background: #0C714B;
   color: #fff;
 }
 
@@ -437,7 +437,7 @@ img {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  background: #88AD6A;
+  background: #0C714B;
   padding: 9px;
   position: relative;
 }
@@ -447,7 +447,7 @@ img {
   position: absolute;
   bottom: 0px;
   height: 2px;
-  background: #88AD6A;
+  background: #0C714B;
   width: 100%;
 }
 
@@ -491,7 +491,7 @@ img {
   left: 0px;
   padding: 5px;
   text-align: center;
-  background: #88AD6Abd;
+  background: #0C714Bbd;
   width: 100%;
   color: #fff;
   font-size: 12px;
@@ -774,7 +774,7 @@ img {
 
 .overview-toolbar .btn.red {
   color: #fff;
-  background: #88AD6A;
+  background: #0C714B;
 }
 
 .overview-toolbar ul li {
@@ -961,7 +961,7 @@ img {
 
 #form-contact button {
   border-radius: 0px;
-  background: #88AD6A;
+  background: #0C714B;
 }
 
 #frm-top-search {
@@ -1149,7 +1149,7 @@ img {
 .duan-item-h .right .price {
   font-size: 20px;
   font-weight: bold;
-  color: #88AD6A;
+  color: #0C714B;
 }
 
 .duan-item-h .extends li {
@@ -1166,7 +1166,7 @@ img {
 .duan-item-h .extends li:last-child {
   float: right;
   padding: 5px 10px;
-  border: 1px solid #88AD6A;
+  border: 1px solid #0C714B;
   margin-top: -5px;
   background: #65BA69;
   border-radius: 2px;
