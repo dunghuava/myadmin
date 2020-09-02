@@ -149,12 +149,22 @@
                     </li>
                     <li>
                         <p class="left">Số phòng tắm</p>
-                        <p class="right"><?=$duan['project_phongtam']?$duan['project_phongtam']:'Đang cập nhập';?></p>
+                        <p class="right"><?=$duan['number_tolet']?$duan['number_tolet']:'Đang cập nhập';?></p>
                     </li>
                     <li>
                         <p class="left">Số tầng</p>
                         <p class="right"><?=$duan['number_floors']?$duan['number_floors']:'Đang cập nhập';?></p>
                     </li>
+
+                    <?php if ($duan['in_project'] != 0) {
+                        $in_project = $this->Project_M->find_row(['project_id'=>$duan['in_project']]);
+                    ?>
+                        <li>
+                            <p class="left">Dự án</p>
+                            <p class="right"><?=$in_project['project_title']?></p>
+                        </li>
+                    <?php } ?>
+
                 </ul>
                 <!-- detail -->
                 </div>

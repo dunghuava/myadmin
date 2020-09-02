@@ -214,6 +214,8 @@ class Web extends MY_Controller {
 
         $data['thue_ban_lancan']= $this->Project_M->getThueMuaLanCan($duan_id,$data['duan']['project_district_id'],0);
 
+        $data['thue_ban_of_duan']= $this->Project_M->getThueMuaofDuan($duan_id,0);
+
         /*SEO*/
         if (!empty($data['duan']['project_description'])) {
             $description = mb_substr($data['duan']['project_description'], 0, 150,"UTF-8");
