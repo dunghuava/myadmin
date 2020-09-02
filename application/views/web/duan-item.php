@@ -12,7 +12,7 @@
                 <a title="<?=$item['project_title']?>" href="<?=base_url('chi-tiet-du-an/'.$item['project_alias'].'-'.$item['project_id'])?>">
                     <div class="project-info">
                         <img src="<?=resizeImg($item['project_img'],360,203,0)?>" alt="<?=$item['project_title']?>">
-                        <div class="status font17 <?=$item['project_status']==3 ? 'sold_out':''?>">
+                        <div status="<?=$item['project_status']?>" class="status font17 <?=$item['project_status']==3 ? 'sold_out':''?>">
                             <span><?=$info_status['status_project']?></span>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                 <a title="<?=$item['project_title']?>" href="<?=base_url('chi-tiet-du-an/'.$item['project_alias'].'-'.$item['project_id'])?>">
                     <div class="project-info">
                         <img src="<?=resizeImg($item['project_img'],360,203,0)?>" alt="">
-                        <div class="status font17">
+                        <div class="status font17 <?=$item['project_status']==3 ? 'sold_out':''?>">
                             <span><?=$info_status['status_project']?></span>
                         </div>
                     </div>
