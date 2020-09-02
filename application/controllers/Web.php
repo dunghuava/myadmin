@@ -320,6 +320,9 @@ class Web extends MY_Controller {
         foreach ($arr_project as $item){
             $project_locate []=array(
                 'title'=>$item['project_title'],
+                'img'=>$item['project_img'],
+                'price'=>$item['project_price'],
+                'des'=>strip_tags(substr($item['project_content'],0,200)),
                 'lat'=>$item['project_lat'],
                 'lng'=>$item['project_lng']
             );

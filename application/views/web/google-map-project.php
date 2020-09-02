@@ -17,7 +17,7 @@
             var marker = new google.maps.Marker({
                 position: myLatLng,
                 map: map,
-                icon:false,
+                icon:'upload/marker.png',
                 title: '<?=$duan['project_title']?>',
             });
             infowindow.open(map, marker);
