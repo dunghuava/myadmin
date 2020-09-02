@@ -18,7 +18,7 @@
         });
         google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
           return function() {
-            var content='<div class="row"><div class="col-md-4"><img src="upload/images/'+locations[i].img+'"/></div><div class="col-md-8"><p><b>'+locations[i].title+'</b></p><p>Giá: '+locations[i].price+'</p><p style="font-size:8px">'+locations[i].des+'...</p></div></div>';
+            var content='<div class="row"><div class="col-md-6><img src="upload/images/'+locations[i].img+'"/></div><div class="col-md-6"><p><b>'+locations[i].title+'</b></p><p>Giá: '+locations[i].price+'</p></div></div>';
             infowindow.setContent(content);
             infowindow.open(map, marker);
           }

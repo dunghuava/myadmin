@@ -22,7 +22,10 @@
                             </a>
                         </h3>
                         <p class="text-overflow"><span class="fa fa-map-marker"></span> <b>P.&nbsp;<?=$info_ward['ward_name'].', '.$info_district['district_name'].', '.$info_province['province_name']?></b></p>
-                        <p class="price"><?=$item['project_price']?></p>
+                        <p style="display:inline-block" class="price">Giá bán:&nbsp;<?=$item['project_price']?></p>
+                        <?php if ($item['project_price_lease']>0){ ?>
+                            <p style="display:inline-block" class="price right">Giá thuê: <?=$item['project_price_lease']?></p>
+                        <?php } ?>
                         <ul class="extends">
                             <li title="Diện tích"><span class="icon-acreage" style="padding-right: 5px"></span> <?=$item['project_acreage']?></li>
                             <?php
