@@ -213,7 +213,7 @@
         <div class="col-md-8 inline-flex">
             <label for="">Địa chỉ</label>
         
-            <input type="text" name="project_address" id="project_address" onFocus="geolocate()" class="form-control" value="" required>
+            <input type="text" name="project_address" id="project_address" onFocus="geolocate()" class="form-control" value="" placeholder="nhập địa chỉ" required>
             
         </div>  
 

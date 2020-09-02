@@ -225,7 +225,7 @@
 
         <div class="col-md-8 inline-flex">
             <label for="">Địa chỉ</label>
-            <input type="text" name="project_address" id="project_address" onFocus="geolocate()" class="form-control" value="<?php echo $info_project['project_address'] ?>" required>
+            <input type="text" name="project_address" id="project_address" onFocus="geolocate()" class="form-control" value="<?php echo $info_project['project_address'] ?>" placeholder="nhập địa chỉ" required>
             
         </div>  
 
