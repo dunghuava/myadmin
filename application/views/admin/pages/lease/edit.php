@@ -99,10 +99,8 @@
 
             <div class="col-md-12 inline-flex" style="padding-right: 0px;">
                 <label for="" style="margin-left: 113px">Loại hình</label>
-                <select name="project_type[]" id="project_type" class="form-control select2" multiple="multiple" required>
-                    <option value="">Chọn loại hình</option>
-
-                    <?php foreach ($list_type as $type) {
+                <select name="project_type[]" id="project_type" class="form-control select2 tags-field" multiple="multiple" required>
+                <?php foreach ($list_type as $type) {
                     $project_type = explode(',', $info_project['project_type']);
                 ?>
                     <option value="<?php echo $type['id_type_project'] ?>" <?php foreach ($project_type as $pr_type) {if($type['id_type_project'] == $pr_type) echo "selected='selected'";} ?>><?php echo $type['type_project'] ?></option>
@@ -285,6 +283,16 @@
         var val = make_alias(e.value);
         $(target).val(val);
     }
+
+    $(document).ready(function () {
+        $('.select2').select2();
+        $(".tags-field").select2({
+            tokenSeparators: [','],
+            tags: true,
+        });
+        $('input').attr('autocomplete','off');
+    });
+
 
     $('#project_category').val(<?=$info_project['project_category']?>);
 

@@ -37,6 +37,25 @@ class Lease extends MY_Controller {
 		$post = $this->input->post();
 
 		if ($this->input->post()) {
+
+			$project_type_string = array();
+			$project_type_number = array();
+			foreach ($post['project_type'] as $item) {
+				if (!is_numeric($item)){
+					array_push($project_type_string, $item);
+				}else{
+					array_push($project_type_number, $item);
+				}
+			}
+			
+			if (!empty($project_type_string)) {
+				foreach ($project_type_string as $type_string) {
+					$data_insert_type = array('type_project' => $type_string, );
+					$id_type_project = $this->Type_M->create($data_insert_type);
+					array_push($project_type_number, $id_type_project);
+				}
+			}
+
 			
 			if (!empty($_FILES['project_img']['name'])){
 				$file = $_FILES['project_img'];
@@ -103,7 +122,7 @@ class Lease extends MY_Controller {
 				'project_stt' => '', 
 				'project_investor' => '', 
 				'project_status' => '', 
-				'project_type' => implode(',', $post['project_type']), 
+				'project_type' => implode(',', $project_type_number), 
 				'project_acreage' => $post['project_acreage'], 
 				'project_price' => $post['project_price'], 
 				'number_bedroom' => $post['number_bedroom'], 
@@ -259,6 +278,27 @@ class Lease extends MY_Controller {
 		$post = $this->input->post();
 
 		if ($this->input->post()) {
+
+			
+			$project_type_string = array();
+			$project_type_number = array();
+			foreach ($post['project_type'] as $item) {
+				if (!is_numeric($item)){
+					array_push($project_type_string, $item);
+				}else{
+					array_push($project_type_number, $item);
+				}
+			}
+			if (!empty($project_type_string)) {
+				foreach ($project_type_string as $type_string) {
+					$data_insert_type = array('type_project' => $type_string, );
+					$id_type_project = $this->Type_M->create($data_insert_type);
+					array_push($project_type_number, $id_type_project);
+				}
+			}
+
+            
+
 			if (!empty($_FILES['project_img']['name'])){
 				$file = $_FILES['project_img'];
 				$filename = md5($file['name'].time());
@@ -322,7 +362,7 @@ class Lease extends MY_Controller {
 				'project_lng' => $lng, 
 				'project_investor' => $post['project_investor'], 
 				'project_status' => $post['project_status'], 
-				'project_type' => implode(',', $post['project_type']), 
+				'project_type' => implode(',', $project_type_number), 
 				'project_acreage' => $post['project_acreage'], 
 				'project_price' => $post['project_price'], 
 				'number_bedroom' => $post['number_bedroom'], 
