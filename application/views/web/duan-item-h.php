@@ -5,7 +5,7 @@
     $info_ward = $this->Ward_M->find_row(['ward_id'=>$item['project_ward_id']]);
     $info_status = $this->Status_M->find_row(['id_status_project'=>$item['project_status']]);
 ?>
-    <div class="duan-item-h">
+    <div title="<?=$item['project_title']?>" onclick="location.href=this.getAttribute('href')" class="duan-item-h cursor" href="<?=base_url('chi-tiet-du-an/'.$item['project_alias'].'-'.$item['project_id'])?>">
             <div class="row_row" style="width:100%;margin:auto;display:flex">
                 <div class="left pdr0">
                     <div class="cover-img">
