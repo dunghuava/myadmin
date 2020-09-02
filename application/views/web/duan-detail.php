@@ -60,6 +60,10 @@
     $duan_img = $this->Project_Images_M->all(['project_id'=>$duan['project_id']]);
     $cdt = $this->Investor_M->find_row(['investor_id'=>$duan['project_investor']]);
     $arr_project = $duan_lancan;
+
+    $info_status = $this->Status_M->find_row(['id_status_project'=>$duan['project_status']]);
+
+    $project_type = explode(',', $duan['project_type']);
 ?>
 <div class="product-detailt font18">
     <!-- begin -->
@@ -104,7 +108,11 @@
                     <p><span class="fa fa-map-marker"></span>&nbsp; <?=$duan['project_address']?></p>
                 </div>
                 <div class="col-md-3"><br><br>
-                    <p style="color:red" >Giá: <b style="font-size:18px"><?=$duan['project_price']?></b></p>
+                    <p style="color:red" >Giá bán: <b style="font-size:18px"><?=$duan['project_price']?></b></p>
+                    <?php if ($duan['project_price_lease']>0){ ?>
+                        <p style="color:red" >Giá thuê: <b style="font-size:18px"><?=$duan['project_price_lease']?></b></p>
+                    <?php } ?>
+                    
                 </div>
             </div>
         </div>
@@ -115,28 +123,8 @@
                 <!-- detail -->
                 <ul class="detail-more-top font18_all">
                     <li>
-                        <p class="left">Số block</p>
-                        <p class="right"><?=$duan['number_blocks']?$duan['number_blocks']:'Đang cập nhập';?></p>
-                    </li>
-                    <li>
-                        <p class="left">Số tầng</p>
-                        <p class="right"><?=$duan['number_floors']?$duan['number_floors']:'Đang cập nhập';?></p>
-                    </li>
-                    <li>
-                        <p class="left">Số căn hộ</p>
-                        <p class="right"><?=$duan['number_units']?$duan['number_units']:'Đang cập nhập';?></p>
-                    </li>
-                    <li>
-                        <p class="left">Số toles</p>
-                        <p class="right"><?=$duan['number_tolet']?$duan['number_tolet']:'Đang cập nhập';?></p>
-                    </li>
-                    <li>
-                        <p class="left">Số phòng ngủ</p>
-                        <p class="right"><?=$duan['number_bedroom']?$duan['number_bedroom']:'Đang cập nhập';?></p>
-                    </li>
-                    <li>
-                        <p class="left">Diện tích căn hộ</p>
-                        <p class="right"><?=$duan['project_acreage']?$duan['project_acreage']:'Đang cập nhập';?></p>
+                        <p class="left">Trạng thái</p>
+                        <p class="right"><?=$info_status['status_project']?$info_status['status_project']:'Đang cập nhập';?></p>
                     </li>
                     <li>
                         <p class="left">Chủ đầu tư</p>
@@ -150,6 +138,37 @@
                                     Đang cập nhật
                                 <?php } ?>
                             </span>
+                        </p>
+                    </li>
+                    <li>
+                        <p class="left">Số block</p>
+                        <p class="right"><?=$duan['number_blocks']?$duan['number_blocks']:'Đang cập nhập';?></p>
+                    </li>
+                    <li>
+                        <p class="left">Số tầng</p>
+                        <p class="right"><?=$duan['number_floors']?$duan['number_floors']:'Đang cập nhập';?></p>
+                    </li>
+                    <li>
+                        <p class="left">Số căn hộ</p>
+                        <p class="right"><?=$duan['number_units']?$duan['number_units']:'Đang cập nhập';?></p>
+                    </li>
+
+
+                    <li>
+                        <p class="left">Loại hình</p>
+                        <p class="right" style="white-space: nowrap;">
+                            <?php if (!empty($project_type)) {
+                                $type_format = '';
+                                foreach ($project_type as $type) {
+                                    $info_type = $this->Type_M->find_row(['id_type_project'=>$type['project_type']]);
+                                    $type_format .= $info_type['type_project'].', ';
+                                }
+                                
+                                echo rtrim($type_format,', ');
+                            }else{
+                                echo "Đang cập nhập";
+                            }
+                            ?>
                         </p>
                     </li>
                 </ul>
@@ -313,11 +332,11 @@
                     ?>
                 </div>
             </div>
-            <h3 id="p_forent">Bán & Cho thuê lân cận</h3>
+            <h3 id="p_forent">Nhà bán & Nhà cho thuê</h3>
             <div class="row">
                 <div class="slick">
                     <?php 
-                        $arr_project = $thue_ban_lancan;
+                        $arr_project = $thue_ban_of_duan;
                         $col=4; include ('duan-item.php') 
                     ?>
                 </div>

@@ -13,7 +13,7 @@
 <div class="hidden-md hidden-lg"><br><br></div>
 <div class="form-mobile hidden-md hidden-lg">
     <div style="display:flex">
-        <div class="col-md-6 col-xs-6 div-contact-tel" style="margin:2px">
+        <div class="col-md-6 col-xs-6 div-contact-tel" style="margin:2px;background: #0C714B;">
             <a style="color: white;text-decoration: none;" href="tel:<?=$info[0]['phone']?>"><i class="fa fa-phone" aria-hidden="true"></i> <?=$info[0]['phone']?></a>
         </div>
         <div class="col-md-6 col-xs-6 div-contact-tel" style="margin:2px;background:red">
@@ -32,7 +32,7 @@
         </div>
 
     </div>
-    <div class="col-md-12 div-contact-tel">
+    <div class="col-md-12 div-contact-tel" style="background: #0C714B;">
         <a style="color: white;text-decoration: none;" href="tel:<?=$info[0]['phone']?>"><i class="fa fa-phone" aria-hidden="true"></i> <?=$info[0]['phone']?></a>
     </div>
     <div class="col-md-12">

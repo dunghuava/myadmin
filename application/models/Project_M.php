@@ -70,6 +70,17 @@ class Project_M extends MY_model {
 		$this->db->limit(6);
 		return $this->db->get($this->table)->result_array();
 	}
+
+	public function getThueMuaofDuan($project_id,$type){
+		$this->db->where('in_project',$project_id);
+		$this->db->where('project_kind !=',$type);
+		$this->db->order_by("project_highlights", "desc");
+		$this->db->order_by("project_id", "desc");
+		$this->db->limit(6);
+		return $this->db->get($this->table)->result_array();
+	}
+
+	
 }
 
 /* End of file Account_M.php */
