@@ -215,11 +215,13 @@
     width: 100%;
     border-bottom: 1px solid #dcdcdd;
     .left{
+        width: 300px;
         .cover-img{
             width: 100%;
         }
     }
     .right{
+        width: cacl(100%-300px);
         padding: 0px 8px;
         .title{
             margin: 4px 0px;

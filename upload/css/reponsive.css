@@ -20,11 +20,18 @@
   .product-detailt .item-slider {
     height: 200px;
   }
+  .duan-item-h .row_row {
+    display: block !important;
+  }
   .duan-item-h .left {
+    width: 100%;
     padding: 0px !important;
   }
   .duan-item-h .left img {
     width: 100% !important;
+  }
+  .duan-item-h .right {
+    width: 100%;
   }
   .list_option li {
     padding-left: 0px;

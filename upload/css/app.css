@@ -1143,6 +1143,10 @@ img {
   border-bottom: 1px solid #dcdcdd;
 }
 
+.duan-item-h .left {
+  width: 300px;
+}
+
 .duan-item-h .left .cover-img {
   width: 100%;
 }
