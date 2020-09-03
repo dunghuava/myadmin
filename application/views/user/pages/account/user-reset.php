@@ -11,7 +11,7 @@
     }
     .btn{
         color:#fff;
-        background:#65BA69 !important;
+        background:#0C714B !important;
     }
 </style>
 <section class="page-login" style="background:#F9F9F9">
