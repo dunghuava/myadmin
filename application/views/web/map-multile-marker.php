@@ -42,18 +42,16 @@
       n_lat=lat;n_lng=lng;
       var latLng = new google.maps.LatLng(lat,lng);
       map.setCenter(latLng);
-      marker = new google.maps.Marker({
-          position: new google.maps.LatLng(lat,lng),
-          icon:'upload/marker_red.png',
-          map: map
-      });
+      map.setZoom(14);
+      marker.setPosition(new google.maps.LatLng(lat,lng));
+      marker.setIcon('upload/marker_red.png');
+
     }, function () {
       // out
-      marker = new google.maps.Marker({
-          position: new google.maps.LatLng(n_lat,n_lng),
-          icon:'upload/marker.png',
-          map: map
-      });
+      map.setCenter(new google.maps.LatLng(n_lat,n_lng));
+      map.setZoom(13);
+      marker.setPosition(new google.maps.LatLng(n_lat,n_lng));
+      marker.setIcon('upload/marker.png');
     }
   );
 </script>
