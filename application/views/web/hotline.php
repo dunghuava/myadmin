@@ -1,7 +1,4 @@
 <link rel="stylesheet" href="<?=base_url('upload/css/hotline.css?v='.time())?>">
-<?php 
-    $info = $this->Project_M->o_fetch("select phone from db_info ");
-?>
 <div class="hotline-phone-ring-wrap">
 	<div class="hotline-phone-ring">
 		<div class="hotline-phone-ring-circle"></div>
