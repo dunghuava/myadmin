@@ -2,14 +2,18 @@
 
 <script>
   var locations   = <?php echo json_encode($project_locate) ?>;
+  var map = null;
+  var marker = null;
+  var infowindow = null;
+  var cr_content=0;
   function initMap(){
-      var map = new google.maps.Map(document.getElementById('map'), {
+      map = new google.maps.Map(document.getElementById('map'), {
         zoom: 10,
         center: new google.maps.LatLng(locations[0].lat, locations[0].lng),
         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
-      var infowindow = new google.maps.InfoWindow();
-      var marker, i;
+      infowindow = new google.maps.InfoWindow();
+      var i;
       for (i = 0; i < locations.length; i++) {  
         marker = new google.maps.Marker({
           position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
@@ -19,6 +23,7 @@
         google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
           return function() {
             var content='<div class="row" style="width:250px"><div class="col-md-12"><p><img src="'+locations[i].img+'"/></p></div><div class="col-md-12"><p><b>'+locations[i].title+'</b></p><p>Giá: '+locations[i].price+'</p></div></div>';
+            cr_content=content;
             infowindow.setContent(content);
             infowindow.open(map, marker);
           }
@@ -28,4 +33,27 @@
         });
       }
   }
+  var n_lat=0;
+  var n_lng=0;
+  $('.duan-item-h').hover(function () {
+      // over
+      var lat = $(this).attr('data-lat');
+      var lng = $(this).attr('data-lng');
+      n_lat=lat;n_lng=lng;
+      var latLng = new google.maps.LatLng(lat,lng);
+      map.setCenter(latLng);
+      marker = new google.maps.Marker({
+          position: new google.maps.LatLng(lat,lng),
+          icon:'upload/marker_red.png',
+          map: map
+      });
+    }, function () {
+      // out
+      marker = new google.maps.Marker({
+          position: new google.maps.LatLng(n_lat,n_lng),
+          icon:'upload/marker.png',
+          map: map
+      });
+    }
+  );
 </script>
