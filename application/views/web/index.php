@@ -236,6 +236,7 @@
         <h3 style="font-size:30px;margin-bottom:15px" class="main-title_">
             <a href="#"><b>Thông tin - Blog</b></a>
         </h3>
+        <p>Thông tin - Blog mới nhất, tư vấn luật, cập nhật nhanh chóng và chính xác hàng ngày</p>
         <div class="row">
             <div class="col-md-4">
                 <div class="item-blog">

@@ -677,7 +677,7 @@ img {
 }
 
 .item-blog .title-blog h3 {
-  color: #337CA5;
+  /*color: #337CA5;*/
   text-transform: uppercase;
   margin: 5px 0px 0px 15px;
   font-size: 16px;
@@ -700,7 +700,7 @@ img {
   margin: 5px 0px;
   font-size: 16px;
   font-weight: bold;
-  color: #337CA5;
+  /*color: #337CA5;*/
 }
 
 .item-blog .blog-content .blog-small {
@@ -720,7 +720,7 @@ img {
   margin: 0px 0px 0px 10px;
   font-size: 14px;
   font-weight: bold;
-  color: #337CA5;
+  /*color: #337CA5;*/
 }
 
 .item-khuvuc {
