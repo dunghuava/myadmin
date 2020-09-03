@@ -27,12 +27,50 @@
                             <p style="display:inline-block;color:red" class="price right">Giá thuê: <?=$item['project_price_lease']?></p>
                         <?php } ?>
                         <ul class="extends">
+                        <?php if ($item['project_kind'] == 0) {?>
                             <li title="Diện tích"><span class="icon-acreage" style="padding-right: 5px"></span> <?=$item['project_acreage']?></li>
+                            <?php
+                                if ($item['number_floors']>0){
+                            ?>
+                                <li title="Số tầng"><span  class="fa fa-building" style="padding-right: 5px;padding-top: 2px"></span> <?=$item['number_floors']?></li>
+                            <?php } ?>
+
+                            <?php
+                                if ($item['number_units']>0){
+                            ?>
+                                <li title="Số căn"><span class="fa fa-clone" style="padding-right: 5px;padding-top: 2px"></span> <?=$item['number_units']?></li>
+                            <?php } ?>
+
+                            <?php
+                                if ($item['number_blocks']>0){
+                            ?>
+                                <li title="Số block"><span class="fa fa-cubes" style="padding-right: 5px;padding-top: 2px"></span> <?=$item['number_blocks']?></li>
+                            <?php } ?>
+
+                        <?php }else{ ?>
+
+                                <li title="Diện tích"><span class="icon-acreage" style="padding-right: 5px"></span> <?=$item['project_acreage']?></li>
                             <?php
                                 if ($item['number_bedroom']>0){
                             ?>
-                                <li title="Phòng ngủ"><span class="icon-bedroom" style="padding-right: 5px"></span> <?=$item['number_bedroom']?></li>
+                                <li title="Phòng ngủ"><span  class="fa fa-bed" style="padding-right: 5px;padding-top: 2px"></span> <?=$item['number_bedroom']?></li>
                             <?php } ?>
+
+                            <?php
+                                if ($item['number_tolet']>0){
+                            ?>
+                                <li title="Phòng tắm"><span class="fa fa-bath" style="padding-right: 5px;padding-top: 2px"></span> <?=$item['number_tolet']?></li>
+                            <?php } ?>
+
+                            <?php
+                                if (!empty($item['project_direction'])){
+                            ?>
+                                <li title="Hướng"><span class="fa fa-compass" style="padding-right: 5px;padding-top: 2px"></span> <?=$item['project_direction']?></li>
+                            <?php } ?>
+
+                        <?php } ?>
+
+
                             <li style="background: #f3f4f7;border: 1px solid #f3f4f7;"><button href="#" data-modal="#form_contact_modal" data-id ="<?=$item['project_title']?>" class="btn_modal_contact btn btn-block btn-default" style="background: #0C714B;border: 1px solid #88ad6a;color: white;"><span style="margin-top:2px" class="fa fa-phone"></span>&nbsp;Liên hệ</button></li>
                         </ul>
                     </div>
