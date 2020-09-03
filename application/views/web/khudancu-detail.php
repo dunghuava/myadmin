@@ -156,7 +156,7 @@ vertical-align: -0.125em;
                                         var marker = new google.maps.Marker({
                                             position: myLatLng,
                                             map: map,
-                                            icon:false,
+                                            icon:'upload/marker.png',
                                             title: '<?=$kdc['residential_title']?>',
                                         });
                                         infowindow.open(map, marker);
@@ -197,7 +197,7 @@ vertical-align: -0.125em;
         </div>
 
     </div>
-    <div class="col-md-12 div-contact-tel">
+    <div class="col-md-12 div-contact-tel" style="background: #0C714B;">
         <a style="color: white;text-decoration: none;" href="tel:<?=$info[0]['phone']?>"><i class="fa fa-phone" aria-hidden="true"></i> <?=$info[0]['phone']?></a>
 
     </div>

@@ -123,8 +123,11 @@
                             </div>
                             <div class="project-content">
                                 <h3 class="title text-overflow"><?=$du_an['project_title']?></h3>
-                                <p class="address"><?=$info_ward_duan['ward_name'].', '.$info_district_duan['district_name'].', '.$info_province_duan['province_name']?></b></p></p>
+                                <p class="address"><?=$du_an['project_address']?></b></p></p>
                                 <p class="price">Giá bán: <?=$du_an['project_price']?></p>
+                                <?php if ($du_an['project_price_lease']>0){ ?>
+                                    <p class="price right">Giá thuê: <?=$du_an['project_price_lease']?></p>
+                                <?php } ?>
                             </div>
                         </a>
                     </div>
@@ -180,7 +183,7 @@
         </div>
 
     </div>
-    <div class="col-md-12 div-contact-tel">
+    <div class="col-md-12 div-contact-tel" style="background: #0C714B;">
         <a style="color: white;text-decoration: none;" href="tel:<?=$info[0]['phone']?>"><i class="fa fa-phone" aria-hidden="true"></i> <?=$info[0]['phone']?></a>
 
     </div>
