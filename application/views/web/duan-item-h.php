@@ -5,7 +5,7 @@
     $info_ward = $this->Ward_M->find_row(['ward_id'=>$item['project_ward_id']]);
     $info_status = $this->Status_M->find_row(['id_status_project'=>$item['project_status']]);
 ?>
-    <div data-lat="<?=$item['project_lat']?>" data-lng="<?=$item['project_lng']?>" title="<?=$item['project_title']?>" class="duan-item-h cursor" href="<?=base_url('chi-tiet-du-an/'.$item['project_alias'].'-'.$item['project_id'])?>">
+    <div data-lat="<?=$item['project_lat']?>" data-lng="<?=$item['project_lng']?>" title="<?=$item['project_title']?>" class="duan-item-h cursor">
             <div class="row_row" style="width:100%;margin:auto;display:flex">
                 <div class="left pdr0">
                     <div class="cover-img">
@@ -16,6 +16,7 @@
                 </div>
                 <div class="right" style="width:100%">
                     <div class="info">
+                        <div onclick="location.href='<?=base_url('chi-tiet-du-an/'.$item['project_alias'].'-'.$item['project_id'])?>'">
                         <h3 class="title text-overflow_">
                             <a style="text-decoration:none" title="<?=$item['project_title']?>" href="<?=base_url('chi-tiet-du-an/'.$item['project_alias'].'-'.$item['project_id'])?>">
                                 <?=$item['project_title']?>
@@ -70,7 +71,13 @@
 
                         <?php } ?>
 
+                            <li style="display: none"></li>
 
+
+                        </ul>
+                        </div>
+
+                        <ul class="extends">
                             <li style="background: #f3f4f7;border: 1px solid #f3f4f7;"><button href="#" data-modal="#form_contact_modal" data-id ="<?=$item['project_title']?>" class="btn_modal_contact btn btn-block btn-default" style="background: #0C714B;border: 1px solid #88ad6a;color: white;"><span style="margin-top:2px" class="fa fa-phone"></span>&nbsp;Liên hệ</button></li>
                         </ul>
                     </div>
