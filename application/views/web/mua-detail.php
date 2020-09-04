@@ -130,11 +130,11 @@
                     </li>
                     <li>
                         <p class="left">Hướng</p>
-                        <p class="right"><?=$duan['number_huong']?$duan['number_huong']:'Đang cập nhập';?></p>
+                        <p class="right"><?=$duan['project_direction']?$duan['project_direction']:'Đang cập nhập';?></p>
                     </li>
                     <li>
                         <p class="left">View</p>
-                        <p class="right"><?=$duan['number_view']?$duan['number_view']:'Đang cập nhập';?></p>
+                        <p class="right"><?=$duan['project_view']?$duan['project_view']:'Đang cập nhập';?></p>
                     </li>
                     <li>
                         <p class="left">Số phòng ngủ</p>
