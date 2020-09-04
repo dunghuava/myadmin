@@ -8,7 +8,7 @@
   var cr_content=0;
   function initMap(){
       map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 10,
+        zoom: 13,
         center: new google.maps.LatLng(locations[0].lat, locations[0].lng),
         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
@@ -42,7 +42,7 @@
       n_lat=lat;n_lng=lng;
       var latLng = new google.maps.LatLng(lat,lng);
       map.setCenter(latLng);
-      map.setZoom(14);
+      map.setZoom(13);
       marker.setPosition(new google.maps.LatLng(lat,lng));
       marker.setIcon('upload/marker_red.png');
 
@@ -50,7 +50,7 @@
       // out
       map.setCenter(new google.maps.LatLng(n_lat,n_lng));
       map.setZoom(13);
-      marker.setPosition(new google.maps.LatLng(n_lat,n_lng));
+      marker.setPosition(new google.maps.LatLng(1,1));
       marker.setIcon('upload/marker.png');
     }
   );
