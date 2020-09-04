@@ -8,7 +8,7 @@
   var cr_content=0;
   function initMap(){
       map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 13,
+        zoom: 12,
         center: new google.maps.LatLng(locations[0].lat, locations[0].lng),
         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
@@ -49,7 +49,7 @@
     }, function () {
       // out
       map.setCenter(new google.maps.LatLng(n_lat,n_lng));
-      map.setZoom(13);
+      map.setZoom(12);
       marker.setPosition(new google.maps.LatLng(1,1));
       marker.setIcon('upload/marker.png');
     }
