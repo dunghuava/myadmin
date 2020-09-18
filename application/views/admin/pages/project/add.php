@@ -336,6 +336,7 @@
 
         const place = project_address.getPlace();
 
+        console.log(place);
         for (const component in componentForm) {
           document.getElementById(component).value = "";
           document.getElementById(component).disabled = false;

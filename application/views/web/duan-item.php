@@ -12,20 +12,20 @@
                 <a title="<?=$item['project_title']?>" href="<?=base_url('chi-tiet-du-an/'.$item['project_alias'].'-'.$item['project_id'])?>">
                     <div class="project-info">
                         <img src="<?=resizeImg($item['project_img'],360,203,0)?>" alt="<?=$item['project_title']?>">
-                        <div class="status font17">
+                        <div class="status font17 text-overflow">
                             <span><?=$item['project_title']?></span>
                         </div>
                     </div>
                     <div class="project-content">
                         <ul class="extends">
-                            <li class="big-price"><?=$item['project_price']?></li>
+                            <li class="big-price price-red"><?=$item['project_price']?></li>
                             <li title="Diện tích"><span class="icon-acreage" style="padding-right: 5px"></span> <?=$item['project_acreage']?></li>
                             <li title="Phòng tắm"><span class="fa fa-bath" style="padding-right: 5px;padding-top: 2px"></span> <?=$item['number_tolet']?></li>
                             
                             <li title="Phòng ngủ"><span class="fa fa-bed" style="padding-right: 5px;padding-top: 2px"></span> <?=$item['number_bedroom']?></li>
                         </ul>
                         <div class="clear"></div>
-                        <p class="text-overflow"><span class="fa fa-map-marker"></span> <b><?=$item['project_address']?></b></p>
+                        <p class="text-overflow"><span class="fa fa-map-marker"></span> <b class="textgray"><?=$item['project_address']?></b></p>
                         <p class="text-overflow"><?=$item['project_title']?></p>
                     </div>
                 </a>
@@ -42,10 +42,10 @@
                     </div>
                     <div class="project-content">
                         <h3 class="title text-overflow"><?=$item['project_title']?></h3>
-                        <p class="address"><?=$item['project_address']?></b></p></p>
-                        <p class="price">Giá bán: <?=$item['project_price']?></p>
+                        <p class="address"><?=$item['project_address']?></p>
+                        <p class="price price-red">Giá bán: <?=$item['project_price']?></p>
                         <?php if ($item['project_price_lease']>0){ ?>
-                            <p class="price right">Giá thuê: <?=$item['project_price_lease']?></p>
+                            <p class="price right price-red">Giá thuê: <?=$item['project_price_lease']?></p>
                         <?php } ?>
                         <div class="clear"></div>
                     </div>

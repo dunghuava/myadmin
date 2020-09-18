@@ -43,7 +43,7 @@
                             <div class="project-content">
                                 <h3 class="title text-overflow"><?=$du_an['project_title']?></h3>
                                 <p class="address"><?=$du_an['project_address']?></b></p></p>
-                                <p class="price">Giá bán: <?=$du_an['project_price']?></p>
+                                <p class="price price-red">Giá bán: <?=$du_an['project_price']?></p>
                                 <?php if ($du_an['project_price_lease']>0){ ?>
                                     <p class="price right">Giá thuê: <?=$du_an['project_price_lease']?></p>
                                 <?php } ?>
@@ -56,7 +56,7 @@
             <?php if (empty($list_du_an)) {?>
                 <div class="text-center" style="color:red"><h4>Dữ liệu đang được cập nhật...</h4></div>
             <?php } ?>
-            <div class="col-md-12"><a href="<?=base_url('tim-kiem?type=0')?>">Xem thêm dự án <span class="fa fa-angle-right"></span></a></div>
+            <div class="col-md-12"><a class="hplink" href="<?=base_url('tim-kiem?type=0')?>">Xem thêm dự án <span class="fa fa-angle-right"></span></a></div>
         </div>
     </div>
 </section>
@@ -97,7 +97,7 @@
                 $arr_project = $list_mua;
                 $col = 4; include ('duan-item.php');
              ?>
-            <div class="col-md-12"><a href="<?=base_url('tim-kiem?type=1')?>">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a></div>
+            <div class="col-md-12"><a class="hplink" href="<?=base_url('tim-kiem?type=1')?>">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a></div>
         </div>
     </div>
 </section>
@@ -138,7 +138,7 @@
                 $arr_project = $list_thue;
                 $col = 4; include ('duan-item.php');
              ?>
-           <div class="col-md-12"><a href="<?=base_url('tim-kiem?type=2')?>">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a></div>
+           <div class="col-md-12"><a class="hplink" href="<?=base_url('tim-kiem?type=2')?>">Xem thêm nhà đất <span class="fa fa-angle-right"></span></a></div>
         </div>
     </div>
 </section>
@@ -186,7 +186,7 @@
                     </div>
                 </div>
             <?php } ?>
-            <div class="col-md-12"><a href="<?=base_url('chu-dau-tu')?>">Xem thêm chủ đầu tư <span class="fa fa-angle-right"></span></a></div>
+            <div class="col-md-12"><a class="hplink" href="<?=base_url('chu-dau-tu')?>">Xem thêm chủ đầu tư <span class="fa fa-angle-right"></span></a></div>
         </div>
     </div>
 </section>
@@ -209,7 +209,7 @@
                        </div>
                     </a>
                 </div>
-                <br><a href="<?=base_url('danh-muc/tin-tuc')?>">Xem thêm bài viết <span class="fa fa-angle-right"></span></a>
+                <br><a class="hplink" href="<?=base_url('danh-muc/tin-tuc')?>">Xem thêm bài viết <span class="fa fa-angle-right"></span></a>
             </div>
             <div class="col-md-6">
                 <?php foreach ($list_post as $key => $post) {
@@ -343,7 +343,7 @@
                     </a>
                 </div>
             <?php } ?>
-            <div class="col-md-12"><a href="<?=base_url('khu-dan-cu')?>">Xem thêm khu dân cư <span class="fa fa-angle-right"></span></a></div>
+            <div class="col-md-12"><a class="hplink" href="<?=base_url('khu-dan-cu')?>">Xem thêm khu dân cư <span class="fa fa-angle-right"></span></a></div>
             
         </div>
     </div>

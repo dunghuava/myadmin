@@ -25,7 +25,7 @@
                         <p class="text-overflow__"><span class="fa fa-map-marker"></span> <b><?=$item['project_address']?></b></p>
                         <p style="display:inline-block;color:red" class="price">Giá bán:&nbsp;<?=$item['project_price']?></p>
                         <?php if ($item['project_price_lease']>0){ ?>
-                            <p style="display:inline-block;color:red" class="price right">Giá thuê: <?=$item['project_price_lease']?></p>
+                            <p style="display:inline-block;color:red" class="price right price-red">Giá thuê: <?=$item['project_price_lease']?></p>
                         <?php } ?>
                         <ul class="extends">
                         <?php if ($item['project_kind'] == 0) {?>

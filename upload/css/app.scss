@@ -79,6 +79,19 @@ $primary_color:#0C714B;
     max-height:100px;
     overflow:hidden;
 }
+.hplink{
+    color: royalblue;
+    text-decoration: underline;
+}
+.textgray{
+    color: #3e3a3acf !important;
+    font-weight: 500;
+    font-size: 15px;
+}
+.price-red{
+    color: red !important;
+    font-weight: normal !important;
+}
 // header area
 .main-menu{
     li{
@@ -123,6 +136,8 @@ $primary_color:#0C714B;
                 box-shadow: 0 3px 6px rgba(0,0,0,.2);
                 li{
                     display: block;
+                    border-bottom: 1px solid #0f6f561f;
+
                     a{
                         color: #000000;
                     }
