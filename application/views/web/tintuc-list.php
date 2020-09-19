@@ -13,7 +13,7 @@
                             <div class="content">
                                 <h3 style="font-weight: bold;font-size: 18px;" class="title text-overflow"><?=$post['post_title']?></h3>
                                 <p><span class="fa fa-calendar">&nbsp;</span><?=date('d/m/Y',strtotime($post['created_at']))?></p>
-                                <p class="text-overflow"><?=$post['post_title']?></p>
+                                <p class="text-overflow"><?=$post['post_introduce']?></p>
                             </div>
                         </a>
                     </div><br>

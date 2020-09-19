@@ -78,6 +78,9 @@
                         </div>
 
                         <ul class="extends">
+                            <?php if ($item['project_kind'] != 0) {?>
+                                <li style="width: 384px;word-break: break-all;"><?=mb_substr($item['project_introduce_short'], 0, 84,"UTF-8").'...';?></li>
+                            <?php } ?>
                             <li style="background: #f3f4f7;border: 1px solid #f3f4f7;"><button href="#" data-modal="#form_contact_modal" data-id ="<?=$item['project_title']?>" class="btn_modal_contact btn btn-block btn-default" style="background: #0C714B;border: 1px solid #88ad6a;color: white;"><span style="margin-top:2px" class="fa fa-phone"></span>&nbsp;Liên hệ</button></li>
                         </ul>
                     </div>
