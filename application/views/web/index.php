@@ -222,8 +222,8 @@
                             </div>
                             <div class="news-title">
                                 <h3 class="title font16"><?=$post['post_title']?></h3>
-                                <p class="font14"><?=substr($post['post_introduce'],0,200)?>...</p>
-                                <p class="datetime font16"><span class="fa fa-calendar">&nbsp;</span><?=date('d/m/Y',strtotime($post['created_at']))?></p>
+                                <p class="font14" style="font-size: 16px!important"><?=substr($post['post_introduce'],0,150)?>...</p>
+                                <p class="datetime font16" style="font-size: 16px!important"><span class="fa fa-calendar">&nbsp;</span><?=date('d/m/Y',strtotime($post['created_at']))?></p>
                             </div>
                         </a>
                     </div>

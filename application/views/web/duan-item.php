@@ -26,7 +26,7 @@
                         </ul>
                         <div class="clear"></div>
                         <p class="text-overflow"><span class="fa fa-map-marker"></span> <b class="textgray"><?=$item['project_address']?></b></p>
-                        <p class="text-overflow"><?=$item['project_introduce_short']?></p>
+                        <p class="text-overflow" style="height: 25px;"><?=$item['project_introduce_short']?></p>
                     </div>
                 </a>
             </div>
