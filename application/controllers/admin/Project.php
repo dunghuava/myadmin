@@ -77,7 +77,8 @@ class Project extends MY_Controller {
                 // $full_address = $position->results[0]->formatted_address;
                 $district_name = $position->results[0]->address_components[count($position->results[0]->address_components) -3]->long_name;
 
-                $district_name_format = preg_replace('/District/', 'Quận', $district_name);
+                $district_name_format1 = preg_replace('/District/', 'Quận', $district_name);
+                $district_name_format = preg_replace('/Thị xã /', '', $district_name_format1);
 
             } else {
                 // $this->_data['error'] = 'Chúng tôi không tìm thấy địa chỉ này. Vui lòng nhập đúng địa chỉ';
@@ -99,7 +100,7 @@ class Project extends MY_Controller {
 
             $output = preg_replace('/text-align:center;/', '', $project_introduce);
 
-            $address_format = preg_replace('/, Việt Nam/', '', $post['project_address']);
+            $address_format = preg_replace('/, Việt Nam|, Vietnam/', '', $post['project_address']);
 
 
 			$data_insert = array(
@@ -318,7 +319,8 @@ class Project extends MY_Controller {
                 // $full_address = $position->results[0]->formatted_address;
                 $district_name = $position->results[0]->address_components[count($position->results[0]->address_components) -3]->long_name;
 
-                $district_name_format = preg_replace('/District/', 'Quận', $district_name);
+                $district_name_format1 = preg_replace('/District/', 'Quận', $district_name);
+                $district_name_format = preg_replace('/Thị xã /', '', $district_name_format1);
 
             } else {
                 // $this->_data['error'] = 'Chúng tôi không tìm thấy địa chỉ này. Vui lòng nhập đúng địa chỉ';
@@ -338,7 +340,7 @@ class Project extends MY_Controller {
             $project_introduce = preg_replace('/h>|h1>|h2>|h3>|h4>|em>/', 'p>', $post['project_introduce']);
             $output = preg_replace('/text-align:center;/', '', $project_introduce);
 
-            $address_format = preg_replace('/, Việt Nam/', '', $post['project_address']);
+            $address_format = preg_replace('/, Việt Nam|, Vietnam/', '', $post['project_address']);
             
 			$data_update = array(
 				'project_category' => $post['project_category'], 
