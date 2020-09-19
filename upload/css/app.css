@@ -147,8 +147,8 @@ img {
 }
 
 .scaleimg:hover img {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .main-menu li {
@@ -1063,11 +1063,16 @@ img {
   font-weight: bold;
   float: right;
   width: 48%;
+  border-right: 1px solid #00000017;
 }
 
 .detail-more-top li p.left {
   float: left;
-  width: 48%;
+  width: 40%;
+}
+
+.detail-more-top li:last-child p.right {
+  border-right: 0px;
 }
 
 .list_option {

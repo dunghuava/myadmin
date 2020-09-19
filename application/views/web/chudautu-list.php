@@ -18,7 +18,7 @@
                     <div class="col-md-3"></div>
                         <div class="item-list-cdt col-md-6">
                             <a title="<?=$investor['investor_title']?>" href="<?=base_url('chu-dau-tu/'.$investor['investor_alias'].'-'.$investor['investor_id'])?>" style="display:inline-flex">
-                                <div class="cover-img">
+                                <div class="cover-img sacleimg">
                                     <img src="<?=resizeImg($investor['investor_img'],150,140,0)?>" alt="">
                                 </div>
                                 <div class="content">

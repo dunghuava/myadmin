@@ -124,10 +124,18 @@
                 font-weight: bold;
                 float: right;
                 width: 48%;
+                border-right: 1px solid #00000017;
             }
             &.left{
                 float: left;
-                width: 48%;
+                width: 40%;
+            }
+        }
+        &:last-child{
+            p{
+                &.right{
+                    border-right: 0px;
+                }
             }
         }
     }

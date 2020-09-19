@@ -116,7 +116,9 @@
                     <div class="item-project">
                         <a title="<?=$du_an['project_title']?>" href="<?=base_url('chi-tiet-du-an/'.$du_an['project_alias'].'-'.$du_an['project_id'])?>">
                             <div class="project-info">
+                                <div class="scaleimg">
                                 <img src="<?=resizeImg($du_an['project_img'],360,203,0)?>" alt="">
+                                </div>
                                 <div class="status font17">
                                     <span><?=$info_status_duan['status_project']?></span>
                                 </div>
