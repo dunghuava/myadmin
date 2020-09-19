@@ -123,11 +123,11 @@
                 <!-- detail -->
                 <ul class="detail-more-top font18_all">
                     <li>
-                        <p class="left">Trạng thái</p>
+                        <p class="left">Trạng thái:</p>
                         <p class="right"><?=$info_status['status_project']?$info_status['status_project']:'Đang cập nhập';?></p>
                     </li>
                     <li>
-                        <p class="left">Chủ đầu tư</p>
+                        <p class="left">Chủ đầu tư:</p>
                         <p class="right">
                             <span class="comma">
                                 <?php if ($cdt['investor_id']!='') {?>
@@ -141,21 +141,21 @@
                         </p>
                     </li>
                     <li>
-                        <p class="left">Số block</p>
+                        <p class="left">Số block:</p>
                         <p class="right"><?=$duan['number_blocks']?$duan['number_blocks']:'Đang cập nhập';?></p>
                     </li>
                     <li>
-                        <p class="left">Số tầng</p>
+                        <p class="left">Số tầng:</p>
                         <p class="right"><?=$duan['number_floors']?$duan['number_floors']:'Đang cập nhập';?></p>
                     </li>
                     <li>
-                        <p class="left">Số căn hộ</p>
+                        <p class="left">Số căn hộ:</p>
                         <p class="right"><?=$duan['number_units']?$duan['number_units']:'Đang cập nhập';?></p>
                     </li>
 
 
                     <li>
-                        <p class="left">Loại hình</p>
+                        <p class="left">Loại hình:</p>
                         <p class="right" style="white-space: nowrap;">
                             <?php if (!empty($project_type)) {
                                 $type_format = '';

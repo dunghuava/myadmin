@@ -7,7 +7,7 @@
                 <div class="col-md-4">
                     <div class="item-tin-list">
                         <a title="<?=$post['post_title']?>" href="<?=base_url('bai-viet/'.$post['post_alias'].'-'.$post['post_id'])?>" style="text-decoration:none">
-                            <div class="cover-img">
+                            <div class="cover-img scaleimg">
                                 <img title="<?=$post['post_title']?>" alt="<?=$post['post_title']?>" src="<?=resizeImg($post['post_img'],360,240,0)?>" alt="">
                             </div>
                             <div class="content">

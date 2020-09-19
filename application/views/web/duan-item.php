@@ -10,7 +10,7 @@
         <?php if ($item['project_kind'] !=0) {?>
             <div class="item-project">
                 <a title="<?=$item['project_title']?>" href="<?=base_url('chi-tiet-du-an/'.$item['project_alias'].'-'.$item['project_id'])?>">
-                    <div class="project-info">
+                    <div class="project-info scaleimg">
                         <img src="<?=resizeImg($item['project_img'],360,203,0)?>" alt="<?=$item['project_title']?>">
                         <div class="status font17 text-overflow">
                             <span><?=$item['project_title']?></span>
@@ -34,7 +34,7 @@
         <?php }else{ ?>
             <div class="item-project">
                 <a title="<?=$item['project_title']?>" href="<?=base_url('chi-tiet-du-an/'.$item['project_alias'].'-'.$item['project_id'])?>">
-                    <div class="project-info">
+                    <div class="project-info scaleimg">
                         <img src="<?=resizeImg($item['project_img'],360,203,0)?>" alt="">
                         <div class="status font17 <?=$item['project_status']==3 ? 'sold_out':''?>">
                             <span><?=$info_status['status_project']?></span>

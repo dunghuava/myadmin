@@ -125,27 +125,27 @@
                 <!-- detail -->
                 <ul class="detail-more-top font18_all">
                     <li>
-                        <p class="left">Diện tích</p>
+                        <p class="left">Diện tích:</p>
                         <p class="right"><?=$duan['project_acreage']?$duan['project_acreage']:'Đang cập nhập';?></p>
                     </li>
                     <li>
-                        <p class="left">Hướng</p>
+                        <p class="left">Hướng:</p>
                         <p class="right"><?=$duan['project_direction']?$duan['project_direction']:'Đang cập nhập';?></p>
                     </li>
                     <li>
-                        <p class="left">View</p>
+                        <p class="left">View:</p>
                         <p class="right"><?=$duan['project_view']?$duan['project_view']:'Đang cập nhập';?></p>
                     </li>
                     <li>
-                        <p class="left">Số phòng ngủ</p>
+                        <p class="left">Số phòng ngủ:</p>
                         <p class="right"><?=$duan['number_bedroom']?$duan['number_bedroom']:'Đang cập nhập';?></p>
                     </li>
                     <li>
-                        <p class="left">Số phòng tắm</p>
+                        <p class="left">Số phòng tắm:</p>
                         <p class="right"><?=$duan['number_tolet']?$duan['number_tolet']:'Đang cập nhập';?></p>
                     </li>
                     <li>
-                        <p class="left">Số tầng</p>
+                        <p class="left">Số tầng:</p>
                         <p class="right"><?=$duan['number_floors']?$duan['number_floors']:'Đang cập nhập';?></p>
                     </li>
 
@@ -153,13 +153,13 @@
                         $in_project = $this->Project_M->find_row(['project_id'=>$duan['in_project']]);
                     ?>
                         <li>
-                            <p class="left">Dự án</p>
+                            <p class="left">Dự án:</p>
                             <p class="right"><?=$in_project['project_title']?></p>
                         </li>
                     <?php } ?>
 
                     <li>
-                        <p class="left">Loại hình</p>
+                        <p class="left">Loại hình:</p>
                         <p class="right" style="white-space: nowrap;">
                             <?php if (!empty($project_type)) {
                                 $type_format = '';

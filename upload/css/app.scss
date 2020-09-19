@@ -29,6 +29,9 @@ a{
 .font17{
     font-size: 17px !important;
 }
+.font14{
+    font-size: 14px !important;
+}
 .font_small{
     font-size: 14px;
     font-style: italic;
@@ -90,9 +93,19 @@ $primary_color:#0C714B;
 }
 .price-red{
     color: red !important;
-    font-weight: normal !important;
 }
 // header area
+
+.scaleimg {
+    overflow: hidden;
+    img{
+        width: 100%;
+        transition: all 0.4s;
+    }
+    &:hover img{
+        transform: scale(1.2);
+    }
+}
 .main-menu{
     li{
         cursor: pointer;

@@ -37,6 +37,10 @@ a:active {
   font-size: 17px !important;
 }
 
+.font14 {
+  font-size: 14px !important;
+}
+
 .font_small {
   font-size: 14px;
   font-style: italic;
@@ -130,7 +134,21 @@ img {
 
 .price-red {
   color: red !important;
-  font-weight: normal !important;
+}
+
+.scaleimg {
+  overflow: hidden;
+}
+
+.scaleimg img {
+  width: 100%;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.scaleimg:hover img {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 .main-menu li {

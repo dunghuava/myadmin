@@ -34,7 +34,7 @@
                 <div class="col-md-4 col-xs-12">
                     <div class="item-project">
                         <a title="<?=$du_an['project_title']?>" href="<?=base_url('chi-tiet-du-an/'.$du_an['project_alias'].'-'.$du_an['project_id'])?>">
-                            <div class="project-info">
+                            <div class="project-info scaleimg">
                                 <img src="<?=resizeImg($du_an['project_img'],360,203,0)?>" alt="">
                                 <div class="status font17 <?=$du_an['project_status']==3 ? 'sold_out':''?>">
                                     <span><?=$info_status_duan['status_project']?></span>
@@ -72,7 +72,7 @@
                     $info_district_region = $this->District_M->find_row(['district_id'=>$duan_re['region_id_district']]);
                 ?>
                     <div class="col-md-3">
-                        <div class="item-khuvuc">
+                        <div class="item-khuvuc scaleimg">
                             <a href="<?=base_url('tim-kiem?type=0&district='.$duan_re['region_id_district'].'')?>">
                                 <img src="<?=base_url('upload/images/'.$duan_re['region_img'].'')?>" alt="">
                                <div class="content">
@@ -113,7 +113,7 @@
                     $info_district_region = $this->District_M->find_row(['district_id'=>$mua_re['region_id_district']]);
                 ?>
                     <div class="col-md-3">
-                        <div class="item-khuvuc">
+                        <div class="item-khuvuc scaleimg">
                             <a href="<?=base_url('tim-kiem?type=1&district='.$mua_re['region_id_district'].'')?>">
                                 <img src="<?=base_url('upload/images/'.$mua_re['region_img'].'')?>" alt="">
                                <div class="content">
@@ -154,7 +154,7 @@
                     $info_district_region = $this->District_M->find_row(['district_id'=>$thue_re['region_id_district']]);
                 ?>
                     <div class="col-md-3">
-                        <div class="item-khuvuc">
+                        <div class="item-khuvuc scaleimg">
                             <a href="<?=base_url('tim-kiem?type=2&district='.$thue_re['region_id_district'].'')?>">
                                 <img src="<?=base_url('upload/images/'.$thue_re['region_img'].'')?>" alt="">
                                <div class="content">
@@ -200,7 +200,7 @@
             <div class="col-md-6">
                 <div class="item-news-big">
                     <a href="<?=base_url('bai-viet/'.$list_post[0]['post_alias'].'-'.$list_post[0]['post_id'])?>">
-                       <div class="news-body">
+                       <div class="news-body scaleimg">
                             <img src="<?=resizeImg($list_post[0]['post_img'],555,319,0)?>" alt="">
                             <div class="news-content">
                                 <h3 class="title"><?=$list_post[0]['post_title']?></h3>
@@ -222,6 +222,7 @@
                             </div>
                             <div class="news-title">
                                 <h3 class="title font16"><?=$post['post_title']?></h3>
+                                <p class="font14"><?=substr($post['post_introduce'],0,200)?>...</p>
                                 <p class="datetime font16"><span class="fa fa-calendar">&nbsp;</span><?=date('d/m/Y',strtotime($post['created_at']))?></p>
                             </div>
                         </a>
@@ -245,8 +246,10 @@
                     </div>
                     <div class="blog-content">
                         <div class="blog-larger">
-                            <a href="<?=base_url('bai-viet/'.$tin_mua_ban[0]['post_alias'].'-'.$tin_mua_ban[0]['post_id'])?>">
-                                <img src="<?=resizeImg($tin_mua_ban[0]['post_img'],338,160,0)?>" alt="">
+                            <a  href="<?=base_url('bai-viet/'.$tin_mua_ban[0]['post_alias'].'-'.$tin_mua_ban[0]['post_id'])?>">
+                                <div class="scaleimg">
+                                    <img src="<?=resizeImg($tin_mua_ban[0]['post_img'],338,160,0)?>" alt="">
+                                </div>
                                 <p style="height: 43px" class="title font17"><?=$tin_mua_ban[0]['post_title']?></p>
                             </a>
                         </div><br>
@@ -271,7 +274,9 @@
                     <div class="blog-content">
                         <div class="blog-larger">
                             <a href="<?=base_url('bai-viet/'.$tuvanluat[0]['post_alias'].'-'.$tuvanluat[0]['post_id'])?>">
+                            <div class="scaleimg">
                                 <img src="<?=resizeImg($tuvanluat[0]['post_img'],338,160,0)?>" alt="">
+                            </div>
                                 <p style="height: 43px" class="title font17"><?=$tuvanluat[0]['post_title']?></p>
                             </a>
                         </div><br>
@@ -296,7 +301,9 @@
                     <div class="blog-content">
                         <div class="blog-larger">
                             <a href="<?=base_url('bai-viet/'.$blog[0]['post_alias'].'-'.$blog[0]['post_id'])?>">
+                            <div class="scaleimg">
                                 <img src="<?=resizeImg($blog[0]['post_img'],338,160,0)?>" alt="">
+                            </div>
                                 <p style="height: 43px" class="title font17"><?=$blog[0]['post_title']?></p>
                             </a>
                         </div><br>
@@ -329,7 +336,7 @@
             ?>
                 <div class="col-md-4">
                     <a href="<?=base_url('khu-dan-cu/'.$residential['residential_alias'].'-'.$residential['residential_id']) ?>" title="<?php echo $residential['residential_title'] ?>">
-                        <div class="item-khudancu">
+                        <div class="item-khudancu scaleimg">
                             <div class="cover-img">
                                 <img src="<?=resizeImg($residential['residential_img'],420,220,0)?>" alt="">
                             </div>

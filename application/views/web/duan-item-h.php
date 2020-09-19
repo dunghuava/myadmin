@@ -8,7 +8,7 @@
     <div data-lat="<?=$item['project_lat']?>" data-lng="<?=$item['project_lng']?>" title="<?=$item['project_title']?>" class="duan-item-h cursor">
             <div class="row_row" style="width:100%;margin:auto;display:flex">
                 <div class="left pdr0">
-                    <div class="cover-img">
+                    <div class="cover-img scaleimg">
                         <a style="text-decoration:none" title="<?=$item['project_title']?>" href="<?=base_url('chi-tiet-du-an/'.$item['project_alias'].'-'.$item['project_id'])?>">
                             <img src="<?=resizeImg($item['project_img'],300,180,0)?>" alt="<?=$item['project_title']?>" style="width: 300px;height: 180px;">
                         </a>
