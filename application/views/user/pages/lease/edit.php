@@ -119,7 +119,7 @@
                 <input type="text" name="project_acreage" id="project_acreage" value="<?php echo $info_project['project_acreage'] ?>" class="form-control" placeholder="" required>
             </div>
             <div class="col-md-12 inline-flex" style="padding-right: 0px;">
-                <label for="" style="margin-left: 113px">Giá bán</label>
+                <label for="" style="margin-left: 113px">Giá cho thuê</label>
                 <input type="text" name="project_price" id="project_price" value="<?php echo $info_project['project_price'] ?>" class="form-control" placeholder="" required>
             </div>
 
@@ -255,7 +255,7 @@
             <textarea name="project_description" id="project_description" cols="30" rows="3" class="form-control"><?php echo $info_project['project_description'] ?></textarea>
         </div>  
 
-        <div class="col-md-8 inline-flex">
+        <!-- <div class="col-md-8 inline-flex">
             <label for="">Hiển thị</label>
             <?php if ($info_project['project_active'] == 1) {
                     $checked = 'checked';
@@ -264,7 +264,7 @@
                 } 
             ?>
             <input type="checkbox" name="project_active" id="project_active" value="1" style="margin-top: 12px;" <?php echo $checked; ?>>
-        </div> 
+        </div>  -->
 
         
         <br>
@@ -296,6 +296,7 @@
         });
         $('input').attr('autocomplete','off');
     });
+
 
     $('#project_category').val(<?=$info_project['project_category']?>);
 

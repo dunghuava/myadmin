@@ -73,6 +73,11 @@
             <input type="text" name="project_alias" id="project_alias" value="<?php echo $info_project['project_alias'] ?>" class="form-control" placeholder="Tạo đường dẫn tự động">
         </div>
 
+        <div class="col-md-8 inline-flex">
+            <label for="">Mô tả ngắn</label>
+            <textarea name="project_introduce_short" id="project_introduce_short" cols="30" rows="3" class="form-control" required><?php echo $info_project['project_introduce_short'] ?></textarea>
+        </div>  
+
         <div class="col-md-12 inline-flex">
             <label for="">Giới Thiệu</label>
             <textarea name="project_introduce" id="project_introduce" cols="30" rows="5" class="form-control html_editor" required><?php echo $info_project['project_introduce'] ?></textarea>

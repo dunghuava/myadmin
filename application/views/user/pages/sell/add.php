@@ -87,7 +87,7 @@
                 <input type="text" name="project_acreage" id="project_acreage" class="form-control" placeholder="" required>
             </div>
             <div class="col-md-12 inline-flex" style="padding-right: 0px;">
-                <label for="" style="margin-left: 113px">Giá cho thuê</label>
+                <label for="" style="margin-left: 113px">Giá bán</label>
                 <input type="text" name="project_price" id="project_price" class="form-control" placeholder="" required>
             </div>
 
@@ -248,10 +248,10 @@
             <textarea name="project_description" id="project_description" cols="30" rows="3" class="form-control"></textarea>
         </div>  
 
-        <div class="col-md-8 inline-flex">
+        <!-- <div class="col-md-8 inline-flex">
             <label for="">Hiển thị</label>
             <input type="checkbox" name="project_active" id="project_active" value="1" style="margin-top: 12px;" checked>
-        </div> 
+        </div>  -->
 
         
         <br>

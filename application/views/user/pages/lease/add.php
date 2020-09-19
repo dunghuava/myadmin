@@ -248,10 +248,10 @@
             <textarea name="project_description" id="project_description" cols="30" rows="3" class="form-control"></textarea>
         </div>  
 
-        <div class="col-md-8 inline-flex">
+        <!-- <div class="col-md-8 inline-flex">
             <label for="">Hiển thị</label>
             <input type="checkbox" name="project_active" id="project_active" value="1" style="margin-top: 12px;" checked>
-        </div> 
+        </div>  -->
 
         
         <br>

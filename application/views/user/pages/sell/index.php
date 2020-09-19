@@ -1,7 +1,3 @@
-<style type="text/css">
-    th{white-space: nowrap;}
-</style>
-
 <div class="container-fluid">
      <div class="row">
            <div class="col-md-12">
@@ -19,9 +15,8 @@
                         <th>Danh mục</th>
                         <th>Tiêu đề</th>
                         <th>Hình ảnh</th>
-                        <th>Nổi bậc</th>
-                        <th>Hiển thị</th>
-                        <th>Người đăng</th>
+                        <th style="white-space: nowrap;">Nổi bậc</th>
+                        <th style="white-space: nowrap;">Trạng thái</th>
                         <th style="width: 11%">Thao tác</th>
                     </tr>
                 </thead>
@@ -31,10 +26,10 @@
                         $info_category = $this->Category_M->find_row(['cate_id' => $item['project_category']]);
 
                         // if ($info_category['cate_parent_id'] != 0) {
-                        // 	$info_category_parent = $this->Category_M->find_row(['cate_id' => $info_category['cate_parent_id']]);
-                        // 	$category = $info_category_parent['cate_title'].' / '.$info_category['cate_title'];
+                        //     $info_category_parent = $this->Category_M->find_row(['cate_id' => $info_category['cate_parent_id']]);
+                        //     $category = $info_category_parent['cate_title'].' / '.$info_category['cate_title'];
                         // }else{
-                        	$category = $info_category['cate_title'];
+                            $category = $info_category['cate_title'];
                         // }
                     ?>
                         <tr>
@@ -42,20 +37,15 @@
                              <td><?=$item['project_title']?></td>
                              <td><img src="<?=resizeImg($item['project_img'],80,50,0)?>" style="max-height: 90px;"></td>
                              <td><input onchange="setCkb(this,'project_highlights',<?=$item['project_id']?>)" type="checkbox" <?=$item['project_highlights']==1 ? 'checked':''?>></td>
-                             <td><input onchange="setCkb(this,'project_active',<?=$item['project_id']?>)" type="checkbox" <?=$item['project_active']==1 ? 'checked':''?> ></td>
-
-                             <td>
-                                <?php  
-                                if ($item['project_user_id'] == 0) {
-                                    echo "Admin";
-                                }else{
-                                    $info_user = $this->Account_M->find_row(['user_id'=>$item['project_user_id']]);
-                                    echo $info_user['user_fullname'];
-                                }
-                                ?>
+                             <td style="white-space: nowrap;">
+                                 <?php if ($item['project_active']==1) {
+                                    echo "Đã xác nhận";
+                                 }else{
+                                    echo "Chờ xác nhận";
+                                 } ?>
                              </td>
                              <td>
-                                <a href="<?=base_url().'admin/lease/edit/'.$item['project_id']?>">
+                                <a href="<?=base_url().'user/sell/edit/'.$item['project_id']?>">
                                     <button type="button" class="btn btn-default">
                                         <span class="fa fa-eye"></span>
                                     </button>
@@ -65,7 +55,6 @@
                                  <button onclick="onDelete(<?=$item['project_id']?>)" type="button" class="btn btn-default">
                                      <span class="fa fa-trash"></span>
                                  </button>
-
                              </td>
                         </tr>
                     <?php } ?>
@@ -90,7 +79,7 @@
         colset = colset.toString();
         $.ajax({
             type: "post",
-            url: "<?=base_url('admin/lease/update')?>",
+            url: "<?=base_url('user/sell/update')?>",
             data: {'project_id':project_id,[colset]:ckb},
             success: function (response) {
                 
@@ -115,7 +104,7 @@
             if (result.value) {
                 $.ajax({
                     type: "post",
-                    url: "<?=base_url('admin/lease/destroy')?>",
+                    url: "<?=base_url('user/sell/destroy')?>",
                     data: {'project_id':project_id},
                     success: function (response) {
                         location.reload();

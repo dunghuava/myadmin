@@ -56,9 +56,9 @@ $route['translate_uri_dashes'] 	= FALSE;
 // web route
 
 /* router gáng cứng*/
-$route['danh-muc/ky-gui-nha']     = 'user/project';
-$route['danh-muc/dang-ban']     = 'user/project/add';
-$route['danh-muc/dang-cho-thue']     = 'user/project/add';
+$route['danh-muc/ky-gui-nha']     = 'user/sell';
+$route['danh-muc/dang-ban']     = 'user/sell/add';
+$route['danh-muc/dang-cho-thue']     = 'user/lease/add';
 $route['danh-muc/dang-tin-nha-dat']     = 'user/post/add';
 $route['danh-muc/danh-sach-chu-dau-tu']     = 'web/page_chudautu_list';
 $route['tim-kiem']                  = 'web/page_search';

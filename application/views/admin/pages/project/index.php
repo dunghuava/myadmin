@@ -30,12 +30,12 @@
                     foreach ($list_project as $item){ 
                         $info_category = $this->Category_M->find_row(['cate_id' => $item['project_category']]);
 
-                        if ($info_category['cate_parent_id'] != 0) {
-                        	$info_category_parent = $this->Category_M->find_row(['cate_id' => $info_category['cate_parent_id']]);
-                        	$category = $info_category_parent['cate_title'].' / '.$info_category['cate_title'];
-                        }else{
+                        // if ($info_category['cate_parent_id'] != 0) {
+                        // 	$info_category_parent = $this->Category_M->find_row(['cate_id' => $info_category['cate_parent_id']]);
+                        // 	$category = $info_category_parent['cate_title'].' / '.$info_category['cate_title'];
+                        // }else{
                         	$category = $info_category['cate_title'];
-                        }
+                        // }
                     ?>
                         <tr>
                              <td><?=$category?></td>

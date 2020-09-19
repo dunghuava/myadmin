@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Sell extends MY_Controller {
+class Lease extends MY_Controller {
 
 	public function __construct()
 	{
@@ -18,16 +18,17 @@ class Sell extends MY_Controller {
 		$this->load->model('Investor_M');
 		$this->load->model('Residential_M');
 		$this->load->model('Project_Images_M');
-		
+		$this->user_infor = $this->session->get_userdata('user_data');
+		$this->user_id = $this->user_infor['user_data']['user_id'];
 	}
 
 	public function index()
 	{
-		$data['page_name']='Danh sách nhà đất bán';
-		$data['page_menu']='sell';
-		$data['list_project']=$this->Project_M->all(['project_kind' => 1],'desc');
-		$this->getHeader($data);
-		$this->load->view('admin/pages/sell/index.php',$data);
+		$data['page_name']='Danh sách nhà đất cho thuê';
+		$data['page_menu']='lease';
+		$data['list_project']=$this->Project_M->all(['project_user_id' => $this->user_id,'project_kind' => 2],'desc');
+		$this->getHeaderUser($data);
+		$this->load->view('user/pages/lease/index.php',$data);
 		$this->getFooter();
 	}
 
@@ -55,6 +56,7 @@ class Sell extends MY_Controller {
 					array_push($project_type_number, $id_type_project);
 				}
 			}
+
 			
 			if (!empty($_FILES['project_img']['name'])){
 				$file = $_FILES['project_img'];
@@ -63,9 +65,9 @@ class Sell extends MY_Controller {
 				move_uploaded_file($file['tmp_name'],$path);
 			}
 
-			if ($post['project_active'] == '') {
-				$post['project_active'] = 0;
-			}
+			// if ($post['project_active'] == '') {
+			// 	$post['project_active'] = 0;
+			// }
 
 			$url = 'https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyCjwJQRCuf970OLe6UuBiMvg_DyYW2PL6Y&address=' . urlencode($post['project_address']) . '&sensor=true';
             $json = @file_get_contents($url);
@@ -76,7 +78,7 @@ class Sell extends MY_Controller {
                 // $full_address = $position->results[0]->formatted_address;
                 $district_name = $position->results[0]->address_components[count($position->results[0]->address_components) -3]->long_name;
 
-                $district_name_format1 = preg_replace('/District/', 'Quận', $district_name);
+               $district_name_format1 = preg_replace('/District/', 'Quận', $district_name);
                 $district_name_format = preg_replace('/Thị xã /', '', $district_name_format1);
 
             } else {
@@ -105,7 +107,7 @@ class Sell extends MY_Controller {
 
 			$data_insert = array(
 				'project_category' => $post['project_category'], 
-				'project_kind' => 1, 
+				'project_kind' => 2, 
 				'project_title' => $post['project_title'], 
 				'project_alias' => $post['project_alias'], 
 				'project_introduce_short' => $post['project_introduce_short'], 
@@ -113,7 +115,7 @@ class Sell extends MY_Controller {
 				'project_img' => $filename, 
 				// 'project_content' => $post['project_content'], 
 				'project_highlights' => 0, 
-				'project_active' => $post['project_active'], 
+				'project_active' => 0, 
 				'project_address' => $address_format, 
 				'project_province_id' => '', 
 				'project_district_id' => $info_district['district_id'], 
@@ -143,6 +145,7 @@ class Sell extends MY_Controller {
 				'in_project' => $post['in_project'], 
 				'project_keyword' => $post['project_keyword'], 
 				'project_description' => $post['project_description'], 
+				'project_user_id' => $this->user_id,  
 			);
 
 			$project_id = $this->Project_M->create($data_insert);
@@ -173,7 +176,7 @@ class Sell extends MY_Controller {
 				'message'=>'Đã lưu'
 			);
 			$this->session->set_flashdata('reponse',$status);
-			redirect(base_url('admin/sell/add/'),'location');
+			redirect(base_url('user/lease/add/'),'location');
 
 		}
 
@@ -195,10 +198,10 @@ class Sell extends MY_Controller {
 		$data['list_furniture'] = $list_furniture;
 		$data['list_investor'] = $list_investor;
 		$data['list_residential'] = $list_residential;
-		$data['page_name']='Thêm nhà đất bán';
-		$data['page_menu']='sell';
-		$this->getHeader($data);
-		$this->load->view('admin/pages/sell/add.php',$data);
+		$data['page_name']='Thêm nhà đất cho thuê';
+		$data['page_menu']='lease';
+		$this->getHeaderUser($data);
+		$this->load->view('user/pages/lease/add.php',$data);
 		$this->getFooter();
 	}
 
@@ -280,6 +283,7 @@ class Sell extends MY_Controller {
 
 		if ($this->input->post()) {
 
+			
 			$project_type_string = array();
 			$project_type_number = array();
 			foreach ($post['project_type'] as $item) {
@@ -289,7 +293,6 @@ class Sell extends MY_Controller {
 					array_push($project_type_number, $item);
 				}
 			}
-			
 			if (!empty($project_type_string)) {
 				foreach ($project_type_string as $type_string) {
 					$data_insert_type = array('type_project' => $type_string, );
@@ -298,7 +301,8 @@ class Sell extends MY_Controller {
 				}
 			}
 
-			
+            
+
 			if (!empty($_FILES['project_img']['name'])){
 				$file = $_FILES['project_img'];
 				$filename = md5($file['name'].time());
@@ -309,9 +313,9 @@ class Sell extends MY_Controller {
 				$filename = $info_project['project_img'];
 			}
 
-			if ($post['project_active'] == '') {
-				$post['project_active'] = 0;
-			}
+			// if ($post['project_active'] == '') {
+			// 	$post['project_active'] = 0;
+			// }
 
 			$url = 'https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyCjwJQRCuf970OLe6UuBiMvg_DyYW2PL6Y&address=' . urlencode($post['project_address']) . '&sensor=true';
             $json = @file_get_contents($url);
@@ -348,14 +352,14 @@ class Sell extends MY_Controller {
             
 			$data_update = array(
 				'project_category' => $post['project_category'], 
-				'project_kind' => 1, 
+				'project_kind' => 2, 
 				'project_title' => $post['project_title'], 
 				'project_alias' => $post['project_alias'], 
 				'project_introduce_short' => $post['project_introduce_short'], 
 				'project_introduce' => $project_introduce, 
 				'project_img' => $filename, 
 				// 'project_content' => $post['project_content'], 
-				'project_active' => $post['project_active'], 
+				// 'project_active' => $post['project_active'], 
 				'project_address' => $address_format, 
 				'project_province_id' => '', 
 				'project_district_id' => $info_district['district_id'], 
@@ -416,11 +420,12 @@ class Sell extends MY_Controller {
 				'message'=>'Đã sửa'
 			);
 			$this->session->set_flashdata('reponse',$status);
-			redirect(base_url('admin/sell/edit/'.$id),'location');
+			redirect(base_url('user/lease/edit/'.$id),'location');
 
 		}
 
 		$data['list_project']=$this->Project_M->all(['project_kind' => 0],'desc');
+
 		$list_category = $this->get_option_category(2);
 		$list_province = $this->Province_M->all();
 		$list_status = $this->Status_M->all();
@@ -439,10 +444,10 @@ class Sell extends MY_Controller {
 		$data['list_residential'] = $list_residential;
 		$data['info_project'] = $info_project;
 		$data['list_images'] = $list_images;
-		$data['page_name']='Chỉnh sửa nhà đất bán';
-		$data['page_menu']='sell';
-		$this->getHeader($data);
-		$this->load->view('admin/pages/sell/edit.php',$data);
+		$data['page_name']='Chỉnh sửa nhà đất cho thuê';
+		$data['page_menu']='lease';
+		$this->getHeaderUser($data);
+		$this->load->view('user/pages/lease/edit.php',$data);
 		$this->getFooter();
 	}
 
@@ -451,7 +456,7 @@ class Sell extends MY_Controller {
 		$where['cate_parent_id']=0;
 		if ($cate_module_id!=0){
 			$where['cate_module_id']=$cate_module_id;
-			$where['cate_id']=35;
+			$where['cate_id']=43;
 		}
 		$oder_by= 'asc';
 		$all = $this->Category_M->all($where,$oder_by);
