@@ -14,12 +14,21 @@ class MY_Controller extends CI_Controller {
 		$this->load->model('Contact_M');
 	}
 	public function page_header($seo=array()){
-		$data['info'] = $this->Info_M->all();
+
+		$this->protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+		$this->url = $this->protocol . $_SERVER['HTTP_HOST']; 
+		$this->domain = substr($this->url,7); 
+		// print_r($this->domain);die();
+		$data['info'] = $this->Info_M->all(['domain_name' => $this->domain]);
 		$data['seo'] = $seo;
 		$this->load->view('web/header.php',$data);
 	}
 	public function page_footer($data=null){
-		$data['info'] = $this->Info_M->all();
+		$this->protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+		$this->url = $this->protocol . $_SERVER['HTTP_HOST']; 
+		$this->domain = substr($this->url,7); 
+		// print_r($this->domain);die();
+		$data['info'] = $this->Info_M->all(['domain_name' => $this->domain]);
 		$data['blog_footer'] = $this->Post_M->getListPost_byCategory(14,4);
 		$data['du_an_footer']= $this->Project_M->getListProject(['project_kind'=>0],4);
 		$data['nha_dep_footer']= $this->Post_M->getListPost_byCategory(21,4);

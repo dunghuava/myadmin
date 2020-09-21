@@ -232,7 +232,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=getLink('admin/themes/info',$admin_infor['is_admin'])?>" class="nav-link">
+                <a href="<?=getLink('admin/themes/domain',$admin_infor['is_admin'])?>" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Thông tin</p>
                 </a>

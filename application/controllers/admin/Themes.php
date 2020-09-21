@@ -104,12 +104,89 @@ class Themes extends MY_Controller {
 		$this->getFooter();
 	}
 
-	public function info()
+	public function domain()
 	{
-		$data['page_name']='Thông tin chung';
+		$data['page_name']='Danh sách tên miền';
+		$data['page_menu']='themes';
+		$data['list_domain']=$this->Info_M->all();
+		$this->getHeader($data);
+		$this->load->view('admin/pages/themes/info/index.php',$data);
+		$this->getFooter();
+	}
+
+	public function addDomain()
+	{
+		$data['page_name']='Thêm tên miền';
 		$data['page_menu']='themes';
 
-		$info = $this->Info_M->find_row(['info_id' => '1']);
+		// $info = $this->Info_M->find_row(['info_id' => '1']);
+		$post = $this->input->post();
+		if ($this->input->post()) {
+			if (!empty($_FILES['logo_img']['name'])){
+				$file_logo = $_FILES['logo_img'];
+				$name_logo = md5($file_logo['name'].time());
+				$path_logo='upload/images/'.$name_logo;
+				move_uploaded_file($file_logo['tmp_name'],$path_logo);
+			}
+
+
+			if (!empty($_FILES['icon_img']['name'])){
+				$file_icon = $_FILES['icon_img'];
+				$name_icon = md5($file_icon['name'].time());
+				$path_icon='upload/images/'.$name_icon;
+				move_uploaded_file($file_icon['tmp_name'],$path_icon);
+				
+			}
+
+			$data_insert = array(
+				'domain_name' => $post['domain_name'], 
+				'company' => $post['company'], 
+				'address' => $post['address'], 
+				'twitter' => $post['twitter'], 
+				'facebook' => $post['facebook'], 
+				'google' => $post['google'], 
+				'youtube' => $post['youtube'], 
+				'instagram' => $post['instagram'], 
+				'email' => $post['email'], 
+				'coppy_right' => $post['coppy_right'], 
+				'phone' => $post['phone'], 
+				'logo_img' => $name_logo, 
+				'icon_img' => $name_icon, 
+				
+			);
+
+
+			
+			$this->Info_M->create($data_insert);
+			$status = array(
+				'code'=>'success',
+				'message'=>'Đã lưu'
+			);
+			
+
+			
+			$this->session->set_flashdata('reponse',$status);
+			redirect(base_url('admin/themes/domain/'),'location');
+
+		}
+		// $data['info'] = $info;
+		$this->getHeader($data);
+		$this->load->view('admin/pages/themes/info/add.php',$data);
+		$this->getFooter();
+	}
+
+
+	public function editDomain($id)
+	{
+
+		// $this->protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+		// $this->url = $this->protocol . $_SERVER['HTTP_HOST']; 
+		// $this->domain = substr($this->url,7); 
+		// print_r($this->domain);die();
+		$data['page_name']='Chỉnh sửa tên miền';
+		$data['page_menu']='themes';
+
+		$info = $this->Info_M->find_row(['info_id' => $id]);
 		$post = $this->input->post();
 		if ($this->input->post()) {
 			if (!empty($_FILES['logo_img']['name'])){
@@ -136,6 +213,7 @@ class Themes extends MY_Controller {
 			
 
 			$data_update = array(
+				'domain_name' => $post['domain_name'], 
 				'company' => $post['company'], 
 				'address' => $post['address'], 
 				'twitter' => $post['twitter'], 
@@ -152,28 +230,22 @@ class Themes extends MY_Controller {
 			);
 
 
-			if (!empty($info)) {
-				$this->Info_M->update(['info_id' => $info['info_id']],$data_update);
-				$status = array(
-					'code'=>'success',
-					'message'=>'Đã sửa'
-				);
-			}else{
-				$this->Info_M->create($data_update);
-				$status = array(
-					'code'=>'success',
-					'message'=>'Đã lưu'
-				);
-			}
+			
+			$this->Info_M->update(['info_id' => $info['info_id']],$data_update);
+			$status = array(
+				'code'=>'success',
+				'message'=>'Đã sửa'
+			);
+			
 
 			
 			$this->session->set_flashdata('reponse',$status);
-			redirect(base_url('admin/themes/info/'),'location');
+			redirect(base_url('admin/themes/domain/'),'location');
 
 		}
 		$data['info'] = $info;
 		$this->getHeader($data);
-		$this->load->view('admin/pages/themes/info/index.php',$data);
+		$this->load->view('admin/pages/themes/info/edit.php',$data);
 		$this->getFooter();
 	}
 
@@ -189,6 +261,18 @@ class Themes extends MY_Controller {
 	{
 		$slide_id = $this->input->post('slide_id');
 		$this->Slide_M->delete(['slide_id' => $slide_id]);
+		$status = array(
+				'code'=>'success',
+				'message'=>'Đã xóa'
+			);
+		$this->session->set_flashdata('reponse',$status);
+	}
+
+
+	public function destroyDomain()
+	{
+		$info_id = $this->input->post('info_id');
+		$this->Info_M->delete(['info_id' => $info_id]);
 		$status = array(
 				'code'=>'success',
 				'message'=>'Đã xóa'
