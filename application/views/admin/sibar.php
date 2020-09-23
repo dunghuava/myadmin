@@ -214,6 +214,37 @@
               </li>
             </ul>
           </li>
+
+          <li class="nav-item has-treeview <?=$page_menu=='staff' ? 'menu-open':''?>">
+            <a href="javascript:void(0)" class="nav-link">
+              <i class="nav-icon fas fa-file"></i>
+              <p>
+                Nhân viên
+                <i class="fas fa-angle-left right"></i>
+                <!-- <span class="badge badge-info right">6</span> -->
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?=getLink('admin/staff',$admin_infor['is_admin'])?>" class="nav-link">
+                  <i class="fas fa-angle-right nav-icon"></i>
+                  <p>Tất cả</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?=getLink('admin/staff/add',$admin_infor['is_admin'])?>" class="nav-link">
+                  <i class="fas fa-angle-right nav-icon"></i>
+                  <p>Thêm nhân viên</p>
+                </a>
+              </li>
+              <!-- <li class="nav-item">
+                <a href="<?=getLink($arr_permissionAllowed,'admin/themes/orther',$admin_infor['is_admin'])?>" class="nav-link">
+                  <i class="fas fa-angle-right nav-icon"></i>
+                  <p>Khác</p>
+                </a>
+              </li> -->
+            </ul>
+          </li>
           
           <li class="nav-item has-treeview <?=$page_menu=='themes' ? 'menu-open':''?>">
             <a href="javascript:void(0)" class="nav-link">

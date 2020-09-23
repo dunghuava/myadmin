@@ -70,7 +70,7 @@ class User extends MY_Controller {
 			$this->Account_M->create($data_insert);
 			$status = array(
 				'code'=>'success',
-				'message'=>'Đăng ký thành công'
+				'message'=>'Đã lưu'
 			);
 
 			$this->session->set_flashdata('reponse',$status);
@@ -119,7 +119,7 @@ class User extends MY_Controller {
 
 
 
-		$_data['page_name']='Thêm tài khoản';
+		$_data['page_name']='Chỉnh sửa tài khoản';
 		$_data['page_menu']='account';
 
 		$_data['info_user']=$info_user;
