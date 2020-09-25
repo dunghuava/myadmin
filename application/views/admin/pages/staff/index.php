@@ -20,7 +20,7 @@
                     <?php foreach ($list_staff as $item){ ?>
                         <tr>
                              <td><?=$item['staff_name']?></td>
-                             <td><img src="<?=resizeImg($item['staff_img'],80,50,0)?>" style="max-height: 90px;"></td>
+                             <td><img src="<?=base_url().'upload/images/'.$item['staff_img']?>" style="max-height: 90px;"></td>
                              <td><?=$item['staff_position']?></td>
                              <td><?=$item['staff_phone']?></td>
                              <td><input onchange="setCkb(this,'staff_active',<?=$item['staff_id']?>)" type="checkbox" <?=$item['staff_active']==1 ? 'checked':''?> ></td>
