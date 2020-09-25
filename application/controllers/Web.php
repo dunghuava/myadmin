@@ -22,6 +22,7 @@ class Web extends MY_Controller {
         $this->load->model('Type_M');
         $this->load->model('Furniture_M');
         $this->load->model('Extension_M');
+        $this->load->model('Staff_M');
         
         
     }
@@ -374,6 +375,7 @@ class Web extends MY_Controller {
             'contact_email' => $post['contact_email'], 
             'contact_info' => $post['contact_info'], 
             'contact_title' => $post['contact_title'], 
+            'contact_to_staff' => $post['contact_to_staff'], 
             'contact_status' => 0, 
             
         );

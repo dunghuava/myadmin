@@ -143,6 +143,7 @@ class Lease extends MY_Controller {
 				'project_direction' => $post['project_direction'], 
 				'project_view' => $post['project_view'], 
 				'in_project' => $post['in_project'], 
+				'staff_in_charge' => 1, 
 				'project_keyword' => $post['project_keyword'], 
 				'project_description' => $post['project_description'], 
 				'project_user_id' => $this->user_id,  
@@ -386,6 +387,7 @@ class Lease extends MY_Controller {
 				'project_direction' => $post['project_direction'], 
 				'project_view' => $post['project_view'], 
 				'in_project' => $post['in_project'], 
+				'staff_in_charge' => 1, 
 				'project_keyword' => $post['project_keyword'], 
 				'project_description' => $post['project_description'], 
 			);

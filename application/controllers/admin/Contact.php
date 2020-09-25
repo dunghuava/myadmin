@@ -7,6 +7,7 @@ class Contact extends MY_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Contact_M');
+		$this->load->model('Staff_M');
 	}
 
 	public function index()

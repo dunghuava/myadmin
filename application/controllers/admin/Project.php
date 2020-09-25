@@ -18,6 +18,7 @@ class Project extends MY_Controller {
 		$this->load->model('Investor_M');
 		$this->load->model('Residential_M');
 		$this->load->model('Project_Images_M');
+		$this->load->model('Staff_M');
 		
 	}
 
@@ -140,6 +141,7 @@ class Project extends MY_Controller {
 				'project_direction' => '', 
 				'project_view' => '', 
 				'in_project' => '', 
+				'staff_in_charge' => $post['staff_in_charge'], 
 				'project_keyword' => $post['project_keyword'], 
 				'project_description' => $post['project_description'], 
 			);
@@ -184,6 +186,7 @@ class Project extends MY_Controller {
 		$list_furniture = $this->Furniture_M->all();
 		$list_investor = $this->Investor_M->all();
 		$list_residential = $this->Residential_M->all();
+		$list_staff = $this->Staff_M->all(['staff_active' => 1]);
 		$data['list_category'] = $list_category;
 		$data['list_province'] = $list_province;
 		$data['list_status'] = $list_status;
@@ -192,6 +195,7 @@ class Project extends MY_Controller {
 		$data['list_furniture'] = $list_furniture;
 		$data['list_investor'] = $list_investor;
 		$data['list_residential'] = $list_residential;
+		$data['list_staff'] = $list_staff;
 		$data['page_name']='Thêm dự án';
 		$data['page_menu']='project';
 		$this->getHeader($data);
@@ -377,6 +381,7 @@ class Project extends MY_Controller {
 				'project_direction' => '', 
 				'project_view' => '', 
 				'in_project' => '', 
+				'staff_in_charge' => $post['staff_in_charge'], 
 				'project_keyword' => $post['project_keyword'], 
 				'project_description' => $post['project_description'], 
 			);
@@ -423,6 +428,8 @@ class Project extends MY_Controller {
 		$list_furniture = $this->Furniture_M->all();
 		$list_investor = $this->Investor_M->all();
 		$list_residential = $this->Residential_M->all();
+		$list_staff = $this->Staff_M->all(['staff_active' => 1]);
+		$data['list_staff'] = $list_staff;
 		$data['list_category'] = $list_category;
 		$data['list_province'] = $list_province;
 		$data['list_status'] = $list_status;

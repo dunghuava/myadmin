@@ -17,6 +17,11 @@ vertical-align: -0.125em;
         right: 1.5px!important;
     }
 </style>
+
+<?php
+    $info_staff = $this->Staff_M->find_row(['staff_id'=>1]);  
+?>
+
 <section class="page-khudancu-detail font18">
     <div class="banner" style="background:url(<?=resizeImg($kdc['residential_img'],1350,400,0)?>)">
         <div class="abs-content container">
@@ -189,16 +194,16 @@ vertical-align: -0.125em;
 
     <div class="col-md-12 div-contact">
         <div class="div-contact-img">
-            <img class="img-contact" src="<?=resizeImg('sale_manager.jpg',70,70,0)?>">
+            <img class="img-contact" src="<?=resizeImg($info_staff['staff_img'],70,70,0)?>">
         </div>
         <div class="col-md-8 name-contact">
-            <p class="font18" style="font-weight: bold;">Trương Công Ánh</p>
-            <p class="font17">Sale manager</p>
+            <p class="font18" style="font-weight: bold;"><?=$info_staff['staff_name']?></p>
+            <p class="font17"><?=$info_staff['staff_position']?></p>
         </div>
 
     </div>
     <div class="col-md-12 div-contact-tel" style="background: #0C714B;">
-        <a style="color: white;text-decoration: none;" href="tel:<?=$info[0]['phone']?>"><i class="fa fa-phone" aria-hidden="true"></i> <?=$info[0]['phone']?></a>
+        <a style="color: white;text-decoration: none;" href="tel:<?=$info_staff['staff_phone']?>"><i class="fa fa-phone" aria-hidden="true"></i> <?=$info_staff['staff_phone']?></a>
 
     </div>
     <div class="col-md-12">
@@ -218,6 +223,7 @@ vertical-align: -0.125em;
         <input type="text" name="contact_name" id="contact_name" class="form-control" placeholder="Họ và tên">
         <input type="text" name="contact_phone" id="contact_phone" class="form-control" placeholder="Số điện thoại">
         <input type="text" name="contact_email" id="contact_email" class="form-control" placeholder="Địa chỉ email">
+        <input type="hidden" name="contact_to_staff" id="contact_to_staff" class="form-control" value="<?=$info_staff['staff_id']?>">
         <input type="hidden" name="contact_title" id="contact_title" class="form-control" value="">
         <input type="text" name="contact_title_show" id="contact_title_show" class="form-control text-overflow" value="" disabled style="background: gainsboro;">
         <textarea name="contact_info" id="contact_info" rows="4" class="form-control font17" placeholder="Hỏi thông tin"></textarea>

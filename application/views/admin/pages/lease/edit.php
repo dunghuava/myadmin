@@ -223,6 +223,21 @@
             
         </div>  
 
+        <div class="col-md-8 inline-flex">
+            <label for="">Nhận viên</label>
+            <select name="staff_in_charge" id="staff_in_charge" class="form-control" required>
+                <option value="">Chọn nhân viên</option>
+                <?php foreach ($list_staff as $staff) {
+                    if ($staff['staff_id'] == $info_project['staff_in_charge']) {
+                        $selected_staff = 'selected';
+                    }else{
+                        $selected_staff = '';
+                    }
+                    echo '<option value="'.$staff['staff_id'].'" '.$selected_staff.'>'.$staff['staff_name'].'</option>';
+                } ?>
+            </select>
+        </div>  
+
             <!-- <div class="col-md-12 inline-flex" >
                 <label for=""></label>
                 <select name="project_province_id" id="project_province_id" class="form-control" required>

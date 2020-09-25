@@ -63,6 +63,8 @@
 
     $info_status = $this->Status_M->find_row(['id_status_project'=>$duan['project_status']]);
 
+    $info_staff = $this->Staff_M->find_row(['staff_id'=>$duan['staff_in_charge']]);
+
     $project_type = explode(',', $duan['project_type']);
 ?>
 <div class="product-detailt font18">

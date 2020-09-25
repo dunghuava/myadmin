@@ -136,11 +136,11 @@
         <section class="modal contact-bg-block font18" id="form_contact_modal">
             <div class="col-md-12 div-contact">
                 <div class="div-contact-img">
-                    <img class="img-contact" src="<?=resizeImg('sale_manager.jpg',70,70,0)?>">
+                    <img class="img-contact" src="<?=resizeImg('sale_manager.jpg',70,70,0)?>" style="width: 70px;height: 70px">
                 </div>
                 <div class="col-md-8 name-contact">
-                    <p class="font18" style="font-weight: bold;">Trương Công Ánh</p>
-                    <p class="font17">Sale manager</p>
+                    <p class="font18 staff_name" style="font-weight: bold;">Trương Công Ánh</p>
+                    <p class="font17 staff_position">Sale manager</p>
                 </div>
 
             </div>
@@ -165,6 +165,7 @@
                 <input type="text" name="contact_name" id="contact_name" class="form-control" placeholder="Họ và tên">
                 <input type="text" name="contact_phone" id="contact_phone" class="form-control" placeholder="Số điện thoại">
                 <input type="text" name="contact_email" id="contact_email" class="form-control" placeholder="Địa chỉ email">
+                <input type="hidden" name="contact_to_staff" id="contact_to_staff" class="form-control" value="1">
                 <input type="hidden" name="contact_title" id="contact_title" class="form-control" value="">
                 <input type="text" name="contact_title_show" id="contact_title_show" class="form-control text-overflow" value="" disabled style="background: gainsboro;">
                 <textarea name="contact_info" id="contact_info" rows="4" class="form-control font17" placeholder="Hỏi thông tin"></textarea>
@@ -181,7 +182,25 @@
 <script>
 
     $('.container').on('click', '.btn_modal_contact', function() {
-        var title = $(this).data('id');
+        // var id = $(this).data('id');
+
+        var title = $(this).attr('data-title');
+        var staff_name = $(this).attr('data-staff-name');
+        var staff_phone = $(this).attr('data-staff-phone');
+        var staff_position = $(this).attr('data-staff-position');
+        var staff_id = $(this).attr('data-staff-id');
+        var staff_img = $(this).attr('data-staff-img');
+        // console.log(phone);
+        
+        $('.staff_name').html(staff_name);
+        $('.staff_position').html(staff_position);
+        $('.div-contact-tel').html('<a style="color: white;text-decoration: none;" href="tel:'+staff_phone+'"><i class="fa fa-phone" aria-hidden="true"></i> '+staff_phone+'</a>');
+        $('#contact_to_staff').val(staff_id);
+
+        $('.img-contact').attr('src','<?php echo base_url() ?>upload/images/'+staff_img+'');
+
+        
+        
 
         $('#contact_title').val(title);
         $('#contact_title_show').val(title);

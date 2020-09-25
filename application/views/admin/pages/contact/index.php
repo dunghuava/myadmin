@@ -12,6 +12,7 @@
                         <th>Họ tên</th>
                         <th>Địa chỉ email</th>
                         <th>Số điện thoại</th>
+                        <th>Nhân viên phụ trách</th>
                         <th>Trạng thái</th>
                         <th style="width: 11%">Thao tác</th>
                     </tr>
@@ -19,6 +20,7 @@
                 <tbody>
                     <?php 
                     foreach ($list_contact as $item){ 
+                        $info_staff = $this->Staff_M->find_row(['staff_id'=>$item['contact_to_staff']]);
                         $date_time_format = date('d-m-Y H:i:s', strtotime($item['created_at']));
                         if ($item['contact_status'] ==1) {
                         	$status = 'Đã xem';
@@ -31,6 +33,7 @@
                              <td><?=$item['contact_name']?></td>
                              <td><?=$item['contact_email']?></td>
                              <td><?=$item['contact_phone']?></td>
+                             <td><?=$info_staff['staff_name']?></td>
                              <td><?=$status?></td>
                              <td>
                                 <a href="<?=base_url().'admin/contact/details/'.$item['contact_id']?>">

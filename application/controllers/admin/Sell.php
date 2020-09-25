@@ -18,6 +18,7 @@ class Sell extends MY_Controller {
 		$this->load->model('Investor_M');
 		$this->load->model('Residential_M');
 		$this->load->model('Project_Images_M');
+		$this->load->model('Staff_M');
 		
 	}
 
@@ -141,6 +142,7 @@ class Sell extends MY_Controller {
 				'project_direction' => $post['project_direction'], 
 				'project_view' => $post['project_view'], 
 				'in_project' => $post['in_project'], 
+				'staff_in_charge' => $post['staff_in_charge'], 
 				'project_keyword' => $post['project_keyword'], 
 				'project_description' => $post['project_description'], 
 			);
@@ -187,6 +189,8 @@ class Sell extends MY_Controller {
 		$list_furniture = $this->Furniture_M->all();
 		$list_investor = $this->Investor_M->all();
 		$list_residential = $this->Residential_M->all();
+		$list_staff = $this->Staff_M->all(['staff_active' => 1]);
+		$data['list_staff'] = $list_staff;
 		$data['list_category'] = $list_category;
 		$data['list_province'] = $list_province;
 		$data['list_status'] = $list_status;
@@ -382,6 +386,7 @@ class Sell extends MY_Controller {
 				'project_direction' => $post['project_direction'], 
 				'project_view' => $post['project_view'], 
 				'in_project' => $post['in_project'], 
+				'staff_in_charge' => $post['staff_in_charge'], 
 				'project_keyword' => $post['project_keyword'], 
 				'project_description' => $post['project_description'], 
 			);
@@ -429,6 +434,8 @@ class Sell extends MY_Controller {
 		$list_furniture = $this->Furniture_M->all();
 		$list_investor = $this->Investor_M->all();
 		$list_residential = $this->Residential_M->all();
+		$list_staff = $this->Staff_M->all(['staff_active' => 1]);
+		$data['list_staff'] = $list_staff;
 		$data['list_category'] = $list_category;
 		$data['list_province'] = $list_province;
 		$data['list_status'] = $list_status;

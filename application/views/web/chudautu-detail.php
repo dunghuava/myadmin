@@ -69,6 +69,10 @@
 
 
 </style>
+
+<?php
+    $info_staff = $this->Staff_M->find_row(['staff_id'=>1]);  
+?>
 <section class="sec-chudautu font18">
     <div class="container">
         <div class="row">
@@ -106,38 +110,9 @@
     <div class="container">
         <h3>Các dự án của <?=$cdt['investor_title']?></h3>
         <div class="row">
-            <?php foreach ($arr_project as $key => $du_an) {
-                $info_province_duan = $this->Province_M->find_row(['province_id'=>$du_an['project_province_id']]);
-                $info_district_duan = $this->District_M->find_row(['district_id'=>$du_an['project_district_id']]);
-                $info_ward_duan = $this->Ward_M->find_row(['ward_id'=>$du_an['project_ward_id']]);
-                $info_status_duan = $this->Status_M->find_row(['id_status_project'=>$du_an['project_status']]);
+            <?php    
+                $col=4; include ('duan-item.php') 
             ?>
-                <div class="col-md-4 col-xs-12">
-                    <div class="item-project">
-                        <a title="<?=$du_an['project_title']?>" href="<?=base_url('chi-tiet-du-an/'.$du_an['project_alias'].'-'.$du_an['project_id'])?>">
-                            <div class="project-info">
-                                <div class="scaleimg">
-                                <img src="<?=resizeImg($du_an['project_img'],360,203,0)?>" alt="">
-                                </div>
-                                <div class="status font17">
-                                    <span><?=$info_status_duan['status_project']?></span>
-                                </div>
-                            </div>
-                            <div class="project-content">
-                                <h3 class="title text-overflow"><?=$du_an['project_title']?></h3>
-                                <p class="address"><?=$du_an['project_address']?></b></p></p>
-                                <p class="price">Giá bán: <?=$du_an['project_price']?></p>
-                                <?php if ($du_an['project_price_lease']>0){ ?>
-                                    <p class="price right">Giá thuê: <?=$du_an['project_price_lease']?></p>
-                                <?php } ?>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            <?php } if (empty($arr_project)){ ?>
-                <div class="text-center" style="color:red"><h4>Dữ liệu đang được cập nhật...</h4></div>
-                <br>
-            <?php } ?>
         </div>
     </div>
 </section>
@@ -177,16 +152,16 @@
 <section class="modal contact-bg-block font18" id="form_contact_modal">
     <div class="col-md-12 div-contact">
         <div class="div-contact-img">
-            <img class="img-contact" src="<?=resizeImg('sale_manager.jpg',70,70,0)?>">
+            <img class="img-contact" src="<?=resizeImg($info_staff['staff_img'],70,70,0)?>">
         </div>
         <div class="col-md-8 name-contact">
-            <p class="font18" style="font-weight: bold;">Trương Công Ánh</p>
-            <p class="font17">Sale manager</p>
+            <p class="font18" style="font-weight: bold;"><?=$info_staff['staff_name']?></p>
+            <p class="font17"><?=$info_staff['staff_position']?></p>
         </div>
 
     </div>
     <div class="col-md-12 div-contact-tel" style="background: #0C714B;">
-        <a style="color: white;text-decoration: none;" href="tel:<?=$info[0]['phone']?>"><i class="fa fa-phone" aria-hidden="true"></i> <?=$info[0]['phone']?></a>
+        <a style="color: white;text-decoration: none;" href="tel:<?=$info_staff['staff_phone']?>"><i class="fa fa-phone" aria-hidden="true"></i> <?=$info_staff['staff_phone']?></a>
 
     </div>
     <div class="col-md-12">
@@ -206,6 +181,7 @@
         <input type="text" name="contact_name" id="contact_name" class="form-control" placeholder="Họ và tên">
         <input type="text" name="contact_phone" id="contact_phone" class="form-control" placeholder="Số điện thoại">
         <input type="text" name="contact_email" id="contact_email" class="form-control" placeholder="Địa chỉ email">
+        <input type="hidden" name="contact_to_staff" id="contact_to_staff" class="form-control" value="<?=$info_staff['staff_id']?>">
         <input type="hidden" name="contact_title" id="contact_title" class="form-control" value="">
         <input type="text" name="contact_title_show" id="contact_title_show" class="form-control text-overflow" value="" disabled style="background: gainsboro;">
         <textarea name="contact_info" id="contact_info" rows="4" class="form-control font17" placeholder="Hỏi thông tin"></textarea>

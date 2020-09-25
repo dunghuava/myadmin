@@ -23,16 +23,23 @@
                              <td><img src="<?=base_url().'upload/images/'.$item['staff_img']?>" style="max-height: 90px;"></td>
                              <td><?=$item['staff_position']?></td>
                              <td><?=$item['staff_phone']?></td>
-                             <td><input onchange="setCkb(this,'staff_active',<?=$item['staff_id']?>)" type="checkbox" <?=$item['staff_active']==1 ? 'checked':''?> ></td>
+                             <td>
+                              <?php if ($item['staff_id'] != 1) {?>
+                                <input onchange="setCkb(this,'staff_active',<?=$item['staff_id']?>)" type="checkbox" <?=$item['staff_active']==1 ? 'checked':''?> >
+                              <?php } ?>
+                             </td>
                              <td>
                                 <a href="<?=base_url().'admin/staff/edit/'.$item['staff_id']?>">
                                     <button type="button" class="btn btn-default">
                                         <span class="fa fa-eye"></span>
                                     </button>
                                 </a>
-                                 <button onclick="onDelete(<?=$item['staff_id']?>)" class="btn btn-default">
-                                     <span class="fa fa-trash"></span>
-                                 </button>
+
+                                <?php if ($item['staff_id'] != 1)  {?>
+                                  <button onclick="onDelete(<?=$item['staff_id']?>)" class="btn btn-default">
+                                    <span class="fa fa-trash"></span>
+                                  </button>
+                                <?php } ?>
                              </td>
                         </tr>
                     <?php } ?>

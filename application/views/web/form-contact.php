@@ -24,16 +24,16 @@
 <div class="boxed font18" id="p_form_contact">
     <div class="col-md-12 div-contact">
         <div class="div-contact-img">
-            <img class="img-contact" src="<?=resizeImg('sale_manager.jpg',70,70,0)?>">
+            <img class="img-contact" src="<?=resizeImg($info_staff['staff_img'],70,70,0)?>">
         </div>
         <div class="col-md-8 name-contact">
-            <p class="font18" style="font-weight: bold;">Trương Công Ánh</p>
-            <p class="font17">Sale manager</p>
+            <p class="font18" style="font-weight: bold;"><?=$info_staff['staff_name']?></p>
+            <p class="font17"><?=$info_staff['staff_position']?></p>
         </div>
 
     </div>
     <div class="col-md-12 div-contact-tel" style="background: #0C714B;">
-        <a style="color: white;text-decoration: none;" href="tel:<?=$info[0]['phone']?>"><i class="fa fa-phone" aria-hidden="true"></i> <?=$info[0]['phone']?></a>
+        <a style="color: white;text-decoration: none;" href="tel:<?=$info_staff['staff_phone']?>"><i class="fa fa-phone" aria-hidden="true"></i> <?=$info_staff['staff_phone']?></a>
     </div>
     <div class="col-md-12">
         <p style="text-align: center;margin-top: 15px;">Hoặc</p>
@@ -52,6 +52,7 @@
         <input type="text" name="contact_name" id="contact_name" class="form-control" placeholder="Họ và tên">
         <input type="text" name="contact_phone" id="contact_phone" class="form-control" placeholder="Số điện thoại">
         <input type="text" name="contact_email" id="contact_email" class="form-control" placeholder="Địa chỉ email">
+        <input type="hidden" name="contact_to_staff" id="contact_to_staff" class="form-control" value="<?=$info_staff['staff_id']?>">
         <input type="hidden" name="contact_title" id="contact_title" class="form-control" value="<?=$duan['project_title']?>">
         <input type="text" name="" id="" class="form-control text-overflow" value="<?=$duan['project_title']?>" disabled style="background: gainsboro;">
         <textarea name="contact_info" id="contact_info" rows="4" class="form-control font17" placeholder="Hỏi thông tin"></textarea>

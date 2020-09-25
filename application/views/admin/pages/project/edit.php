@@ -226,6 +226,21 @@
             <label for="">Địa chỉ</label>
             <input type="text" name="project_address" id="project_address" onFocus="geolocate()" class="form-control" value="<?php echo $info_project['project_address'] ?>" placeholder="nhập địa chỉ" required>
             
+        </div> 
+
+        <div class="col-md-8 inline-flex">
+            <label for="">Nhận viên</label>
+            <select name="staff_in_charge" id="staff_in_charge" class="form-control" required>
+                <option value="">Chọn nhân viên</option>
+                <?php foreach ($list_staff as $staff) {
+                    if ($staff['staff_id'] == $info_project['staff_in_charge']) {
+                        $selected_staff = 'selected';
+                    }else{
+                        $selected_staff = '';
+                    }
+                    echo '<option value="'.$staff['staff_id'].'" '.$selected_staff.'>'.$staff['staff_name'].'</option>';
+                } ?>
+            </select>
         </div>  
 
             <!-- <div class="col-md-12 inline-flex" >

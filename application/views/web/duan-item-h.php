@@ -4,6 +4,8 @@
     $info_district = $this->District_M->find_row(['district_id'=>$item['project_district_id']]);
     $info_ward = $this->Ward_M->find_row(['ward_id'=>$item['project_ward_id']]);
     $info_status = $this->Status_M->find_row(['id_status_project'=>$item['project_status']]);
+
+    $info_staff = $this->Staff_M->find_row(['staff_id'=>$item['staff_in_charge']]);
 ?>
     <div data-lat="<?=$item['project_lat']?>" data-lng="<?=$item['project_lng']?>" title="<?=$item['project_title']?>" class="duan-item-h cursor">
             <div class="row_row" style="width:100%;margin:auto;display:flex">
@@ -85,7 +87,7 @@
                                     } ?>
                                 </li>
                             <?php } ?>
-                            <li style="background: #f3f4f7;border: 1px solid #f3f4f7;"><button href="#" data-modal="#form_contact_modal" data-id ="<?=$item['project_title']?>" class="btn_modal_contact btn btn-block btn-default" style="background: #0C714B;border: 1px solid #88ad6a;color: white;"><span style="margin-top:2px" class="fa fa-phone"></span>&nbsp;Liên hệ</button></li>
+                            <li style="background: #f3f4f7;border: 1px solid #f3f4f7;"><button href="#" data-modal="#form_contact_modal" data-title ="<?=$item['project_title']?>" data-staff-name ="<?=$info_staff['staff_name']?>" data-staff-phone ="<?=$info_staff['staff_phone']?>" data-staff-position ="<?=$info_staff['staff_position']?>" data-staff-id ="<?=$info_staff['staff_id']?>" data-staff-img ="<?=$info_staff['staff_img']?>" class="btn_modal_contact btn btn-block btn-default" style="background: #0C714B;border: 1px solid #88ad6a;color: white;"><span style="margin-top:2px" class="fa fa-phone"></span>&nbsp;Liên hệ</button></li>
                         </ul>
                     </div>
                 </div>
