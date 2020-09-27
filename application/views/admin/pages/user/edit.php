@@ -24,6 +24,18 @@
              </div>
 
              <div class="col-md-6 inline-flex">
+                <label for="">Quản trị viên</label>
+                <?php  
+                  if ($info_user['is_admin'] == 1) {
+                    $checked = 'checked';
+                  }else{
+                    $checked = '';
+                  }
+                ?>
+                <input type="checkbox" name="is_admin" id="is_admin" value="1" style="margin-top: 12px;" <?php echo $checked ?>>
+              </div> 
+
+             <div class="col-md-6 inline-flex">
              	    <label for=""></label>
              	    <a href="<?=base_url('admin/user')?>" title="">
 	     		        <button type="button" class="btn btn-danger">

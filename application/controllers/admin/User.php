@@ -46,7 +46,7 @@ class User extends MY_Controller {
 		// }
 		$_data['page_name']='Danh sách tài khoản';
 		$_data['page_menu']='account';
-		$_data['arr_account']=$this->Account_M->all(['is_admin'=>'0']);
+		$_data['arr_account']=$this->Account_M->all();
 		$this->getHeader($_data);
 		$this->load->view('admin/pages/user/index.php',$_data);
 		$this->getFooter();
@@ -58,12 +58,16 @@ class User extends MY_Controller {
 		$post = $this->input->post();
 		if ($this->input->post()) {
 
+			if ($post['is_admin'] == '') {
+				$post['is_admin'] = 0;
+			}
+
 			$data_insert = array(
 				'user_fullname' => $post['user_fullname'], 
 				'user_email' => $post['user_email'], 
 				'user_name' => $post['user_name'], 
 				'user_password' => md5($post['user_password']), 
-				'is_admin' => 0, 
+				'is_admin' => $post['is_admin'], 
 			);
 			
 
@@ -90,18 +94,24 @@ class User extends MY_Controller {
 		$post = $this->input->post();
 		if ($this->input->post()) {
 
+			if ($post['is_admin'] == '') {
+				$post['is_admin'] = 0;
+			}
+
 			if (!empty($post['user_password'])) {
 				$data_update = array(
 					'user_fullname' => $post['user_fullname'], 
 					'user_email' => $post['user_email'], 
 					'user_name' => $post['user_name'], 
 					'user_password' => md5($post['user_password']), 
+					'is_admin' => $post['is_admin'], 
 				);
 			}else{
 				$data_update = array(
 					'user_fullname' => $post['user_fullname'], 
 					'user_email' => $post['user_email'], 
 					'user_name' => $post['user_name'], 
+					'is_admin' => $post['is_admin'], 
 				);
 			}
 			 // print_r($data_update);die();

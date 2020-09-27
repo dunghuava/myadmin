@@ -24,6 +24,12 @@
      		        <input required id="user_password" type="password" name="user_password" class="form-control">
              </div>
 
+
+             <div class="col-md-6 inline-flex">
+                <label for="">Quản trị viên</label>
+                <input type="checkbox" name="is_admin" id="is_admin" value="1" style="margin-top: 12px;">
+              </div> 
+
              <div class="col-md-6 inline-flex">
              	    <label for=""></label>
              	    <a href="<?=base_url('admin/user')?>" title="">

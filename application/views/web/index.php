@@ -45,7 +45,7 @@
                                 <p class="address"><?=$du_an['project_address']?></b></p></p>
                                 <p class="price price-red">Giá bán: <?=$du_an['project_price']?></p>
                                 <?php if ($du_an['project_price_lease']>0){ ?>
-                                    <p class="price right">Giá thuê: <?=$du_an['project_price_lease']?></p>
+                                    <p class="price right price-red">Giá thuê: <?=$du_an['project_price_lease']?></p>
                                 <?php } ?>
                             </div>
                         </a>

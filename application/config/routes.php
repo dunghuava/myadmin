@@ -61,6 +61,7 @@ $route['danh-muc/dang-ban']     = 'user/sell/add';
 $route['danh-muc/dang-cho-thue']     = 'user/lease/add';
 $route['danh-muc/dang-tin-nha-dat']     = 'user/post/add';
 $route['danh-muc/danh-sach-chu-dau-tu']     = 'web/page_chudautu_list';
+$route['danh-muc/gap-chuyen-vien-tu-van']     = 'web/consultants';
 $route['tim-kiem']                  = 'web/page_search';
 /* end router gáng cứng*/
 $route['danh-muc/(:any)']     = 'web/page_categories/$1';

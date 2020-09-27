@@ -15,7 +15,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($arr_account as $item){ ?>
+                    <?php foreach ($arr_account as $item){ 
+                        if ($item['user_name'] != 'admin') {
+                        
+                    ?>
                         <tr>
                              <td><?=$item['user_fullname']?></td>
                              <td><?=$item['user_email']?></td>
@@ -31,7 +34,7 @@
                                  </button>
                              </td>
                         </tr>
-                    <?php } ?>
+                    <?php } } ?>
                 </tbody>
             </table>
               </div>

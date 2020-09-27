@@ -54,7 +54,7 @@
                                 }
                                 ?>
                              </td>
-                             <td>
+                             <td style="white-space: nowrap;">
                                 <a href="<?=base_url().'admin/project/edit/'.$item['project_id']?>">
                                     <button type="button" class="btn btn-default">
                                         <span class="fa fa-eye"></span>
@@ -65,6 +65,12 @@
                                  <button onclick="onDelete(<?=$item['project_id']?>)" type="button" class="btn btn-default">
                                      <span class="fa fa-trash"></span>
                                  </button>
+
+
+                                 <button title="Coppy" onclick="onCoppy(<?=$item['project_id']?>)" type="button" class="btn btn-default">
+                                     <span class="fas fa-copy"></span>
+                                 </button>
+
 
                              </td>
                         </tr>
@@ -116,6 +122,33 @@
                 $.ajax({
                     type: "post",
                     url: "<?=base_url('admin/project/destroy')?>",
+                    data: {'project_id':project_id},
+                    success: function (response) {
+                        location.reload();
+                    }
+                });
+            }
+        });
+    }
+
+    function onCoppy(project_id){
+        var project_id = project_id;
+        // console.log(post_id);
+        Swal.fire({
+            title: 'Bạn có muốn sao chép mục này?',
+            text: "Dữ liệu sẻ được sao chép thành bản nháp",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Hủy',
+            confirmButtonText: 'Đồng ý'
+            // cancelButtonText: 'Hủy',
+            }).then((result) => {
+            if (result.value) {
+                $.ajax({
+                    type: "post",
+                    url: "<?=base_url('admin/project/coppy')?>",
                     data: {'project_id':project_id},
                     success: function (response) {
                         location.reload();

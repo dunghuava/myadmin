@@ -274,6 +274,95 @@ class Lease extends MY_Controller {
 	}
 
 
+	public function coppy()
+	{
+		$project_id = $this->input->post('project_id');
+		$info_project = $this->Project_M->find_row(['project_id' => $project_id]);
+		$list_images = $this->Project_Images_M->all(['project_id' => $project_id]);
+
+		$root_path = dirname(dirname(dirname(dirname(__FILE__))));
+		$src_img = $root_path."/upload/images/".$info_project['project_img'];
+		$new_name = md5($info_project['project_img'].time());
+		$new_img = $root_path."/upload/images/".$new_name;
+		
+		if (!copy($src_img, $new_img)) {
+		    echo "failed to copy";
+		}
+
+		$data_insert = array(
+			'project_category' => $info_project['project_category'], 
+			'project_kind' => 2, 
+			'project_title' => $info_project['project_title'], 
+			'project_alias' => $info_project['project_alias'], 
+			'project_introduce_short' => $info_project['project_introduce_short'], 
+			'project_introduce' => $info_project['project_introduce'], 
+			'project_img' => $new_name, 
+			// 'project_content' => $post['project_content'], 
+			'project_highlights' => 0, 
+			'project_active' => 0, 
+			'project_address' => $info_project['project_address'], 
+			'project_province_id' => '', 
+			'project_district_id' => $info_project['project_district_id'], 
+			'project_ward_id' => '', 
+			'project_lat' => $info_project['project_lat'], 
+			'project_lng' => $info_project['project_lng'], 
+			'project_stt' => '', 
+			'project_investor' => $info_project['project_investor'], 
+			'project_status' => $info_project['project_status'], 
+			'project_type' => $info_project['project_type'], 
+			'project_acreage' => $info_project['project_acreage'], 
+			'project_price' => $info_project['project_price'], 
+			'number_bedroom' => $info_project['number_bedroom'], 
+			'number_tolet' => $info_project['number_tolet'], 
+			'number_floors' => $info_project['number_floors'], 
+			'number_units' => $info_project['number_units'], 
+			'number_blocks' => $info_project['number_blocks'], 
+			'project_extension' => $info_project['project_extension'], 
+			'project_furniture' => $info_project['project_furniture'],
+			'project_residential' => $info_project['project_residential'], 
+			'project_price_lease' => $info_project['project_price_lease'], 
+			'project_delivery_time' => $info_project['project_delivery_time'], 
+			'project_building_density' => $info_project['project_building_density'], 
+			'project_handing_over' => $info_project['project_handing_over'], 
+			'project_direction' => $info_project['project_direction'], 
+			'project_view' => $info_project['project_view'], 
+			'in_project' => $info_project['in_project'], 
+			'staff_in_charge' => $info_project['staff_in_charge'], 
+			'project_keyword' => $info_project['project_keyword'], 
+			'project_description' => $info_project['project_description'], 
+		);
+
+		$project_id_new = $this->Project_M->create($data_insert);
+
+		if (!empty($list_images)){
+			foreach ($list_images as $images) {
+
+				$src_image = $root_path."/upload/images/".$images['project_images'];
+				$new_file_name = md5($images['project_images'].time());
+				$new_image = $root_path."/upload/images/".$new_file_name;
+
+				if (!copy($src_image, $new_image)) {
+		    		echo "failed to copy";
+				}
+			
+				$data_insert_images = array(
+					'project_id' => $project_id_new, 
+					'project_images' => $new_file_name, 
+				);
+
+				$this->Project_Images_M->create($data_insert_images);
+				
+			}
+		}
+		
+		$status = array(
+				'code'=>'success',
+				'message'=>'Đã sao chép'
+			);
+		$this->session->set_flashdata('reponse',$status);
+	}
+
+
 
 	public function edit($id)
 	{

@@ -405,4 +405,20 @@ class Web extends MY_Controller {
         echo json_encode($data);
 
     }
+
+    public function consultants()
+    {
+        $data['arr_staff']=$this->Staff_M->all(['staff_active'=>1]);
+            
+        /*SEO*/
+        $seo = array(
+            'title' => 'Gặp chuyên viên tư vấn', 
+            'description' => '', 
+            'keywords' => '', 
+            'image' => '', 
+        );
+        $this->page_header($seo);
+        $this->view('web/chuyen-vien.php',$data);
+        $this->page_footer();
+    }
 }
