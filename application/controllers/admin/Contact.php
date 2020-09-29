@@ -18,6 +18,7 @@ class Contact extends MY_Controller {
 		$this->getHeader($data);
 		$this->load->view('admin/pages/contact/index.php',$data);
 		$this->getFooter();
+		
 	}
 
 	
