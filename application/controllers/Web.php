@@ -46,8 +46,15 @@ class Web extends MY_Controller {
         $this->page_footer();
     }
     public function page_index(){
+
+        $this->protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+        $this->url = $this->protocol . $_SERVER['HTTP_HOST']; 
+        $this->domain = explode('//', $this->url);
+        // print_r($this->domain);die();
+        $info = $this->Info_M->all(['domain_name' => $this->domain[1]]);
+
         $seo = array(
-            'title' => 'Trang chủ', 
+            'title' => ''.strip_tags($info[0]['company']).' | Mua bán, cho thuê nhà đất, căn hộ, đất nền và văn phòng', 
             'description' => '', 
             'keywords' => '', 
             'image' => '', 
