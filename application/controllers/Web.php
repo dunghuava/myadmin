@@ -97,11 +97,11 @@ class Web extends MY_Controller {
 
         $data['tin_mua_ban'] = $tin_mua_ban;
 
-        $data['list_du_an']= $this->Project_M->getListProject(['project_kind'=>0],6);
+        $data['list_du_an']= $this->Project_M->getListProject(['project_kind'=>0,'project_active' =>1],6);
 
-        $data['list_mua']= $this->Project_M->getListProject(['project_kind'=>1],6);
+        $data['list_mua']= $this->Project_M->getListProject(['project_kind'=>1,'project_active' =>1],6);
 
-        $data['list_thue']= $this->Project_M->getListProject(['project_kind'=>2],6);
+        $data['list_thue']= $this->Project_M->getListProject(['project_kind'=>2,'project_active' =>1],6);
 
         $this->view('web/index',$data);
         $this->page_footer();

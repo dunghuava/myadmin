@@ -45,6 +45,8 @@ class Project_M extends MY_model {
 		if ($search['project_kind']!=''){
 			$this->db->where('project_kind',$search['project_kind']);
 		}
+
+		$this->db->where('project_active',1);
 		return $this->db->get($this->table)->result_array();
 	}
 	public function getTienich($id_tienich){
@@ -55,6 +57,7 @@ class Project_M extends MY_model {
 		$this->db->where('project_id !=',$project_id);
 		$this->db->where('project_kind !=',$type);
 		$this->db->where('project_district_id',$district_id);
+		$this->db->where('project_active',1);
 		$this->db->order_by("project_highlights", "desc");
 		$this->db->order_by("project_id", "desc");
 		$this->db->limit(6);
@@ -65,6 +68,7 @@ class Project_M extends MY_model {
 		$this->db->where('project_id !=',$project_id);
 		$this->db->where('project_kind',$type);
 		$this->db->where('project_district_id',$district_id);
+		$this->db->where('project_active',1);
 		$this->db->order_by("project_highlights", "desc");
 		$this->db->order_by("project_id", "desc");
 		$this->db->limit(6);
@@ -74,6 +78,7 @@ class Project_M extends MY_model {
 	public function getThueMuaofDuan($project_id,$type){
 		$this->db->where('in_project',$project_id);
 		$this->db->where('project_kind !=',$type);
+		$this->db->where('project_active',1);
 		$this->db->order_by("project_highlights", "desc");
 		$this->db->order_by("project_id", "desc");
 		$this->db->limit(6);
